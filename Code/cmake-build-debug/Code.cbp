@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Code"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Code">
+				<Option output="/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Code" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 Code"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Code/fast">
+				<Option output="/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Code" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 Code/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/SparkFun_AS726X_Arduino_Library-master/examples/Example1_BasicReadings/Example1_BasicReadings.ino">
+			<Option target="Code"/>
+		</Unit>
+		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/SparkFun_AS726X_Arduino_Library-master/examples/Example2_SensorSettings/Example2_SensorSettings.ino">
+			<Option target="Code"/>
+		</Unit>
+		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/SparkFun_AS726X_Arduino_Library-master/examples/Example3_BulbReadings/Example3_BulbReadings.ino">
+			<Option target="Code"/>
+		</Unit>
+		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/SparkFun_AS726X_Arduino_Library-master/extras/14351-01.jpg">
+			<Option target="Code"/>
+		</Unit>
+		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp">
+			<Option target="Code"/>
+		</Unit>
+		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/SparkFun_AS726X_Arduino_Library-master/src/AS726X.h">
+			<Option target="Code"/>
+		</Unit>
+		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/AS726X.c">
+			<Option target="Code"/>
+		</Unit>
+		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
