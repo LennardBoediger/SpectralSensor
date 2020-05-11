@@ -1,0 +1,90 @@
+Notizen Bachlor Arbeit
+
+Backup SD-Card:
+	diskutil list
+	sudo dd if=/dev/disk2 of=Snapshots/empty-ready-togo-system-DD_MM_YY.img
+
+Flash OS to SD-Card:
+	diskutil list
+	diskutil unmountDisk /dev/disk2
+	sudo diskutil eraseDisk FAT32 SDCARD MBRFormat /dev/disk2
+	diskutil unmountDisk /dev/disk2
+	sudo dd if=nanopi-neo2-black_sd_friendlycore-xenial_4.14_arm64_20191219.img of=/dev/rdisk2 bs=1m
+
+SSH pw and ip at home:
+	ssh 192.168.178.107 -l root
+	fa
+	ssh 192.168.178.107 -l pi
+	pi
+
+
+eMMC Formatieren und Mounten:
+	https://medium.com/@sh.tsang/partitioning-formatting-and-mounting-a-hard-drive-in-linux-ubuntu-18-04-324b7634d1e0
+	Install OS on SD card
+	lsblk 
+	lsblk -f 
+	fdisk -l
+	sudo apt install parted
+	sudo parted /dev/mmcblk1
+		print devices
+		print
+		mklabel gpt
+		mkpart primary 0GB 31GB
+		quit
+	sudo mkfs.ext4 /dev/mmcblk1
+	make direktory mnt/	
+	sudo mount /dev/mmcblk1 mnt/mmcblk1
+	sudo nano /etc/fstab
+		/dev/mmcblk1     /mnt/mmcblk1      ext4        defaults      0       0
+
+	reboot
+	check with:
+		mount | grep mmcblk1	-> /dev/mmcblk1 on /mnt/mmcblk1 type ext4 (rw,relatime,data=ordered)	
+		lsblk -f 			-> mmcblk1 should be ext4
+
+
+test i2c
+	i2cdetect -y 0
+
+Install InfluxDB 	(https://docs.influxdata.com/influxdb/v1.8/introduction/install/)
+	wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+	source /etc/os-release
+	echo "deb https://repos.influxdata.com/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+	sudo apt-get update && sudo apt-get install influxdb
+	sudo apt-get install influxdb
+	sudo apt-get install influxdb-client
+	influx -precision rfc3339 
+	show databases
+	create database NAME
+	use NAME
+	CREATE USER Grafana WITH PASSWORD '299792458'
+
+	Influxdb Starten:
+		sudo service influxdb start
+
+	Influxdb Autostart:
+
+Install Grafana		(https://grafana.com/docs/grafana/latest/installation/debian/)
+	sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+	wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+	sudo apt-get update
+	sudo apt-get install grafana
+
+	Grafana Starten:
+		sudo systemctl daemon-reload
+		sudo systemctl start grafana-server
+		sudo systemctl status grafana-server
+
+	Grafana Autostart:
+Login Grafana:
+	http://192.168.178.107:3000
+	user: admin
+	pw: admin
+
+
+
+compile
+	gcc BME280/main.c -o BME280/main
+	BME280/main
+
+
