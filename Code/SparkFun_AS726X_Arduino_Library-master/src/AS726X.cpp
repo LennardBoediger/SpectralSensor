@@ -360,29 +360,3 @@ void AS726X::virtualWriteRegister(uint8_t virtualAddr, uint8_t dataToWrite)
 	// Send the data to complete the operation.
 	writeRegister(AS72XX_SLAVE_WRITE_REG, dataToWrite);
 }
-
-//Reads from a give location from the AS726x
-uint8_t AS726X::readRegister(uint8_t addr)
-{
-	_i2cPort->beginTransmission(AS726X_ADDR);
-	_i2cPort->write(addr);
-	_i2cPort->endTransmission();
-
-	_i2cPort->requestFrom(AS726X_ADDR, 1);
-	if (_i2cPort->available()) {
-		return (_i2cPort->read());
-	}
-	else {
-		Serial.println("I2C Error");
-		return (0xFF); //Error
-	}
-}
-
-//Write a value to a spot in the AS726x
-void AS726X::writeRegister(uint8_t addr, uint8_t val)
-{
-	_i2cPort->beginTransmission(AS726X_ADDR);
-	_i2cPort->write(addr);
-	_i2cPort->write(val);
-	_i2cPort->endTransmission();
-}

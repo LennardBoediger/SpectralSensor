@@ -3,11 +3,21 @@
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 
-void disableBulb (int fd);
+float getCalibratedValue(uint8_t calAddress, int fd);
+float convertBytesToFloat(uint32_t myLong);
+uint8_t dataAvailable(int fd);
+void clearDataAvailable(int fd);
+void enableIndicator(int fd);
+void disableIndicator(int fd);
+void setIndicatorCurrent(uint8_t current, int fd);
 void enableBulb(int fd);
-void virtualWriteRegister(uint8_t virtualAddr, uint8_t dataToWrite, int fd);
+void disableBulb (int fd);
+void setBulbCurrent(uint8_t current , int fd);
+uint8_t getTemperature(int fd);
+float getTemperatureF(int fd);
+void softReset(int fd);
 uint8_t virtualReadRegister(uint8_t virtualAddr, int fd);
-
+void virtualWriteRegister(uint8_t virtualAddr, uint8_t dataToWrite, int fd);
 
 
 

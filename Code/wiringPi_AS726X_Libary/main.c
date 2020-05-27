@@ -11,9 +11,13 @@ int main() {
     if (fd == -1) {
         printf("i2c failed");
     }
-    int temp = virtualReadRegister(AS726x_DEVICE_TEMP, fd);
-    printf("Temperatur %dF\n",temp);
-    //enableBulb(fd);
+
+    printf("Temperatur %dF\n",getTemperature(fd));
+
     disableBulb(fd);
+    setBulbCurrent(4,fd);
+    enableBulb(fd);
+
+    printf("dataAvailable(int fd): %d\n", dataAvailable(fd));
     return 0;
 }
