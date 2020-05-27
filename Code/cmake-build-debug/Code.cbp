@@ -101,6 +101,12 @@
 		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/SparkFun_AS726X_Arduino_Library-master/src/AS726X.h">
 			<Option target="Code"/>
 		</Unit>
+		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/wiringPi_AS726X_Libary/AS726X.h">
+			<Option target="Code"/>
+		</Unit>
+		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/wiringPi_AS726X_Libary/main.c">
+			<Option target="Code"/>
+		</Unit>
 		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

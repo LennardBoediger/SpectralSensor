@@ -9,4 +9,4 @@ add_executable(Code
         SparkFun_AS726X_Arduino_Library-master/examples/Example3_BulbReadings/Example3_BulbReadings.ino
         SparkFun_AS726X_Arduino_Library-master/extras/14351-01.jpg
         SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp
-        SparkFun_AS726X_Arduino_Library-master/src/AS726X.h AS7261-test/AS726X.c)
+        SparkFun_AS726X_Arduino_Library-master/src/AS726X.h AS7261-test/AS726X.c wiringPi_AS726X_Libary/AS726X.h wiringPi_AS726X_Libary/main.c)
