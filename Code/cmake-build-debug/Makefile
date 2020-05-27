@@ -123,32 +123,32 @@ Code/fast:
 	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/build
 .PHONY : Code/fast
 
-AS726X.o: AS726X.c.o
+AS7261-test/AS726X.o: AS7261-test/AS726X.c.o
 
-.PHONY : AS726X.o
+.PHONY : AS7261-test/AS726X.o
 
 # target to build an object file
-AS726X.c.o:
-	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/AS726X.c.o
-.PHONY : AS726X.c.o
+AS7261-test/AS726X.c.o:
+	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/AS7261-test/AS726X.c.o
+.PHONY : AS7261-test/AS726X.c.o
 
-AS726X.i: AS726X.c.i
+AS7261-test/AS726X.i: AS7261-test/AS726X.c.i
 
-.PHONY : AS726X.i
+.PHONY : AS7261-test/AS726X.i
 
 # target to preprocess a source file
-AS726X.c.i:
-	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/AS726X.c.i
-.PHONY : AS726X.c.i
+AS7261-test/AS726X.c.i:
+	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/AS7261-test/AS726X.c.i
+.PHONY : AS7261-test/AS726X.c.i
 
-AS726X.s: AS726X.c.s
+AS7261-test/AS726X.s: AS7261-test/AS726X.c.s
 
-.PHONY : AS726X.s
+.PHONY : AS7261-test/AS726X.s
 
 # target to generate assembly for a file
-AS726X.c.s:
-	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/AS726X.c.s
-.PHONY : AS726X.c.s
+AS7261-test/AS726X.c.s:
+	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/AS7261-test/AS726X.c.s
+.PHONY : AS7261-test/AS726X.c.s
 
 SparkFun_AS726X_Arduino_Library-master/src/AS726X.o: SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp.o
 
@@ -186,9 +186,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... Code"
-	@echo "... AS726X.o"
-	@echo "... AS726X.i"
-	@echo "... AS726X.s"
+	@echo "... AS7261-test/AS726X.o"
+	@echo "... AS7261-test/AS726X.i"
+	@echo "... AS7261-test/AS726X.s"
 	@echo "... SparkFun_AS726X_Arduino_Library-master/src/AS726X.o"
 	@echo "... SparkFun_AS726X_Arduino_Library-master/src/AS726X.i"
 	@echo "... SparkFun_AS726X_Arduino_Library-master/src/AS726X.s"

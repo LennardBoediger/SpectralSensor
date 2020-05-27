@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Code.dir/SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp.o"
-  "CMakeFiles/Code.dir/AS726X.c.o"
+  "CMakeFiles/Code.dir/AS7261-test/AS726X.c.o"
   "Code.pdb"
   "Code"
 )

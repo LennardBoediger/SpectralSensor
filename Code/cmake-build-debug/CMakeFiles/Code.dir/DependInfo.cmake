@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/AS726X.c" "/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/CMakeFiles/Code.dir/AS726X.c.o"
+  "/Users/Lennard/Github/Bachlorarbeit/Code/AS7261-test/AS726X.c" "/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/CMakeFiles/Code.dir/AS7261-test/AS726X.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

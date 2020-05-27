@@ -81,40 +81,40 @@ CMakeFiles/Code.dir/SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp.o.prov
 CMakeFiles/Code.dir/SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp.o.provides.build: CMakeFiles/Code.dir/SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp.o
 
 
-CMakeFiles/Code.dir/AS726X.c.o: CMakeFiles/Code.dir/flags.make
-CMakeFiles/Code.dir/AS726X.c.o: AS726X.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Code.dir/AS726X.c.o"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Code.dir/AS726X.c.o   -c /Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/AS726X.c
+CMakeFiles/Code.dir/AS7261-test/AS726X.c.o: CMakeFiles/Code.dir/flags.make
+CMakeFiles/Code.dir/AS7261-test/AS726X.c.o: ../AS7261-test/AS726X.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Code.dir/AS7261-test/AS726X.c.o"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Code.dir/AS7261-test/AS726X.c.o   -c /Users/Lennard/Github/Bachlorarbeit/Code/AS7261-test/AS726X.c
 
-CMakeFiles/Code.dir/AS726X.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Code.dir/AS726X.c.i"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/AS726X.c > CMakeFiles/Code.dir/AS726X.c.i
+CMakeFiles/Code.dir/AS7261-test/AS726X.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Code.dir/AS7261-test/AS726X.c.i"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/Lennard/Github/Bachlorarbeit/Code/AS7261-test/AS726X.c > CMakeFiles/Code.dir/AS7261-test/AS726X.c.i
 
-CMakeFiles/Code.dir/AS726X.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Code.dir/AS726X.c.s"
-	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/AS726X.c -o CMakeFiles/Code.dir/AS726X.c.s
+CMakeFiles/Code.dir/AS7261-test/AS726X.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Code.dir/AS7261-test/AS726X.c.s"
+	/Library/Developer/CommandLineTools/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/Lennard/Github/Bachlorarbeit/Code/AS7261-test/AS726X.c -o CMakeFiles/Code.dir/AS7261-test/AS726X.c.s
 
-CMakeFiles/Code.dir/AS726X.c.o.requires:
+CMakeFiles/Code.dir/AS7261-test/AS726X.c.o.requires:
 
-.PHONY : CMakeFiles/Code.dir/AS726X.c.o.requires
+.PHONY : CMakeFiles/Code.dir/AS7261-test/AS726X.c.o.requires
 
-CMakeFiles/Code.dir/AS726X.c.o.provides: CMakeFiles/Code.dir/AS726X.c.o.requires
-	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/AS726X.c.o.provides.build
-.PHONY : CMakeFiles/Code.dir/AS726X.c.o.provides
+CMakeFiles/Code.dir/AS7261-test/AS726X.c.o.provides: CMakeFiles/Code.dir/AS7261-test/AS726X.c.o.requires
+	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/AS7261-test/AS726X.c.o.provides.build
+.PHONY : CMakeFiles/Code.dir/AS7261-test/AS726X.c.o.provides
 
-CMakeFiles/Code.dir/AS726X.c.o.provides.build: CMakeFiles/Code.dir/AS726X.c.o
+CMakeFiles/Code.dir/AS7261-test/AS726X.c.o.provides.build: CMakeFiles/Code.dir/AS7261-test/AS726X.c.o
 
 
 # Object files for target Code
 Code_OBJECTS = \
 "CMakeFiles/Code.dir/SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp.o" \
-"CMakeFiles/Code.dir/AS726X.c.o"
+"CMakeFiles/Code.dir/AS7261-test/AS726X.c.o"
 
 # External object files for target Code
 Code_EXTERNAL_OBJECTS =
 
 Code: CMakeFiles/Code.dir/SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp.o
-Code: CMakeFiles/Code.dir/AS726X.c.o
+Code: CMakeFiles/Code.dir/AS7261-test/AS726X.c.o
 Code: CMakeFiles/Code.dir/build.make
 Code: CMakeFiles/Code.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Code"
@@ -126,7 +126,7 @@ CMakeFiles/Code.dir/build: Code
 .PHONY : CMakeFiles/Code.dir/build
 
 CMakeFiles/Code.dir/requires: CMakeFiles/Code.dir/SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp.o.requires
-CMakeFiles/Code.dir/requires: CMakeFiles/Code.dir/AS726X.c.o.requires
+CMakeFiles/Code.dir/requires: CMakeFiles/Code.dir/AS7261-test/AS726X.c.o.requires
 
 .PHONY : CMakeFiles/Code.dir/requires
 

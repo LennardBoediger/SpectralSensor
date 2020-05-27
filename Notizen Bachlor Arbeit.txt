@@ -32,7 +32,7 @@ eMMC Formatieren und Mounten:
 		mkpart primary 0GB 31GB
 		quit
 	sudo mkfs.ext4 /dev/mmcblk1
-	make direktory mnt/	
+	make direktory mmcblk1 in /mnt
 	sudo mount /dev/mmcblk1 mnt/mmcblk1
 	sudo nano /etc/fstab
 		/dev/mmcblk1     /mnt/mmcblk1      ext4        defaults      0       0
@@ -65,6 +65,8 @@ Install InfluxDB 	(https://docs.influxdata.com/influxdb/v1.8/introduction/instal
 	Influxdb Autostart:
 
 Install Grafana		(https://grafana.com/docs/grafana/latest/installation/debian/)
+	sudo apt-get update
+	sudo apt-get install software-properties-common
 	sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
 	wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
 	sudo apt-get update
@@ -81,10 +83,14 @@ Login Grafana:
 	user: admin
 	pw: admin
 
+######################################  C code ###########################
+git clone https://github.com/friendlyarm/WiringNP
+cd WiringNP/
 
 
-compile
-	gcc BME280/main.c -o BME280/main
-	BME280/main
+install wiringPiI2C dependencies: nononononononon
+	sudo apt-get install libi2c-dev
+		cancel
 
-
+Copy files:
+	scp -r /Users/Lennard/Github/Bachlorarbeit/Code/AS7261-test   root@192.168.178.107:/mnt/mmcblk1/SpectralSensor

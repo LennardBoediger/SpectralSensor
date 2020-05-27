@@ -80,6 +80,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/AS7261-test/AS726X.c">
+			<Option target="Code"/>
+		</Unit>
 		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/SparkFun_AS726X_Arduino_Library-master/examples/Example1_BasicReadings/Example1_BasicReadings.ino">
 			<Option target="Code"/>
 		</Unit>
@@ -96,9 +99,6 @@
 			<Option target="Code"/>
 		</Unit>
 		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/SparkFun_AS726X_Arduino_Library-master/src/AS726X.h">
-			<Option target="Code"/>
-		</Unit>
-		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/cmake-build-debug/AS726X.c">
 			<Option target="Code"/>
 		</Unit>
 		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/CMakeLists.txt">
