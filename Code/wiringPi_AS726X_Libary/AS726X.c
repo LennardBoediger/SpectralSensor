@@ -5,6 +5,60 @@
 #include <string.h>
 #include "AS726X.h"
 
+
+uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd){
+    disableBulb(fd);
+    disableIndicator(fd);
+    setIntegrationTime(50, fd); //50 * 2.8ms = 140ms. 0 to 255 is valid.
+    //If you use Mode 2 or 3 (all the colors) then integration time is double. 140*2 = 280ms between readings.
+
+    printf("Sensor Version: %d\n",getVersion(fd));
+    setGain(gain, fd); //Set gain to 64x
+    setMeasurementMode(measurementMode, fd); //One-shot reading of VBGYOR
+
+    return 1;
+}
+
+
+// returns the Sensor Version
+uint8_t getVersion( int fd)
+{
+    return virtualReadRegister(AS726x_HW_VERSION, fd);
+}
+
+
+//Sets the measurement mode
+//Mode 0: Continuous reading of VBGY (7262) / STUV (7263)
+//Mode 1: Continuous reading of GYOR (7262) / RTUX (7263)
+//Mode 2: Continuous reading of all channels (power-on default)
+//Mode 3: One-shot reading of all channels
+void setMeasurementMode(uint8_t mode, int fd)
+{
+    if (mode > 0b11) mode = 0b11;
+
+    //Read, mask/set, write
+    uint8_t value = virtualReadRegister(AS726x_CONTROL_SETUP, fd); //Read
+    value &= 0b11110011; //Clear BANK bits
+    value |= (mode << 2); //Set BANK bits with user's choice
+    virtualWriteRegister(AS726x_CONTROL_SETUP, value, fd); //Write
+}
+
+//Sets the gain value
+//Gain 0: 1x (power-on default)
+//Gain 1: 3.7x
+//Gain 2: 16x
+//Gain 3: 64x
+void setGain(uint8_t gain, int fd) {
+    if (gain > 0b11) gain = 0b11;
+
+    //Read, mask/set, write
+    uint8_t value = virtualReadRegister(AS726x_CONTROL_SETUP, fd); //Read
+    value &= 0b11001111; //Clear GAIN bits
+    value |= (gain << 4); //Set GAIN bits with user's choice
+    virtualWriteRegister(AS726x_CONTROL_SETUP, value, fd); //Write
+}
+
+
 //Sets the integration value
 //Give this function a uint8_t from 0 to 255.
 //Time will be 2.8ms * [integration value]
