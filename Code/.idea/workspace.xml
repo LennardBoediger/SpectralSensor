@@ -28,8 +28,8 @@
           <file leaf-file-name="AS726X.h" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/wiringPi_AS726X_Libary/AS726X.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="100">
-                  <caret line="5" column="53" lean-forward="false" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+                <state relative-caret-position="156">
+                  <caret line="6" column="54" lean-forward="false" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
                   <folding />
                 </state>
               </provider>
@@ -38,19 +38,19 @@
           <file leaf-file-name="AS726X.c" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/wiringPi_AS726X_Libary/AS726X.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="206">
-                  <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+                <state relative-caret-position="195">
+                  <caret line="39" column="33" lean-forward="false" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
                   <folding>
-                    <element signature="e#2009#2263#0" expanded="false" />
-                    <element signature="e#2265#2525#0" expanded="false" />
-                    <element signature="e#2527#2963#0" expanded="false" />
-                    <element signature="e#2965#3234#0" expanded="false" />
-                    <element signature="e#3236#3512#0" expanded="false" />
-                    <element signature="e#4016#4228#0" expanded="false" />
-                    <element signature="e#4230#4405#0" expanded="false" />
-                    <element signature="e#4407#4668#0" expanded="false" />
-                    <element signature="e#4671#5904#0" expanded="false" />
-                    <element signature="e#5907#6935#0" expanded="false" />
+                    <element signature="e#5181#5435#0" expanded="false" />
+                    <element signature="e#5437#5697#0" expanded="false" />
+                    <element signature="e#5699#6135#0" expanded="false" />
+                    <element signature="e#6137#6406#0" expanded="false" />
+                    <element signature="e#6408#6684#0" expanded="false" />
+                    <element signature="e#7188#7400#0" expanded="false" />
+                    <element signature="e#7402#7577#0" expanded="false" />
+                    <element signature="e#7579#7840#0" expanded="false" />
+                    <element signature="e#7843#9076#0" expanded="false" />
+                    <element signature="e#9079#10107#0" expanded="false" />
                   </folding>
                 </state>
               </provider>
@@ -69,8 +69,8 @@
           <file leaf-file-name="main.c" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/wiringPi_AS726X_Libary/main.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="501">
-                  <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+                <state relative-caret-position="331">
+                  <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
                   <folding />
                 </state>
               </provider>
@@ -83,8 +83,8 @@
           <file leaf-file-name="AS726X.cpp" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="284">
-                  <caret line="165" column="76" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="165" selection-end-column="76" />
+                <state relative-caret-position="389">
+                  <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
                   <folding>
                     <element signature="e#6576#6850#0" expanded="false" />
                     <element signature="e#7333#7745#0" expanded="false" />
@@ -108,12 +108,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>virtualReadRegister</find>
-      <find>setMeasurementMode</find>
       <find>_i2cPort</find>
       <find>begin</find>
       <find>wirePort_i2cPort</find>
       <find>wirePort</find>
-      <find>dataAvailable</find>
       <find>val</find>
       <find>AS72XX_SLAVE_READ_REG</find>
       <find>AS726X_ADDR</find>
@@ -132,7 +130,10 @@
       <find>virtualWriteRegister</find>
       <find>sensorver</find>
       <find>setind</find>
+      <find>setMeasurementMode</find>
+      <find>clearDataAvailable</find>
       <find>setIndicatorCurrentsetIndicatorCurrent</find>
+      <find>dataAvailable</find>
     </findStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -156,6 +157,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
   <component name="ProjectFrameBounds">
     <option name="width" value="1280" />
     <option name="height" value="777" />
@@ -271,12 +273,12 @@
       <option name="presentableId" value="Default" />
       <updated>1589193400554</updated>
       <workItem from="1589193402234" duration="13511000" />
-      <workItem from="1590598263964" duration="8440000" />
+      <workItem from="1590598263964" duration="10187000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21951000" />
+    <option name="totallyTimeSpent" value="23698000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="777" extended-state="0" />
@@ -389,10 +391,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wiringPi_AS726X_Libary/main.c">
+    <entry file="file://$PROJECT_DIR$/SparkFun_AS726X_Arduino_Library-master/keywords.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="20" column="56" lean-forward="true" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+        <state relative-caret-position="213">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -405,18 +407,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wiringPi_AS726X_Libary/AS726X.h">
+    <entry file="file://$PROJECT_DIR$/wiringPi_AS726X_Libary/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="53" lean-forward="false" selection-start-line="5" selection-start-column="53" selection-end-line="5" selection-end-column="53" />
+        <state relative-caret-position="331">
+          <caret line="17" column="25" lean-forward="true" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="165" column="76" lean-forward="true" selection-start-line="161" selection-start-column="0" selection-end-line="165" selection-end-column="76" />
+        <state relative-caret-position="389">
+          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding>
             <element signature="e#6576#6850#0" expanded="false" />
             <element signature="e#7333#7745#0" expanded="false" />
@@ -432,21 +434,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wiringPi_AS726X_Libary/AS726X.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" column="54" lean-forward="false" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wiringPi_AS726X_Libary/AS726X.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="8" column="14" lean-forward="false" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        <state relative-caret-position="195">
+          <caret line="39" column="33" lean-forward="false" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
           <folding>
-            <element signature="e#2009#2263#0" expanded="false" />
-            <element signature="e#2265#2525#0" expanded="false" />
-            <element signature="e#2527#2963#0" expanded="false" />
-            <element signature="e#2965#3234#0" expanded="false" />
-            <element signature="e#3236#3512#0" expanded="false" />
-            <element signature="e#4016#4228#0" expanded="false" />
-            <element signature="e#4230#4405#0" expanded="false" />
-            <element signature="e#4407#4668#0" expanded="false" />
-            <element signature="e#4671#5904#0" expanded="false" />
-            <element signature="e#5907#6935#0" expanded="false" />
+            <element signature="e#5181#5435#0" expanded="false" />
+            <element signature="e#5437#5697#0" expanded="false" />
+            <element signature="e#5699#6135#0" expanded="false" />
+            <element signature="e#6137#6406#0" expanded="false" />
+            <element signature="e#6408#6684#0" expanded="false" />
+            <element signature="e#7188#7400#0" expanded="false" />
+            <element signature="e#7402#7577#0" expanded="false" />
+            <element signature="e#7579#7840#0" expanded="false" />
+            <element signature="e#7843#9076#0" expanded="false" />
+            <element signature="e#9079#10107#0" expanded="false" />
           </folding>
         </state>
       </provider>

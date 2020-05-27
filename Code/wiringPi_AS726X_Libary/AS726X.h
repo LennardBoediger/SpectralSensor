@@ -3,7 +3,44 @@
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 
+
+void setIntegrationTime(uint8_t integrationValue, int fd);
+void enableInterrupt(int fd);
+void disableInterrupt(int fd);
+void takeMeasurements(int fd);
+void takeMeasurementsWithBulb( int fd);
+
+//Get the various color readings
+int getViolet(int fd);
+int getBlue(int fd);
+int getGreen(int fd);
+int getYellow(int fd);
+int getOrange(int fd);
+int getRed(int fd);
+
+//Get the various NIR readings
+int getR(int fd);
+int getS(int fd);
+int getT(int fd);
+int getU(int fd);
+int getV(int fd);
+int getW(int fd);
+int getChannel(uint8_t channelRegister, int fd);
+
+float getCalibratedViolet(int fd);
+float getCalibratedBlue(int fd);
+float getCalibratedGreen(int fd);
+float getCalibratedYellow(int fd);
+float getCalibratedOrange(int fd) ;
+float getCalibratedRed(int fd);
+float getCalibratedT(int fd);
+float getCalibratedS(int fd);
+float getCalibratedR(int fd);
+float getCalibratedU(int fd);
+float getCalibratedV(int fd);
+float getCalibratedW(int fd);
 float getCalibratedValue(uint8_t calAddress, int fd);
+
 float convertBytesToFloat(uint32_t myLong);
 uint8_t dataAvailable(int fd);
 void clearDataAvailable(int fd);

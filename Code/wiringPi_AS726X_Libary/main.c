@@ -19,5 +19,9 @@ int main() {
     enableBulb(fd);
 
     printf("dataAvailable(int fd): %d\n", dataAvailable(fd));
+    printf("getCalibratedR(fd): %f\n", getCalibratedR(fd));
+
+    int getBlue(int fd);
+    printf( "getBlue: %d\n",getBlue(fd));
     return 0;
 }

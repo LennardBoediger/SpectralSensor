@@ -5,11 +5,94 @@
 #include <string.h>
 #include "AS726X.h"
 
-float AS726X::getCalibratedT() { return(getCalibratedValue(AS7263_T_CAL)); }
-float AS726X::getCalibratedS() { return(getCalibratedValue(AS7263_S_CAL)); }
-float AS726X::getCalibratedR() { return(getCalibratedValue(AS7263_R_CAL)); }
-float AS726X::getCalibratedU() { return(getCalibratedValue(AS7263_U_CAL)); }
-float AS726X::getCalibratedV() { return(getCalibratedValue(AS7263_V_CAL)); }
+//Sets the integration value
+//Give this function a uint8_t from 0 to 255.
+//Time will be 2.8ms * [integration value]
+void setIntegrationTime(uint8_t integrationValue, int fd) {
+    virtualWriteRegister(AS726x_INT_T, integrationValue, fd); //Write
+}
+
+void enableInterrupt(int fd) {
+    //Read, mask/set, write
+    uint8_t value = virtualReadRegister(AS726x_CONTROL_SETUP, fd); //Read
+    value |= 0b01000000; //Set INT bit
+    virtualWriteRegister(AS726x_CONTROL_SETUP, value, fd); //Write
+}
+
+//Disables the interrupt pin
+void disableInterrupt(int fd)
+{
+    //Read, mask/set, write
+    uint8_t value = virtualReadRegister(AS726x_CONTROL_SETUP, fd); //Read
+    value &= 0b10111111; //Clear INT bit
+    virtualWriteRegister(AS726x_CONTROL_SETUP, value, fd); //Write
+}
+
+//Tells IC to take measurements and polls for data ready flag
+void takeMeasurements(int fd)
+{
+    clearDataAvailable(fd); //Clear DATA_RDY flag when using Mode 3
+
+    //Goto mode 3 for one shot measurement of all channels
+    setMeasurementMode(3, fd);
+
+    //Wait for data to be ready
+    while (dataAvailable(fd) == 0) delay(POLLING_DELAY);
+
+    //Readings can now be accessed via getViolet(), getBlue(), etc
+}
+
+//Turns on bulb, takes measurements, turns off bulb
+void takeMeasurementsWithBulb( int fd)
+{
+    //enableIndicator(); //Tell the world we are taking a reading.
+    //The indicator LED is red and may corrupt the readings
+
+    enableBulb(fd); //Turn on bulb to take measurement
+
+    takeMeasurements(fd);
+
+    disableBulb(fd); //Turn off bulb to avoid heating sensor
+    //disableIndicator();
+}
+
+//Get the various color readings
+int getViolet(int fd) { return(getChannel(AS7262_V, fd)); }
+int getBlue(int fd) { return(getChannel(AS7262_B, fd)); }
+int getGreen(int fd) { return(getChannel(AS7262_G, fd)); }
+int getYellow(int fd) { return(getChannel(AS7262_Y, fd)); }
+int getOrange(int fd) { return(getChannel(AS7262_O, fd)); }
+int getRed(int fd) { return(getChannel(AS7262_R, fd)); }
+
+//Get the various NIR readings
+int getR(int fd) { return(getChannel(AS7263_R, fd)); }
+int getS(int fd) { return(getChannel(AS7263_S, fd)); }
+int getT(int fd) { return(getChannel(AS7263_T, fd)); }
+int getU(int fd) { return(getChannel(AS7263_U, fd)); }
+int getV(int fd) { return(getChannel(AS7263_V, fd)); }
+int getW(int fd) { return(getChannel(AS7263_W, fd)); }
+
+//A the 16-bit value stored in a given channel registerReturns
+int getChannel(uint8_t channelRegister, int fd)
+{
+    int colorData = virtualReadRegister(channelRegister , fd) << 8; //High uint8_t
+    colorData |= virtualReadRegister(channelRegister + 1, fd); //Low uint8_t
+    return(colorData);
+}
+
+//Returns the various calibration data
+float getCalibratedViolet(int fd) { return(getCalibratedValue(AS7262_V_CAL, fd)); }
+float getCalibratedBlue(int fd) { return(getCalibratedValue(AS7262_B_CAL, fd)); }
+float getCalibratedGreen(int fd) { return(getCalibratedValue(AS7262_G_CAL, fd)); }
+float getCalibratedYellow(int fd) { return(getCalibratedValue(AS7262_Y_CAL, fd)); }
+float getCalibratedOrange(int fd) { return(getCalibratedValue(AS7262_O_CAL, fd)); }
+float getCalibratedRed(int fd) { return(getCalibratedValue(AS7262_R_CAL, fd)); }
+
+float getCalibratedT(int fd) { return(getCalibratedValue(AS7263_T_CAL, fd)); }
+float getCalibratedS(int fd) { return(getCalibratedValue(AS7263_S_CAL, fd)); }
+float getCalibratedR(int fd) { return(getCalibratedValue(AS7263_R_CAL, fd)); }
+float getCalibratedU(int fd) { return(getCalibratedValue(AS7263_U_CAL, fd)); }
+float getCalibratedV(int fd) { return(getCalibratedValue(AS7263_V_CAL, fd)); }
 float getCalibratedW(int fd) { return(getCalibratedValue(AS7263_W_CAL, fd)); }
 
 //Given an address, read four uint8_ts and return the floating point calibrated value
