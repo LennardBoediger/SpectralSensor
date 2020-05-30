@@ -3089,6 +3089,9 @@ Source: http://www.molex.com/product/ffc/52559.html</description>
 <text x="33.782" y="243.586" size="2.54" layer="94" rot="MR180" align="top-left">AS726x Spectral Sensor</text>
 <text x="176.022" y="252.222" size="2.54" layer="94" rot="MR180" align="top-left">4mbit Flash Memory</text>
 <text x="154.432" y="178.562" size="1.778" layer="97">The AS726x must be held in reset while programming flash</text>
+<wire x1="10.16" y1="172.72" x2="134.62" y2="172.72" width="0.1524" layer="97" style="longdash"/>
+<wire x1="134.62" y1="172.72" x2="228.6" y2="172.72" width="0.1524" layer="97" style="longdash"/>
+<wire x1="134.62" y1="172.72" x2="134.62" y2="256.54" width="0.1524" layer="97" style="longdash"/>
 </plain>
 <instances>
 <instance part="SUPPLY11" gate="G$1" x="121.92" y="93.98" smashed="yes">
