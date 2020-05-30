@@ -4,7 +4,7 @@
 #include <wiringPiI2C.h>
 
 uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd);
-uint8_t getVersion( int fd);
+uint8_t getVersion( int fd); //61 oder 65
 void setMeasurementMode(uint8_t mode, int fd);
 void setGain(uint8_t gain, int fd);
 void setIntegrationTime(uint8_t integrationValue, int fd);
