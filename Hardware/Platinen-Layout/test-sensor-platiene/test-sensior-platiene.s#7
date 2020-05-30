@@ -2668,116 +2668,6 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
-<library name="con-molex" urn="urn:adsk.eagle:library:165">
-<description>&lt;b&gt;Molex Connectors&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
-<packages>
-<package name="52559-0890" urn="urn:adsk.eagle:footprint:8078212/1" library_version="4">
-<description>&lt;b&gt;Easy-On™ Type FFC/FPC Connector, Vertical, Surface Mount, ZIF, 8 Circuits, Gold (Au) Contact Plating&lt;/b&gt;&lt;p&gt;&lt;a href =http://www.molex.com/pdm_docs/sd/525590853_sd.pdf&gt;Datasheet &lt;/a&gt;</description>
-<wire x1="-4.75" y1="-1" x2="-4.75" y2="1" width="0.2032" layer="21"/>
-<wire x1="-4.75" y1="1" x2="-2.25" y2="1.75" width="0.2032" layer="51"/>
-<wire x1="-2.25" y1="1.75" x2="2.25" y2="1.75" width="0.2032" layer="51"/>
-<wire x1="2.25" y1="1.75" x2="4.75" y2="1" width="0.2032" layer="51"/>
-<wire x1="4.75" y1="1" x2="4.75" y2="-1" width="0.2032" layer="21"/>
-<wire x1="3.45" y1="-1" x2="-3.45" y2="-1" width="0.2032" layer="51"/>
-<wire x1="-3.45" y1="-1" x2="-4.75" y2="-1" width="0.2032" layer="21"/>
-<wire x1="-2.2" y1="-1" x2="-2.2" y2="-0.25" width="0.2032" layer="21"/>
-<wire x1="-2.2" y1="-0.25" x2="2.2" y2="-0.25" width="0.2032" layer="21"/>
-<wire x1="2.2" y1="-0.25" x2="2.2" y2="-1" width="0.2032" layer="21"/>
-<wire x1="4.75" y1="-1" x2="3.45" y2="-1" width="0.2032" layer="21"/>
-<smd name="1" x="-1.75" y="-1.4" dx="0.6" dy="1.5" layer="1"/>
-<smd name="3" x="-0.75" y="-1.4" dx="0.6" dy="1.5" layer="1"/>
-<smd name="5" x="0.25" y="-1.4" dx="0.6" dy="1.5" layer="1"/>
-<smd name="M1" x="-2.75" y="-1.4" dx="0.8" dy="1.5" layer="1"/>
-<smd name="M2" x="2.75" y="-1.4" dx="0.8" dy="1.5" layer="1"/>
-<smd name="6" x="0.75" y="1.4" dx="0.6" dy="1.5" layer="1" rot="R180"/>
-<smd name="4" x="-0.25" y="1.4" dx="0.6" dy="1.5" layer="1" rot="R180"/>
-<smd name="2" x="-1.25" y="1.4" dx="0.6" dy="1.5" layer="1" rot="R180"/>
-<smd name="M3" x="2.75" y="1.4" dx="0.8" dy="1.5" layer="1" rot="R180"/>
-<smd name="M4" x="-2.75" y="1.4" dx="0.8" dy="1.5" layer="1" rot="R180"/>
-<smd name="7" x="1.25" y="-1.4" dx="0.6" dy="1.5" layer="1"/>
-<smd name="8" x="1.75" y="1.4" dx="0.6" dy="1.5" layer="1" rot="R180"/>
-<text x="-3.81" y="2.54" size="1.27" layer="25">&gt;NAME</text>
-<text x="-3.81" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-3" y1="-1.55" x2="-2.5" y2="-1.1" layer="51"/>
-<rectangle x1="-1.9" y1="-1.55" x2="-1.6" y2="-1.1" layer="51"/>
-<rectangle x1="-0.9" y1="-1.55" x2="-0.6" y2="-1.1" layer="51"/>
-<rectangle x1="0.1" y1="-1.55" x2="0.4" y2="-1.1" layer="51"/>
-<rectangle x1="2.5" y1="-1.55" x2="3" y2="-1.1" layer="51"/>
-<rectangle x1="1.1" y1="-1.55" x2="1.4" y2="-1.1" layer="51"/>
-<polygon width="0.1016" layer="21">
-<vertex x="-3.6" y="-0.95"/>
-<vertex x="-3.6" y="-0.85"/>
-<vertex x="-3.8" y="-0.55"/>
-<vertex x="-4" y="-0.85"/>
-<vertex x="-4" y="-0.95"/>
-</polygon>
-</package>
-</packages>
-<packages3d>
-<package3d name="52559-0890" urn="urn:adsk.eagle:package:8078586/1" type="box" library_version="4">
-<description>&lt;b&gt;Easy-On™ Type FFC/FPC Connector, Vertical, Surface Mount, ZIF, 8 Circuits, Gold (Au) Contact Plating&lt;/b&gt;&lt;p&gt;&lt;a href =http://www.molex.com/pdm_docs/sd/525590853_sd.pdf&gt;Datasheet &lt;/a&gt;</description>
-<packageinstances>
-<packageinstance name="52559-0890"/>
-</packageinstances>
-</package3d>
-</packages3d>
-<symbols>
-<symbol name="MV" urn="urn:adsk.eagle:symbol:8078125/1" library_version="4">
-<wire x1="1.27" y1="0" x2="0" y2="0" width="0.6096" layer="94"/>
-<text x="2.54" y="-0.762" size="1.524" layer="95">&gt;NAME</text>
-<text x="-0.762" y="1.397" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="S" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
-</symbol>
-<symbol name="M" urn="urn:adsk.eagle:symbol:8078124/1" library_version="4">
-<wire x1="1.27" y1="0" x2="0" y2="0" width="0.6096" layer="94"/>
-<text x="2.54" y="-0.762" size="1.524" layer="95">&gt;NAME</text>
-<pin name="S" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
-</symbol>
-</symbols>
-<devicesets>
-<deviceset name="52559-0890" urn="urn:adsk.eagle:component:8079031/2" prefix="X" library_version="4">
-<description>&lt;b&gt;FFC/FPC&lt;/b&gt;-to-Board  0.50mm (.020") SMT, Vertical, ZIF Receptacle&lt;p&gt;
-Source: http://www.molex.com/product/ffc/52559.html</description>
-<gates>
-<gate name="-1" symbol="MV" x="2.54" y="10.16" addlevel="always"/>
-<gate name="-2" symbol="M" x="2.54" y="7.62" addlevel="always"/>
-<gate name="-3" symbol="M" x="2.54" y="5.08" addlevel="always"/>
-<gate name="-4" symbol="M" x="2.54" y="2.54" addlevel="always"/>
-<gate name="-5" symbol="M" x="2.54" y="0" addlevel="always"/>
-<gate name="-6" symbol="M" x="2.54" y="-2.54" addlevel="always"/>
-<gate name="-7" symbol="M" x="2.54" y="-5.08" addlevel="always"/>
-<gate name="-8" symbol="M" x="2.54" y="-7.62" addlevel="always"/>
-</gates>
-<devices>
-<device name="" package="52559-0890">
-<connects>
-<connect gate="-1" pin="S" pad="1"/>
-<connect gate="-2" pin="S" pad="2"/>
-<connect gate="-3" pin="S" pad="3"/>
-<connect gate="-4" pin="S" pad="4"/>
-<connect gate="-5" pin="S" pad="5"/>
-<connect gate="-6" pin="S" pad="6"/>
-<connect gate="-7" pin="S" pad="7"/>
-<connect gate="-8" pin="S" pad="8"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8078586/1"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="MF" value="MOLEX" constant="no"/>
-<attribute name="MPN" value="" constant="no"/>
-<attribute name="OC_FARNELL" value="unknown" constant="no"/>
-<attribute name="OC_NEWARK" value="unknown" constant="no"/>
-<attribute name="POPULARITY" value="0" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-</devicesets>
-</library>
 <library name="I2c-adress-translotor">
 <packages>
 <package name="MS-PACKAGE">
@@ -2847,6 +2737,282 @@ Source: http://www.molex.com/product/ffc/52559.html</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="150120RS75000_Eagle_WL-SMCW_rev20b">
+<description>&lt;BR&gt;Wurth Elektronik - LEDs - Singnal LEDs - Clip LED - WL-SMCW&lt;br&gt;&lt;Hr&gt;
+
+&lt;BR&gt;
+&lt;TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0&gt;
+&lt;TR&gt;   
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;&lt;br&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt; &lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      ---------------------------&lt;BR&gt;
+&lt;B&gt;&lt;I&gt;&lt;span style='font-size:26pt;
+  color:#FF6600;'&gt;WE &lt;/span&gt;&lt;/i&gt;&lt;/b&gt;
+&lt;BR&gt;
+      ---------------------------&lt;BR&gt;&lt;b&gt;Würth Elektronik&lt;/b&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      ---------O---&lt;BR&gt;
+      ----O--------&lt;BR&gt;
+      ---------O---&lt;BR&gt;
+      ----O--------&lt;BR&gt;
+      ---------O---&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+   
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+  &lt;/TR&gt;
+
+  &lt;TR&gt;
+    &lt;TD COLSPAN=7&gt;&amp;nbsp;
+    &lt;/TD&gt;
+  &lt;/TR&gt;
+  
+&lt;/TABLE&gt;
+&lt;B&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;More than you expect&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;/B&gt;
+
+&lt;HR&gt;&lt;BR&gt;
+&lt;b&gt;Würth Elektronik eiSos GmbH &amp; Co. KG&lt;/b&gt;&lt;br&gt;
+EMC &amp; Inductive Solutions&lt;br&gt;
+
+Max-Eyth-Str.1&lt;br&gt;
+D-74638 Waldenburg&lt;br&gt;
+&lt;br&gt;
+Tel: +49 (0)7942-945-0&lt;br&gt;
+Fax:+49 (0)7942-945-5000&lt;br&gt;
+&lt;br&gt;
+&lt;a href="http://www.we-online.com/web/en/electronic_components/produkte_pb/bauteilebibliotheken/eagle_4.php"&gt;www.we-online.com/eagle&lt;/a&gt;&lt;br&gt;
+&lt;a href="mailto:libraries@we-online.com"&gt;libraries@we-online.com&lt;/a&gt; &lt;BR&gt;&lt;BR&gt;
+&lt;br&gt;&lt;HR&gt;&lt;BR&gt;
+Neither Autodesk nor Würth Elektronik eiSos does warrant that this library is error-free or &lt;br&gt;
+that it meets your specific requirements.&lt;br&gt;&lt;BR&gt;
+Please contact us for more information.&lt;br&gt;
+&lt;HR&gt;
+&lt;br&gt;Eagle Version 9, Library Revision 2020a, 2020-03-18&lt;br&gt;
+&lt;HR&gt;
+Copyright: Würth Elektronik</description>
+<packages>
+<package name="WL-SMCW_1206" urn="urn:adsk.eagle:footprint:19028160/1">
+<description>&lt;B&gt;WL-SMCW&lt;/B&gt;&lt;BR&gt;SMT Mono-color Chip LED Waterclear,Size:1206,3.2x1.6x0.68mm(LXWXH)</description>
+<wire x1="1.6" y1="0.8" x2="1.6" y2="-0.8" width="0.1" layer="51"/>
+<wire x1="-1.6" y1="-0.8" x2="-1.6" y2="0.8" width="0.1" layer="51"/>
+<wire x1="1.6" y1="0.8" x2="-1.6" y2="0.8" width="0.1" layer="51"/>
+<wire x1="-1.6" y1="-0.8" x2="1.6" y2="-0.8" width="0.1" layer="51"/>
+<wire x1="-0.4" y1="0.9" x2="0.5" y2="0.9" width="0.2" layer="21"/>
+<wire x1="-0.5" y1="-0.9" x2="0.5" y2="-0.9" width="0.2" layer="21"/>
+<wire x1="0.21" y1="0.34" x2="0.21" y2="-0.35" width="0.1" layer="21"/>
+<wire x1="0.21" y1="-0.35" x2="-0.33" y2="0" width="0.1" layer="21"/>
+<wire x1="-0.33" y1="0" x2="0.21" y2="0.34" width="0.1" layer="21"/>
+<wire x1="0.21" y1="0.34" x2="0.21" y2="-0.35" width="0.1" layer="51"/>
+<wire x1="0.21" y1="-0.35" x2="-0.33" y2="0" width="0.1" layer="51"/>
+<wire x1="-0.33" y1="0" x2="0.21" y2="0.34" width="0.1" layer="51"/>
+<smd name="1" x="-1.5" y="0" dx="1.4" dy="1.5" layer="1" rot="R180"/>
+<smd name="2" x="1.5" y="0" dx="1.4" dy="1.5" layer="1" rot="R180"/>
+<text x="0.06" y="1.47" size="0.6096" layer="25" align="bottom-center">&gt;NAME</text>
+<text x="-0.24" y="-1.94" size="0.6096" layer="27" align="bottom-center">&gt;VALUE</text>
+<text x="2.6" y="-0.3" size="0.8128" layer="21">+</text>
+<text x="2.6" y="-0.3" size="0.8128" layer="51">+</text>
+<polygon width="0.1" layer="39">
+<vertex x="-2.4" y="1.1"/>
+<vertex x="2.4" y="1.1"/>
+<vertex x="2.4" y="-1.1"/>
+<vertex x="-2.4" y="-1.1"/>
+</polygon>
+</package>
+</packages>
+<packages3d>
+<package3d name="WL-SMCW_1206" urn="urn:adsk.eagle:package:19028166/2" type="model">
+<description>&lt;B&gt;WL-SMCW&lt;/B&gt;&lt;BR&gt;SMT Mono-color Chip LED Waterclear,Size:1206,3.2x1.6x0.68mm(LXWXH)</description>
+<packageinstances>
+<packageinstance name="WL-SMCW_1206"/>
+</packageinstances>
+</package3d>
+</packages3d>
+<symbols>
+<symbol name="LED">
+<description>LED</description>
+<text x="-1.988" y="3.972" size="1.27" layer="95">&gt;NAME</text>
+<text x="-2.628" y="-3.928" size="1.27" layer="96">&gt;VALUE</text>
+<text x="3.08" y="-1.74" size="1.27" layer="94">+</text>
+<pin name="-" x="-2.54" y="0" visible="pad" length="short" direction="pas"/>
+<pin name="+" x="5.08" y="0" visible="pad" length="short" direction="pas" rot="R180"/>
+<wire x1="2.54" y1="-1.27" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="2.54" y2="1.27" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.27" x2="0" y2="0" width="0.254" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="1.27" width="0.254" layer="94"/>
+<wire x1="2.54" y1="-1.27" x2="2.54" y2="0" width="0.254" layer="94"/>
+<wire x1="2.54" y1="0" x2="2.54" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.778" y1="2.032" x2="0.381" y2="3.429" width="0.1524" layer="94"/>
+<wire x1="0.635" y1="1.905" x2="-0.762" y2="3.302" width="0.1524" layer="94"/>
+<wire x1="0" y1="0" x2="2.54" y2="0" width="0.254" layer="94"/>
+<polygon width="0.1524" layer="94">
+<vertex x="0.381" y="3.429"/>
+<vertex x="1.27" y="3.048"/>
+<vertex x="0.762" y="2.54"/>
+</polygon>
+<polygon width="0.1524" layer="94">
+<vertex x="-0.762" y="3.302"/>
+<vertex x="0.127" y="2.921"/>
+<vertex x="-0.381" y="2.413"/>
+</polygon>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="WL-SMCW_1206" prefix="D" uservalue="yes">
+<description>&lt;B&gt;WL-SMCW SMT Mono-color Chip LED Waterclea
+&lt;br&gt;
+
+&lt;br&gt;&lt;b&gt; Characteristics
+&lt;br&gt;
+&lt;br&gt;&lt;/b&gt;&lt;/b&gt; Low energy consumption 
+&lt;br&gt;High reliability 
+&lt;br&gt;Low current requirement 
+&lt;br&gt;Fast switching 
+&lt;br&gt;No UV/IR radiation 
+&lt;br&gt;Smallest SMD LED package for exceptional brightness 
+&lt;br&gt;Top view LED 
+&lt;br&gt;Wide viewing angle 
+&lt;br&gt;Better solder ability 
+&lt;br&gt;Heat dissipation 
+&lt;br&gt;
+
+&lt;br&gt;&lt;b&gt; Applications
+&lt;br&gt;&lt;br&gt;&lt;/b&gt; Backlight for mobile and portable device keypads 
+&lt;br&gt;Indoor and outdoor message boards 
+&lt;br&gt;Flat backlight for LCDs, switches and symbols 
+&lt;br&gt;Display for industrial control systems and traffic 
+&lt;br&gt;Miniaturized color effects 
+&lt;br&gt;Pedestrian mark 
+&lt;br&gt;Optical indicators 
+&lt;br&gt;Tabular backlight: LCD, telephone key-press, power-switch, display board 
+&lt;br&gt;Indoor displays 
+&lt;br&gt;Signals 
+&lt;br&gt;Identifiers 
+&lt;br&gt;Backlight for automobile DVD 
+&lt;br&gt;LED General lighting 
+&lt;br&gt;Toys 
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;&lt;a href="https://www.we-online.com/catalog/media/o14904v209%20Family_WL-SMCW.jpg" title="Enlarge picture"&gt;
+&lt;img src="https://www.we-online.com/catalog/media/o14904v209%20Family_WL-SMCW.jpg" width="320"&gt;&lt;/a&gt;&lt;p&gt;
+Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMCW/"&gt;https://www.we-online.com/catalog/en/WL-SMCW/&lt;/a&gt;&lt;p&gt;
+
+&lt;/b&gt;Updated BY Yingchun,Shan 2020-03-18&lt;br&gt;
+&lt;/b&gt;2020(C) Wurth Elektronik</description>
+<gates>
+<gate name="G$1" symbol="LED" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="WL-SMCW_1206">
+<connects>
+<connect gate="G$1" pin="+" pad="2"/>
+<connect gate="G$1" pin="-" pad="1"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:19028166/2"/>
+</package3dinstances>
+<technologies>
+<technology name="_150120AS75000">
+<attribute name="ABSTRAHLWINKEL" value="140°" constant="no"/>
+<attribute name="CHIP-TECHNOLOGY" value="AlInGaP" constant="no"/>
+<attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/150120AS75000.pdf" constant="no"/>
+<attribute name="EMITTING-COLOR" value="Amber" constant="no"/>
+<attribute name="I-V-TYP" value="140mcd" constant="no"/>
+<attribute name="LAMDA-DOM-TYP" value="605nm" constant="no"/>
+<attribute name="LAMDA-PEAK-TYP" value="610nm" constant="no"/>
+<attribute name="PART-NUMBER" value="150120AS75000" constant="no"/>
+<attribute name="V-F-TYP" value="2V" constant="no"/>
+</technology>
+<technology name="_150120BS75000">
+<attribute name="ABSTRAHLWINKEL" value="140°" constant="no"/>
+<attribute name="CHIP-TECHNOLOGY" value="InGaN" constant="no"/>
+<attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/150120BS75000.pdf" constant="no"/>
+<attribute name="EMITTING-COLOR" value="Blue" constant="no"/>
+<attribute name="I-V-TYP" value="145mcd" constant="no"/>
+<attribute name="LAMDA-DOM-TYP" value="470nm" constant="no"/>
+<attribute name="LAMDA-PEAK-TYP" value="465nm" constant="no"/>
+<attribute name="PART-NUMBER" value="150120BS75000" constant="no"/>
+<attribute name="V-F-TYP" value="3.2V" constant="no"/>
+</technology>
+<technology name="_150120GS75000">
+<attribute name="ABSTRAHLWINKEL" value="140°" constant="no"/>
+<attribute name="CHIP-TECHNOLOGY" value="InGaN" constant="no"/>
+<attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/150120GS75000.pdf" constant="no"/>
+<attribute name="EMITTING-COLOR" value="Green" constant="no"/>
+<attribute name="I-V-TYP" value="450mcd" constant="no"/>
+<attribute name="LAMDA-DOM-TYP" value="525nm" constant="no"/>
+<attribute name="LAMDA-PEAK-TYP" value="515nm" constant="no"/>
+<attribute name="PART-NUMBER" value="150120GS75000" constant="no"/>
+<attribute name="V-F-TYP" value="3.2V" constant="no"/>
+</technology>
+<technology name="_150120RS75000">
+<attribute name="ABSTRAHLWINKEL" value="140°" constant="no"/>
+<attribute name="CHIP-TECHNOLOGY" value="AlInGaP" constant="no"/>
+<attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/150120RS75000.pdf" constant="no"/>
+<attribute name="EMITTING-COLOR" value="Red" constant="no"/>
+<attribute name="I-V-TYP" value="150mcd" constant="no"/>
+<attribute name="LAMDA-DOM-TYP" value="625nm" constant="no"/>
+<attribute name="LAMDA-PEAK-TYP" value="630nm" constant="no"/>
+<attribute name="PART-NUMBER" value="150120RS75000" constant="no"/>
+<attribute name="V-F-TYP" value="2V" constant="no"/>
+</technology>
+<technology name="_150120SS75000">
+<attribute name="ABSTRAHLWINKEL" value="140°" constant="no"/>
+<attribute name="CHIP-TECHNOLOGY" value="AlInGaP" constant="no"/>
+<attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/150120SS75000.pdf" constant="no"/>
+<attribute name="EMITTING-COLOR" value="Super Red" constant="no"/>
+<attribute name="I-V-TYP" value="60mcd" constant="no"/>
+<attribute name="LAMDA-DOM-TYP" value="630nm" constant="no"/>
+<attribute name="LAMDA-PEAK-TYP" value="645nm" constant="no"/>
+<attribute name="PART-NUMBER" value="150120SS75000" constant="no"/>
+<attribute name="V-F-TYP" value="1.9V" constant="no"/>
+</technology>
+<technology name="_150120VS75000">
+<attribute name="ABSTRAHLWINKEL" value="140°" constant="no"/>
+<attribute name="CHIP-TECHNOLOGY" value="AlInGaP" constant="no"/>
+<attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/150120VS75000.pdf" constant="no"/>
+<attribute name="EMITTING-COLOR" value="Bright Green" constant="no"/>
+<attribute name="I-V-TYP" value="40mcd" constant="no"/>
+<attribute name="LAMDA-DOM-TYP" value="570nm" constant="no"/>
+<attribute name="LAMDA-PEAK-TYP" value="572nm" constant="no"/>
+<attribute name="PART-NUMBER" value="150120VS75000" constant="no"/>
+<attribute name="V-F-TYP" value="2V" constant="no"/>
+</technology>
+<technology name="_150120YS75000">
+<attribute name="ABSTRAHLWINKEL" value="140°" constant="no"/>
+<attribute name="CHIP-TECHNOLOGY" value="AlInGaP" constant="no"/>
+<attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/150120YS75000.pdf" constant="no"/>
+<attribute name="EMITTING-COLOR" value="Yellow" constant="no"/>
+<attribute name="I-V-TYP" value="120mcd" constant="no"/>
+<attribute name="LAMDA-DOM-TYP" value="590nm" constant="no"/>
+<attribute name="LAMDA-PEAK-TYP" value="595nm" constant="no"/>
+<attribute name="PART-NUMBER" value="150120YS75000" constant="no"/>
+<attribute name="V-F-TYP" value="2V" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -2908,13 +3074,14 @@ Source: http://www.molex.com/product/ffc/52559.html</description>
 <part name="J10" library="SparkFun-Connectors" deviceset="AVR_SPI_PROG_3X2" device="TESTPOINTS" value="Flash Programming"/>
 <part name="SUPPLY41" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="GND31" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
-<part name="X1" library="con-molex" library_urn="urn:adsk.eagle:library:165" deviceset="52559-0890" device="" package3d_urn="urn:adsk.eagle:package:8078586/1"/>
-<part name="SUPPLY5" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
-<part name="GND7" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="U$1" library="I2c-adress-translotor" deviceset="LTC4316" device=""/>
 <part name="U$3" library="I2c-adress-translotor" deviceset="LTC4316" device=""/>
 <part name="GND1" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="GND9" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY2" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
+<part name="SUPPLY5" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
+<part name="D1" library="150120RS75000_Eagle_WL-SMCW_rev20b" deviceset="WL-SMCW_1206" device="" package3d_urn="urn:adsk.eagle:package:19028166/2" technology="_150120RS75000"/>
+<part name="D2" library="150120RS75000_Eagle_WL-SMCW_rev20b" deviceset="WL-SMCW_1206" device="" package3d_urn="urn:adsk.eagle:package:19028166/2" technology="_150120RS75000"/>
 </parts>
 <sheets>
 <sheet>
@@ -3103,37 +3270,6 @@ while programming flash</text>
 <instance part="GND31" gate="1" x="177.8" y="195.58" smashed="yes">
 <attribute name="VALUE" x="177.8" y="195.326" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="X1" gate="-1" x="231.14" y="43.18" smashed="yes">
-<attribute name="NAME" x="233.68" y="42.418" size="1.524" layer="95"/>
-<attribute name="VALUE" x="230.378" y="44.577" size="1.778" layer="96"/>
-</instance>
-<instance part="X1" gate="-2" x="231.14" y="40.64" smashed="yes">
-<attribute name="NAME" x="233.68" y="39.878" size="1.524" layer="95"/>
-</instance>
-<instance part="X1" gate="-3" x="231.14" y="38.1" smashed="yes">
-<attribute name="NAME" x="233.68" y="37.338" size="1.524" layer="95"/>
-</instance>
-<instance part="X1" gate="-4" x="231.14" y="35.56" smashed="yes">
-<attribute name="NAME" x="233.68" y="34.798" size="1.524" layer="95"/>
-</instance>
-<instance part="X1" gate="-5" x="231.14" y="33.02" smashed="yes">
-<attribute name="NAME" x="233.68" y="32.258" size="1.524" layer="95"/>
-</instance>
-<instance part="X1" gate="-6" x="231.14" y="30.48" smashed="yes">
-<attribute name="NAME" x="233.68" y="29.718" size="1.524" layer="95"/>
-</instance>
-<instance part="X1" gate="-7" x="231.14" y="27.94" smashed="yes">
-<attribute name="NAME" x="233.68" y="27.178" size="1.524" layer="95"/>
-</instance>
-<instance part="X1" gate="-8" x="231.14" y="25.4" smashed="yes">
-<attribute name="NAME" x="233.68" y="24.638" size="1.524" layer="95"/>
-</instance>
-<instance part="SUPPLY5" gate="G$1" x="226.06" y="53.34" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="226.06" y="56.134" size="1.778" layer="96" rot="MR0" align="bottom-center"/>
-</instance>
-<instance part="GND7" gate="1" x="226.06" y="17.78" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="226.06" y="17.526" size="1.778" layer="96" rot="MR0" align="top-center"/>
-</instance>
 <instance part="U$1" gate="G$1" x="228.6" y="137.16" smashed="yes" rot="R90">
 <attribute name="NAME" x="213.36" y="106.68" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="228.6" y="137.16" size="1.778" layer="96" rot="R180"/>
@@ -3147,6 +3283,20 @@ while programming flash</text>
 </instance>
 <instance part="GND9" gate="1" x="248.92" y="200.66" smashed="yes">
 <attribute name="VALUE" x="248.92" y="200.406" size="1.778" layer="96" align="top-center"/>
+</instance>
+<instance part="SUPPLY2" gate="G$1" x="5.08" y="144.78" smashed="yes">
+<attribute name="VALUE" x="5.08" y="147.574" size="1.778" layer="96" align="bottom-center"/>
+</instance>
+<instance part="SUPPLY5" gate="G$1" x="30.48" y="218.44" smashed="yes">
+<attribute name="VALUE" x="30.48" y="221.234" size="1.778" layer="96" align="bottom-center"/>
+</instance>
+<instance part="D1" gate="G$1" x="35.56" y="215.9" smashed="yes">
+<attribute name="NAME" x="33.572" y="219.872" size="1.27" layer="95"/>
+<attribute name="VALUE" x="32.932" y="211.972" size="1.27" layer="96"/>
+</instance>
+<instance part="D2" gate="G$1" x="10.16" y="142.24" smashed="yes">
+<attribute name="NAME" x="8.172" y="146.212" size="1.27" layer="95"/>
+<attribute name="VALUE" x="7.532" y="138.312" size="1.27" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -3240,12 +3390,6 @@ while programming flash</text>
 <pinref part="GND31" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="X1" gate="-8" pin="S"/>
-<pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="228.6" y1="25.4" x2="226.06" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="226.06" y1="25.4" x2="226.06" y2="20.32" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="U$1" gate="G$1" pin="GND"/>
 <wire x1="246.38" y1="109.22" x2="248.92" y2="109.22" width="0.1524" layer="91"/>
 <wire x1="248.92" y1="109.22" x2="248.92" y2="104.14" width="0.1524" layer="91"/>
@@ -3269,11 +3413,6 @@ while programming flash</text>
 <wire x1="114.3" y1="38.1" x2="109.22" y2="38.1" width="0.1524" layer="91"/>
 <label x="109.22" y="38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
-<segment>
-<pinref part="X1" gate="-3" pin="S"/>
-<wire x1="228.6" y1="38.1" x2="226.06" y2="38.1" width="0.1524" layer="91"/>
-<label x="226.06" y="38.1" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
 </net>
 <net name="TX/SDA" class="0">
 <segment>
@@ -3285,11 +3424,6 @@ while programming flash</text>
 <pinref part="J2" gate="G$1" pin="2"/>
 <wire x1="114.3" y1="40.64" x2="109.22" y2="40.64" width="0.1524" layer="91"/>
 <label x="109.22" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<pinref part="X1" gate="-2" pin="S"/>
-<wire x1="228.6" y1="40.64" x2="226.06" y2="40.64" width="0.1524" layer="91"/>
-<label x="226.06" y="40.64" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="3.3V" class="1">
@@ -3405,28 +3539,22 @@ while programming flash</text>
 <pinref part="SUPPLY41" gate="G$1" pin="3.3V"/>
 </segment>
 <segment>
-<wire x1="226.06" y1="43.18" x2="226.06" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="SUPPLY5" gate="G$1" pin="3.3V"/>
-<pinref part="X1" gate="-1" pin="S"/>
-<wire x1="226.06" y1="43.18" x2="228.6" y2="43.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="SUPPLY3" gate="G$1" pin="3.3V"/>
 <pinref part="J2" gate="G$1" pin="1"/>
 <wire x1="111.76" y1="45.72" x2="111.76" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="43.18" x2="114.3" y2="43.18" width="0.1524" layer="91"/>
 </segment>
-</net>
-<net name="!INT" class="0">
 <segment>
-<pinref part="U1" gate="U1" pin="!INT"/>
-<wire x1="101.6" y1="104.14" x2="104.14" y2="104.14" width="0.1524" layer="91"/>
-<label x="104.14" y="104.14" size="1.27" layer="95" xref="yes"/>
+<wire x1="7.62" y1="142.24" x2="5.08" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="142.24" x2="5.08" y2="144.78" width="0.1524" layer="91"/>
+<pinref part="SUPPLY2" gate="G$1" pin="3.3V"/>
+<pinref part="D2" gate="G$1" pin="-"/>
 </segment>
 <segment>
-<pinref part="U9" gate="U1" pin="!INT"/>
-<wire x1="71.12" y1="220.98" x2="73.66" y2="220.98" width="0.1524" layer="91"/>
-<label x="73.66" y="220.98" size="1.27" layer="95" xref="yes"/>
+<wire x1="33.02" y1="215.9" x2="30.48" y2="215.9" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="215.9" x2="30.48" y2="218.44" width="0.1524" layer="91"/>
+<pinref part="SUPPLY5" gate="G$1" pin="3.3V"/>
+<pinref part="D1" gate="G$1" pin="-"/>
 </segment>
 </net>
 <net name="I2C_ENB" class="0">
@@ -3584,22 +3712,12 @@ while programming flash</text>
 <wire x1="71.12" y1="218.44" x2="73.66" y2="218.44" width="0.1524" layer="91"/>
 <label x="73.66" y="218.44" size="1.27" layer="95" xref="yes"/>
 </segment>
-<segment>
-<pinref part="X1" gate="-7" pin="S"/>
-<wire x1="228.6" y1="27.94" x2="226.06" y2="27.94" width="0.1524" layer="91"/>
-<label x="226.06" y="27.94" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
 </net>
 <net name="TX/SDA2" class="0">
 <segment>
 <pinref part="U9" gate="U1" pin="TX/SDA"/>
 <wire x1="71.12" y1="215.9" x2="73.66" y2="215.9" width="0.1524" layer="91"/>
 <label x="73.66" y="215.9" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="X1" gate="-6" pin="S"/>
-<wire x1="228.6" y1="30.48" x2="226.06" y2="30.48" width="0.1524" layer="91"/>
-<label x="226.06" y="30.48" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MOSI2" class="0">
@@ -3677,6 +3795,18 @@ while programming flash</text>
 <wire x1="256.54" y1="124.46" x2="256.54" y2="129.54" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="U9" gate="U1" pin="LED_IND"/>
+<pinref part="D1" gate="G$1" pin="+"/>
+</segment>
+</net>
+<net name="N$4" class="0">
+<segment>
+<pinref part="U5" gate="U1" pin="LED_IND"/>
+<pinref part="D2" gate="G$1" pin="+"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -3686,11 +3816,6 @@ while programming flash</text>
 <note version="6.3" minversion="6.2.2" severity="warning">
 Since Version 6.2.2 text objects can contain more than one line,
 which will not be processed correctly with this version.
-</note>
-<note version="8.2" severity="warning">
-Since Version 8.2, EAGLE supports online libraries. The ids
-of those online libraries will not be understood (or retained)
-with this version.
 </note>
 <note version="8.3" severity="warning">
 Since Version 8.3, EAGLE supports URNs for individual library

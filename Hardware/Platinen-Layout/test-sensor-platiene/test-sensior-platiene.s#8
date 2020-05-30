@@ -2668,110 +2668,69 @@ You are welcome to use this library for commercial purposes. For attribution, we
 </deviceset>
 </devicesets>
 </library>
-<library name="con-molex" urn="urn:adsk.eagle:library:165">
-<description>&lt;b&gt;Molex Connectors&lt;/b&gt;&lt;p&gt;
-&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<library name="I2c-adress-translotor">
 <packages>
-<package name="52559-0890" urn="urn:adsk.eagle:footprint:8078212/1" library_version="4">
-<description>&lt;b&gt;Easy-On™ Type FFC/FPC Connector, Vertical, Surface Mount, ZIF, 8 Circuits, Gold (Au) Contact Plating&lt;/b&gt;&lt;p&gt;&lt;a href =http://www.molex.com/pdm_docs/sd/525590853_sd.pdf&gt;Datasheet &lt;/a&gt;</description>
-<wire x1="-4.75" y1="-1" x2="-4.75" y2="1" width="0.2032" layer="21"/>
-<wire x1="-4.75" y1="1" x2="-2.25" y2="1.75" width="0.2032" layer="51"/>
-<wire x1="-2.25" y1="1.75" x2="2.25" y2="1.75" width="0.2032" layer="51"/>
-<wire x1="2.25" y1="1.75" x2="4.75" y2="1" width="0.2032" layer="51"/>
-<wire x1="4.75" y1="1" x2="4.75" y2="-1" width="0.2032" layer="21"/>
-<wire x1="3.45" y1="-1" x2="-3.45" y2="-1" width="0.2032" layer="51"/>
-<wire x1="-3.45" y1="-1" x2="-4.75" y2="-1" width="0.2032" layer="21"/>
-<wire x1="-2.2" y1="-1" x2="-2.2" y2="-0.25" width="0.2032" layer="21"/>
-<wire x1="-2.2" y1="-0.25" x2="2.2" y2="-0.25" width="0.2032" layer="21"/>
-<wire x1="2.2" y1="-0.25" x2="2.2" y2="-1" width="0.2032" layer="21"/>
-<wire x1="4.75" y1="-1" x2="3.45" y2="-1" width="0.2032" layer="21"/>
-<smd name="1" x="-1.75" y="-1.4" dx="0.6" dy="1.5" layer="1"/>
-<smd name="3" x="-0.75" y="-1.4" dx="0.6" dy="1.5" layer="1"/>
-<smd name="5" x="0.25" y="-1.4" dx="0.6" dy="1.5" layer="1"/>
-<smd name="M1" x="-2.75" y="-1.4" dx="0.8" dy="1.5" layer="1"/>
-<smd name="M2" x="2.75" y="-1.4" dx="0.8" dy="1.5" layer="1"/>
-<smd name="6" x="0.75" y="1.4" dx="0.6" dy="1.5" layer="1" rot="R180"/>
-<smd name="4" x="-0.25" y="1.4" dx="0.6" dy="1.5" layer="1" rot="R180"/>
-<smd name="2" x="-1.25" y="1.4" dx="0.6" dy="1.5" layer="1" rot="R180"/>
-<smd name="M3" x="2.75" y="1.4" dx="0.8" dy="1.5" layer="1" rot="R180"/>
-<smd name="M4" x="-2.75" y="1.4" dx="0.8" dy="1.5" layer="1" rot="R180"/>
-<smd name="7" x="1.25" y="-1.4" dx="0.6" dy="1.5" layer="1"/>
-<smd name="8" x="1.75" y="1.4" dx="0.6" dy="1.5" layer="1" rot="R180"/>
-<text x="-3.81" y="2.54" size="1.27" layer="25">&gt;NAME</text>
-<text x="-3.81" y="-3.81" size="1.27" layer="27">&gt;VALUE</text>
-<rectangle x1="-3" y1="-1.55" x2="-2.5" y2="-1.1" layer="51"/>
-<rectangle x1="-1.9" y1="-1.55" x2="-1.6" y2="-1.1" layer="51"/>
-<rectangle x1="-0.9" y1="-1.55" x2="-0.6" y2="-1.1" layer="51"/>
-<rectangle x1="0.1" y1="-1.55" x2="0.4" y2="-1.1" layer="51"/>
-<rectangle x1="2.5" y1="-1.55" x2="3" y2="-1.1" layer="51"/>
-<rectangle x1="1.1" y1="-1.55" x2="1.4" y2="-1.1" layer="51"/>
-<polygon width="0.1016" layer="21">
-<vertex x="-3.6" y="-0.95"/>
-<vertex x="-3.6" y="-0.85"/>
-<vertex x="-3.8" y="-0.55"/>
-<vertex x="-4" y="-0.85"/>
-<vertex x="-4" y="-0.95"/>
-</polygon>
+<package name="MS-PACKAGE">
+<smd name="8" x="0" y="2.1055" dx="0.889" dy="0.305" layer="1" rot="R90"/>
+<smd name="9" x="-0.5" y="2.1055" dx="0.889" dy="0.305" layer="1" rot="R90"/>
+<smd name="7" x="0.5" y="2.1055" dx="0.889" dy="0.305" layer="1" rot="R90"/>
+<smd name="10" x="-1" y="2.1055" dx="0.889" dy="0.305" layer="1" rot="R90"/>
+<smd name="6" x="1" y="2.1055" dx="0.889" dy="0.305" layer="1" rot="R90"/>
+<smd name="3" x="0" y="-2.1055" dx="0.889" dy="0.305" layer="1" rot="R270"/>
+<smd name="2" x="-0.5" y="-2.1055" dx="0.889" dy="0.305" layer="1" rot="R270"/>
+<smd name="1" x="-1" y="-2.1055" dx="0.889" dy="0.305" layer="1" rot="R270"/>
+<smd name="4" x="0.5" y="-2.1055" dx="0.889" dy="0.305" layer="1" rot="R270"/>
+<smd name="5" x="1" y="-2.1055" dx="0.889" dy="0.305" layer="1" rot="R270"/>
+<wire x1="-1.2" y1="1.5" x2="1.2" y2="1.5" width="0.127" layer="21"/>
+<wire x1="1.2" y1="1.5" x2="1.2" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="1.2" y1="-1.5" x2="-1.2" y2="-1.5" width="0.127" layer="21"/>
+<wire x1="-1.2" y1="-1.5" x2="-1.2" y2="1.5" width="0.127" layer="21"/>
+<circle x="-1.5" y="-1.7" radius="0.14141875" width="0.127" layer="21"/>
+<text x="-3.81" y="3.81" size="1.27" layer="25">&gt;NAME</text>
+<text x="-3.81" y="-5.08" size="1.27" layer="27">&gt;VALUE</text>
 </package>
 </packages>
-<packages3d>
-<package3d name="52559-0890" urn="urn:adsk.eagle:package:8078586/1" type="box" library_version="4">
-<description>&lt;b&gt;Easy-On™ Type FFC/FPC Connector, Vertical, Surface Mount, ZIF, 8 Circuits, Gold (Au) Contact Plating&lt;/b&gt;&lt;p&gt;&lt;a href =http://www.molex.com/pdm_docs/sd/525590853_sd.pdf&gt;Datasheet &lt;/a&gt;</description>
-<packageinstances>
-<packageinstance name="52559-0890"/>
-</packageinstances>
-</package3d>
-</packages3d>
 <symbols>
-<symbol name="MV" urn="urn:adsk.eagle:symbol:8078125/1" library_version="4">
-<wire x1="1.27" y1="0" x2="0" y2="0" width="0.6096" layer="94"/>
-<text x="2.54" y="-0.762" size="1.524" layer="95">&gt;NAME</text>
-<text x="-0.762" y="1.397" size="1.778" layer="96">&gt;VALUE</text>
-<pin name="S" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
-</symbol>
-<symbol name="M" urn="urn:adsk.eagle:symbol:8078124/1" library_version="4">
-<wire x1="1.27" y1="0" x2="0" y2="0" width="0.6096" layer="94"/>
-<text x="2.54" y="-0.762" size="1.524" layer="95">&gt;NAME</text>
-<pin name="S" x="-2.54" y="0" visible="off" length="short" direction="pas"/>
+<symbol name="LCT4316">
+<pin name="SCLIN" x="-27.94" y="10.16" length="short" rot="R270"/>
+<pin name="SCLOUT" x="-22.86" y="10.16" length="short" rot="R270"/>
+<pin name="SDAOUT" x="-17.78" y="10.16" length="short" rot="R270"/>
+<pin name="SDAIN" x="-12.7" y="10.16" length="short" rot="R270"/>
+<pin name="READY" x="-7.62" y="10.16" length="short" rot="R270"/>
+<wire x1="-30.48" y1="7.62" x2="-5.08" y2="7.62" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="7.62" x2="-5.08" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="-15.24" x2="-30.48" y2="-15.24" width="0.254" layer="94"/>
+<wire x1="-30.48" y1="-15.24" x2="-30.48" y2="7.62" width="0.254" layer="94"/>
+<pin name="GND" x="-27.94" y="-17.78" length="short" rot="R90"/>
+<pin name="XORH" x="-22.86" y="-17.78" length="short" rot="R90"/>
+<pin name="XORL" x="-17.78" y="-17.78" length="short" rot="R90"/>
+<pin name="VCC" x="-12.7" y="-17.78" length="short" rot="R90"/>
+<pin name="ENABLE" x="-7.62" y="-17.78" length="short" rot="R90"/>
+<text x="-30.48" y="15.24" size="1.27" layer="95">&gt;NAME</text>
+<text x="-30.48" y="-22.86" size="1.27" layer="96">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="52559-0890" urn="urn:adsk.eagle:component:8079031/2" prefix="X" library_version="4">
-<description>&lt;b&gt;FFC/FPC&lt;/b&gt;-to-Board  0.50mm (.020") SMT, Vertical, ZIF Receptacle&lt;p&gt;
-Source: http://www.molex.com/product/ffc/52559.html</description>
+<deviceset name="LTC4316">
 <gates>
-<gate name="-1" symbol="MV" x="2.54" y="10.16" addlevel="always"/>
-<gate name="-2" symbol="M" x="2.54" y="7.62" addlevel="always"/>
-<gate name="-3" symbol="M" x="2.54" y="5.08" addlevel="always"/>
-<gate name="-4" symbol="M" x="2.54" y="2.54" addlevel="always"/>
-<gate name="-5" symbol="M" x="2.54" y="0" addlevel="always"/>
-<gate name="-6" symbol="M" x="2.54" y="-2.54" addlevel="always"/>
-<gate name="-7" symbol="M" x="2.54" y="-5.08" addlevel="always"/>
-<gate name="-8" symbol="M" x="2.54" y="-7.62" addlevel="always"/>
+<gate name="G$1" symbol="LCT4316" x="17.78" y="5.08"/>
 </gates>
 <devices>
-<device name="" package="52559-0890">
+<device name="" package="MS-PACKAGE">
 <connects>
-<connect gate="-1" pin="S" pad="1"/>
-<connect gate="-2" pin="S" pad="2"/>
-<connect gate="-3" pin="S" pad="3"/>
-<connect gate="-4" pin="S" pad="4"/>
-<connect gate="-5" pin="S" pad="5"/>
-<connect gate="-6" pin="S" pad="6"/>
-<connect gate="-7" pin="S" pad="7"/>
-<connect gate="-8" pin="S" pad="8"/>
+<connect gate="G$1" pin="ENABLE" pad="5"/>
+<connect gate="G$1" pin="GND" pad="1"/>
+<connect gate="G$1" pin="READY" pad="6"/>
+<connect gate="G$1" pin="SCLIN" pad="10"/>
+<connect gate="G$1" pin="SCLOUT" pad="9"/>
+<connect gate="G$1" pin="SDAIN" pad="7"/>
+<connect gate="G$1" pin="SDAOUT" pad="8"/>
+<connect gate="G$1" pin="VCC" pad="4"/>
+<connect gate="G$1" pin="XORH" pad="2"/>
+<connect gate="G$1" pin="XORL" pad="3"/>
 </connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:8078586/1"/>
-</package3dinstances>
 <technologies>
-<technology name="">
-<attribute name="MF" value="MOLEX" constant="no"/>
-<attribute name="MPN" value="" constant="no"/>
-<attribute name="OC_FARNELL" value="unknown" constant="no"/>
-<attribute name="OC_NEWARK" value="unknown" constant="no"/>
-<attribute name="POPULARITY" value="0" constant="no"/>
-</technology>
+<technology name=""/>
 </technologies>
 </device>
 </devices>
@@ -2839,28 +2798,35 @@ Source: http://www.molex.com/product/ffc/52559.html</description>
 <part name="J10" library="SparkFun-Connectors" deviceset="AVR_SPI_PROG_3X2" device="TESTPOINTS" value="Flash Programming"/>
 <part name="SUPPLY41" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="GND31" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
-<part name="X1" library="con-molex" library_urn="urn:adsk.eagle:library:165" deviceset="52559-0890" device="" package3d_urn="urn:adsk.eagle:package:8078586/1"/>
+<part name="U$1" library="I2c-adress-translotor" deviceset="LTC4316" device=""/>
+<part name="U$3" library="I2c-adress-translotor" deviceset="LTC4316" device=""/>
+<part name="GND1" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="GND9" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
+<part name="SUPPLY2" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="SUPPLY5" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
-<part name="GND7" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="51.562" y="159.766" size="2.54" layer="97" rot="MR180" align="top-left">AS7265x Spectral Sensor</text>
 <wire x1="7.62" y1="60.96" x2="134.62" y2="60.96" width="0.2032" layer="97" style="longdash"/>
-<wire x1="134.62" y1="60.96" x2="256.54" y2="60.96" width="0.2032" layer="97" style="longdash"/>
+<wire x1="134.62" y1="60.96" x2="200.66" y2="60.96" width="0.2032" layer="97" style="longdash"/>
+<wire x1="200.66" y1="60.96" x2="256.54" y2="60.96" width="0.2032" layer="97" style="longdash"/>
 <wire x1="134.62" y1="170.18" x2="134.62" y2="60.96" width="0.2032" layer="97" style="longdash"/>
 <text x="150.622" y="155.702" size="2.54" layer="97" rot="MR180" align="top-left">4mbit Flash Memory</text>
 <text x="146.812" y="87.122" size="1.778" layer="97">The AS72651 must be held in reset
 while programming flash</text>
 <text x="157.734" y="122.682" size="1.778" layer="97">AT25SF041</text>
-<text x="33.782" y="243.586" size="2.54" layer="94" rot="MR180" align="top-left">AS726x Spectral Sensor</text>
-<text x="150.622" y="252.222" size="2.54" layer="94" rot="MR180" align="top-left">4mbit Flash Memory</text>
+<text x="33.782" y="243.586" size="2.54" layer="95" rot="MR180" align="top-left">AS726x Spectral Sensor</text>
+<text x="150.622" y="252.222" size="2.54" layer="95" rot="MR180" align="top-left">4mbit Flash Memory</text>
 <text x="149.352" y="181.102" size="1.778" layer="97">The AS726x must be held in reset 
 while programming flash</text>
 <wire x1="10.16" y1="172.72" x2="134.62" y2="172.72" width="0.1524" layer="97" style="longdash"/>
-<wire x1="134.62" y1="172.72" x2="228.6" y2="172.72" width="0.1524" layer="97" style="longdash"/>
+<wire x1="134.62" y1="172.72" x2="279.4" y2="172.72" width="0.1524" layer="97" style="longdash"/>
 <wire x1="134.62" y1="172.72" x2="134.62" y2="256.54" width="0.1524" layer="97" style="longdash"/>
+<wire x1="200.66" y1="256.54" x2="200.66" y2="60.96" width="0.1524" layer="97" style="longdash"/>
+<text x="218.44" y="154.94" size="2.54" layer="97">I2C Translator </text>
+<text x="220.98" y="251.46" size="2.54" layer="97">I2C Translator </text>
 </plain>
 <instances>
 <instance part="SUPPLY11" gate="G$1" x="121.92" y="93.98" smashed="yes">
@@ -3026,36 +2992,25 @@ while programming flash</text>
 <instance part="GND31" gate="1" x="177.8" y="195.58" smashed="yes">
 <attribute name="VALUE" x="177.8" y="195.326" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="X1" gate="-1" x="231.14" y="43.18" smashed="yes">
-<attribute name="NAME" x="233.68" y="42.418" size="1.524" layer="95"/>
-<attribute name="VALUE" x="230.378" y="44.577" size="1.778" layer="96"/>
+<instance part="U$1" gate="G$1" x="228.6" y="137.16" smashed="yes" rot="R90">
+<attribute name="NAME" x="213.36" y="106.68" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="228.6" y="137.16" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="X1" gate="-2" x="231.14" y="40.64" smashed="yes">
-<attribute name="NAME" x="233.68" y="39.878" size="1.524" layer="95"/>
+<instance part="U$3" gate="G$1" x="228.6" y="233.68" smashed="yes" rot="R90">
+<attribute name="NAME" x="213.36" y="203.2" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="228.6" y="233.68" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="X1" gate="-3" x="231.14" y="38.1" smashed="yes">
-<attribute name="NAME" x="233.68" y="37.338" size="1.524" layer="95"/>
+<instance part="GND1" gate="1" x="248.92" y="101.6" smashed="yes">
+<attribute name="VALUE" x="248.92" y="101.346" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="X1" gate="-4" x="231.14" y="35.56" smashed="yes">
-<attribute name="NAME" x="233.68" y="34.798" size="1.524" layer="95"/>
+<instance part="GND9" gate="1" x="248.92" y="200.66" smashed="yes">
+<attribute name="VALUE" x="248.92" y="200.406" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="X1" gate="-5" x="231.14" y="33.02" smashed="yes">
-<attribute name="NAME" x="233.68" y="32.258" size="1.524" layer="95"/>
+<instance part="SUPPLY2" gate="G$1" x="5.08" y="144.78" smashed="yes">
+<attribute name="VALUE" x="5.08" y="147.574" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="X1" gate="-6" x="231.14" y="30.48" smashed="yes">
-<attribute name="NAME" x="233.68" y="29.718" size="1.524" layer="95"/>
-</instance>
-<instance part="X1" gate="-7" x="231.14" y="27.94" smashed="yes">
-<attribute name="NAME" x="233.68" y="27.178" size="1.524" layer="95"/>
-</instance>
-<instance part="X1" gate="-8" x="231.14" y="25.4" smashed="yes">
-<attribute name="NAME" x="233.68" y="24.638" size="1.524" layer="95"/>
-</instance>
-<instance part="SUPPLY5" gate="G$1" x="226.06" y="53.34" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="226.06" y="56.134" size="1.778" layer="96" rot="MR0" align="bottom-center"/>
-</instance>
-<instance part="GND7" gate="1" x="226.06" y="17.78" smashed="yes" rot="MR0">
-<attribute name="VALUE" x="226.06" y="17.526" size="1.778" layer="96" rot="MR0" align="top-center"/>
+<instance part="SUPPLY5" gate="G$1" x="30.48" y="218.44" smashed="yes">
+<attribute name="VALUE" x="30.48" y="221.234" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 </instances>
 <busses>
@@ -3149,10 +3104,16 @@ while programming flash</text>
 <pinref part="GND31" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="X1" gate="-8" pin="S"/>
-<pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="228.6" y1="25.4" x2="226.06" y2="25.4" width="0.1524" layer="91"/>
-<wire x1="226.06" y1="25.4" x2="226.06" y2="20.32" width="0.1524" layer="91"/>
+<pinref part="U$1" gate="G$1" pin="GND"/>
+<wire x1="246.38" y1="109.22" x2="248.92" y2="109.22" width="0.1524" layer="91"/>
+<wire x1="248.92" y1="109.22" x2="248.92" y2="104.14" width="0.1524" layer="91"/>
+<pinref part="GND1" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="U$3" gate="G$1" pin="GND"/>
+<wire x1="246.38" y1="205.74" x2="248.92" y2="205.74" width="0.1524" layer="91"/>
+<wire x1="248.92" y1="205.74" x2="248.92" y2="203.2" width="0.1524" layer="91"/>
+<pinref part="GND9" gate="1" pin="GND"/>
 </segment>
 </net>
 <net name="RX/SCL" class="0">
@@ -3166,11 +3127,6 @@ while programming flash</text>
 <wire x1="114.3" y1="38.1" x2="109.22" y2="38.1" width="0.1524" layer="91"/>
 <label x="109.22" y="38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
-<segment>
-<pinref part="X1" gate="-3" pin="S"/>
-<wire x1="228.6" y1="38.1" x2="226.06" y2="38.1" width="0.1524" layer="91"/>
-<label x="226.06" y="38.1" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
 </net>
 <net name="TX/SDA" class="0">
 <segment>
@@ -3182,11 +3138,6 @@ while programming flash</text>
 <pinref part="J2" gate="G$1" pin="2"/>
 <wire x1="114.3" y1="40.64" x2="109.22" y2="40.64" width="0.1524" layer="91"/>
 <label x="109.22" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<pinref part="X1" gate="-2" pin="S"/>
-<wire x1="228.6" y1="40.64" x2="226.06" y2="40.64" width="0.1524" layer="91"/>
-<label x="226.06" y="40.64" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="3.3V" class="1">
@@ -3302,28 +3253,20 @@ while programming flash</text>
 <pinref part="SUPPLY41" gate="G$1" pin="3.3V"/>
 </segment>
 <segment>
-<wire x1="226.06" y1="43.18" x2="226.06" y2="53.34" width="0.1524" layer="91"/>
-<pinref part="SUPPLY5" gate="G$1" pin="3.3V"/>
-<pinref part="X1" gate="-1" pin="S"/>
-<wire x1="226.06" y1="43.18" x2="228.6" y2="43.18" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="SUPPLY3" gate="G$1" pin="3.3V"/>
 <pinref part="J2" gate="G$1" pin="1"/>
 <wire x1="111.76" y1="45.72" x2="111.76" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="43.18" x2="114.3" y2="43.18" width="0.1524" layer="91"/>
 </segment>
-</net>
-<net name="!INT" class="0">
 <segment>
-<pinref part="U1" gate="U1" pin="!INT"/>
-<wire x1="101.6" y1="104.14" x2="104.14" y2="104.14" width="0.1524" layer="91"/>
-<label x="104.14" y="104.14" size="1.27" layer="95" xref="yes"/>
+<wire x1="7.62" y1="142.24" x2="5.08" y2="142.24" width="0.1524" layer="91"/>
+<wire x1="5.08" y1="142.24" x2="5.08" y2="144.78" width="0.1524" layer="91"/>
+<pinref part="SUPPLY2" gate="G$1" pin="3.3V"/>
 </segment>
 <segment>
-<pinref part="U9" gate="U1" pin="!INT"/>
-<wire x1="71.12" y1="220.98" x2="73.66" y2="220.98" width="0.1524" layer="91"/>
-<label x="73.66" y="220.98" size="1.27" layer="95" xref="yes"/>
+<wire x1="33.02" y1="215.9" x2="30.48" y2="215.9" width="0.1524" layer="91"/>
+<wire x1="30.48" y1="215.9" x2="30.48" y2="218.44" width="0.1524" layer="91"/>
+<pinref part="SUPPLY5" gate="G$1" pin="3.3V"/>
 </segment>
 </net>
 <net name="I2C_ENB" class="0">
@@ -3481,22 +3424,12 @@ while programming flash</text>
 <wire x1="71.12" y1="218.44" x2="73.66" y2="218.44" width="0.1524" layer="91"/>
 <label x="73.66" y="218.44" size="1.27" layer="95" xref="yes"/>
 </segment>
-<segment>
-<pinref part="X1" gate="-7" pin="S"/>
-<wire x1="228.6" y1="27.94" x2="226.06" y2="27.94" width="0.1524" layer="91"/>
-<label x="226.06" y="27.94" size="1.778" layer="95" rot="R180" xref="yes"/>
-</segment>
 </net>
 <net name="TX/SDA2" class="0">
 <segment>
 <pinref part="U9" gate="U1" pin="TX/SDA"/>
 <wire x1="71.12" y1="215.9" x2="73.66" y2="215.9" width="0.1524" layer="91"/>
 <label x="73.66" y="215.9" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
-<pinref part="X1" gate="-6" pin="S"/>
-<wire x1="228.6" y1="30.48" x2="226.06" y2="30.48" width="0.1524" layer="91"/>
-<label x="226.06" y="30.48" size="1.778" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
 <net name="MOSI2" class="0">
@@ -3567,6 +3500,13 @@ while programming flash</text>
 <label x="154.94" y="200.66" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
+<net name="N$2" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="VCC"/>
+<wire x1="246.38" y1="124.46" x2="256.54" y2="124.46" width="0.1524" layer="91"/>
+<wire x1="256.54" y1="124.46" x2="256.54" y2="129.54" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -3576,21 +3516,6 @@ while programming flash</text>
 <note version="6.3" minversion="6.2.2" severity="warning">
 Since Version 6.2.2 text objects can contain more than one line,
 which will not be processed correctly with this version.
-</note>
-<note version="8.2" severity="warning">
-Since Version 8.2, EAGLE supports online libraries. The ids
-of those online libraries will not be understood (or retained)
-with this version.
-</note>
-<note version="8.3" severity="warning">
-Since Version 8.3, EAGLE supports URNs for individual library
-assets (packages, symbols, and devices). The URNs of those assets
-will not be understood (or retained) with this version.
-</note>
-<note version="8.3" severity="warning">
-Since Version 8.3, EAGLE supports the association of 3D packages
-with devices in libraries, schematics, and board files. Those 3D
-packages will not be understood (or retained) with this version.
 </note>
 </compatibility>
 </eagle>
