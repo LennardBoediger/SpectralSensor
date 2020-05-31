@@ -1430,6 +1430,21 @@ Please make sure your boards conform to these design rules.
 <signal name="!RST-ADDR">
 <contactref element="U1" pad="13"/>
 <contactref element="U6" pad="2"/>
+<wire x1="12.262" y1="22.2" x2="12.3" y2="22.238" width="0.1524" layer="1"/>
+<wire x1="12.3" y1="22.238" x2="12.3" y2="23.1" width="0.1524" layer="1"/>
+<wire x1="12.3" y1="23.1" x2="12.7" y2="23.5" width="0.1524" layer="1"/>
+<via x="14.6" y="23.5" extent="1-16" drill="0.35"/>
+<wire x1="14.6" y1="23.5" x2="17.5" y2="20.6" width="0.1524" layer="16"/>
+<wire x1="17.5" y1="20.6" x2="17.5" y2="15.9" width="0.1524" layer="16"/>
+<wire x1="17.5" y1="15.9" x2="19.7" y2="13.7" width="0.1524" layer="16"/>
+<wire x1="23.3" y1="13.7" x2="19.7" y2="13.7" width="0.1524" layer="16"/>
+<wire x1="23.3" y1="13.7" x2="23.8" y2="13.2" width="0.1524" layer="16"/>
+<via x="23.8" y="13.2" extent="1-16" drill="0.35"/>
+<wire x1="23.8" y1="13.2" x2="23.8" y2="12.6" width="0.1524" layer="1"/>
+<wire x1="23.8" y1="12.6" x2="22.8" y2="11.6" width="0.1524" layer="1"/>
+<wire x1="22.8" y1="11.6" x2="22.212" y2="11.6" width="0.1524" layer="1"/>
+<wire x1="22.212" y1="11.6" x2="22.2" y2="11.612" width="0.1524" layer="1"/>
+<wire x1="12.7" y1="23.5" x2="14.6" y2="23.5" width="0.1524" layer="1"/>
 </signal>
 <signal name="!RST">
 <contactref element="U5" pad="2"/>
@@ -1540,6 +1555,16 @@ Please make sure your boards conform to these design rules.
 <contactref element="U$1" pad="8"/>
 <contactref element="U1" pad="12"/>
 <contactref element="R5" pad="1"/>
+<wire x1="22.2" y1="10.962" x2="23.062" y2="10.962" width="0.1524" layer="1"/>
+<wire x1="23.062" y1="10.962" x2="23.4" y2="11.3" width="0.1524" layer="1"/>
+<via x="23.4" y="11.3" extent="1-16" drill="0.35"/>
+<wire x1="23.4" y1="11.3" x2="22.8" y2="11.9" width="0.1524" layer="16"/>
+<wire x1="15.4" y1="11.9" x2="14.4" y2="10.9" width="0.1524" layer="16"/>
+<wire x1="14.4" y1="10.9" x2="10.2" y2="10.9" width="0.1524" layer="16"/>
+<wire x1="10.2" y1="10.9" x2="8" y2="13.1" width="0.1524" layer="16"/>
+<wire x1="22.8" y1="11.9" x2="15.4" y2="11.9" width="0.1524" layer="16"/>
+<wire x1="5" y1="13.1055" x2="8" y2="13.1" width="0" layer="19" extent="16-16"/>
+<wire x1="4" y1="15.15" x2="5" y2="13.1055" width="0" layer="19" extent="16-16"/>
 </signal>
 <signal name="SCL-SENSOR-2">
 <contactref element="U$1" pad="9"/>
