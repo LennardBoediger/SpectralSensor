@@ -3191,7 +3191,7 @@ while programming flash</text>
 <pinref part="R4" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="3.3V2" class="1">
+<net name="XORH-2" class="1">
 <segment>
 <pinref part="R8" gate="G$1" pin="2"/>
 <pinref part="R7" gate="G$1" pin="1"/>
@@ -3201,9 +3201,10 @@ while programming flash</text>
 <junction x="279.4" y="116.84"/>
 <pinref part="U$1" gate="G$1" pin="XORH"/>
 <wire x1="271.78" y1="114.3" x2="254" y2="114.3" width="0.1524" layer="91"/>
+<label x="261.62" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$5" class="1">
+<net name="XORL-2" class="1">
 <segment>
 <pinref part="R10" gate="G$1" pin="2"/>
 <wire x1="292.1" y1="119.38" x2="292.1" y2="116.84" width="0.1524" layer="91"/>
@@ -3211,9 +3212,10 @@ while programming flash</text>
 <pinref part="U$1" gate="G$1" pin="XORL"/>
 <wire x1="292.1" y1="119.38" x2="254" y2="119.38" width="0.1524" layer="91"/>
 <junction x="292.1" y="119.38"/>
+<label x="261.62" y="119.38" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="3.3V1" class="1">
+<net name="XORH-1" class="1">
 <segment>
 <pinref part="R14" gate="G$1" pin="2"/>
 <pinref part="R13" gate="G$1" pin="1"/>
@@ -3223,9 +3225,10 @@ while programming flash</text>
 <junction x="289.56" y="195.58"/>
 <pinref part="U$2" gate="G$1" pin="XORH"/>
 <wire x1="281.94" y1="193.04" x2="264.16" y2="193.04" width="0.1524" layer="91"/>
+<label x="271.78" y="193.04" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$2" class="1">
+<net name="XORL-1" class="1">
 <segment>
 <pinref part="R16" gate="G$1" pin="2"/>
 <wire x1="302.26" y1="198.12" x2="302.26" y2="195.58" width="0.1524" layer="91"/>
@@ -3233,6 +3236,7 @@ while programming flash</text>
 <pinref part="U$2" gate="G$1" pin="XORL"/>
 <wire x1="302.26" y1="198.12" x2="264.16" y2="198.12" width="0.1524" layer="91"/>
 <junction x="302.26" y="198.12"/>
+<label x="271.78" y="198.12" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SCL-SENSOR-1" class="0">
