@@ -268,6 +268,7 @@ UsedLibraryUrn="urn:adsk.eagle:library:199"
 UsedLibrary="/Users/Lennard/Documents/EAGLE/libraries/150120RS75000_Eagle_WL-SMCW_rev20b.lbr"
 UsedLibrary="/Users/Lennard/Documents/EAGLE/libraries/61300411121_Eagle_WR-PHD_rev19a.lbr"
 UsedLibrary="/Users/Lennard/Documents/EAGLE/libraries/I2c-adress-translotor.lbr"
+UsedLibrary="/Users/Lennard/Github/Bachlorarbeit/Hardware/Eagle-Lib/M3-Hole.lbr"
 
 [Win_1]
 Type="Control Panel"
