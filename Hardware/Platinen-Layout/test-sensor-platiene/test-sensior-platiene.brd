@@ -38,7 +38,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
@@ -1136,33 +1136,37 @@ Please make sure your boards conform to these design rules.
 <contactref element="C3" pad="2"/>
 <contactref element="J1" pad="2"/>
 <contactref element="J3" pad="2"/>
-<wire x1="31.4055" y1="34.1" x2="33.7" y2="33.95" width="0" layer="19" extent="16-16"/>
-<wire x1="33.7" y1="27.75" x2="31.4055" y2="34.1" width="0" layer="19" extent="16-16"/>
-<wire x1="33" y1="20.85" x2="33.7" y2="27.75" width="0" layer="19" extent="1-16"/>
-<wire x1="35" y1="20.85" x2="33" y2="20.85" width="0" layer="19" extent="1-1"/>
-<wire x1="30.588" y1="19.35" x2="33" y2="20.85" width="0" layer="19" extent="1-1"/>
+<polygon width="0.3048" layer="16" isolate="0.016">
+<vertex x="40.2" y="0"/>
+<vertex x="40.2" y="39.7"/>
+<vertex x="40.1" y="39.8"/>
+<vertex x="0" y="39.8"/>
+<vertex x="-0.1" y="39.7"/>
+<vertex x="-0.1" y="-0.1"/>
+<vertex x="40.1" y="-0.1"/>
+</polygon>
+<polygon width="0.3048" layer="1" isolate="0.016">
+<vertex x="0.1" y="39.9"/>
+<vertex x="0.1" y="0"/>
+<vertex x="39.8" y="0"/>
+<vertex x="39.9" y="0.1"/>
+<vertex x="39.9" y="40"/>
+<vertex x="39.8" y="39.9"/>
+</polygon>
+<via x="14.8" y="17.3" extent="1-16" drill="0.35"/>
+<via x="28" y="12.9" extent="1-16" drill="0.35"/>
+<via x="27.6" y="29.6" extent="1-16" drill="0.35"/>
+<via x="37.7" y="30.2" extent="1-16" drill="0.35"/>
+<via x="3.5" y="22.4" extent="1-16" drill="0.35"/>
+<via x="11.7" y="37.1" extent="1-16" drill="0.35"/>
 <wire x1="29.688" y1="17.8" x2="30.588" y2="19.35" width="0" layer="19" extent="1-1"/>
-<wire x1="26.088" y1="21.3" x2="30.588" y2="19.35" width="0" layer="19" extent="1-1"/>
-<wire x1="18.7" y1="26.088" x2="26.088" y2="21.3" width="0" layer="19" extent="1-1"/>
-<wire x1="13.8" y1="29.395" x2="18.7" y2="26.088" width="0" layer="19" extent="1-16"/>
-<wire x1="19.15" y1="33.3" x2="13.8" y2="29.395" width="0" layer="19" extent="1-16"/>
-<wire x1="19.15" y1="35" x2="19.15" y2="33.3" width="0" layer="19" extent="1-1"/>
-<wire x1="21.27" y1="38.35" x2="19.15" y2="35" width="0" layer="19" extent="1-1"/>
-<wire x1="10.312" y1="22.2" x2="13.8" y2="29.395" width="0" layer="19" extent="1-16"/>
-<wire x1="9.412" y1="20.65" x2="10.312" y2="22.2" width="0" layer="19" extent="1-1"/>
-<wire x1="7" y1="20.85" x2="9.412" y2="20.65" width="0" layer="19" extent="1-1"/>
-<wire x1="5" y1="20.85" x2="7" y2="20.85" width="0" layer="19" extent="1-1"/>
-<wire x1="13.912" y1="18.7" x2="9.412" y2="20.65" width="0" layer="19" extent="1-1"/>
-<wire x1="2.23" y1="28.46" x2="5" y2="20.85" width="0" layer="19" extent="1-1"/>
-<wire x1="21.3" y1="13.912" x2="26.088" y2="21.3" width="0" layer="19" extent="1-1"/>
-<wire x1="20.85" y1="7" x2="21.3" y2="13.912" width="0" layer="19" extent="1-1"/>
-<wire x1="20.85" y1="5" x2="20.85" y2="7" width="0" layer="19" extent="1-1"/>
-<wire x1="18.73" y1="1.65" x2="20.85" y2="5" width="0" layer="19" extent="1-1"/>
-<wire x1="9.55" y1="5.7" x2="18.73" y2="1.65" width="0" layer="19" extent="16-16"/>
-<wire x1="7.25" y1="5.7" x2="9.55" y2="5.7" width="0" layer="19" extent="16-16"/>
+<wire x1="33" y1="20.85" x2="30.588" y2="19.35" width="0" layer="19" extent="1-1"/>
 <wire x1="6" y1="8.8945" x2="7.25" y2="5.7" width="0" layer="19" extent="16-16"/>
-<wire x1="31" y1="5.695" x2="20.85" y2="5" width="0" layer="19" extent="1-16"/>
-<wire x1="35.23" y1="6.46" x2="31" y2="5.695" width="0" layer="19" extent="16-16"/>
+<wire x1="31" y1="5.695" x2="35.23" y2="6.46" width="0" layer="19" extent="16-16"/>
+<wire x1="26.088" y1="21.3" x2="30.588" y2="19.35" width="0" layer="19" extent="1-1"/>
+<wire x1="13.8" y1="29.395" x2="19.15" y2="33.3" width="0" layer="19" extent="1-16"/>
+<wire x1="18.7" y1="26.088" x2="13.8" y2="29.395" width="0" layer="19" extent="1-16"/>
+<wire x1="21.3" y1="13.912" x2="28" y2="12.9" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="SCL-PI">
 <contactref element="U$1" pad="10"/>
@@ -1192,7 +1196,7 @@ Please make sure your boards conform to these design rules.
 <wire x1="9.1182" y1="39.3182" x2="21.67104375" y2="39.3182" width="0.1524" layer="16"/>
 <wire x1="4.1" y1="34.3" x2="9.1182" y2="39.3182" width="0.1524" layer="16"/>
 <wire x1="7.3" y1="12.5" x2="7.3" y2="13.5" width="0.1524" layer="1"/>
-<wire x1="7.3" y1="13.5" x2="6.9" y2="13.9" width="0.1524" layer="1"/>
+<wire x1="7.3" y1="13.5" x2="6.9" y2="13.9" width="0.3048" layer="1"/>
 <wire x1="6.9" y1="13.9" x2="2" y2="13.9" width="0.1524" layer="1"/>
 <via x="2" y="13.9" extent="1-16" drill="0.35"/>
 <wire x1="2" y1="13.9" x2="1" y2="13.9" width="0.1524" layer="16"/>
