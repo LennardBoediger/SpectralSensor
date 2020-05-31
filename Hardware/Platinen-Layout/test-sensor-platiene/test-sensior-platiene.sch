@@ -2528,8 +2528,8 @@ while programming flash</text>
 <attribute name="NAME" x="166.022" y="33.22" size="1.016" layer="95" rot="R90" align="bottom-right"/>
 <attribute name="VALUE" x="167.68" y="33.27" size="1.016" layer="96" rot="R90" align="bottom-right"/>
 </instance>
-<instance part="GND19" gate="1" x="152.4" y="30.48" smashed="yes">
-<attribute name="VALUE" x="149.86" y="27.94" size="1.778" layer="96"/>
+<instance part="GND19" gate="1" x="152.4" y="27.94" smashed="yes">
+<attribute name="VALUE" x="149.86" y="25.4" size="1.778" layer="96"/>
 </instance>
 <instance part="GND3" gate="1" x="185.42" y="30.48" smashed="yes">
 <attribute name="VALUE" x="182.88" y="27.94" size="1.778" layer="96"/>
@@ -2675,6 +2675,12 @@ while programming flash</text>
 <wire x1="170.18" y1="38.1" x2="185.42" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="185.42" y1="38.1" x2="185.42" y2="33.02" width="0.1524" layer="91"/>
 <pinref part="GND3" gate="1" pin="GND"/>
+</segment>
+<segment>
+<pinref part="J3" gate="G$1" pin="2"/>
+<wire x1="137.16" y1="38.1" x2="152.4" y2="38.1" width="0.1524" layer="91"/>
+<pinref part="GND19" gate="1" pin="GND"/>
+<wire x1="152.4" y1="38.1" x2="152.4" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="SCL-PI" class="0">
@@ -3291,15 +3297,6 @@ while programming flash</text>
 <segment>
 <pinref part="U9" gate="U1" pin="!INT"/>
 <wire x1="71.12" y1="220.98" x2="76.2" y2="220.98" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$11" class="0">
-<segment>
-<wire x1="152.4" y1="33.02" x2="152.4" y2="35.56" width="0.1524" layer="91"/>
-<pinref part="J3" gate="G$1" pin="2"/>
-<wire x1="137.16" y1="38.1" x2="152.4" y2="38.1" width="0.1524" layer="91"/>
-<wire x1="152.4" y1="38.1" x2="152.4" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="GND19" gate="1" pin="GND"/>
 </segment>
 </net>
 </nets>
