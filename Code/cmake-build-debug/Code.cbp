@@ -104,6 +104,9 @@
 		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/wiringPi_AS726X_Libary/AS726X.h">
 			<Option target="Code"/>
 		</Unit>
+		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/wiringPi_AS726X_Libary/influxdb.c">
+			<Option target="Code"/>
+		</Unit>
 		<Unit filename="/Users/Lennard/Github/Bachlorarbeit/Code/wiringPi_AS726X_Libary/main.c">
 			<Option target="Code"/>
 		</Unit>

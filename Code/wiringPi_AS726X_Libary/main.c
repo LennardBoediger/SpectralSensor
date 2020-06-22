@@ -4,6 +4,7 @@
 #include <wiringPiI2C.h>
 #include "AS726X.h"
 
+
 int main() {
     printf("----------AS726X-Test----------\n");
     int fd =  wiringPiI2CSetup(AS726X_ADDR);

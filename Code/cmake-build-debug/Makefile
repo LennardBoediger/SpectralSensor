@@ -177,6 +177,33 @@ SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp.s:
 	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp.s
 .PHONY : SparkFun_AS726X_Arduino_Library-master/src/AS726X.cpp.s
 
+wiringPi_AS726X_Libary/influxdb.o: wiringPi_AS726X_Libary/influxdb.c.o
+
+.PHONY : wiringPi_AS726X_Libary/influxdb.o
+
+# target to build an object file
+wiringPi_AS726X_Libary/influxdb.c.o:
+	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/wiringPi_AS726X_Libary/influxdb.c.o
+.PHONY : wiringPi_AS726X_Libary/influxdb.c.o
+
+wiringPi_AS726X_Libary/influxdb.i: wiringPi_AS726X_Libary/influxdb.c.i
+
+.PHONY : wiringPi_AS726X_Libary/influxdb.i
+
+# target to preprocess a source file
+wiringPi_AS726X_Libary/influxdb.c.i:
+	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/wiringPi_AS726X_Libary/influxdb.c.i
+.PHONY : wiringPi_AS726X_Libary/influxdb.c.i
+
+wiringPi_AS726X_Libary/influxdb.s: wiringPi_AS726X_Libary/influxdb.c.s
+
+.PHONY : wiringPi_AS726X_Libary/influxdb.s
+
+# target to generate assembly for a file
+wiringPi_AS726X_Libary/influxdb.c.s:
+	$(MAKE) -f CMakeFiles/Code.dir/build.make CMakeFiles/Code.dir/wiringPi_AS726X_Libary/influxdb.c.s
+.PHONY : wiringPi_AS726X_Libary/influxdb.c.s
+
 wiringPi_AS726X_Libary/main.o: wiringPi_AS726X_Libary/main.c.o
 
 .PHONY : wiringPi_AS726X_Libary/main.o
@@ -219,6 +246,9 @@ help:
 	@echo "... SparkFun_AS726X_Arduino_Library-master/src/AS726X.o"
 	@echo "... SparkFun_AS726X_Arduino_Library-master/src/AS726X.i"
 	@echo "... SparkFun_AS726X_Arduino_Library-master/src/AS726X.s"
+	@echo "... wiringPi_AS726X_Libary/influxdb.o"
+	@echo "... wiringPi_AS726X_Libary/influxdb.i"
+	@echo "... wiringPi_AS726X_Libary/influxdb.s"
 	@echo "... wiringPi_AS726X_Libary/main.o"
 	@echo "... wiringPi_AS726X_Libary/main.i"
 	@echo "... wiringPi_AS726X_Libary/main.s"

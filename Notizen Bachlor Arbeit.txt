@@ -49,8 +49,9 @@ test i2c
 Install InfluxDB 	(https://docs.influxdata.com/influxdb/v1.8/introduction/install/)
 	wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 	source /etc/os-release
-	echo "deb https://repos.influxdata.com/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
-	sudo apt-get update && sudo apt-get install influxdb
+	echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+	sudo apt-get update 
+	!!!!!!!!!!!!!!!!FAIL someting https don't install influxdb 0.1.5!!!!!!!!!!!!!!!!!!!!!
 	sudo apt-get install influxdb
 	sudo apt-get install influxdb-client
 	influx -precision rfc3339 
@@ -62,9 +63,13 @@ Install InfluxDB 	(https://docs.influxdata.com/influxdb/v1.8/introduction/instal
 	Influxdb Starten:
 		sudo service influxdb start
 
+
+	Export data to csv:
+		influx -username your_user_if_any -password "secret!" -database 'db_name' -host 'localhost' -execute 'SELECT * FROM "db_name"."your_retention_policy_or_nothing"."your_measurement_name" WHERE time > '\''2017-09-05'\'' and time < '\''2017-09-05T23:59:59Z'\'' AND other_conditions_if_required' -format 'csv' > /tmp/your_measurement_name_20170905.csv
+
 	Influxdb Autostart:
 
-Install Grafana		(https://grafana.com/docs/grafana/latest/installation/debian/)
+Install Grafana:		(https://grafana.com/docs/grafana/latest/installation/debian/)
 	sudo apt-get update
 	sudo apt-get install software-properties-common
 	sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
@@ -82,6 +87,15 @@ Login Grafana:
 	http://192.168.178.107:3000
 	user: admin
 	pw: admin
+
+Install Telegraf
+	wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+	source /etc/lsb-release
+	echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+	sudo apt-get update
+	sudo apt-get install telegraf
+
+
 
 ######################################  C code ###########################
 git clone https://github.com/friendlyarm/WiringNP
