@@ -1,0 +1,98 @@
+\documentclass[a4paper,oneside,12pt,titlepage]{scrartcl}   %Grundeinstellungen
+
+\usepackage[ngerman]{babel}
+%\usepackage[T1]{fontenc} % umlaute
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[amssymb]{SIunits} 
+
+\renewcommand{\familydefault}{\sfdefault} 
+\usepackage{graphicx} 
+\usepackage{subfigure}                         
+\usepackage{float}
+\usepackage[section]{placeins}
+\renewcommand{\topfraction}{0.85}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+
+\usepackage{cite}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+
+\usepackage{listings}
+
+\lstset{%
+	 basicstyle=\scriptsize\ttfamily,
+   keywordstyle=\bfseries\ttfamily\color{NavyBlue},
+   stringstyle=\color{Rhodamine}\ttfamily,
+   commentstyle=\color{Green}\ttfamily,
+   emph={square}, 
+   emphstyle=\color{blue}\texttt,
+   emph={[2]root,base},
+   emphstyle={[2]\color{yac}\texttt},
+   language=Python,%
+   tabsize=2,%
+   basicstyle=\footnotesize\ttfamily,%
+   numbers=left,%
+   numberfirstline,%
+   breaklines=true,%
+   breakatwhitespace=true,%
+   linewidth=\textwidth,%
+   xleftmargin=0.075\textwidth,%
+   frame=tlrb,%
+   captionpos=b%
+}
+
+
+%Header Definitionen
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+%Abstand zwischen Absätzen, Zeilenabstände
+\voffset26pt 
+\parskip6pt
+%\parindent1cm  %Rückt erste Zeile eines neuen Absatzes ein
+\usepackage{setspace}
+\onehalfspacing
+
+\begin{document}
+\pagenumbering{roman}
+
+\titlehead
+{
+	\begin{minipage}{0.6\textwidth}
+	Technische Universität Berlin\\
+	Fakulät IV\\
+	Institut für Energie- und Automatisierungstechnik Fachgebiet Lichttechnik\\
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.3\textwidth}\raggedright
+	\includegraphics[scale=0.06]{tu-logo}\\
+	\end{minipage}
+	
+	}
+
+\title {Entwicklung und Realisierung einer Messeinrichtung mit den Sensoren AS7261 und AS72651 von ams}
+\subtitle{Expose}
+\author{Vorgelegt von: Lennard Bödiger\\
+Matrikelnr.: 363470\\
+Studiengang: Technische Informatik}
+
+\maketitle  %Erstellt das Titelblatt wie oben definiert
+
+
+\section{Einleitung}
+\section{Stand der Forschung}
+\section{Zielsetzung}
+\section{Zeitplan}
+\section{Methodik}
+\bibliography{Quellen}
+%\cite{MT_Kap5}
+\bibliographystyle {plain}
+
+
+\end{document}
