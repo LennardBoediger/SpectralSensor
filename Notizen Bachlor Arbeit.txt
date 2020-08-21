@@ -66,8 +66,9 @@ Install InfluxDB 	(https://docs.influxdata.com/influxdb/v1.8/introduction/instal
 	use NAME
 	CREATE USER Grafana WITH PASSWORD '299792458'
 	CREATE USER Input WITH PASSWORD '299792458'
-
-
+Show data:
+	use SpectralSensor
+	select * from noise
 
 
 
@@ -88,13 +89,6 @@ Login Grafana:
 	user: admin
 	pw: admin
 
-Install Telegraf
-	wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
-	source /etc/lsb-release
-	echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
-	sudo apt-get update
-	sudo apt-get install telegraf
-
 
 
 ######################################  C code ###########################
@@ -107,7 +101,7 @@ install wiringPiI2C dependencies: nononononononon
 		cancel
 
 Copy files:
-	scp -r /Users/lennard/Projekts/Bachelorarbeit/Code/wiringPi_AS726X_Libary   root@192.168.178.114:/mnt/SpectralSensor
+	scp -r /Users/lennard/Projekts/Bachelorarbeit/Code/wiringPi_AS726X_Libary   root@192.168.178.114:/mnt/mmcblk1/SpectralSensor
 
 
 
