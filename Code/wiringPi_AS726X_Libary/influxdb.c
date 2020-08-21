@@ -1,4 +1,5 @@
-
+/* This is sample C code as an example */
+/* Example of loading stats data into InfluxDB in its Line Protocol format over a network using HTTP POST */
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -7,8 +8,19 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <string.h>
-#include "influxdb.h"
 
+/* YOU WILL HAVE TO CHANGE THESE FIVE LINES TO MATCH YOUR INFLUXDB CONFIG */
+#define PORT        8086                   /* Port number as an integer - web server default is 80 */
+#define IP_ADDRESS "127.0.0.1"  /* IP Address as a string */
+#define DATABASE "SpectralSensor"                /* This is the InfluxDB database name */
+#define USERNAME "Input"               /* These are the credentials used to access the database */
+#define PASSWORD "299792458"
+
+/* client endpoint details for a tag: replace with your hostname or use gethostname() */
+#define HOSTNAME "NanoPi-NEO2-Black"
+#define SECONDS 1
+#define LOOPS   100
+#define BUFSIZE 8196
 
 int pexit(char * msg)
 {
@@ -16,9 +28,8 @@ int pexit(char * msg)
     exit(1);
 }
 
-int writeToDatabase(char measurement,int value)
+int writeToDatabase(char measurement, int value)
 {
-    int i;
     int sockfd;
     int ret;
     char header[BUFSIZE];
@@ -43,7 +54,7 @@ int writeToDatabase(char measurement,int value)
         data is random=<number>
         ending epoch time missing (3 spaces) so InfluxDB generates the timestamp */
     /* InfluxDB line protocol note: ending epoch time missing so InfluxDB greates it */
-    sprintf(body, "noise,measurement=%s value=%i   \n", measurement, value);
+    sprintf(body, "noise,measurement=%s value=%i   \n", HOSTNAME, value);
 
     /* Note spaces are important and the carriage-returns & newlines */
     /* db= is the datbase name, u= the username and p= the password */
@@ -51,7 +62,7 @@ int writeToDatabase(char measurement,int value)
         DATABASE, USERNAME, PASSWORD, strlen(body));
 
     printf("Send to InfluxDB the POST request bytes=%d \n->|%s|<-\n",strlen(header), header);
-    write(sockfd, header, strlen(header));
+    ret = write(sockfd, header, strlen(header));
     if (ret < 0)
         pexit("Write Header request to InfluxDB failed");
 
@@ -69,4 +80,5 @@ int writeToDatabase(char measurement,int value)
     printf("Result returned from InfluxDB. Note:204 is Sucess\n->|%s|<-\n",result);
 
     close(sockfd);
+    return 0;
 }

@@ -5,6 +5,7 @@
 #include "AS726X.h"
 #include "influxdb.h"
 
+void Test_Device(int adress);
 
 void Test_Device(int adress){
     printf("----------Test Device %X ----------\n",adress);
@@ -16,9 +17,9 @@ void Test_Device(int adress){
 
     disableBulb(fd);
     printf("Temperatur %dF\n",getTemperature(fd));
-    int B = getBlue(fd)
+    int B = getBlue(fd);
     printf( "getBlue: %d\n",B);
-    writeToDatabase('B',B);
+     writeToDatabase('B',B);
     /*printf( "getGreen: %d\n",getGreen(fd));
     printf( "getYellow: %d\n",getYellow(fd));
     printf( "getOrange: %d\n",getOrange(fd));
