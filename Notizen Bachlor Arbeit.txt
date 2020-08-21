@@ -46,32 +46,32 @@ eMMC Formatieren und Mounten:
 test i2c
 	i2cdetect -y 0
 
+Install important stuff first!
+sudo apt-get update
+sudo apt-get install software-properties-common
+apt-get install apt-transport-https
+
 Install InfluxDB 	(https://docs.influxdata.com/influxdb/v1.8/introduction/install/)
 	wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 	source /etc/os-release
 	echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 	sudo apt-get update 
-	!!!!!!!!!!!!!!!!FAIL someting https don't install influxdb 0.1.5!!!!!!!!!!!!!!!!!!!!!
 	sudo apt-get install influxdb
-	sudo apt-get install influxdb-client
-	influx -precision rfc3339 
-	show databases
-	create database NAME
-	use NAME
-	CREATE USER Grafana WITH PASSWORD '299792458'
-
+	!!!!!!!!!!sudo apt-get install influxdb-client!!!!!!!!!!! not nececarry
 	Influxdb Starten:
 		sudo service influxdb start
+	influx -precision rfc3339 
+	show databases
+	create database NAME (SpectralSensor)
+	use NAME
+	CREATE USER Grafana WITH PASSWORD '299792458'
+	CREATE USER Input WITH PASSWORD '299792458'
 
 
-	Export data to csv:
-		influx -username your_user_if_any -password "secret!" -database 'db_name' -host 'localhost' -execute 'SELECT * FROM "db_name"."your_retention_policy_or_nothing"."your_measurement_name" WHERE time > '\''2017-09-05'\'' and time < '\''2017-09-05T23:59:59Z'\'' AND other_conditions_if_required' -format 'csv' > /tmp/your_measurement_name_20170905.csv
 
-	Influxdb Autostart:
+
 
 Install Grafana:		(https://grafana.com/docs/grafana/latest/installation/debian/)
-	sudo apt-get update
-	sudo apt-get install software-properties-common
 	sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
 	wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
 	sudo apt-get update
@@ -107,4 +107,9 @@ install wiringPiI2C dependencies: nononononononon
 		cancel
 
 Copy files:
-	scp -r /Users/Lennard/Github/Bachlorarbeit/Code/AS7261-test   root@192.168.178.107:/mnt/mmcblk1/SpectralSensor
+	scp -r /Users/lennard/Projekts/Bachelorarbeit/Code/wiringPi_AS726X_Libary   root@192.168.178.114:/mnt/SpectralSensor
+
+
+
+Hardware:
+die led ist am as72653 und nicht am 1 dringend ändern

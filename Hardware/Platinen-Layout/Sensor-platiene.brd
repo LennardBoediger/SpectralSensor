@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.6.1">
+<eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="yes"/>
+<setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.01" unitdist="mm" unit="mm" style="dots" multiple="1" display="yes" altdistance="0.1" altunitdist="mm" altunit="mm"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -20,7 +20,7 @@
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
@@ -1031,7 +1031,7 @@ Please make sure your boards conform to these design rules.
 <attribute name="PROD_ID" value="CAP-11015" x="58.1" y="-26.75" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="20" y="4.238" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
 </element>
-<element name="D1" library="150120RS75000_Eagle_WL-SMCW_rev20b" package="WL-SMCW_1206" package3d_urn="urn:adsk.eagle:package:19028166/2" value="" x="11.612" y="25" smashed="yes">
+<element name="D1-AS7261" library="150120RS75000_Eagle_WL-SMCW_rev20b" package="WL-SMCW_1206" package3d_urn="urn:adsk.eagle:package:19028166/2" value="" x="11.612" y="25" smashed="yes">
 <attribute name="ABSTRAHLWINKEL" value="140°" x="45.902" y="0.87" size="1.778" layer="27" display="off"/>
 <attribute name="CHIP-TECHNOLOGY" value="AlInGaP" x="45.902" y="0.87" size="1.778" layer="27" display="off"/>
 <attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/150120RS75000.pdf" x="45.902" y="0.87" size="1.778" layer="27" display="off"/>
@@ -1044,7 +1044,7 @@ Please make sure your boards conform to these design rules.
 <attribute name="V-F-TYP" value="2V" x="45.902" y="0.87" size="1.778" layer="27" display="off"/>
 <attribute name="VALUE" x="11.372" y="23.06" size="0.6096" layer="27" align="bottom-center"/>
 </element>
-<element name="D2" library="150120RS75000_Eagle_WL-SMCW_rev20b" package="WL-SMCW_1206" package3d_urn="urn:adsk.eagle:package:19028166/2" value="" x="28.388" y="25" smashed="yes" rot="R180">
+<element name="D2-CHANGENTO-AS72651" library="150120RS75000_Eagle_WL-SMCW_rev20b" package="WL-SMCW_1206" package3d_urn="urn:adsk.eagle:package:19028166/2" value="" x="28.388" y="25" smashed="yes" rot="R180">
 <attribute name="ABSTRAHLWINKEL" value="140°" x="-12.252" y="49.13" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="CHIP-TECHNOLOGY" value="AlInGaP" x="-12.252" y="49.13" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/150120RS75000.pdf" x="-12.252" y="49.13" size="1.778" layer="27" rot="R180" display="off"/>
@@ -1365,8 +1365,8 @@ Please make sure your boards conform to these design rules.
 <contactref element="U10" pad="7"/>
 <contactref element="U10" pad="3"/>
 <contactref element="J10" pad="2"/>
-<contactref element="D2" pad="1"/>
-<contactref element="D1" pad="1"/>
+<contactref element="D2-CHANGENTO-AS72651" pad="1"/>
+<contactref element="D1-AS7261" pad="1"/>
 <contactref element="U$1" pad="4"/>
 <contactref element="U$1" pad="5"/>
 <contactref element="R5" pad="2"/>
@@ -1844,7 +1844,7 @@ Please make sure your boards conform to these design rules.
 </signal>
 <signal name="N$1">
 <contactref element="AS7261" pad="18"/>
-<contactref element="D1" pad="2"/>
+<contactref element="D1-AS7261" pad="2"/>
 <wire x1="20" y1="26.088" x2="20" y2="25.4" width="0.1524" layer="1"/>
 <wire x1="20" y1="25.4" x2="20.3" y2="25.1" width="0.1524" layer="1"/>
 <via x="20.3" y="25.1" extent="1-16" drill="0.35"/>
@@ -1856,7 +1856,7 @@ Please make sure your boards conform to these design rules.
 </signal>
 <signal name="N$4">
 <contactref element="U5" pad="18"/>
-<contactref element="D2" pad="2"/>
+<contactref element="D2-CHANGENTO-AS72651" pad="2"/>
 <via x="23.6" y="21.5" extent="1-16" drill="0.35"/>
 <wire x1="26.888" y1="25" x2="25.7436" y2="23.8556" width="0.1524" layer="1"/>
 <wire x1="25.7436" y1="23.8556" x2="24.9527" y2="23.8556" width="0.1524" layer="1"/>

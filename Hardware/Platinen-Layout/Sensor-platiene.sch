@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="9.6.1">
+<eagle version="9.6.2">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -2188,8 +2188,8 @@ Updated by Yingchun,Shan 2019-10-21
 <part name="GND1" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
 <part name="SUPPLY2" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="SUPPLY5" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
-<part name="D1" library="150120RS75000_Eagle_WL-SMCW_rev20b" deviceset="WL-SMCW_1206" device="" package3d_urn="urn:adsk.eagle:package:19028166/2" technology="_150120RS75000"/>
-<part name="D2" library="150120RS75000_Eagle_WL-SMCW_rev20b" deviceset="WL-SMCW_1206" device="" package3d_urn="urn:adsk.eagle:package:19028166/2" technology="_150120RS75000"/>
+<part name="D1-AS7261" library="150120RS75000_Eagle_WL-SMCW_rev20b" deviceset="WL-SMCW_1206" device="" package3d_urn="urn:adsk.eagle:package:19028166/2" technology="_150120RS75000"/>
+<part name="D2-CHANGENTO-AS72651" library="150120RS75000_Eagle_WL-SMCW_rev20b" deviceset="WL-SMCW_1206" device="" package3d_urn="urn:adsk.eagle:package:19028166/2" technology="_150120RS75000"/>
 <part name="SUPPLY10" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="SUPPLY15" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="SUPPLY16" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
@@ -2406,11 +2406,11 @@ while programming flash</text>
 <instance part="SUPPLY5" gate="G$1" x="30.48" y="218.44" smashed="yes">
 <attribute name="VALUE" x="30.48" y="221.234" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="D1" gate="G$1" x="35.56" y="215.9" smashed="yes">
+<instance part="D1-AS7261" gate="G$1" x="35.56" y="215.9" smashed="yes">
 <attribute name="NAME" x="33.572" y="219.872" size="1.27" layer="95"/>
 <attribute name="VALUE" x="32.932" y="211.972" size="1.27" layer="96"/>
 </instance>
-<instance part="D2" gate="G$1" x="38.1" y="142.24" smashed="yes">
+<instance part="D2-CHANGENTO-AS72651" gate="G$1" x="38.1" y="142.24" smashed="yes">
 <attribute name="NAME" x="36.112" y="146.212" size="1.27" layer="95"/>
 <attribute name="VALUE" x="35.472" y="138.312" size="1.27" layer="96"/>
 </instance>
@@ -2865,13 +2865,13 @@ while programming flash</text>
 <wire x1="35.56" y1="142.24" x2="33.02" y2="142.24" width="0.1524" layer="91"/>
 <wire x1="33.02" y1="142.24" x2="33.02" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="SUPPLY2" gate="G$1" pin="3.3V"/>
-<pinref part="D2" gate="G$1" pin="-"/>
+<pinref part="D2-CHANGENTO-AS72651" gate="G$1" pin="-"/>
 </segment>
 <segment>
 <wire x1="33.02" y1="215.9" x2="30.48" y2="215.9" width="0.1524" layer="91"/>
 <wire x1="30.48" y1="215.9" x2="30.48" y2="218.44" width="0.1524" layer="91"/>
 <pinref part="SUPPLY5" gate="G$1" pin="3.3V"/>
-<pinref part="D1" gate="G$1" pin="-"/>
+<pinref part="D1-AS7261" gate="G$1" pin="-"/>
 </segment>
 <segment>
 <pinref part="SUPPLY10" gate="G$1" pin="3.3V"/>
@@ -3164,13 +3164,13 @@ while programming flash</text>
 <net name="N$1" class="0">
 <segment>
 <pinref part="AS7261" gate="U1" pin="LED_IND"/>
-<pinref part="D1" gate="G$1" pin="+"/>
+<pinref part="D1-AS7261" gate="G$1" pin="+"/>
 </segment>
 </net>
 <net name="N$4" class="0">
 <segment>
 <pinref part="U5" gate="U1" pin="LED_IND"/>
-<pinref part="D2" gate="G$1" pin="+"/>
+<pinref part="D2-CHANGENTO-AS72651" gate="G$1" pin="+"/>
 </segment>
 </net>
 <net name="SDA-SENSOR-2" class="0">
