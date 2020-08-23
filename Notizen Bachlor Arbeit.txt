@@ -26,7 +26,7 @@ eMMC Formatieren und Mounten:
 	fdisk -l
 	sudo apt install parted
 	sudo parted /dev/mmcblk1
-		print devices
+		print addresss
 		print
 		mklabel gpt
 		mkpart primary 0GB 31GB
@@ -57,18 +57,19 @@ Install InfluxDB 	(https://docs.influxdata.com/influxdb/v1.8/introduction/instal
 	echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 	sudo apt-get update 
 	sudo apt-get install influxdb
-	!!!!!!!!!!sudo apt-get install influxdb-client!!!!!!!!!!! not nececarry
 	Influxdb Starten:
 		sudo service influxdb start
+	
 	influx -precision rfc3339 
 	show databases
-	create database NAME (SpectralSensor)
-	use NAME
+	create database SpectralSensor
+	use SpectralSensor
 	CREATE USER Grafana WITH PASSWORD '299792458'
 	CREATE USER Input WITH PASSWORD '299792458'
-Show data:
-	use SpectralSensor
-	select * from noise
+	
+	Show data:
+		use SpectralSensor
+		select * from VALUE (eg X,Y,Z)
 
 
 
@@ -91,19 +92,20 @@ Login Grafana:
 
 
 
-######################################  C code ###########################
-git clone https://github.com/friendlyarm/WiringNP
-cd WiringNP/
-
-
-install wiringPiI2C dependencies: nononononononon
-	sudo apt-get install libi2c-dev
-		cancel
-
 Copy files:
 	scp -r /Users/lennard/Projekts/Bachelorarbeit/Code/wiringPi_AS726X_Libary   root@192.168.178.114:/mnt/mmcblk1/SpectralSensor
+
+How to Screen:
+	screen  		//start new session
+	make 			//run code
+	Ctrl-a Ctrl-d  	//detacht
+	screen -list 	//list sessions
+	screen -r NR	//reconnect
+
+
 
 
 
 Hardware:
 die led ist am as72653 und nicht am 1 dringend ändern
+2 wiederstände für die lower bytes reichen am translator

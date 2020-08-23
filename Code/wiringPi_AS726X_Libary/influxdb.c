@@ -20,7 +20,9 @@
 #define HOSTNAME "NanoPi-NEO2-Black"
 #define LOOPS   100
 #define BUFSIZE 8196
-#define DEBUG   1
+#define DEBUG   0
+
+
 
 int pexit(char * msg)
 {
@@ -28,7 +30,7 @@ int pexit(char * msg)
     exit(1);
 }
 
-int writeToDatabase(char measurement, int value)
+int writeToDatabase(char measurement[],int i2c_adrress, int value)
 {
     int sockfd;
     int ret;
@@ -56,7 +58,7 @@ int writeToDatabase(char measurement, int value)
         data is random=<number>
         ending epoch time missing (3 spaces) so InfluxDB generates the timestamp */
     /* InfluxDB line protocol note: ending epoch time missing so InfluxDB greates it */
-    sprintf(body, "noise,measurement=%c value=%i   \n", measurement, value);
+    sprintf(body, "%s,i2c_adrress=%x value=%i   \n", measurement,i2c_adrress ,value);
 
     /* Note spaces are important and the carriage-returns & newlines */
     /* db= is the datbase name, u= the username and p= the password */
@@ -69,7 +71,7 @@ int writeToDatabase(char measurement, int value)
         pexit("Write Header request to InfluxDB failed");
 
     if(DEBUG == 1){
-        printf("Send to InfluxDB the data bytes=%d \n->|%s|<-\n",strlen(body), body);
+        printf("Send to InfluxDB the data bytes=%lu \n->|%s|<-\n",strlen(body), body);
     }
     ret = write(sockfd, body, strlen(body));
     if (ret < 0)
@@ -82,7 +84,9 @@ int writeToDatabase(char measurement, int value)
         pexit("Reading the result from InfluxDB failed");
     result[ret] = 0; /* terminate string */
     if(DEBUG == 1){
-        printf("Result returned from InfluxDB. Note:204 is Sucess\n->|%s|<-\n",result);
+        printf("Result returned:\n->|'%s'|<-\n",result);
+    }else{
+       printf("Result returned:\n->|'%.*s'|<-\n",3,result+9); 
     }
 
     close(sockfd);

@@ -13,6 +13,15 @@ void disableInterrupt(int fd);
 void takeMeasurements(int fd);
 void takeMeasurementsWithBulb( int fd);
 
+
+
+int getX(int fd);
+int getY(int fd);
+int getZ(int fd);
+int getNIR(int fd);
+int getDark(int fd);
+int getClear(int fd);
+
 //Get the various color readings
 int getViolet(int fd);
 int getBlue(int fd);
@@ -29,6 +38,13 @@ int getU(int fd);
 int getV(int fd);
 int getW(int fd);
 int getChannel(uint8_t channelRegister, int fd);
+
+
+float getCalibratedX(int fd);
+float getCalibratedY(int fd);
+float getCalibratedZ(int fd);
+float getCalibratedLUX(int fd);
+float getCalibratedCCT(int fd);
 
 float getCalibratedViolet(int fd);
 float getCalibratedBlue(int fd);
@@ -84,7 +100,20 @@ void virtualWriteRegister(uint8_t virtualAddr, uint8_t dataToWrite, int fd);
 #define AS72XX_SLAVE_WRITE_REG 0x01
 #define AS72XX_SLAVE_READ_REG 0x02
 
-//The same register locations are shared between the AS7262 and AS7263, they're just called something different
+//The same register locations are shared between the AS7261, AS7262 and AS7263, they're just called something different
+//AS7261 Registers
+#define AS7261_X 0x08
+#define AS7261_Y 0x0A
+#define AS7261_Z 0x0C
+#define AS7261_NIR 0x0E
+#define AS7261_DARK 0x10
+#define AS7261_CLEAR 0x12
+#define AS7261_X_CAL 0x14
+#define AS7261_Y_CAL 0x18
+#define AS7261_Z_CAL 0x1C
+#define AS7261_LUX_CAL 0x3C
+#define AS7261_CCT_CAL 0x40
+
 //AS7262 Registers
 #define AS7262_V 0x08
 #define AS7262_B 0x0A

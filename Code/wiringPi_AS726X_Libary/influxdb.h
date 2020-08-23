@@ -15,4 +15,4 @@
 #define HOSTNAME "NanoPi-NEO2-Black"
 #define BUFSIZE 8196
 
-int writeToDatabase(char measurement,int value);
+int writeToDatabase(char measurement[],int i2c_adrress,int value);

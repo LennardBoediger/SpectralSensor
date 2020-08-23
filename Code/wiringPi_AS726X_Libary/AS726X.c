@@ -110,21 +110,32 @@ void takeMeasurementsWithBulb( int fd)
     //disableIndicator();
 }
 
-//Get the various color readings
-int getViolet(int fd) { return(getChannel(AS7262_V, fd)); }
-int getBlue(int fd) { return(getChannel(AS7262_B, fd)); }
-int getGreen(int fd) { return(getChannel(AS7262_G, fd)); }
-int getYellow(int fd) { return(getChannel(AS7262_Y, fd)); }
-int getOrange(int fd) { return(getChannel(AS7262_O, fd)); }
-int getRed(int fd) { return(getChannel(AS7262_R, fd)); }
+//Get RAW AS7261 readings
+int getX(int fd) { return(getChannel(AS7261_X, fd));}
+int getY(int fd) { return(getChannel(AS7261_Y, fd));}
+int getZ(int fd) { return(getChannel(AS7261_Z, fd));}
+int getNIR(int fd) { return(getChannel(AS7261_NIR, fd));}
+int getDark(int fd) { return(getChannel(AS7261_DARK, fd));}
+int getClear(int fd) { return(getChannel(AS7261_CLEAR, fd));}
 
-//Get the various NIR readings
-int getR(int fd) { return(getChannel(AS7263_R, fd)); }
-int getS(int fd) { return(getChannel(AS7263_S, fd)); }
-int getT(int fd) { return(getChannel(AS7263_T, fd)); }
-int getU(int fd) { return(getChannel(AS7263_U, fd)); }
-int getV(int fd) { return(getChannel(AS7263_V, fd)); }
-int getW(int fd) { return(getChannel(AS7263_W, fd)); }
+/*not used*/
+//Get the various color readings
+// int getViolet(int fd) { return(getChannel(AS7262_V, fd)); }
+// int getBlue(int fd) { return(getChannel(AS7262_B, fd)); }
+// int getGreen(int fd) { return(getChannel(AS7262_G, fd)); }
+// int getYellow(int fd) { return(getChannel(AS7262_Y, fd)); }
+// int getOrange(int fd) { return(getChannel(AS7262_O, fd)); }
+// int getRed(int fd) { return(getChannel(AS7262_R, fd)); }
+
+
+// //Get the various NIR readings
+// int getR(int fd) { return(getChannel(AS7263_R, fd)); }
+// int getS(int fd) { return(getChannel(AS7263_S, fd)); }
+// int getT(int fd) { return(getChannel(AS7263_T, fd)); }
+// int getU(int fd) { return(getChannel(AS7263_U, fd)); }
+// int getV(int fd) { return(getChannel(AS7263_V, fd)); }
+// int getW(int fd) { return(getChannel(AS7263_W, fd)); }
+/*not used*/
 
 //A the 16-bit value stored in a given channel registerReturns
 int getChannel(uint8_t channelRegister, int fd)
@@ -135,19 +146,25 @@ int getChannel(uint8_t channelRegister, int fd)
 }
 
 //Returns the various calibration data
-float getCalibratedViolet(int fd) { return(getCalibratedValue(AS7262_V_CAL, fd)); }
-float getCalibratedBlue(int fd) { return(getCalibratedValue(AS7262_B_CAL, fd)); }
-float getCalibratedGreen(int fd) { return(getCalibratedValue(AS7262_G_CAL, fd)); }
-float getCalibratedYellow(int fd) { return(getCalibratedValue(AS7262_Y_CAL, fd)); }
-float getCalibratedOrange(int fd) { return(getCalibratedValue(AS7262_O_CAL, fd)); }
-float getCalibratedRed(int fd) { return(getCalibratedValue(AS7262_R_CAL, fd)); }
+float getCalibratedX(int fd) { return(getCalibratedValue(AS7261_X_CAL, fd)); } 
+float getCalibratedY(int fd) { return(getCalibratedValue(AS7261_Y_CAL, fd)); } 
+float getCalibratedZ(int fd) { return(getCalibratedValue(AS7261_Z_CAL, fd)); } 
+float getCalibratedLUX(int fd) { return(getCalibratedValue(AS7261_LUX_CAL, fd)); } 
+float getCalibratedCCT(int fd) { return(getCalibratedValue(AS7261_CCT_CAL, fd)); } 
+/*not used*/
+// float getCalibratedViolet(int fd) { return(getCalibratedValue(AS7262_V_CAL, fd)); }
+// float getCalibratedBlue(int fd) { return(getCalibratedValue(AS7262_B_CAL, fd)); }
+// float getCalibratedGreen(int fd) { return(getCalibratedValue(AS7262_G_CAL, fd)); }
+// float getCalibratedYellow(int fd) { return(getCalibratedValue(AS7262_Y_CAL, fd)); }
+// float getCalibratedOrange(int fd) { return(getCalibratedValue(AS7262_O_CAL, fd)); }
+// float getCalibratedRed(int fd) { return(getCalibratedValue(AS7262_R_CAL, fd)); }
 
-float getCalibratedT(int fd) { return(getCalibratedValue(AS7263_T_CAL, fd)); }
-float getCalibratedS(int fd) { return(getCalibratedValue(AS7263_S_CAL, fd)); }
-float getCalibratedR(int fd) { return(getCalibratedValue(AS7263_R_CAL, fd)); }
-float getCalibratedU(int fd) { return(getCalibratedValue(AS7263_U_CAL, fd)); }
-float getCalibratedV(int fd) { return(getCalibratedValue(AS7263_V_CAL, fd)); }
-float getCalibratedW(int fd) { return(getCalibratedValue(AS7263_W_CAL, fd)); }
+// float getCalibratedT(int fd) { return(getCalibratedValue(AS7263_T_CAL, fd)); }
+// float getCalibratedS(int fd) { return(getCalibratedValue(AS7263_S_CAL, fd)); }
+// float getCalibratedR(int fd) { return(getCalibratedValue(AS7263_R_CAL, fd)); }
+// float getCalibratedU(int fd) { return(getCalibratedValue(AS7263_U_CAL, fd)); }
+// float getCalibratedV(int fd) { return(getCalibratedValue(AS7263_V_CAL, fd)); }
+// float getCalibratedW(int fd) { return(getCalibratedValue(AS7263_W_CAL, fd)); }
 
 //Given an address, read four uint8_ts and return the floating point calibrated value
 float getCalibratedValue(uint8_t calAddress, int fd)
@@ -281,7 +298,7 @@ uint8_t virtualReadRegister(uint8_t virtualAddr, int fd){
     //Do a prelim check of the read register
     status =  wiringPiI2CReadReg8 (fd, AS72XX_SLAVE_STATUS_REG);
     if ((status & AS72XX_SLAVE_RX_VALID) != 0){ //There is data to be read
-        uint8_t incoming = wiringPiI2CReadReg8(fd, AS72XX_SLAVE_READ_REG); //Read the uint8_t but do nothing with it
+        /*uint8_t incoming = */wiringPiI2CReadReg8(fd, AS72XX_SLAVE_READ_REG); //Read the uint8_t but do nothing with it
     }
     //Wait for WRITE flag to clear
     while (1) {
