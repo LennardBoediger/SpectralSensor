@@ -52,14 +52,15 @@ int writeToDatabase(char measurement[],int i2c_adrress, int value)
     if(connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr)) <0)
         pexit("connect() failed");
 
-    /* InfluxDB line protocol note:
-        measurement name is "noise"
-        tag is host=blue - multiple tags separate with comma
-        data is random=<number>
-        ending epoch time missing (3 spaces) so InfluxDB generates the timestamp */
-    /* InfluxDB line protocol note: ending epoch time missing so InfluxDB greates it */
+    //  Create InfluxDB line protocol body
+    //  1. measurement Name
+    //  2. tag(Device identifier)
+    //  3. value
+    //  4. epoch time missing (3 spaces) so InfluxDB generates the timestamp
+    
     sprintf(body, "%s,i2c_adrress=%x value=%i   \n", measurement,i2c_adrress ,value);
 
+    // Create InfluxDB line protocol header
     /* Note spaces are important and the carriage-returns & newlines */
     /* db= is the datbase name, u= the username and p= the password */
     sprintf(header,"POST /write?db=%s&u=%s&p=%s HTTP/1.1\r\nHost: influx:8086\r\nContent-Length: %ld\r\n\r\n", 
@@ -80,8 +81,9 @@ int writeToDatabase(char measurement[],int i2c_adrress, int value)
     /* Get back the acknwledgement from InfluxDB */
     /* It worked if you get "HTTP/1.1 204 No Content" and some other fluff */
     ret = read(sockfd, result, sizeof(result));
-    if (ret < 0)
+    if (ret < 0){
         pexit("Reading the result from InfluxDB failed");
+    }
     result[ret] = 0; /* terminate string */
     if(DEBUG == 1){
         printf("Result returned:\n->|'%s'|<-\n",result);
@@ -89,6 +91,11 @@ int writeToDatabase(char measurement[],int i2c_adrress, int value)
        printf("Result returned:\n->|'%.*s'|<-\n",3,result+9); 
     }
 
-    close(sockfd);
+    if(close(sockfd) < 0){
+        pexit("close failed");
+    }
+    else{
+        printf("Socket closed\n");
+    }
     return 0;
 }

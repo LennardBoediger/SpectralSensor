@@ -108,4 +108,4 @@ How to Screen:
 
 Hardware:
 die led ist am as72653 und nicht am 1 dringend ändern
-2 wiederstände für die lower bytes reichen am translator
+

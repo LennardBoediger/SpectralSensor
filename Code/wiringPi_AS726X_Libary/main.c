@@ -73,7 +73,7 @@ void Test_address(int address){
 
     //Turn ON Power LED
     enableBulb(fd);
-
+    close(fd); //dont forget to close the fd !!!!!!!!
 }
 
 int main() {
@@ -81,7 +81,7 @@ int main() {
         printf("----------AS726X-Test----------\n");
         Test_address(0x49);
         Test_address(0x48);
-        sleep(10);//sleep 10s
+        sleep(1);//sleep 10s
     }
     return 0;
 }

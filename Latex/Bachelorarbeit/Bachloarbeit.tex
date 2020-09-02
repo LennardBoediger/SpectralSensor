@@ -7,14 +7,16 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsthm}
+\usepackage{subfiles} 
+\usepackage{caption}
 \usepackage{wrapfig}
-\usepackage{lipsum}  % generates filler text
+\usepackage[amssymb]{SIunits}
+ 
 
-\usepackage[amssymb]{SIunits} 
 
 \renewcommand{\familydefault}{\sfdefault} 
-\usepackage{graphicx} 
-\usepackage{subcaption}                         
+\usepackage{graphicx}
+\usepackage{subcaption}                       
 \usepackage{float}
 \usepackage[section]{placeins}
 \renewcommand{\topfraction}{0.85}
@@ -62,7 +64,7 @@
 \onehalfspacing
 
 \begin{document}
-\pagenumbering{roman}
+\pagenumbering{arabic}
 
 \titlehead
 {
@@ -86,44 +88,25 @@ Studiengang: Technische Informatik}
 
 \maketitle  %Erstellt das Titelblatt wie oben definiert
 
-
-\section{Zusammenfassung}
-
-
-\begin{wrapfigure}{R}{0.3\textwidth}
-\centering
-\includegraphics[width=0.25\textwidth]{test.jpg}
-\caption{\label{fig:frog1}This is a figure caption.}
-\end{wrapfigure}
-
-ljdfweasdasdasdasdasdasdsdjlbnfjksbdfjkbsdfjkbsdjkf\\
-sfsdpfjsdofjweipofjewiojfoiwejfiowejfoiwejfiojwefojjojfeojwefoijwf\\
-fjqpfijsdnfjsdlknfjsndfjksndfjknsadkjfnskdjfnsjkdnfkjsdnfsndfksn\\
-adljasdlajsdljasdljasldjalsjdlasjdalsdjklkasjdlajksdlkasjdlkasjdlask\\
-aüsodpqüdüqwdküqkdwüqwkdüqwdküqwkdükükwdükpqdw
-
-\begin{wrapfigure}{L}{0.3\textwidth}
-\centering
-\includegraphics[width=0.25\textwidth]{test.jpg}
-\caption{\label{fig:test.jpg}This is a figure caption.}
-\end{wrapfigure}
-
-\lipsum[2-3]
+%\tableofcontents
+\section{Einleitung}
 \newpage
-\section{side by side}
-\begin{figure}[H]
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{test.jpg}
-    \caption{Picture 1}
-    \label{fig:1}
-  \end{subfigure}
-  %
-  \begin{subfigure}[b]{0.4\textwidth}
-    \includegraphics[width=\textwidth]{test.jpg}
-    \caption{Picture 2}
-    \label{fig:2}
-  \end{subfigure}
-\end{figure}
+\subfile{sections/Einleitung}
+\section{Technische Grundlagen}
+\subfile{sections/Technische_Grundlagen}
+\section{Hardware Komponenten}
+\subfile{sections/Hardware_Komponenten}
+\section{System Topologie}
+\subfile{sections/System_Topologie}
+\section{Software}
+\subfile{sections/Software}
+\section{Platine}
+\subfile{sections/Platine}
+\section{Benutzerhandbuch}
+\subfile{sections/Benutzerhandbuch}
+\section{Messungen}
+\subfile{sections/Messungen}
+\section{Zusammenfassung}
 
 \bibliography{Quellen}
 %\cite{MT_Kap5}
