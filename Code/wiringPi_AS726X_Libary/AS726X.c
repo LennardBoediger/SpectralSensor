@@ -21,9 +21,17 @@ uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd){
 
 
 // returns the Sensor Version
+// AS7261 or AS7265X
 uint8_t getVersion( int fd)
 {
     return virtualReadRegister(AS726x_HW_VERSION, fd);
+}
+
+//Select witch AS7265X Device is used
+//AS72651_id or AS72652_id or AS72653_id  
+void selectDevice(uint8_t device, int fd) {
+  //Set the bits 0:1. Just overwrite whatever is there because masking in the correct value doesn't work.
+  virtualWriteRegister(AS7265X_DEV_SELECT_CONTROL, device, fd);
 }
 
 
@@ -66,6 +74,7 @@ void setIntegrationTime(uint8_t integrationValue, int fd) {
     virtualWriteRegister(AS726x_INT_T, integrationValue, fd); //Write
 }
 
+// not needed for bank mode 3!
 void enableInterrupt(int fd) {
     //Read, mask/set, write
     uint8_t value = virtualReadRegister(AS726x_CONTROL_SETUP, fd); //Read
@@ -73,7 +82,7 @@ void enableInterrupt(int fd) {
     virtualWriteRegister(AS726x_CONTROL_SETUP, value, fd); //Write
 }
 
-//Disables the interrupt pin
+//Disables the interrupt pin witch is not connected so disable it!
 void disableInterrupt(int fd)
 {
     //Read, mask/set, write
@@ -111,35 +120,45 @@ void takeMeasurementsWithBulb( int fd)
 }
 
 //Get RAW AS7261 readings
-int getX(int fd) { return(getChannel(AS7261_X, fd));}
-int getY(int fd) { return(getChannel(AS7261_Y, fd));}
-int getZ(int fd) { return(getChannel(AS7261_Z, fd));}
+int getX_CIE(int fd) { return(getChannel(AS7261_X, fd));}
+int getY_CIE(int fd) { return(getChannel(AS7261_Y, fd));}
+int getZ_CIE(int fd) { return(getChannel(AS7261_Z, fd));}
 int getNIR(int fd) { return(getChannel(AS7261_NIR, fd));}
 int getDark(int fd) { return(getChannel(AS7261_DARK, fd));}
 int getClear(int fd) { return(getChannel(AS7261_CLEAR, fd));}
 
-/*not used*/
-//Get the various color readings
-// int getViolet(int fd) { return(getChannel(AS7262_V, fd)); }
-// int getBlue(int fd) { return(getChannel(AS7262_B, fd)); }
-// int getGreen(int fd) { return(getChannel(AS7262_G, fd)); }
-// int getYellow(int fd) { return(getChannel(AS7262_Y, fd)); }
-// int getOrange(int fd) { return(getChannel(AS7262_O, fd)); }
-// int getRed(int fd) { return(getChannel(AS7262_R, fd)); }
+//Get RAW AS72651(NIR) readings
+int getR(int fd) { return(getChannel_AS7265X(AS72651_id, AS7265X_R_G_A, fd));}
+int getS(int fd) { return(getChannel_AS7265X(AS72651_id, AS7265X_S_H_B, fd));}
+int getT(int fd) { return(getChannel_AS7265X(AS72651_id, AS7265X_T_I_C, fd));}
+int getU(int fd) { return(getChannel_AS7265X(AS72651_id, AS7265X_U_J_D, fd));}
+int getV(int fd) { return(getChannel_AS7265X(AS72651_id, AS7265X_V_K_E, fd));}
+int getW(int fd) { return(getChannel_AS7265X(AS72651_id, AS7265X_W_L_F, fd));}
+
+//Get RAW AS72652(color) readings
+int getG(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_R_G_A, fd));}
+int getX(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_S_H_B, fd));}
+int getI(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_T_I_C, fd));}
+int getJ(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_U_J_D, fd));}
+int getK(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_V_K_E, fd));}
+int getL(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_W_L_F, fd));}
+
+//Get the various UV readings
+//Get RAW AS72653(UV) readings
+int getA(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_R_G_A, fd));}
+int getB(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_S_H_B, fd));}
+int getC(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_T_I_C, fd));}
+int getD(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_U_J_D, fd));}
+int getE(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_V_K_E, fd));}
+int getF(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_W_L_F, fd));}
 
 
-// //Get the various NIR readings
-// int getR(int fd) { return(getChannel(AS7263_R, fd)); }
-// int getS(int fd) { return(getChannel(AS7263_S, fd)); }
-// int getT(int fd) { return(getChannel(AS7263_T, fd)); }
-// int getU(int fd) { return(getChannel(AS7263_U, fd)); }
-// int getV(int fd) { return(getChannel(AS7263_V, fd)); }
-// int getW(int fd) { return(getChannel(AS7263_W, fd)); }
-/*not used*/
-
+int getChannel_AS7265X(int device, uint8_t channelRegister, int fd){
+    selectDevice(device, fd);
+    return getChannel(channelRegister, fd);
+}
 //A the 16-bit value stored in a given channel registerReturns
-int getChannel(uint8_t channelRegister, int fd)
-{
+int getChannel(uint8_t channelRegister, int fd){
     int colorData = virtualReadRegister(channelRegister , fd) << 8; //High uint8_t
     colorData |= virtualReadRegister(channelRegister + 1, fd); //Low uint8_t
     return(colorData);
@@ -151,20 +170,6 @@ float getCalibratedY(int fd) { return(getCalibratedValue(AS7261_Y_CAL, fd)); }
 float getCalibratedZ(int fd) { return(getCalibratedValue(AS7261_Z_CAL, fd)); } 
 float getCalibratedLUX(int fd) { return(getCalibratedValue(AS7261_LUX_CAL, fd)); } 
 float getCalibratedCCT(int fd) { return(getCalibratedValue(AS7261_CCT_CAL, fd)); } 
-/*not used*/
-// float getCalibratedViolet(int fd) { return(getCalibratedValue(AS7262_V_CAL, fd)); }
-// float getCalibratedBlue(int fd) { return(getCalibratedValue(AS7262_B_CAL, fd)); }
-// float getCalibratedGreen(int fd) { return(getCalibratedValue(AS7262_G_CAL, fd)); }
-// float getCalibratedYellow(int fd) { return(getCalibratedValue(AS7262_Y_CAL, fd)); }
-// float getCalibratedOrange(int fd) { return(getCalibratedValue(AS7262_O_CAL, fd)); }
-// float getCalibratedRed(int fd) { return(getCalibratedValue(AS7262_R_CAL, fd)); }
-
-// float getCalibratedT(int fd) { return(getCalibratedValue(AS7263_T_CAL, fd)); }
-// float getCalibratedS(int fd) { return(getCalibratedValue(AS7263_S_CAL, fd)); }
-// float getCalibratedR(int fd) { return(getCalibratedValue(AS7263_R_CAL, fd)); }
-// float getCalibratedU(int fd) { return(getCalibratedValue(AS7263_U_CAL, fd)); }
-// float getCalibratedV(int fd) { return(getCalibratedValue(AS7263_V_CAL, fd)); }
-// float getCalibratedW(int fd) { return(getCalibratedValue(AS7263_W_CAL, fd)); }
 
 //Given an address, read four uint8_ts and return the floating point calibrated value
 float getCalibratedValue(uint8_t calAddress, int fd)

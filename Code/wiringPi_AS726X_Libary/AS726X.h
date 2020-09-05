@@ -3,6 +3,65 @@
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 
+//Sensor Type Indentifiers
+#define SENSORTYPE_AS7261 0x00 //TODO
+#define SENSORTYPE_AS72651 0x00 //TODO
+
+#define AS72XX_SLAVE_TX_VALID 0x02
+#define AS72XX_SLAVE_RX_VALID 0x01
+
+#define AS72XX_SLAVE_STATUS_REG 0x00
+#define AS72XX_SLAVE_WRITE_REG 0x01
+#define AS72XX_SLAVE_READ_REG 0x02
+
+//Register addresses
+#define AS726x_DEVICE_TYPE 0x00
+#define AS726x_HW_VERSION 0x01
+#define AS726x_CONTROL_SETUP 0x04
+#define AS726x_INT_T 0x05
+#define AS726x_DEVICE_TEMP 0x06
+#define AS726x_LED_CONTROL 0x07
+
+//AS7261 Registers
+//Raw channel registers
+#define AS7261_X 0x08
+#define AS7261_Y 0x0A
+#define AS7261_Z 0x0C
+#define AS7261_NIR 0x0E
+#define AS7261_DARK 0x10
+#define AS7261_CLEAR 0x12
+//Calibrated channel registers
+#define AS7261_X_CAL 0x14
+#define AS7261_Y_CAL 0x18
+#define AS7261_Z_CAL 0x1C
+#define AS7261_LUX_CAL 0x3C
+#define AS7261_CCT_CAL 0x40
+
+//AS7265X
+//Raw channel registers
+#define AS7265X_R_G_A     0x08
+#define AS7265X_S_H_B     0x0A
+#define AS7265X_T_I_C     0x0C
+#define AS7265X_U_J_D     0x0E
+#define AS7265X_V_K_E     0x10
+#define AS7265X_W_L_F     0x12
+//Calibrated channel registers
+#define AS7265X_R_G_A_CAL   0x14
+#define AS7265X_S_H_B_CAL   0x18
+#define AS7265X_T_I_C_CAL   0x1C
+#define AS7265X_U_J_D_CAL   0x20
+#define AS7265X_V_K_E_CAL   0x24
+#define AS7265X_W_L_F_CAL   0x28
+
+//AS7265X Device Selection
+#define AS7265X_DEV_SELECT_CONTROL  0x4F
+//AS7265X Device Identifiers
+#define AS72651_id    	0x00
+#define AS72652_id      0x01
+#define AS72653_id      0x02
+
+#define POLLING_DELAY 5 //Amount of ms to wait between checking for virtual register changes
+
 uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd);
 uint8_t getVersion( int fd); //61 oder 65
 void setMeasurementMode(uint8_t mode, int fd);
@@ -14,29 +73,40 @@ void takeMeasurements(int fd);
 void takeMeasurementsWithBulb( int fd);
 
 
-
-int getX(int fd);
-int getY(int fd);
-int getZ(int fd);
+//Get RAW AS7261 readings
+int getX_CIE(int fd);
+int getY_CIE(int fd);
+int getZ_CIE(int fd);
 int getNIR(int fd);
 int getDark(int fd);
 int getClear(int fd);
 
-//Get the various color readings
-int getViolet(int fd);
-int getBlue(int fd);
-int getGreen(int fd);
-int getYellow(int fd);
-int getOrange(int fd);
-int getRed(int fd);
-
-//Get the various NIR readings
+//Get RAW AS72651(NIR) readings
 int getR(int fd);
 int getS(int fd);
 int getT(int fd);
 int getU(int fd);
 int getV(int fd);
 int getW(int fd);
+
+//Get RAW AS72652(color) readings
+int getG(int fd);
+int getX(int fd);
+int getI(int fd);
+int getJ(int fd);
+int getK(int fd);
+int getL(int fd);
+
+//Get the various UV readings
+//Get RAW AS72653(UV) readings
+int getA(int fd);
+int getB(int fd);
+int getC(int fd);
+int getD(int fd);
+int getE(int fd);
+int getF(int fd);
+
+int getChannel_AS7265X(int device, uint8_t channelRegister, int fd);
 int getChannel(uint8_t channelRegister, int fd);
 
 
@@ -81,71 +151,3 @@ void virtualWriteRegister(uint8_t virtualAddr, uint8_t dataToWrite, int fd);
 
 
 
-
-
-
-#define AS726X_ADDR 0x49 //7-bit unshifted default I2C Address
-#define SENSORTYPE_AS7262 0x3E
-#define SENSORTYPE_AS7263 0x3F
-
-//Register addresses
-#define AS726x_DEVICE_TYPE 0x00
-#define AS726x_HW_VERSION 0x01
-#define AS726x_CONTROL_SETUP 0x04
-#define AS726x_INT_T 0x05
-#define AS726x_DEVICE_TEMP 0x06
-#define AS726x_LED_CONTROL 0x07
-
-#define AS72XX_SLAVE_STATUS_REG 0x00
-#define AS72XX_SLAVE_WRITE_REG 0x01
-#define AS72XX_SLAVE_READ_REG 0x02
-
-//The same register locations are shared between the AS7261, AS7262 and AS7263, they're just called something different
-//AS7261 Registers
-#define AS7261_X 0x08
-#define AS7261_Y 0x0A
-#define AS7261_Z 0x0C
-#define AS7261_NIR 0x0E
-#define AS7261_DARK 0x10
-#define AS7261_CLEAR 0x12
-#define AS7261_X_CAL 0x14
-#define AS7261_Y_CAL 0x18
-#define AS7261_Z_CAL 0x1C
-#define AS7261_LUX_CAL 0x3C
-#define AS7261_CCT_CAL 0x40
-
-//AS7262 Registers
-#define AS7262_V 0x08
-#define AS7262_B 0x0A
-#define AS7262_G 0x0C
-#define AS7262_Y 0x0E
-#define AS7262_O 0x10
-#define AS7262_R 0x12
-#define AS7262_V_CAL 0x14
-#define AS7262_B_CAL 0x18
-#define AS7262_G_CAL 0x1C
-#define AS7262_Y_CAL 0x20
-#define AS7262_O_CAL 0x24
-#define AS7262_R_CAL 0x28
-
-//AS7263 Registers
-#define AS7263_R 0x08
-#define AS7263_S 0x0A
-#define AS7263_T 0x0C
-#define AS7263_U 0x0E
-#define AS7263_V 0x10
-#define AS7263_W 0x12
-#define AS7263_R_CAL 0x14
-#define AS7263_S_CAL 0x18
-#define AS7263_T_CAL 0x1C
-#define AS7263_U_CAL 0x20
-#define AS7263_V_CAL 0x24
-#define AS7263_W_CAL 0x28
-
-#define AS72XX_SLAVE_TX_VALID 0x02
-#define AS72XX_SLAVE_RX_VALID 0x01
-
-#define SENSORTYPE_AS7262 0x3E
-#define SENSORTYPE_AS7263 0x3F
-
-#define POLLING_DELAY 5 //Amount of ms to wait between checking for virtual register changes

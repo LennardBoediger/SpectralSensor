@@ -8,6 +8,8 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <string.h>
+#include <time.h>
+#include <stdint.h>
 
 /* YOU WILL HAVE TO CHANGE THESE FIVE LINES TO MATCH YOUR INFLUXDB CONFIG */
 #define PORT        8086                   /* Port number as an integer - web server default is 80 */
@@ -30,7 +32,7 @@ int pexit(char * msg)
     exit(1);
 }
 
-int writeToDatabase(char measurement[],int i2c_adrress, int value)
+int writeToDatabase(char measurement[],int i2c_adrress, uint64_t measurment_time_ms ,int value)
 {
     int sockfd;
     int ret;
@@ -54,16 +56,16 @@ int writeToDatabase(char measurement[],int i2c_adrress, int value)
 
     //  Create InfluxDB line protocol body
     //  1. measurement Name
-    //  2. tag(Device identifier)
-    //  3. value
+    //  2. tag = device identifier
+    //  3. value 
     //  4. epoch time missing (3 spaces) so InfluxDB generates the timestamp
-    
-    sprintf(body, "%s,i2c_adrress=%x value=%i   \n", measurement,i2c_adrress ,value);
+    printf("%s,i2c_adrress=%x value=%i %llu\n", measurement,i2c_adrress ,value, (unsigned long long)measurment_time_ms);
+    sprintf(body, "%s,i2c_adrress=%x value=%i %llu\n", measurement,i2c_adrress ,value, (unsigned long long)measurment_time_ms);
 
     // Create InfluxDB line protocol header
     /* Note spaces are important and the carriage-returns & newlines */
-    /* db= is the datbase name, u= the username and p= the password */
-    sprintf(header,"POST /write?db=%s&u=%s&p=%s HTTP/1.1\r\nHost: influx:8086\r\nContent-Length: %ld\r\n\r\n", 
+    /* db= is the datbase name, precision=timestamp precision , u= the username and p= the password */
+    sprintf(header,"POST /write?db=%s&precision=ms&u=%s&p=%s HTTP/1.1\r\nHost: influx:8086\r\nContent-Length: %ld\r\n\r\n", 
         DATABASE, USERNAME, PASSWORD, strlen(body));
 
     //printf("Send to InfluxDB the POST request bytes=%d \n->|%s|<-\n",strlen(header), header);
@@ -93,9 +95,6 @@ int writeToDatabase(char measurement[],int i2c_adrress, int value)
 
     if(close(sockfd) < 0){
         pexit("close failed");
-    }
-    else{
-        printf("Socket closed\n");
     }
     return 0;
 }
