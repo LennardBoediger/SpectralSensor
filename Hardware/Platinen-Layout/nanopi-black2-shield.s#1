@@ -6009,6 +6009,7 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <part name="J1" library="61300211821_Eagle_WR-PHD_rev19a" deviceset="6130XX21121_61301021121" device="" package3d_urn="urn:adsk.eagle:package:14805405/2"/>
 <part name="J2" library="61300211821_Eagle_WR-PHD_rev19a" deviceset="6130XX21121_61300621121" device="" package3d_urn="urn:adsk.eagle:package:14805407/2"/>
 <part name="GND1" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="J5" library="61300411121_Eagle_WR-PHD_rev19a" deviceset="6130XX11821_61300411821" device="" package3d_urn="urn:adsk.eagle:package:14805541/2"/>
 <part name="SUPPLY28" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
@@ -6041,6 +6042,9 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 </instance>
 <instance part="GND1" gate="1" x="160.02" y="43.18" smashed="yes">
 <attribute name="VALUE" x="157.48" y="40.64" size="1.778" layer="96"/>
+</instance>
+<instance part="GND2" gate="1" x="83.82" y="48.26" smashed="yes">
+<attribute name="VALUE" x="81.28" y="45.72" size="1.778" layer="96"/>
 </instance>
 <instance part="GND3" gate="1" x="124.46" y="55.88" smashed="yes">
 <attribute name="VALUE" x="121.92" y="53.34" size="1.778" layer="96"/>
@@ -6100,6 +6104,12 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 </segment>
 </net>
 <net name="GND" class="0">
+<segment>
+<pinref part="J1" gate="G$1" pin="6"/>
+<pinref part="GND2" gate="1" pin="GND"/>
+<wire x1="96.52" y1="55.88" x2="83.82" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="83.82" y1="55.88" x2="83.82" y2="50.8" width="0.1524" layer="91"/>
+</segment>
 <segment>
 <pinref part="J1" gate="G$1" pin="9"/>
 <wire x1="106.68" y1="60.96" x2="124.46" y2="60.96" width="0.1524" layer="91"/>
@@ -6206,13 +6216,7 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <label x="93.98" y="53.34" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="3.3V" class="1">
-<segment>
-<pinref part="J5" gate="G$1" pin="3"/>
-<wire x1="149.86" y1="17.78" x2="170.18" y2="17.78" width="0.1524" layer="91"/>
-<pinref part="SUPPLY28" gate="G$1" pin="3.3V"/>
-<wire x1="170.18" y1="17.78" x2="170.18" y2="25.4" width="0.1524" layer="91"/>
-</segment>
+<net name="3,3V" class="0">
 <segment>
 <wire x1="170.18" y1="60.96" x2="172.72" y2="60.96" width="0.1524" layer="91"/>
 <label x="175.26" y="60.96" size="1.27" layer="95" xref="yes"/>
@@ -6221,6 +6225,14 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <wire x1="172.72" y1="55.88" x2="172.72" y2="60.96" width="0.1524" layer="91"/>
 <junction x="172.72" y="60.96"/>
 <pinref part="C2" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="3.3V" class="1">
+<segment>
+<pinref part="J5" gate="G$1" pin="3"/>
+<wire x1="149.86" y1="17.78" x2="170.18" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="SUPPLY28" gate="G$1" pin="3.3V"/>
+<wire x1="170.18" y1="17.78" x2="170.18" y2="25.4" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
