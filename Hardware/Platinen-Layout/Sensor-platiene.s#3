@@ -2193,10 +2193,10 @@ Updated by Yingchun,Shan 2019-10-21
 <part name="SUPPLY16" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="R4" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
 <part name="R5" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R7" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R8" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R9" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R10" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R2_HT" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R2_HB" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R2_LT" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R2_LB" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
 <part name="SUPPLY18" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="U$2" library="I2c-adress-translotor" deviceset="LTC4316" device=""/>
 <part name="GND7" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
@@ -2205,10 +2205,10 @@ Updated by Yingchun,Shan 2019-10-21
 <part name="SUPPLY20" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="R11" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
 <part name="R12" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R13" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R14" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R15" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R16" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R1_HT" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R1_HB" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R1_LT" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R1_LB" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
 <part name="SUPPLY21" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="C1" library="SparkFun-Capacitors" deviceset="1.0UF" device="-0603-16V-10%" value="1.0uF"/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="10UF" device="-0603-6.3V-20%" value="10uF"/>
@@ -2228,7 +2228,7 @@ Updated by Yingchun,Shan 2019-10-21
 <sheets>
 <sheet>
 <plain>
-<text x="66.802" y="169.926" size="2.54" layer="97" rot="MR180" align="top-left">AS7265x Spectral Sensor</text>
+<text x="49.022" y="167.386" size="2.54" layer="97" rot="MR180" align="top-left">AS7265x Spectral Sensor</text>
 <wire x1="7.62" y1="60.96" x2="134.62" y2="60.96" width="0.2032" layer="97" style="longdash"/>
 <wire x1="134.62" y1="60.96" x2="200.66" y2="60.96" width="0.2032" layer="97" style="longdash"/>
 <wire x1="200.66" y1="60.96" x2="256.54" y2="60.96" width="0.2032" layer="97" style="longdash"/>
@@ -2236,21 +2236,20 @@ Updated by Yingchun,Shan 2019-10-21
 <text x="150.622" y="155.702" size="2.54" layer="97" rot="MR180" align="top-left">4mbit Flash Memory</text>
 <text x="146.812" y="87.122" size="1.778" layer="97">The AS72651 must be held in reset
 while programming flash</text>
-<text x="157.734" y="122.682" size="1.778" layer="97">AT25SF041</text>
-<text x="33.782" y="243.586" size="2.54" layer="95" rot="MR180" align="top-left">AS726x Spectral Sensor</text>
+<text x="162.814" y="122.682" size="1.778" layer="97">AT25SF041</text>
+<text x="66.802" y="230.886" size="2.54" layer="95" rot="MR180" align="top-left">AS726x Spectral Sensor</text>
 <text x="150.622" y="252.222" size="2.54" layer="95" rot="MR180" align="top-left">4mbit Flash Memory</text>
 <text x="149.352" y="181.102" size="1.778" layer="97">The AS726x must be held in reset 
 while programming flash</text>
-<wire x1="10.16" y1="172.72" x2="134.62" y2="172.72" width="0.1524" layer="97" style="longdash"/>
-<wire x1="134.62" y1="172.72" x2="279.4" y2="172.72" width="0.1524" layer="97" style="longdash"/>
-<wire x1="134.62" y1="172.72" x2="134.62" y2="256.54" width="0.1524" layer="97" style="longdash"/>
-<wire x1="200.66" y1="256.54" x2="200.66" y2="60.96" width="0.1524" layer="97" style="longdash"/>
+<wire x1="10.16" y1="172.72" x2="134.62" y2="172.72" width="0.2032" layer="97" style="longdash"/>
+<wire x1="134.62" y1="172.72" x2="279.4" y2="172.72" width="0.2032" layer="97" style="longdash"/>
+<wire x1="134.62" y1="172.72" x2="134.62" y2="256.54" width="0.2032" layer="97" style="longdash"/>
+<wire x1="200.66" y1="256.54" x2="200.66" y2="60.96" width="0.2032" layer="97" style="longdash"/>
 <text x="251.46" y="165.1" size="2.54" layer="97">I2C Translator </text>
 <text x="274.32" y="142.24" size="1.778" layer="97">Voltage Diveder to set Translation</text>
 <text x="261.62" y="243.84" size="2.54" layer="97">I2C Translator </text>
 <text x="284.48" y="220.98" size="1.778" layer="97">Voltage Diveder to set Translation</text>
 <text x="149.86" y="55.88" size="1.778" layer="97">I2C Connector</text>
-<text x="53.34" y="55.88" size="1.778" layer="97">decoupling capacitor for every sensor</text>
 </plain>
 <instances>
 <instance part="SUPPLY11" gate="G$1" x="129.54" y="91.44" smashed="yes">
@@ -2273,18 +2272,18 @@ while programming flash</text>
 <instance part="SUPPLY4" gate="G$1" x="111.76" y="119.38" smashed="yes">
 <attribute name="VALUE" x="111.76" y="122.174" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="U2" gate="G$1" x="165.1" y="134.62" smashed="yes">
-<attribute name="NAME" x="154.94" y="142.494" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="154.94" y="129.286" size="1.778" layer="96" font="vector" align="top-left"/>
+<instance part="U2" gate="G$1" x="170.18" y="134.62" smashed="yes">
+<attribute name="NAME" x="160.02" y="142.494" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="160.02" y="129.286" size="1.778" layer="96" font="vector" align="top-left"/>
 </instance>
-<instance part="SUPPLY6" gate="G$1" x="185.42" y="139.7" smashed="yes">
-<attribute name="VALUE" x="185.42" y="142.494" size="1.778" layer="96" align="bottom-center"/>
+<instance part="SUPPLY6" gate="G$1" x="190.5" y="139.7" smashed="yes">
+<attribute name="VALUE" x="190.5" y="142.494" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="GND5" gate="1" x="149.86" y="124.46" smashed="yes">
-<attribute name="VALUE" x="149.86" y="124.206" size="1.778" layer="96" align="top-center"/>
+<instance part="GND5" gate="1" x="154.94" y="124.46" smashed="yes">
+<attribute name="VALUE" x="154.94" y="124.206" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="SUPPLY7" gate="G$1" x="149.86" y="139.7" smashed="yes">
-<attribute name="VALUE" x="149.86" y="142.494" size="1.778" layer="96" align="bottom-center"/>
+<instance part="SUPPLY7" gate="G$1" x="142.24" y="142.24" smashed="yes">
+<attribute name="VALUE" x="142.24" y="145.034" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 <instance part="J5" gate="G$1" x="165.1" y="106.68" smashed="yes">
 <attribute name="NAME" x="160.02" y="112.268" size="1.778" layer="95" font="vector"/>
@@ -2347,24 +2346,24 @@ while programming flash</text>
 <attribute name="NAME" x="-3.556" y="99.441" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="-3.556" y="94.361" size="1.778" layer="96" font="vector"/>
 </instance>
-<instance part="SUPPLY32" gate="G$1" x="91.44" y="210.82" smashed="yes">
-<attribute name="VALUE" x="91.44" y="213.614" size="1.778" layer="96" align="bottom-center"/>
+<instance part="SUPPLY32" gate="G$1" x="124.46" y="198.12" smashed="yes">
+<attribute name="VALUE" x="124.46" y="200.914" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="AS7261" gate="U1" x="55.88" y="208.28" smashed="yes">
-<attribute name="NAME" x="43.18" y="226.822" size="1.778" layer="95"/>
+<instance part="AS7261" gate="U1" x="88.9" y="195.58" smashed="yes">
+<attribute name="NAME" x="76.2" y="214.122" size="1.778" layer="95"/>
 </instance>
-<instance part="GND27" gate="1" x="38.1" y="193.04" smashed="yes">
-<attribute name="VALUE" x="38.1" y="192.786" size="1.778" layer="96" align="top-center"/>
+<instance part="GND27" gate="1" x="71.12" y="180.34" smashed="yes">
+<attribute name="VALUE" x="71.12" y="180.086" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="SUPPLY33" gate="G$1" x="38.1" y="226.06" smashed="yes">
-<attribute name="VALUE" x="38.1" y="228.854" size="1.778" layer="96" align="bottom-center"/>
+<instance part="SUPPLY33" gate="G$1" x="71.12" y="213.36" smashed="yes">
+<attribute name="VALUE" x="71.12" y="216.154" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="R6" gate="G$1" x="91.44" y="203.2" smashed="yes" rot="R90">
-<attribute name="NAME" x="89.916" y="203.2" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
-<attribute name="VALUE" x="92.964" y="203.2" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+<instance part="R6" gate="G$1" x="124.46" y="190.5" smashed="yes" rot="R90">
+<attribute name="NAME" x="122.936" y="190.5" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="125.984" y="190.5" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="SUPPLY34" gate="G$1" x="76.2" y="238.76" smashed="yes">
-<attribute name="VALUE" x="76.2" y="241.554" size="1.778" layer="96" align="bottom-center"/>
+<instance part="SUPPLY34" gate="G$1" x="109.22" y="226.06" smashed="yes">
+<attribute name="VALUE" x="109.22" y="228.854" size="1.778" layer="96" align="bottom-center"/>
 </instance>
 <instance part="U10" gate="G$1" x="167.64" y="228.6" smashed="yes">
 <attribute name="NAME" x="154.94" y="233.934" size="1.778" layer="95" font="vector"/>
@@ -2400,12 +2399,12 @@ while programming flash</text>
 <instance part="GND1" gate="1" x="261.62" y="106.68" smashed="yes">
 <attribute name="VALUE" x="261.62" y="106.426" size="1.778" layer="96" align="top-center"/>
 </instance>
-<instance part="SUPPLY5" gate="G$1" x="30.48" y="218.44" smashed="yes">
-<attribute name="VALUE" x="30.48" y="221.234" size="1.778" layer="96" align="bottom-center"/>
+<instance part="SUPPLY5" gate="G$1" x="63.5" y="205.74" smashed="yes">
+<attribute name="VALUE" x="63.5" y="208.534" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="D1-AS7261" gate="G$1" x="35.56" y="215.9" smashed="yes" rot="R180">
-<attribute name="NAME" x="29.372" y="210.268" size="1.27" layer="95"/>
-<attribute name="VALUE" x="38.188" y="219.828" size="1.27" layer="96" rot="R180"/>
+<instance part="D1-AS7261" gate="G$1" x="68.58" y="203.2" smashed="yes" rot="R180">
+<attribute name="NAME" x="62.392" y="197.568" size="1.27" layer="95"/>
+<attribute name="VALUE" x="71.208" y="207.128" size="1.27" layer="96" rot="R180"/>
 </instance>
 <instance part="SUPPLY10" gate="G$1" x="259.08" y="134.62" smashed="yes">
 <attribute name="VALUE" x="259.08" y="137.414" size="1.778" layer="96" align="bottom-center"/>
@@ -2424,19 +2423,19 @@ while programming flash</text>
 <attribute name="NAME" x="219.456" y="154.94" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="222.504" y="154.94" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R7" gate="G$1" x="279.4" y="124.46" smashed="yes" rot="R90">
+<instance part="R2_HT" gate="G$1" x="279.4" y="124.46" smashed="yes" rot="R90">
 <attribute name="NAME" x="277.876" y="124.46" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="280.924" y="124.46" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R8" gate="G$1" x="279.4" y="111.76" smashed="yes" rot="R90">
+<instance part="R2_HB" gate="G$1" x="279.4" y="111.76" smashed="yes" rot="R90">
 <attribute name="NAME" x="277.876" y="111.76" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="280.924" y="111.76" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R9" gate="G$1" x="292.1" y="124.46" smashed="yes" rot="R90">
+<instance part="R2_LT" gate="G$1" x="292.1" y="124.46" smashed="yes" rot="R90">
 <attribute name="NAME" x="290.576" y="124.46" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="293.624" y="124.46" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R10" gate="G$1" x="292.1" y="111.76" smashed="yes" rot="R90">
+<instance part="R2_LB" gate="G$1" x="292.1" y="111.76" smashed="yes" rot="R90">
 <attribute name="NAME" x="290.576" y="111.76" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="293.624" y="111.76" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
@@ -2467,19 +2466,19 @@ while programming flash</text>
 <attribute name="NAME" x="221.996" y="231.14" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="225.044" y="231.14" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R13" gate="G$1" x="289.56" y="203.2" smashed="yes" rot="R90">
+<instance part="R1_HT" gate="G$1" x="289.56" y="203.2" smashed="yes" rot="R90">
 <attribute name="NAME" x="288.036" y="203.2" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="291.084" y="203.2" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R14" gate="G$1" x="289.56" y="190.5" smashed="yes" rot="R90">
+<instance part="R1_HB" gate="G$1" x="289.56" y="190.5" smashed="yes" rot="R90">
 <attribute name="NAME" x="288.036" y="190.5" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="291.084" y="190.5" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R15" gate="G$1" x="302.26" y="203.2" smashed="yes" rot="R90">
+<instance part="R1_LT" gate="G$1" x="302.26" y="203.2" smashed="yes" rot="R90">
 <attribute name="NAME" x="300.736" y="203.2" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="303.784" y="203.2" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R16" gate="G$1" x="302.26" y="190.5" smashed="yes" rot="R90">
+<instance part="R1_LB" gate="G$1" x="302.26" y="190.5" smashed="yes" rot="R90">
 <attribute name="NAME" x="300.736" y="190.5" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="303.784" y="190.5" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
@@ -2502,13 +2501,13 @@ while programming flash</text>
 <attribute name="NAME" x="14.224" y="145.161" size="1.778" layer="95" font="vector"/>
 <attribute name="VALUE" x="14.224" y="140.081" size="1.778" layer="96" font="vector"/>
 </instance>
-<instance part="C6" gate="G$1" x="20.32" y="210.82" smashed="yes">
-<attribute name="NAME" x="21.844" y="211.201" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="21.844" y="208.661" size="1.778" layer="96" font="vector"/>
+<instance part="C6" gate="G$1" x="53.34" y="198.12" smashed="yes">
+<attribute name="NAME" x="54.864" y="198.501" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="54.864" y="195.961" size="1.778" layer="96" font="vector"/>
 </instance>
-<instance part="C8" gate="G$1" x="12.7" y="210.82" smashed="yes">
-<attribute name="NAME" x="14.224" y="213.741" size="1.778" layer="95" font="vector"/>
-<attribute name="VALUE" x="14.224" y="208.661" size="1.778" layer="96" font="vector"/>
+<instance part="C8" gate="G$1" x="45.72" y="198.12" smashed="yes">
+<attribute name="NAME" x="47.244" y="201.041" size="1.778" layer="95" font="vector"/>
+<attribute name="VALUE" x="47.244" y="195.961" size="1.778" layer="96" font="vector"/>
 </instance>
 <instance part="J3" gate="G$1" x="132.08" y="38.1" smashed="yes" rot="R90">
 <attribute name="NAME" x="133.002" y="33.22" size="1.016" layer="95" rot="R90" align="bottom-right"/>
@@ -2559,7 +2558,7 @@ while programming flash</text>
 <segment>
 <pinref part="U2" gate="G$1" pin="GND"/>
 <pinref part="GND5" gate="1" pin="GND"/>
-<wire x1="149.86" y1="129.54" x2="149.86" y2="127" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="129.54" x2="154.94" y2="127" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="J5" gate="G$1" pin="6"/>
@@ -2621,16 +2620,16 @@ while programming flash</text>
 </segment>
 <segment>
 <pinref part="AS7261" gate="U1" pin="GND"/>
-<wire x1="40.64" y1="195.58" x2="38.1" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="182.88" x2="71.12" y2="182.88" width="0.1524" layer="91"/>
 <pinref part="GND27" gate="1" pin="GND"/>
 <pinref part="C6" gate="G$1" pin="2"/>
-<wire x1="20.32" y1="208.28" x2="20.32" y2="195.58" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="195.58" x2="38.1" y2="195.58" width="0.1524" layer="91"/>
-<junction x="38.1" y="195.58"/>
+<wire x1="53.34" y1="195.58" x2="53.34" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="182.88" x2="71.12" y2="182.88" width="0.1524" layer="91"/>
+<junction x="71.12" y="182.88"/>
 <pinref part="C8" gate="G$1" pin="2"/>
-<wire x1="12.7" y1="208.28" x2="12.7" y2="195.58" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="195.58" x2="20.32" y2="195.58" width="0.1524" layer="91"/>
-<junction x="20.32" y="195.58"/>
+<wire x1="45.72" y1="195.58" x2="45.72" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="182.88" x2="53.34" y2="182.88" width="0.1524" layer="91"/>
+<junction x="53.34" y="182.88"/>
 </segment>
 <segment>
 <pinref part="U10" gate="G$1" pin="GND"/>
@@ -2648,8 +2647,8 @@ while programming flash</text>
 <pinref part="U$1" gate="G$1" pin="GND"/>
 <pinref part="GND1" gate="1" pin="GND"/>
 <wire x1="254" y1="109.22" x2="261.62" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="R10" gate="G$1" pin="1"/>
-<pinref part="R8" gate="G$1" pin="1"/>
+<pinref part="R2_LB" gate="G$1" pin="1"/>
+<pinref part="R2_HB" gate="G$1" pin="1"/>
 <wire x1="292.1" y1="106.68" x2="279.4" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="279.4" y1="106.68" x2="269.24" y2="106.68" width="0.1524" layer="91"/>
 <junction x="279.4" y="106.68"/>
@@ -2661,8 +2660,8 @@ while programming flash</text>
 <pinref part="U$2" gate="G$1" pin="GND"/>
 <pinref part="GND7" gate="1" pin="GND"/>
 <wire x1="264.16" y1="187.96" x2="271.78" y2="187.96" width="0.1524" layer="91"/>
-<pinref part="R16" gate="G$1" pin="1"/>
-<pinref part="R14" gate="G$1" pin="1"/>
+<pinref part="R1_LB" gate="G$1" pin="1"/>
+<pinref part="R1_HB" gate="G$1" pin="1"/>
 <wire x1="302.26" y1="185.42" x2="289.56" y2="185.42" width="0.1524" layer="91"/>
 <wire x1="289.56" y1="185.42" x2="279.4" y2="185.42" width="0.1524" layer="91"/>
 <junction x="289.56" y="185.42"/>
@@ -2758,17 +2757,18 @@ while programming flash</text>
 <segment>
 <pinref part="U2" gate="G$1" pin="VCC"/>
 <pinref part="SUPPLY6" gate="G$1" pin="3.3V"/>
-<wire x1="180.34" y1="137.16" x2="185.42" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="185.42" y1="137.16" x2="185.42" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="137.16" x2="190.5" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="137.16" x2="190.5" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="U2" gate="G$1" pin="!HOLD(D3)"/>
-<wire x1="180.34" y1="134.62" x2="185.42" y2="134.62" width="0.1524" layer="91"/>
-<wire x1="185.42" y1="134.62" x2="185.42" y2="137.16" width="0.1524" layer="91"/>
-<junction x="185.42" y="137.16"/>
+<wire x1="185.42" y1="134.62" x2="190.5" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="134.62" x2="190.5" y2="137.16" width="0.1524" layer="91"/>
+<junction x="190.5" y="137.16"/>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="!WP(D2)"/>
-<wire x1="149.86" y1="132.08" x2="149.86" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="SUPPLY7" gate="G$1" pin="3.3V"/>
+<wire x1="142.24" y1="142.24" x2="142.24" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="132.08" x2="154.94" y2="132.08" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="J5" gate="G$1" pin="2"/>
@@ -2813,31 +2813,32 @@ while programming flash</text>
 <wire x1="25.4" y1="160.02" x2="40.64" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="147.32" x2="12.7" y2="160.02" width="0.1524" layer="91"/>
 <wire x1="12.7" y1="160.02" x2="22.86" y2="160.02" width="0.1524" layer="91"/>
+<junction x="22.86" y="160.02"/>
 </segment>
 <segment>
 <pinref part="SUPPLY32" gate="G$1" pin="3.3V"/>
-<wire x1="91.44" y1="210.82" x2="91.44" y2="208.28" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="198.12" x2="124.46" y2="195.58" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="2"/>
 </segment>
 <segment>
 <pinref part="AS7261" gate="U1" pin="VDD"/>
-<wire x1="40.64" y1="223.52" x2="38.1" y2="223.52" width="0.1524" layer="91"/>
-<wire x1="38.1" y1="223.52" x2="38.1" y2="226.06" width="0.1524" layer="91"/>
+<wire x1="73.66" y1="210.82" x2="71.12" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="210.82" x2="71.12" y2="213.36" width="0.1524" layer="91"/>
 <pinref part="SUPPLY33" gate="G$1" pin="3.3V"/>
 <pinref part="C8" gate="G$1" pin="1"/>
-<wire x1="12.7" y1="215.9" x2="12.7" y2="223.52" width="0.1524" layer="91"/>
-<wire x1="12.7" y1="223.52" x2="20.32" y2="223.52" width="0.1524" layer="91"/>
-<junction x="38.1" y="223.52"/>
+<wire x1="45.72" y1="203.2" x2="45.72" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="45.72" y1="210.82" x2="53.34" y2="210.82" width="0.1524" layer="91"/>
+<junction x="71.12" y="210.82"/>
 <pinref part="C6" gate="G$1" pin="1"/>
-<wire x1="20.32" y1="223.52" x2="38.1" y2="223.52" width="0.1524" layer="91"/>
-<wire x1="20.32" y1="215.9" x2="20.32" y2="223.52" width="0.1524" layer="91"/>
-<junction x="20.32" y="223.52"/>
+<wire x1="53.34" y1="210.82" x2="71.12" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="53.34" y1="203.2" x2="53.34" y2="210.82" width="0.1524" layer="91"/>
+<junction x="53.34" y="210.82"/>
 </segment>
 <segment>
 <pinref part="SUPPLY34" gate="G$1" pin="3.3V"/>
 <pinref part="AS7261" gate="U1" pin="!RST"/>
-<wire x1="71.12" y1="223.52" x2="76.2" y2="223.52" width="0.1524" layer="91"/>
-<wire x1="76.2" y1="223.52" x2="76.2" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="210.82" x2="109.22" y2="210.82" width="0.1524" layer="91"/>
+<wire x1="109.22" y1="210.82" x2="109.22" y2="226.06" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U10" gate="G$1" pin="VCC"/>
@@ -2883,9 +2884,9 @@ while programming flash</text>
 </segment>
 <segment>
 <wire x1="279.4" y1="132.08" x2="279.4" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="R7" gate="G$1" pin="2"/>
+<pinref part="R2_HT" gate="G$1" pin="2"/>
 <wire x1="292.1" y1="132.08" x2="292.1" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="R9" gate="G$1" pin="2"/>
+<pinref part="R2_LT" gate="G$1" pin="2"/>
 <wire x1="279.4" y1="132.08" x2="292.1" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="SUPPLY18" gate="G$1" pin="3.3V"/>
 <junction x="279.4" y="132.08"/>
@@ -2912,9 +2913,9 @@ while programming flash</text>
 </segment>
 <segment>
 <wire x1="289.56" y1="210.82" x2="289.56" y2="208.28" width="0.1524" layer="91"/>
-<pinref part="R13" gate="G$1" pin="2"/>
+<pinref part="R1_HT" gate="G$1" pin="2"/>
 <wire x1="302.26" y1="210.82" x2="302.26" y2="208.28" width="0.1524" layer="91"/>
-<pinref part="R15" gate="G$1" pin="2"/>
+<pinref part="R1_LT" gate="G$1" pin="2"/>
 <wire x1="289.56" y1="210.82" x2="302.26" y2="210.82" width="0.1524" layer="91"/>
 <pinref part="SUPPLY21" gate="G$1" pin="3.3V"/>
 <junction x="289.56" y="210.82"/>
@@ -2939,7 +2940,7 @@ while programming flash</text>
 <segment>
 <pinref part="D1-AS7261" gate="G$1" pin="+"/>
 <pinref part="SUPPLY5" gate="G$1" pin="3.3V"/>
-<wire x1="30.48" y1="215.9" x2="30.48" y2="218.44" width="0.1524" layer="91"/>
+<wire x1="63.5" y1="203.2" x2="63.5" y2="205.74" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="I2C_ENB" class="0">
@@ -2958,8 +2959,8 @@ while programming flash</text>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="SO(D1)"/>
-<wire x1="149.86" y1="134.62" x2="147.32" y2="134.62" width="0.1524" layer="91"/>
-<label x="147.32" y="134.62" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="154.94" y1="134.62" x2="152.4" y2="134.62" width="0.1524" layer="91"/>
+<label x="152.4" y="134.62" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="J5" gate="G$1" pin="1"/>
@@ -2975,8 +2976,8 @@ while programming flash</text>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="SI(D0)"/>
-<wire x1="180.34" y1="129.54" x2="185.42" y2="129.54" width="0.1524" layer="91"/>
-<label x="185.42" y="129.54" size="1.27" layer="95" xref="yes"/>
+<wire x1="185.42" y1="129.54" x2="190.5" y2="129.54" width="0.1524" layer="91"/>
+<label x="190.5" y="129.54" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="J5" gate="G$1" pin="4"/>
@@ -2992,8 +2993,8 @@ while programming flash</text>
 </segment>
 <segment>
 <pinref part="U2" gate="G$1" pin="SCK"/>
-<wire x1="180.34" y1="132.08" x2="185.42" y2="132.08" width="0.1524" layer="91"/>
-<label x="185.42" y="132.08" size="1.27" layer="95" xref="yes"/>
+<wire x1="185.42" y1="132.08" x2="190.5" y2="132.08" width="0.1524" layer="91"/>
+<label x="190.5" y="132.08" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="J5" gate="G$1" pin="3"/>
@@ -3004,8 +3005,8 @@ while programming flash</text>
 <net name="!CS_EE" class="0">
 <segment>
 <pinref part="U2" gate="G$1" pin="!CS"/>
-<wire x1="149.86" y1="137.16" x2="147.32" y2="137.16" width="0.1524" layer="91"/>
-<label x="147.32" y="137.16" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="154.94" y1="137.16" x2="152.4" y2="137.16" width="0.1524" layer="91"/>
+<label x="152.4" y="137.16" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 <segment>
 <pinref part="U1" gate="U1" pin="!CS_EE"/>
@@ -3078,24 +3079,25 @@ while programming flash</text>
 </net>
 <net name="!RST" class="0">
 <segment>
-<wire x1="73.66" y1="160.02" x2="76.2" y2="160.02" width="0.1524" layer="91"/>
-<label x="76.2" y="160.02" size="1.27" layer="95" xref="yes"/>
+<label x="76.2" y="162.56" size="1.27" layer="95" xref="yes"/>
 <pinref part="U5" gate="U1" pin="!RST"/>
+<wire x1="73.66" y1="160.02" x2="76.2" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="160.02" x2="76.2" y2="162.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
 <segment>
-<wire x1="91.44" y1="198.12" x2="91.44" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="185.42" x2="124.46" y2="182.88" width="0.1524" layer="91"/>
 <pinref part="AS7261" gate="U1" pin="I2C_ENB"/>
-<wire x1="71.12" y1="195.58" x2="91.44" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="182.88" x2="124.46" y2="182.88" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="MOSI2" class="0">
 <segment>
 <pinref part="AS7261" gate="U1" pin="MOSI"/>
-<wire x1="71.12" y1="208.28" x2="73.66" y2="208.28" width="0.1524" layer="91"/>
-<label x="73.66" y="208.28" size="1.27" layer="95" xref="yes"/>
+<wire x1="104.14" y1="195.58" x2="106.68" y2="195.58" width="0.1524" layer="91"/>
+<label x="106.68" y="195.58" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="J10" gate="G$1" pin="4"/>
@@ -3111,8 +3113,8 @@ while programming flash</text>
 <net name="MISO2" class="0">
 <segment>
 <pinref part="AS7261" gate="U1" pin="MISO"/>
-<wire x1="71.12" y1="205.74" x2="73.66" y2="205.74" width="0.1524" layer="91"/>
-<label x="73.66" y="205.74" size="1.27" layer="95" xref="yes"/>
+<wire x1="104.14" y1="193.04" x2="106.68" y2="193.04" width="0.1524" layer="91"/>
+<label x="106.68" y="193.04" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="U10" gate="G$1" pin="SO(D1)"/>
@@ -3128,8 +3130,8 @@ while programming flash</text>
 <net name="SCK2" class="0">
 <segment>
 <pinref part="AS7261" gate="U1" pin="SCK"/>
-<wire x1="71.12" y1="210.82" x2="73.66" y2="210.82" width="0.1524" layer="91"/>
-<label x="73.66" y="210.82" size="1.27" layer="95" xref="yes"/>
+<wire x1="104.14" y1="198.12" x2="106.68" y2="198.12" width="0.1524" layer="91"/>
+<label x="106.68" y="198.12" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="J10" gate="G$1" pin="3"/>
@@ -3145,8 +3147,8 @@ while programming flash</text>
 <net name="!CS_EE2" class="0">
 <segment>
 <pinref part="AS7261" gate="U1" pin="!CS_EE"/>
-<wire x1="71.12" y1="198.12" x2="73.66" y2="198.12" width="0.1524" layer="91"/>
-<label x="73.66" y="198.12" size="1.27" layer="95" xref="yes"/>
+<wire x1="104.14" y1="185.42" x2="106.68" y2="185.42" width="0.1524" layer="91"/>
+<label x="106.68" y="185.42" size="1.27" layer="95" xref="yes"/>
 </segment>
 <segment>
 <pinref part="U10" gate="G$1" pin="!CS"/>
@@ -3197,8 +3199,8 @@ while programming flash</text>
 </net>
 <net name="XORH-2" class="1">
 <segment>
-<pinref part="R8" gate="G$1" pin="2"/>
-<pinref part="R7" gate="G$1" pin="1"/>
+<pinref part="R2_HB" gate="G$1" pin="2"/>
+<pinref part="R2_HT" gate="G$1" pin="1"/>
 <wire x1="279.4" y1="119.38" x2="279.4" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="279.4" y1="116.84" x2="271.78" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="271.78" y1="116.84" x2="271.78" y2="114.3" width="0.1524" layer="91"/>
@@ -3210,9 +3212,9 @@ while programming flash</text>
 </net>
 <net name="XORL-2" class="1">
 <segment>
-<pinref part="R10" gate="G$1" pin="2"/>
+<pinref part="R2_LB" gate="G$1" pin="2"/>
 <wire x1="292.1" y1="119.38" x2="292.1" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="R9" gate="G$1" pin="1"/>
+<pinref part="R2_LT" gate="G$1" pin="1"/>
 <pinref part="U$1" gate="G$1" pin="XORL"/>
 <wire x1="292.1" y1="119.38" x2="254" y2="119.38" width="0.1524" layer="91"/>
 <junction x="292.1" y="119.38"/>
@@ -3221,8 +3223,8 @@ while programming flash</text>
 </net>
 <net name="XORH-1" class="1">
 <segment>
-<pinref part="R14" gate="G$1" pin="2"/>
-<pinref part="R13" gate="G$1" pin="1"/>
+<pinref part="R1_HB" gate="G$1" pin="2"/>
+<pinref part="R1_HT" gate="G$1" pin="1"/>
 <wire x1="289.56" y1="198.12" x2="289.56" y2="195.58" width="0.1524" layer="91"/>
 <wire x1="289.56" y1="195.58" x2="281.94" y2="195.58" width="0.1524" layer="91"/>
 <wire x1="281.94" y1="195.58" x2="281.94" y2="193.04" width="0.1524" layer="91"/>
@@ -3234,9 +3236,9 @@ while programming flash</text>
 </net>
 <net name="XORL-1" class="1">
 <segment>
-<pinref part="R16" gate="G$1" pin="2"/>
+<pinref part="R1_LB" gate="G$1" pin="2"/>
 <wire x1="302.26" y1="198.12" x2="302.26" y2="195.58" width="0.1524" layer="91"/>
-<pinref part="R15" gate="G$1" pin="1"/>
+<pinref part="R1_LT" gate="G$1" pin="1"/>
 <pinref part="U$2" gate="G$1" pin="XORL"/>
 <wire x1="302.26" y1="198.12" x2="264.16" y2="198.12" width="0.1524" layer="91"/>
 <junction x="302.26" y="198.12"/>
@@ -3257,8 +3259,8 @@ while programming flash</text>
 </segment>
 <segment>
 <pinref part="AS7261" gate="U1" pin="RX/SCL"/>
-<wire x1="71.12" y1="218.44" x2="73.66" y2="218.44" width="0.1524" layer="91"/>
-<label x="73.66" y="218.44" size="1.27" layer="95" xref="yes"/>
+<wire x1="104.14" y1="205.74" x2="106.68" y2="205.74" width="0.1524" layer="91"/>
+<label x="106.68" y="205.74" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="SDA-SENSOR-1" class="0">
@@ -3275,14 +3277,8 @@ while programming flash</text>
 </segment>
 <segment>
 <pinref part="AS7261" gate="U1" pin="TX/SDA"/>
-<wire x1="71.12" y1="215.9" x2="73.66" y2="215.9" width="0.1524" layer="91"/>
-<label x="73.66" y="215.9" size="1.27" layer="95" xref="yes"/>
-</segment>
-</net>
-<net name="N$6" class="0">
-<segment>
-<pinref part="AS7261" gate="U1" pin="!INT"/>
-<wire x1="71.12" y1="220.98" x2="76.2" y2="220.98" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="203.2" x2="106.68" y2="203.2" width="0.1524" layer="91"/>
+<label x="106.68" y="203.2" size="1.27" layer="95" xref="yes"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -3296,12 +3292,22 @@ while programming flash</text>
 <segment>
 <pinref part="D1-AS7261" gate="G$1" pin="-"/>
 <pinref part="AS7261" gate="U1" pin="LED_IND"/>
-<wire x1="38.1" y1="215.9" x2="40.64" y2="215.9" width="0.1524" layer="91"/>
+<wire x1="71.12" y1="203.2" x2="73.66" y2="203.2" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
 </sheet>
 </sheets>
+<errors>
+<approved hash="110,1,279.4,119.38,XORL-2,XORH-2,,,,"/>
+<approved hash="110,1,289.56,198.12,XORL-1,XORH-1,,,,"/>
+<approved hash="111,1,279.4,119.38,XORL-2,,,,,"/>
+<approved hash="111,1,289.56,198.12,XORL-1,,,,,"/>
+<approved hash="113,1,34.29,213.954,D1-AS7261,,,,,"/>
+<approved hash="113,1,136.508,38.2028,J3,,,,,"/>
+<approved hash="113,1,169.528,38.2028,J1,,,,,"/>
+<approved hash="113,1,72.39,84.5836,D2-AS7265X,,,,,"/>
+</errors>
 </schematic>
 </drawing>
 <compatibility>

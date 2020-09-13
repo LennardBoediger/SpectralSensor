@@ -272,6 +272,28 @@ Copyright: Würth Elektronik</description>
 <text x="-4.5776" y="0.7561" size="0.8128" layer="25" align="bottom-right">&gt;NAME</text>
 <text x="-4.4976" y="-0.9442" size="0.8128" layer="27" align="bottom-right">&gt;VALUE</text>
 </package>
+<package name="61300211121" urn="urn:adsk.eagle:footprint:14804900/1">
+<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 2 Pin</description>
+<pad name="1" x="-1.27" y="0" drill="1.1" rot="R90"/>
+<pad name="2" x="1.27" y="0" drill="1.1"/>
+<circle x="-2.2" y="-0.9" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.1" layer="51"/>
+<wire x1="-2.54" y1="-1.27" x2="2.54" y2="-1.27" width="0.1" layer="51"/>
+<wire x1="2.54" y1="-1.27" x2="2.54" y2="1.27" width="0.1" layer="51"/>
+<wire x1="2.54" y1="1.27" x2="-2.54" y2="1.27" width="0.1" layer="51"/>
+<wire x1="-2.64" y1="1.37" x2="2.64" y2="1.37" width="0.2" layer="21"/>
+<wire x1="2.64" y1="1.37" x2="2.64" y2="-1.37" width="0.2" layer="21"/>
+<wire x1="2.64" y1="-1.37" x2="-2.64" y2="-1.37" width="0.2" layer="21"/>
+<wire x1="-2.64" y1="-1.37" x2="-2.64" y2="1.37" width="0.2" layer="21"/>
+<polygon width="0.1" layer="39">
+<vertex x="-2.84" y="1.57"/>
+<vertex x="2.84" y="1.57"/>
+<vertex x="2.84" y="-1.57"/>
+<vertex x="-2.84" y="-1.57"/>
+</polygon>
+<text x="-3.5776" y="0.2561" size="0.8128" layer="25" align="bottom-right">&gt;NAME</text>
+<text x="-3.4976" y="-1.4442" size="0.8128" layer="27" align="bottom-right">&gt;VALUE</text>
+</package>
 </packages>
 <packages3d>
 <package3d name="61301021121" urn="urn:adsk.eagle:package:14805405/2" type="model">
@@ -284,6 +306,12 @@ Copyright: Würth Elektronik</description>
 <description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Dual Pin Header, 6 Pins</description>
 <packageinstances>
 <packageinstance name="61300621121"/>
+</packageinstances>
+</package3d>
+<package3d name="61300211121" urn="urn:adsk.eagle:package:14805431/3" type="model">
+<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 2 Pin</description>
+<packageinstances>
+<packageinstance name="61300211121"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -357,6 +385,21 @@ Copyright: Würth Elektronik</description>
 <circle x="0" y="1.27" radius="0.254" width="0.635" layer="94"/>
 <circle x="2.54" y="-1.27" radius="0.254" width="0.635" layer="94"/>
 <circle x="2.54" y="1.27" radius="0.254" width="0.635" layer="94"/>
+</symbol>
+<symbol name="2PT">
+<description>Pin Header THT</description>
+<pin name="1" x="-2.54" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
+<pin name="2" x="0" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
+<text x="-4.99" y="-1.205" size="1.016" layer="95" align="bottom-right">&gt;NAME</text>
+<text x="-4.95" y="-3.01" size="1.016" layer="96" align="bottom-right">&gt;VALUE</text>
+<wire x1="-3.81" y1="-2.54" x2="1.27" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="1.27" y2="0" width="0.254" layer="94"/>
+<wire x1="1.27" y1="0" x2="-3.81" y2="0" width="0.254" layer="94"/>
+<wire x1="-3.81" y1="0" x2="-3.81" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
+<wire x1="0" y1="-1.27" x2="0" y2="-2.54" width="0.254" layer="94"/>
+<circle x="-2.54" y="-1.27" radius="0.254" width="0.635" layer="94"/>
+<circle x="0" y="-1.27" radius="0.254" width="0.635" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -521,6 +564,83 @@ Updated by Yingchun,Shan 2019-10-16
 <attribute name="PINS" value=" 6 " constant="no"/>
 <attribute name="ROWS" value="Dual" constant="no"/>
 <attribute name="TYPE" value="Board Stacker" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="6130XX11121_61300211121" prefix="J" uservalue="yes">
+<description>&lt;b&gt;WR-PHD 2.54 mm THT Pin Header &lt;/b&gt;&lt;BR&gt;
+&lt;BR&gt;
+&lt;b&gt;ARTICLE PROPERTIES:&lt;/b&gt;
+&lt;BR&gt;
+&lt;BR&gt;Pins:1;​ 2;​ 3;​ 4;​ 5;​ 6;​ 7;​ 8;​ 9;​ 10;​ 12;​ 13;​ 14;​ 15;​ 16;​ 18;​ 20;​ 22;​ 24;​ 25;​ 32;​ 36;​ 40
+&lt;BR&gt;
+&lt;BR&gt;&lt;B&gt;KIND PROPERTIES&lt;/B&gt;:
+&lt;BR&gt;
+&lt;BR&gt;Pitch：2.54 mm
+&lt;BR&gt;Quality Class:3 as per CECC 75 301-802
+&lt;BR&gt;Rows：Single
+&lt;BR&gt;Gender：Pin Header
+&lt;BR&gt;Type：Straight
+&lt;BR&gt;
+&lt;BR&gt;&lt;B&gt;MATERIAL PROPERTIES:&lt;/B&gt;
+&lt;BR&gt;
+&lt;BR&gt;Insulator Material :PBT
+&lt;BR&gt;Insulator Flammability Rating:UL94 V-0
+&lt;BR&gt;Contact Material:Copper Alloy
+&lt;BR&gt;Contact Plating:Gold
+&lt;BR&gt;Contact Type:Stamped
+&lt;BR&gt;
+&lt;BR&gt;&lt;B&gt;GENERAL INFORMATION&lt;/B&gt;
+&lt;BR&gt;Operating Temperature:-40 up to +105 °C
+&lt;BR&gt;Compliance:RoHS
+&lt;BR&gt;
+&lt;BR&gt;&lt;B&gt;ELECTRICAL PROPERTIES:&lt;/B&gt;
+&lt;BR&gt;
+&lt;BR&gt;Rated Current:3 A
+&lt;BR&gt;IR 1:3 A
+&lt;BR&gt;Withstanding Voltage:500 V (AC)
+&lt;BR&gt;Contact Resistance:20 mΩ
+&lt;BR&gt;RISO:1000 MΩ
+&lt;BR&gt;
+&lt;BR&gt;&lt;B&gt;CERTIFICATION&lt;/B&gt;
+&lt;BR&gt;UL Approval:E323964
+&lt;BR&gt;&lt;B&gt;PACKAGING PROPERTIES&lt;/B&gt;
+&lt;BR&gt;Packaging:Bag
+&lt;BR&gt;
+&lt;BR&gt;
+&lt;br&gt;&lt;a href="https://katalog.we-online.com/media/images/v2/o33211v209%20Family_BTB_PHD_6130xx11121.jpg" title="Enlarge picture"&gt;
+&lt;img src="https://katalog.we-online.com/media/images/v2/o33211v209%20Family_BTB_PHD_6130xx11121.jpg" width="320"&gt;&lt;/a&gt;&lt;p&gt;
+
+Details see: &lt;a href="https://katalog.we-online.com/en/em/PHD_2_54_THT_PIN_HEADER_6130XX11121"&gt;https://katalog.we-online.com/en/em/PHD_2_54_THT_PIN_HEADER_6130XX11121&lt;/a&gt;&lt;p&gt;
+&lt;BR&gt;
+Updated by Yingchun,Shan 2019-10-16
+&lt;BR&gt;
+2019 (C) Würth Elektronik</description>
+<gates>
+<gate name="G$1" symbol="2PT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="61300211121">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<package3dinstances>
+<package3dinstance package3d_urn="urn:adsk.eagle:package:14805431/3"/>
+</package3dinstances>
+<technologies>
+<technology name="">
+<attribute name="DATASHEET-URL" value="https://katalog.we-online.com/em/datasheet/61300211121.pdf" constant="no"/>
+<attribute name="GENDER" value="Pin Header" constant="no"/>
+<attribute name="IR" value="3A" constant="no"/>
+<attribute name="MATES" value="WR-PHD 2.54mm Angled Socket Header /SMT Socket Header/Socket Header" constant="no"/>
+<attribute name="PACKAGING" value="Bag" constant="no"/>
+<attribute name="PART-NUMBER" value=" 61300211121 " constant="no"/>
+<attribute name="PINS" value=" 2 " constant="no"/>
+<attribute name="ROWS" value="Single" constant="no"/>
+<attribute name="TYPE" value="Straight" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -5994,6 +6114,80 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 </deviceset>
 </devicesets>
 </library>
+<library name="SparkFun-Resistors">
+<description>&lt;h3&gt;SparkFun Resistors&lt;/h3&gt;
+This library contains resistors. Reference designator:R. 
+&lt;br&gt;
+&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application. 
+&lt;br&gt;
+&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;
+&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="0603">
+<description>&lt;p&gt;&lt;b&gt;Generic 1608 (0603) package&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
+<wire x1="-1.6" y1="0.7" x2="1.6" y2="0.7" width="0.0508" layer="39"/>
+<wire x1="1.6" y1="0.7" x2="1.6" y2="-0.7" width="0.0508" layer="39"/>
+<wire x1="1.6" y1="-0.7" x2="-1.6" y2="-0.7" width="0.0508" layer="39"/>
+<wire x1="-1.6" y1="-0.7" x2="-1.6" y2="0.7" width="0.0508" layer="39"/>
+<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
+<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
+<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<text x="0" y="0.762" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-0.762" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
+<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
+<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
+<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
+</package>
+</packages>
+<symbols>
+<symbol name="RESISTOR">
+<wire x1="-2.54" y1="0" x2="-2.159" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="-2.159" y1="1.016" x2="-1.524" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="-1.524" y1="-1.016" x2="-0.889" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="-0.889" y1="1.016" x2="-0.254" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="-0.254" y1="-1.016" x2="0.381" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="0.381" y1="1.016" x2="1.016" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="1.016" y1="-1.016" x2="1.651" y2="1.016" width="0.1524" layer="94"/>
+<wire x1="1.651" y1="1.016" x2="2.286" y2="-1.016" width="0.1524" layer="94"/>
+<wire x1="2.286" y1="-1.016" x2="2.54" y2="0" width="0.1524" layer="94"/>
+<text x="0" y="1.524" size="1.778" layer="95" font="vector" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-1.524" size="1.778" layer="96" font="vector" align="top-center">&gt;VALUE</text>
+<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
+<pin name="1" x="-5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="2.2KOHM" prefix="R">
+<description>&lt;h3&gt;2.2kΩ resistor&lt;/h3&gt;
+&lt;p&gt;A resistor is a passive two-terminal electrical component that implements electrical resistance as a circuit element. Resistors act to reduce current flow, and, at the same time, act to lower voltage levels within circuits. - Wikipedia&lt;/p&gt;</description>
+<gates>
+<gate name="G$1" symbol="RESISTOR" x="0" y="0"/>
+</gates>
+<devices>
+<device name="-0603-1/10W-1%" package="0603">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+<connect gate="G$1" pin="2" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="PROD_ID" value="RES-08272"/>
+<attribute name="VALUE" value="2.2k"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -6020,6 +6214,12 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <part name="POWER" library="155060GS75300_Eagle_WL-SMSW_rev20b" deviceset="WL-SMSW_0603_REC" device="" package3d_urn="urn:adsk.eagle:package:19035720/2" technology="_155060RS75300"/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="J3" library="61300211821_Eagle_WR-PHD_rev19a" deviceset="6130XX11121_61300211121" device="" package3d_urn="urn:adsk.eagle:package:14805431/3"/>
+<part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
+<part name="SUPPLY15" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
+<part name="SUPPLY16" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
+<part name="R4" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R5" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
 </parts>
 <sheets>
 <sheet>
@@ -6029,6 +6229,7 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <text x="152.4" y="68.58" size="1.778" layer="97">5V to 3.3V</text>
 <text x="96.52" y="68.58" size="1.778" layer="97">GPIO Pionout</text>
 <text x="93.98" y="43.18" size="1.778" layer="125">Status LED's</text>
+<text x="193.04" y="68.58" size="1.778" layer="95">External 5V</text>
 </plain>
 <instances>
 <instance part="J1" gate="G$1" x="101.6" y="55.88" smashed="yes" rot="R90">
@@ -6080,6 +6281,27 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 </instance>
 <instance part="GND5" gate="1" x="106.68" y="17.78" smashed="yes">
 <attribute name="VALUE" x="104.14" y="15.24" size="1.778" layer="96"/>
+</instance>
+<instance part="J3" gate="G$1" x="193.04" y="60.96" smashed="yes" rot="R90">
+<attribute name="NAME" x="194.245" y="55.97" size="1.016" layer="95" rot="R90" align="bottom-right"/>
+<attribute name="VALUE" x="196.05" y="56.01" size="1.016" layer="96" rot="R90" align="bottom-right"/>
+</instance>
+<instance part="GND2" gate="1" x="198.12" y="53.34" smashed="yes">
+<attribute name="VALUE" x="195.58" y="50.8" size="1.778" layer="96"/>
+</instance>
+<instance part="SUPPLY15" gate="G$1" x="200.66" y="17.78" smashed="yes">
+<attribute name="VALUE" x="200.66" y="20.574" size="1.778" layer="96" align="bottom-center"/>
+</instance>
+<instance part="SUPPLY16" gate="G$1" x="220.98" y="17.78" smashed="yes">
+<attribute name="VALUE" x="220.98" y="20.574" size="1.778" layer="96" align="bottom-center"/>
+</instance>
+<instance part="R4" gate="G$1" x="220.98" y="10.16" smashed="yes" rot="R90">
+<attribute name="NAME" x="219.456" y="10.16" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="222.504" y="10.16" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
+</instance>
+<instance part="R5" gate="G$1" x="200.66" y="10.16" smashed="yes" rot="R90">
+<attribute name="NAME" x="199.136" y="10.16" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
+<attribute name="VALUE" x="202.184" y="10.16" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
 </instances>
 <busses>
@@ -6134,6 +6356,11 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <pinref part="POWER" gate="G$1" pin="-"/>
 <wire x1="93.98" y1="20.32" x2="93.98" y2="22.86" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="GND2" gate="1" pin="GND"/>
+<pinref part="J3" gate="G$1" pin="1"/>
+<wire x1="198.12" y1="55.88" x2="198.12" y2="58.42" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="5V-1" class="0">
 <segment>
@@ -6149,6 +6376,11 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <pinref part="IC2" gate="A1" pin="VI"/>
 <wire x1="144.78" y1="60.96" x2="149.86" y2="60.96" width="0.1524" layer="91"/>
 <junction x="144.78" y="60.96"/>
+</segment>
+<segment>
+<label x="203.2" y="60.96" size="1.27" layer="95" xref="yes"/>
+<pinref part="J3" gate="G$1" pin="2"/>
+<wire x1="198.12" y1="60.96" x2="203.2" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GPIOA2" class="0">
@@ -6174,6 +6406,12 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <wire x1="149.86" y1="12.7" x2="152.4" y2="12.7" width="0.1524" layer="91"/>
 <label x="152.4" y="12.7" size="1.778" layer="95" xref="yes"/>
 </segment>
+<segment>
+<wire x1="200.66" y1="5.08" x2="200.66" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="2.54" x2="200.66" y2="2.54" width="0.1524" layer="91"/>
+<label x="198.12" y="2.54" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="R5" gate="G$1" pin="1"/>
+</segment>
 </net>
 <net name="I2C_SDA0" class="0">
 <segment>
@@ -6185,6 +6423,12 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <pinref part="J5" gate="G$1" pin="4"/>
 <wire x1="149.86" y1="20.32" x2="152.4" y2="20.32" width="0.1524" layer="91"/>
 <label x="152.4" y="20.32" size="1.778" layer="95" xref="yes"/>
+</segment>
+<segment>
+<wire x1="220.98" y1="5.08" x2="220.98" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="220.98" y1="2.54" x2="218.44" y2="2.54" width="0.1524" layer="91"/>
+<label x="218.44" y="2.54" size="1.27" layer="95" rot="R180" xref="yes"/>
+<pinref part="R4" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="GPIOA0" class="0">
@@ -6221,6 +6465,16 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <wire x1="172.72" y1="55.88" x2="172.72" y2="60.96" width="0.1524" layer="91"/>
 <junction x="172.72" y="60.96"/>
 <pinref part="C2" gate="G$1" pin="1"/>
+</segment>
+<segment>
+<wire x1="200.66" y1="15.24" x2="200.66" y2="17.78" width="0.1524" layer="91"/>
+<pinref part="SUPPLY15" gate="G$1" pin="3.3V"/>
+<pinref part="R5" gate="G$1" pin="2"/>
+</segment>
+<segment>
+<pinref part="SUPPLY16" gate="G$1" pin="3.3V"/>
+<wire x1="220.98" y1="17.78" x2="220.98" y2="15.24" width="0.1524" layer="91"/>
+<pinref part="R4" gate="G$1" pin="2"/>
 </segment>
 </net>
 </nets>

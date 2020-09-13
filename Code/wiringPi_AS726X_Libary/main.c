@@ -6,6 +6,7 @@
 #include <stdint.h>
 #include "AS726X.h"
 #include "influxdb.h"
+#define AS7265X_DEV_SELECT_CONTROL  0x4F
 
 void Test_address(int address);
 
@@ -29,6 +30,55 @@ void Test_address(int address){
     if (version == 61){
         printf("AS7261\n");
     }
+
+    uint8_t value = virtualReadRegister(AS7265X_DEV_SELECT_CONTROL, fd);
+  if ( (value & 0b00110000) > 0){
+    printf("2 Slaves detected\n");
+  } //Test if Slave1 and 2 are detected. If not, bail. Datasheet fail! slave 1&2 Bit 5
+  if ((value & 0b00010000) > 0)
+  {
+      printf("1 Slaves detected (Slave Bit 4)\n");
+  }
+    if ((value & 0b00100000) > 0)
+  {
+      printf("1 Slaves detected (Slave Bit 5)\n");
+  }
+
+
+
+
+    //Get RAW AS72651(NIR) readings
+    printf("______________\n");
+    printf("AS72651 %i\n",getR(fd));
+    printf("AS72651 %i\n",getS(fd));
+    printf("AS72651 %i\n",getT(fd));
+    printf("AS72651 %i\n",getU(fd));
+    printf("AS72651 %i\n",getV(fd));
+    printf("AS72651 %i\n",getW(fd));
+
+    //Get RAW AS72652(color) readings
+    printf("______________\n");
+    printf("AS72652 %i\n",getG(fd));
+    printf("AS72652 %i\n",getX(fd));
+    printf("AS72652 %i\n",getI(fd));
+    printf("AS72652 %i\n",getJ(fd));
+    printf("AS72652 %i\n",getK(fd));
+    printf("AS72652 %i\n",getL(fd));
+
+    //Get the various UV readings
+    //Get RAW AS72653(UV) readings
+    printf("______________\n");
+    printf("AS72653 %i\n", getA(fd));
+    printf("AS72653 %i\n", getB(fd));
+    printf("AS72653 %i\n", getC(fd));
+    printf("AS72653 %i\n", getD(fd));
+    printf("AS72653 %i\n", getE(fd));
+    printf("AS72653 %i\n", getF(fd));
+
+
+
+
+    /*
     //Turn Off Power LED
     disableBulb(fd);
     //Settings
@@ -45,7 +95,6 @@ void Test_address(int address){
     printf ( "getG: %d\n",G);
     writeToDatabase("G",address,measurment_time,G);
 
-   /*
     //Save X
     int X = getX(fd);
     printf( "getX: %d\n",X);
@@ -98,12 +147,12 @@ void Test_address(int address){
 }
 
 int main() {
-    while(1){
+   // while(1){
         printf("----------AS726X-Test----------\n");
         Test_address(0x49);
         //Test_address(0x48);
         //sleep(1);//sleep 10s
-    }
+   // }
     return 0;
 }
 

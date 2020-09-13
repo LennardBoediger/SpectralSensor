@@ -110,12 +110,12 @@ Nanopi macadressen:
 02:01:AE:2F:AC:1B 
 
 TODO:
-zeitstempel manuel
-
 grafana autostart
-2 sensor an start bringen
+3&4 sensor an start bringen
 sensoren erkennen
 
 Hardware:
-die led ist am as72653 und nicht am 1 dringend ändern
+Hardware AS725X Moonlight version 1 
+
+
 

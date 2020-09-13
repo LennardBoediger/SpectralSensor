@@ -2193,10 +2193,10 @@ Updated by Yingchun,Shan 2019-10-21
 <part name="SUPPLY16" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="R4" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
 <part name="R5" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R7" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R8" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R9" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R10" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R2_HT" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R2_HB" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R2_LT" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R2_LB" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
 <part name="SUPPLY18" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="U$2" library="I2c-adress-translotor" deviceset="LTC4316" device=""/>
 <part name="GND7" library="SparkFun-PowerSymbols" deviceset="GND" device=""/>
@@ -2205,10 +2205,10 @@ Updated by Yingchun,Shan 2019-10-21
 <part name="SUPPLY20" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="R11" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
 <part name="R12" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R13" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R14" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R15" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
-<part name="R16" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R1_HT" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R1_HB" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R1_LT" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
+<part name="R1_LB" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
 <part name="SUPPLY21" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
 <part name="C1" library="SparkFun-Capacitors" deviceset="1.0UF" device="-0603-16V-10%" value="1.0uF"/>
 <part name="C2" library="SparkFun-Capacitors" deviceset="10UF" device="-0603-6.3V-20%" value="10uF"/>
@@ -2403,9 +2403,9 @@ while programming flash</text>
 <instance part="SUPPLY5" gate="G$1" x="30.48" y="218.44" smashed="yes">
 <attribute name="VALUE" x="30.48" y="221.234" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="D1-AS7261" gate="G$1" x="35.56" y="215.9" smashed="yes">
-<attribute name="NAME" x="33.572" y="219.872" size="1.27" layer="95"/>
-<attribute name="VALUE" x="32.932" y="211.972" size="1.27" layer="96"/>
+<instance part="D1-AS7261" gate="G$1" x="35.56" y="215.9" smashed="yes" rot="R180">
+<attribute name="NAME" x="29.372" y="210.268" size="1.27" layer="95"/>
+<attribute name="VALUE" x="38.188" y="219.828" size="1.27" layer="96" rot="R180"/>
 </instance>
 <instance part="SUPPLY10" gate="G$1" x="259.08" y="134.62" smashed="yes">
 <attribute name="VALUE" x="259.08" y="137.414" size="1.778" layer="96" align="bottom-center"/>
@@ -2424,19 +2424,19 @@ while programming flash</text>
 <attribute name="NAME" x="219.456" y="154.94" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="222.504" y="154.94" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R7" gate="G$1" x="279.4" y="124.46" smashed="yes" rot="R90">
+<instance part="R2_HT" gate="G$1" x="279.4" y="124.46" smashed="yes" rot="R90">
 <attribute name="NAME" x="277.876" y="124.46" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="280.924" y="124.46" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R8" gate="G$1" x="279.4" y="111.76" smashed="yes" rot="R90">
+<instance part="R2_HB" gate="G$1" x="279.4" y="111.76" smashed="yes" rot="R90">
 <attribute name="NAME" x="277.876" y="111.76" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="280.924" y="111.76" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R9" gate="G$1" x="292.1" y="124.46" smashed="yes" rot="R90">
+<instance part="R2_LT" gate="G$1" x="292.1" y="124.46" smashed="yes" rot="R90">
 <attribute name="NAME" x="290.576" y="124.46" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="293.624" y="124.46" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R10" gate="G$1" x="292.1" y="111.76" smashed="yes" rot="R90">
+<instance part="R2_LB" gate="G$1" x="292.1" y="111.76" smashed="yes" rot="R90">
 <attribute name="NAME" x="290.576" y="111.76" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="293.624" y="111.76" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
@@ -2467,19 +2467,19 @@ while programming flash</text>
 <attribute name="NAME" x="221.996" y="231.14" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="225.044" y="231.14" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R13" gate="G$1" x="289.56" y="203.2" smashed="yes" rot="R90">
+<instance part="R1_HT" gate="G$1" x="289.56" y="203.2" smashed="yes" rot="R90">
 <attribute name="NAME" x="288.036" y="203.2" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="291.084" y="203.2" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R14" gate="G$1" x="289.56" y="190.5" smashed="yes" rot="R90">
+<instance part="R1_HB" gate="G$1" x="289.56" y="190.5" smashed="yes" rot="R90">
 <attribute name="NAME" x="288.036" y="190.5" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="291.084" y="190.5" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R15" gate="G$1" x="302.26" y="203.2" smashed="yes" rot="R90">
+<instance part="R1_LT" gate="G$1" x="302.26" y="203.2" smashed="yes" rot="R90">
 <attribute name="NAME" x="300.736" y="203.2" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="303.784" y="203.2" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
-<instance part="R16" gate="G$1" x="302.26" y="190.5" smashed="yes" rot="R90">
+<instance part="R1_LB" gate="G$1" x="302.26" y="190.5" smashed="yes" rot="R90">
 <attribute name="NAME" x="300.736" y="190.5" size="1.778" layer="95" font="vector" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="303.784" y="190.5" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
@@ -2533,9 +2533,9 @@ while programming flash</text>
 <instance part="SUPPLY22" gate="G$1" x="66.04" y="88.9" smashed="yes">
 <attribute name="VALUE" x="66.04" y="91.694" size="1.778" layer="96" align="bottom-center"/>
 </instance>
-<instance part="D2-AS7265X" gate="G$1" x="71.12" y="86.36" smashed="yes">
-<attribute name="NAME" x="69.132" y="90.332" size="1.27" layer="95"/>
-<attribute name="VALUE" x="68.492" y="82.432" size="1.27" layer="96"/>
+<instance part="D2-AS7265X" gate="G$1" x="73.66" y="86.36" smashed="yes" rot="R180">
+<attribute name="NAME" x="75.648" y="82.388" size="1.27" layer="95" rot="R180"/>
+<attribute name="VALUE" x="76.288" y="90.288" size="1.27" layer="96" rot="R180"/>
 </instance>
 </instances>
 <busses>
@@ -2648,8 +2648,8 @@ while programming flash</text>
 <pinref part="U$1" gate="G$1" pin="GND"/>
 <pinref part="GND1" gate="1" pin="GND"/>
 <wire x1="254" y1="109.22" x2="261.62" y2="109.22" width="0.1524" layer="91"/>
-<pinref part="R10" gate="G$1" pin="1"/>
-<pinref part="R8" gate="G$1" pin="1"/>
+<pinref part="R2_LB" gate="G$1" pin="1"/>
+<pinref part="R2_HB" gate="G$1" pin="1"/>
 <wire x1="292.1" y1="106.68" x2="279.4" y2="106.68" width="0.1524" layer="91"/>
 <wire x1="279.4" y1="106.68" x2="269.24" y2="106.68" width="0.1524" layer="91"/>
 <junction x="279.4" y="106.68"/>
@@ -2661,8 +2661,8 @@ while programming flash</text>
 <pinref part="U$2" gate="G$1" pin="GND"/>
 <pinref part="GND7" gate="1" pin="GND"/>
 <wire x1="264.16" y1="187.96" x2="271.78" y2="187.96" width="0.1524" layer="91"/>
-<pinref part="R16" gate="G$1" pin="1"/>
-<pinref part="R14" gate="G$1" pin="1"/>
+<pinref part="R1_LB" gate="G$1" pin="1"/>
+<pinref part="R1_HB" gate="G$1" pin="1"/>
 <wire x1="302.26" y1="185.42" x2="289.56" y2="185.42" width="0.1524" layer="91"/>
 <wire x1="289.56" y1="185.42" x2="279.4" y2="185.42" width="0.1524" layer="91"/>
 <junction x="289.56" y="185.42"/>
@@ -2862,12 +2862,6 @@ while programming flash</text>
 <pinref part="SUPPLY41" gate="G$1" pin="3.3V"/>
 </segment>
 <segment>
-<wire x1="33.02" y1="215.9" x2="30.48" y2="215.9" width="0.1524" layer="91"/>
-<wire x1="30.48" y1="215.9" x2="30.48" y2="218.44" width="0.1524" layer="91"/>
-<pinref part="SUPPLY5" gate="G$1" pin="3.3V"/>
-<pinref part="D1-AS7261" gate="G$1" pin="-"/>
-</segment>
-<segment>
 <pinref part="SUPPLY10" gate="G$1" pin="3.3V"/>
 <wire x1="254" y1="124.46" x2="259.08" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="259.08" y1="124.46" x2="259.08" y2="129.54" width="0.1524" layer="91"/>
@@ -2889,9 +2883,9 @@ while programming flash</text>
 </segment>
 <segment>
 <wire x1="279.4" y1="132.08" x2="279.4" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="R7" gate="G$1" pin="2"/>
+<pinref part="R2_HT" gate="G$1" pin="2"/>
 <wire x1="292.1" y1="132.08" x2="292.1" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="R9" gate="G$1" pin="2"/>
+<pinref part="R2_LT" gate="G$1" pin="2"/>
 <wire x1="279.4" y1="132.08" x2="292.1" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="SUPPLY18" gate="G$1" pin="3.3V"/>
 <junction x="279.4" y="132.08"/>
@@ -2918,9 +2912,9 @@ while programming flash</text>
 </segment>
 <segment>
 <wire x1="289.56" y1="210.82" x2="289.56" y2="208.28" width="0.1524" layer="91"/>
-<pinref part="R13" gate="G$1" pin="2"/>
+<pinref part="R1_HT" gate="G$1" pin="2"/>
 <wire x1="302.26" y1="210.82" x2="302.26" y2="208.28" width="0.1524" layer="91"/>
-<pinref part="R15" gate="G$1" pin="2"/>
+<pinref part="R1_LT" gate="G$1" pin="2"/>
 <wire x1="289.56" y1="210.82" x2="302.26" y2="210.82" width="0.1524" layer="91"/>
 <pinref part="SUPPLY21" gate="G$1" pin="3.3V"/>
 <junction x="289.56" y="210.82"/>
@@ -2938,10 +2932,14 @@ while programming flash</text>
 <wire x1="170.18" y1="40.64" x2="185.42" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="D2-AS7265X" gate="G$1" pin="-"/>
-<wire x1="68.58" y1="86.36" x2="66.04" y2="86.36" width="0.1524" layer="91"/>
 <pinref part="SUPPLY22" gate="G$1" pin="3.3V"/>
-<wire x1="66.04" y1="86.36" x2="66.04" y2="88.9" width="0.1524" layer="91"/>
+<wire x1="68.58" y1="86.36" x2="66.04" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="D2-AS7265X" gate="G$1" pin="+"/>
+</segment>
+<segment>
+<pinref part="D1-AS7261" gate="G$1" pin="+"/>
+<pinref part="SUPPLY5" gate="G$1" pin="3.3V"/>
+<wire x1="30.48" y1="215.9" x2="30.48" y2="218.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="I2C_ENB" class="0">
@@ -3161,12 +3159,6 @@ while programming flash</text>
 <label x="154.94" y="200.66" size="1.27" layer="95" rot="R180" xref="yes"/>
 </segment>
 </net>
-<net name="N$1" class="0">
-<segment>
-<pinref part="AS7261" gate="U1" pin="LED_IND"/>
-<pinref part="D1-AS7261" gate="G$1" pin="+"/>
-</segment>
-</net>
 <net name="SDA-SENSOR-2" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="SDAOUT"/>
@@ -3205,8 +3197,8 @@ while programming flash</text>
 </net>
 <net name="XORH-2" class="1">
 <segment>
-<pinref part="R8" gate="G$1" pin="2"/>
-<pinref part="R7" gate="G$1" pin="1"/>
+<pinref part="R2_HB" gate="G$1" pin="2"/>
+<pinref part="R2_HT" gate="G$1" pin="1"/>
 <wire x1="279.4" y1="119.38" x2="279.4" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="279.4" y1="116.84" x2="271.78" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="271.78" y1="116.84" x2="271.78" y2="114.3" width="0.1524" layer="91"/>
@@ -3218,9 +3210,9 @@ while programming flash</text>
 </net>
 <net name="XORL-2" class="1">
 <segment>
-<pinref part="R10" gate="G$1" pin="2"/>
+<pinref part="R2_LB" gate="G$1" pin="2"/>
 <wire x1="292.1" y1="119.38" x2="292.1" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="R9" gate="G$1" pin="1"/>
+<pinref part="R2_LT" gate="G$1" pin="1"/>
 <pinref part="U$1" gate="G$1" pin="XORL"/>
 <wire x1="292.1" y1="119.38" x2="254" y2="119.38" width="0.1524" layer="91"/>
 <junction x="292.1" y="119.38"/>
@@ -3229,8 +3221,8 @@ while programming flash</text>
 </net>
 <net name="XORH-1" class="1">
 <segment>
-<pinref part="R14" gate="G$1" pin="2"/>
-<pinref part="R13" gate="G$1" pin="1"/>
+<pinref part="R1_HB" gate="G$1" pin="2"/>
+<pinref part="R1_HT" gate="G$1" pin="1"/>
 <wire x1="289.56" y1="198.12" x2="289.56" y2="195.58" width="0.1524" layer="91"/>
 <wire x1="289.56" y1="195.58" x2="281.94" y2="195.58" width="0.1524" layer="91"/>
 <wire x1="281.94" y1="195.58" x2="281.94" y2="193.04" width="0.1524" layer="91"/>
@@ -3242,9 +3234,9 @@ while programming flash</text>
 </net>
 <net name="XORL-1" class="1">
 <segment>
-<pinref part="R16" gate="G$1" pin="2"/>
+<pinref part="R1_LB" gate="G$1" pin="2"/>
 <wire x1="302.26" y1="198.12" x2="302.26" y2="195.58" width="0.1524" layer="91"/>
-<pinref part="R15" gate="G$1" pin="1"/>
+<pinref part="R1_LT" gate="G$1" pin="1"/>
 <pinref part="U$2" gate="G$1" pin="XORL"/>
 <wire x1="302.26" y1="198.12" x2="264.16" y2="198.12" width="0.1524" layer="91"/>
 <junction x="302.26" y="198.12"/>
@@ -3295,9 +3287,16 @@ while programming flash</text>
 </net>
 <net name="N$2" class="0">
 <segment>
+<pinref part="D2-AS7265X" gate="G$1" pin="-"/>
 <pinref part="U1" gate="U1" pin="LED_IND"/>
-<pinref part="D2-AS7265X" gate="G$1" pin="+"/>
-<wire x1="78.74" y1="86.36" x2="76.2" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="86.36" x2="78.74" y2="86.36" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$1" class="0">
+<segment>
+<pinref part="D1-AS7261" gate="G$1" pin="-"/>
+<pinref part="AS7261" gate="U1" pin="LED_IND"/>
+<wire x1="38.1" y1="215.9" x2="40.64" y2="215.9" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
