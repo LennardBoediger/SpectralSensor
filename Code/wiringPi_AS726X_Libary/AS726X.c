@@ -64,6 +64,7 @@ void I2C_Scan(sensor_list *const s){
         }
         close(fd);
     }
+    printf("-----------------------------\n");
 }
 
 

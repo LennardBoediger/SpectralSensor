@@ -41,8 +41,7 @@ int writeToDatabase(char measurement[],int i2c_adrress, uint64_t measurment_time
     char result[BUFSIZE];
 
     static struct sockaddr_in serv_addr; /* static is zero filled on start up */
-    if (DEBUG == 1)
-    {
+    if (DEBUG == 1){
         printf("Connecting socket to %s and port %d\n", IP_ADDRESS, PORT);
     }
     if((sockfd = socket(AF_INET, SOCK_STREAM,0)) <0)
@@ -59,7 +58,9 @@ int writeToDatabase(char measurement[],int i2c_adrress, uint64_t measurment_time
     //  2. tag = device identifier
     //  3. value 
     //  4. epoch time missing (3 spaces) so InfluxDB generates the timestamp
-    printf("%s,i2c_adrress=%x value=%i %llu\n", measurement,i2c_adrress ,value, (unsigned long long)measurment_time_ms);
+    if (DEBUG == 1){
+        printf("%s,i2c_adrress=%x value=%i %llu\n", measurement,i2c_adrress ,value, (unsigned long long)measurment_time_ms);
+    }
     sprintf(body, "%s,i2c_adrress=%x value=%i %llu\n", measurement,i2c_adrress ,value, (unsigned long long)measurment_time_ms);
 
     // Create InfluxDB line protocol header
@@ -90,8 +91,14 @@ int writeToDatabase(char measurement[],int i2c_adrress, uint64_t measurment_time
     if(DEBUG == 1){
         printf("Result returned:\n->|'%s'|<-\n",result);
     }else{
-       printf("Result returned:\n->|'%.*s'|<-\n",3,result+9); 
+        if (result[9] == '2' && result[10] == '0' && result[11] == '4'){
+            printf("  OK\n");
+        }
+        else{
+            printf("  Write to Database Failed!%c%c%c\n",result[9],result[10],result[11]);
+        }
     }
+
 
     if(close(sockfd) < 0){
         pexit("close failed");
