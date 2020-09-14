@@ -3,6 +3,7 @@
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 #include <string.h>
+#include <unistd.h> // for close
 #include "AS726X.h"
 
 
@@ -22,9 +23,69 @@ uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd){
 
 // returns the Sensor Version
 // AS7261 or AS7265X
-uint8_t getVersion( int fd)
-{
+uint8_t getVersion(int fd) {
     return virtualReadRegister(AS726x_HW_VERSION, fd);
+}
+ 
+// Scanns for sensors on all 128 possible addresses
+// input pointer to to array of sensor_list struct size hast to be 128
+// wirtes sensor address and type to array of sensor_list struct
+void I2C_Scan(sensor_list *const s){
+    //printf("test struct address in fuction%i is value %i\n",s[0].address, s[0].type );
+    printf("----------I2C Scan ----------\n");
+    uint8_t sensor_count = 0;
+    for (int address = 0; address < 128; ++address)
+    {
+        int fd =  wiringPiI2CSetup(address);
+        if (fd != -1){
+            //try to write to some hopefully unused register(5)-> return value: 0 indicates that someone was listening 
+            if (wiringPiI2CWriteReg8 (fd, 5, 1) == 0){ 
+                int version = getVersion(fd);
+                if (version == SENSORTYPE_AS7261){
+                    printf("Device at: 0x%X is AS7261\n",address);
+                    s[sensor_count].address = address;
+                    s[sensor_count].type = SENSORTYPE_AS7261;
+                    sensor_count++;
+                }
+                else if(version == SENSORTYPE_AS72651){
+                    printf("Device at: 0x%X is AS72651",address);
+                    s[sensor_count].address = address;
+                    s[sensor_count].type = SENSORTYPE_AS72651;
+                    sensor_count++;
+                    if (scan_AS7262(fd)){
+                        printf(", AS72652");
+                    }
+                    if (scan_AS7263(fd)){
+                        printf(", AS72653");
+                    }
+                    printf("\n");
+                }
+            }
+        }
+        close(fd);
+    }
+}
+
+
+//Test if Slave1 and 2 are detected.  Datasheet is wrong! AS72652 -> Bit 4, AS72653 -> Bit 5
+uint8_t scan_AS7262(int fd) {
+    uint8_t value = virtualReadRegister(AS7265X_DEV_SELECT_CONTROL, fd);
+    if ((value & 0b00010000) == 1 << AS72652_ACTIVE){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+uint8_t scan_AS7263(int fd) {
+    uint8_t value = virtualReadRegister(AS7265X_DEV_SELECT_CONTROL, fd);
+    if ((value & 0b00100000) == 1 << AS72653_ACTIVE){
+        return 1;
+    }
+    else{
+        return 0;
+    }
 }
 
 //Select witch AS7265X Device is used
@@ -34,14 +95,12 @@ void selectDevice(uint8_t device, int fd) {
   virtualWriteRegister(AS7265X_DEV_SELECT_CONTROL, device, fd);
 }
 
-
 //Sets the measurement mode
 //Mode 0: Continuous reading of VBGY (7262) / STUV (7263)
 //Mode 1: Continuous reading of GYOR (7262) / RTUX (7263)
 //Mode 2: Continuous reading of all channels (power-on default)
 //Mode 3: One-shot reading of all channels
-void setMeasurementMode(uint8_t mode, int fd)
-{
+void setMeasurementMode(uint8_t mode, int fd) {
     if (mode > 0b11) mode = 0b11;
 
     //Read, mask/set, write
@@ -83,8 +142,7 @@ void enableInterrupt(int fd) {
 }
 
 //Disables the interrupt pin witch is not connected so disable it!
-void disableInterrupt(int fd)
-{
+void disableInterrupt(int fd) {
     //Read, mask/set, write
     uint8_t value = virtualReadRegister(AS726x_CONTROL_SETUP, fd); //Read
     value &= 0b10111111; //Clear INT bit
@@ -92,22 +150,30 @@ void disableInterrupt(int fd)
 }
 
 //Tells IC to take measurements and polls for data ready flag
-void takeMeasurements(int fd)
-{
+void takeMeasurements(int fd) {
     clearDataAvailable(fd); //Clear DATA_RDY flag when using Mode 3
 
     //Goto mode 3 for one shot measurement of all channels
     setMeasurementMode(3, fd);
 
     //Wait for data to be ready
-    while (dataAvailable(fd) == 0) delay(POLLING_DELAY);
+    while (dataAvailable(fd) == 0) delay(POLLING_DELAY); //Potential TODO: avoid this to get faster nearly parralel mesurments
 
     //Readings can now be accessed via getViolet(), getBlue(), etc
 }
 
+//Calls takeMeasurements on gives I2C Adrress
+void MeasurementFromAdress(int address){
+    int fd =  wiringPiI2CSetup(address);
+    if (fd == -1) {
+        printf("i2c failed");
+    }
+    takeMeasurements(fd);  // takesMeasurmant Readings can now be accessed via getX(), getY(), etc
+    close(fd);
+}
+
 //Turns on bulb, takes measurements, turns off bulb
-void takeMeasurementsWithBulb( int fd)
-{
+void takeMeasurementsWithBulb( int fd) {
     //enableIndicator(); //Tell the world we are taking a reading.
     //The indicator LED is red and may corrupt the readings
 
@@ -153,9 +219,23 @@ int getE(int fd) { return(getChannel_AS7265X(AS72653_id, AS7265X_V_K_E, fd));}
 int getF(int fd) { return(getChannel_AS7265X(AS72653_id, AS7265X_W_L_F, fd));}
 
 
+
+// returns Color channel of AS7265X
+// returns -1 if slave AS72651 or AS72652 is not available
 int getChannel_AS7265X(int device, uint8_t channelRegister, int fd){
-    selectDevice(device, fd);
-    return getChannel(channelRegister, fd);
+    selectDevice(AS72651_id, fd);   //select AS72651 to verify presence of slave sensors
+    if (device == AS72651_id){
+        return getChannel(channelRegister, fd);
+    }
+    else if(device == AS72652_id && scan_AS7262(fd)){
+        selectDevice(device, fd);
+        return getChannel(channelRegister, fd);
+    }
+    else if (device == AS72653_id && scan_AS7263(fd)){
+        selectDevice(device, fd);
+        return getChannel(channelRegister, fd);
+    }
+    return -1;
 }
 //A the 16-bit value stored in a given channel registerReturns
 int getChannel(uint8_t channelRegister, int fd){
@@ -172,8 +252,7 @@ float getCalibratedLUX(int fd) { return(getCalibratedValue(AS7261_LUX_CAL, fd));
 float getCalibratedCCT(int fd) { return(getCalibratedValue(AS7261_CCT_CAL, fd)); } 
 
 //Given an address, read four uint8_ts and return the floating point calibrated value
-float getCalibratedValue(uint8_t calAddress, int fd)
-{
+float getCalibratedValue(uint8_t calAddress, int fd) {
     uint8_t b0, b1, b2, b3;
     b0 = virtualReadRegister(calAddress + 0, fd);
     b1 = virtualReadRegister(calAddress + 1, fd);
@@ -191,8 +270,7 @@ float getCalibratedValue(uint8_t calAddress, int fd)
 }
 
 //Given 4 uint8_ts returns the floating point value
-float convertBytesToFloat(uint32_t myLong)
-{
+float convertBytesToFloat(uint32_t myLong) {
     float myFloat;
     memcpy(&myFloat, &myLong, 4); //Copy uint8_ts into a float
     return (myFloat);
@@ -200,24 +278,21 @@ float convertBytesToFloat(uint32_t myLong)
 
 //Checks to see if DRDY flag is set in the control setup register
 //TODO: was bool test retuned 2
-uint8_t dataAvailable(int fd)
-{
+uint8_t dataAvailable(int fd) {
     uint8_t value = virtualReadRegister(AS726x_CONTROL_SETUP, fd);
     return (value & (1 << 1)); //Bit 1 is DATA_RDY
 }
 
 //Clears the DRDY flag
 //Normally this should clear when data registers are read
-void clearDataAvailable(int fd)
-{
+void clearDataAvailable(int fd) {
     uint8_t value = virtualReadRegister(AS726x_CONTROL_SETUP, fd);
     value &= ~(1 << 1); //Set the DATA_RDY bit
     virtualWriteRegister(AS726x_CONTROL_SETUP, value, fd);
 }
 
 //Enable the onboard indicator LED
-void enableIndicator(int fd)
-{
+void enableIndicator(int fd) {
     //Read, mask/set, write
     uint8_t value = virtualReadRegister(AS726x_LED_CONTROL, fd);
     value |= (1 << 0); //Set the bit
@@ -225,8 +300,7 @@ void enableIndicator(int fd)
 }
 
 //Disable the onboard indicator LED
-void disableIndicator(int fd)
-{
+void disableIndicator(int fd) {
     //Read, mask/set, write
     uint8_t value = virtualReadRegister(AS726x_LED_CONTROL , fd);
     value &= ~(1 << 0); //Clear the bit
@@ -234,7 +308,7 @@ void disableIndicator(int fd)
 }
 
 //Set the current limit of onboard LED. Default is max 8mA = 0b11.
-void setIndicatorCurrent(uint8_t current,int fd){
+void setIndicatorCurrent(uint8_t current,int fd) {
     if (current > 0b11) current = 0b11;
     //Read, mask/set, write
     uint8_t value = virtualReadRegister(AS726x_LED_CONTROL, fd); //Read
@@ -244,7 +318,7 @@ void setIndicatorCurrent(uint8_t current,int fd){
 }
 
 //Enable the onboard 5700k or external incandescent bulb
-void enableBulb(int fd){
+void enableBulb(int fd) {
     //Read, mask/set, write
     uint8_t value = virtualReadRegister(AS726x_LED_CONTROL,fd);
     value |= (1 << 3); //Set the bit
@@ -252,7 +326,7 @@ void enableBulb(int fd){
 }
 
 //Disable the onboard 5700k or external incandescent bulb
-void disableBulb (int fd){
+void disableBulb (int fd) {
     //Read, mask/set, write
     uint8_t value = virtualReadRegister(AS726x_LED_CONTROL, fd);
     value &= ~(1 << 3); //Clear the bit
@@ -265,7 +339,7 @@ void disableBulb (int fd){
 //Current 1: 25mA
 //Current 2: 50mA
 //Current 3: 100mA
-void setBulbCurrent(uint8_t current , int fd){
+void setBulbCurrent(uint8_t current , int fd) {
     if (current > 0b11) current = 0b11; //Limit to two bits
 
     //Read, mask/set, write

@@ -6,107 +6,37 @@
 #include <stdint.h>
 #include "AS726X.h"
 #include "influxdb.h"
-#define AS7265X_DEV_SELECT_CONTROL  0x4F
+
 
 void Test_address(int address);
 
-
+//returns current epoch time in ms
 uint64_t current_timestamp() {
     struct timeval te; 
     gettimeofday(&te, NULL); // get current time
-    long long milliseconds = te.tv_sec*1000LL + te.tv_usec/1000; // calculate milliseconds
+    uint64_t milliseconds = te.tv_sec*1000LL + te.tv_usec/1000; // calculate milliseconds
     // printf("milliseconds: %lld\n", milliseconds);
     return milliseconds;
 }
 
-void Test_address(int address){
-    printf("----------Test address %X ----------\n",address);
+void saveAS7261Mesurements(int address, uint64_t measurment_time){
     int fd =  wiringPiI2CSetup(address);
-    printf("fd:%d\n",fd);
     if (fd == -1) {
         printf("i2c failed");
     }
-    int version = getVersion(fd);
-    if (version == 61){
-        printf("AS7261\n");
-    }
-
-    uint8_t value = virtualReadRegister(AS7265X_DEV_SELECT_CONTROL, fd);
-  if ( (value & 0b00110000) > 0){
-    printf("2 Slaves detected\n");
-  } //Test if Slave1 and 2 are detected. If not, bail. Datasheet fail! slave 1&2 Bit 5
-  if ((value & 0b00010000) > 0)
-  {
-      printf("1 Slaves detected (Slave Bit 4)\n");
-  }
-    if ((value & 0b00100000) > 0)
-  {
-      printf("1 Slaves detected (Slave Bit 5)\n");
-  }
-
-
-
-
-    //Get RAW AS72651(NIR) readings
-    printf("______________\n");
-    printf("AS72651 %i\n",getR(fd));
-    printf("AS72651 %i\n",getS(fd));
-    printf("AS72651 %i\n",getT(fd));
-    printf("AS72651 %i\n",getU(fd));
-    printf("AS72651 %i\n",getV(fd));
-    printf("AS72651 %i\n",getW(fd));
-
-    //Get RAW AS72652(color) readings
-    printf("______________\n");
-    printf("AS72652 %i\n",getG(fd));
-    printf("AS72652 %i\n",getX(fd));
-    printf("AS72652 %i\n",getI(fd));
-    printf("AS72652 %i\n",getJ(fd));
-    printf("AS72652 %i\n",getK(fd));
-    printf("AS72652 %i\n",getL(fd));
-
-    //Get the various UV readings
-    //Get RAW AS72653(UV) readings
-    printf("______________\n");
-    printf("AS72653 %i\n", getA(fd));
-    printf("AS72653 %i\n", getB(fd));
-    printf("AS72653 %i\n", getC(fd));
-    printf("AS72653 %i\n", getD(fd));
-    printf("AS72653 %i\n", getE(fd));
-    printf("AS72653 %i\n", getF(fd));
-
-
-
-
-    /*
-    //Turn Off Power LED
-    disableBulb(fd);
-    //Settings
-    setIntegrationTime(127 ,fd);
-    uint64_t measurment_time = current_timestamp();
-    takeMeasurements(fd);  // takesMeasurmant Readings can now be accessed via getX(), getY(), etc
-    //Save R
-    int R = getR(fd);
-    printf ( "getR: %d\n",R);
-    writeToDatabase("R",address,measurment_time,R);
-
-    //Save G
-    int G = getG(fd);
-    printf ( "getG: %d\n",G);
-    writeToDatabase("G",address,measurment_time,G);
-
-    //Save X
-    int X = getX(fd);
-    printf( "getX: %d\n",X);
+    // Save X
+    int X = getX_CIE(fd);
+    printf ( "0x%X getX: %d\n",address,X);
     writeToDatabase("X",address,measurment_time,X);
-    //Save Y
-    int Y = getY(fd);
-    printf( "getY: %d\n",Y);
+    // Save Y
+    int Y = getY_CIE(fd);
+    printf ( "0x%X getY: %d\n",address,Y);
     writeToDatabase("Y",address,measurment_time,Y);
-    //Save Z
-    int Z = getZ(fd);
-    printf( "getZ: %d\n",Z);
+    // Save Z
+    int Z = getZ_CIE(fd);
+    printf ( "0x%X getZ: %d\n",address,Z);
     writeToDatabase("Z",address,measurment_time,Z);
+
     //Save Clear
     int Clear = getClear(fd);
     printf( "getClear: %d\n",Clear);
@@ -140,19 +70,125 @@ void Test_address(int address){
     float Cal_CCT = getCalibratedCCT(fd);
     printf("getCCT: %f\n", Cal_CCT);
     writeToDatabase("Cal_CCT",address,measurment_time, Cal_CCT);
-    //Turn ON Power LED
-    */
-    enableBulb(fd);
-    close(fd); //dont forget to close the fd !!!!!!!!
+
+    close(fd);
+}
+
+void saveAS7265XMesurements(int address, uint64_t measurment_time){
+    int fd =  wiringPiI2CSetup(address);
+    printf("saveAS7261Mesurements fd:%o\n",fd);
+    if (fd == -1) {
+        printf("i2c failed");
+    }
+    // AS7261
+    // Save R
+    int R = getR(fd);
+    printf ( "0x%X getR: %d\n",address,R);
+    writeToDatabase("R",address,measurment_time,R);
+    // Save S
+    int S = getS(fd);
+    printf ( "0x%X getS: %d\n",address,S);
+    writeToDatabase("S",address,measurment_time,S);
+    // Save T
+    int T = getT(fd);
+    printf ( "0x%X getT: %d\n",address,T);
+    writeToDatabase("T",address,measurment_time,T);
+    // Save U
+    int U = getU(fd);
+    printf ( "0x%X getU: %d\n",address,U);
+    writeToDatabase("U",address,measurment_time,U);
+    // Save V
+    int V = getV(fd);
+    printf ( "0x%X getV: %d\n",address,V);
+    writeToDatabase("V",address,measurment_time,V);
+    // Save W
+    int W = getW(fd);
+    printf ( "0x%X getW: %d\n",address,W);
+    writeToDatabase("W",address,measurment_time,W);
+
+    // AS7262
+    // Save G
+    int G = getG(fd);
+    printf ( "0x%X getG: %d\n",address,G);
+    writeToDatabase("G",address,measurment_time,G);
+    // Save X
+    int X = getX(fd);
+    printf ( "0x%X getX: %d\n",address,X);
+    writeToDatabase("X",address,measurment_time,X);
+    // Save I
+    int I = getI(fd);
+    printf ( "0x%X getI: %d\n",address,I);
+    writeToDatabase("I",address,measurment_time,I);
+    // Save J
+    int J = getJ(fd);
+    printf ( "0x%X getJ: %d\n",address,J);
+    writeToDatabase("J",address,measurment_time,J);
+    // Save K
+    int K = getK(fd);
+    printf ( "0x%X getK: %d\n",address,K);
+    writeToDatabase("K",address,measurment_time,K);
+    // Save L
+    int L = getL(fd);
+    printf ( "0x%X getL: %d\n",address,L);
+    writeToDatabase("L",address,measurment_time,L);
+
+    //AS72653
+    // Save A
+    int A = getA(fd);
+    printf ( "0x%X getA: %d\n",address,A);
+    writeToDatabase("A",address,measurment_time,A);
+    // Save B
+    int B = getB(fd);
+    printf ( "0x%X getB: %d\n",address,B);
+    writeToDatabase("B",address,measurment_time,B);
+    // Save C
+    int C = getC(fd);
+    printf ( "0x%X getC: %d\n",address,C);
+    writeToDatabase("C",address,measurment_time,C);
+    // Save D
+    int D = getD(fd);
+    printf ( "0x%X getD: %d\n",address,D);
+    writeToDatabase("D",address,measurment_time,D);
+    // Save E
+    int E = getE(fd);
+    printf ( "0x%X getE: %d\n",address,E);
+    writeToDatabase("E",address,measurment_time,E);
+    // Save F
+    int F = getF(fd);
+    printf ( "0x%X getF: %d\n",address,F);
+    writeToDatabase("F",address,measurment_time,F);
+
+
+
+
+    close(fd);
 }
 
 int main() {
-   // while(1){
-        printf("----------AS726X-Test----------\n");
-        Test_address(0x49);
-        //Test_address(0x48);
-        //sleep(1);//sleep 10s
-   // }
+    sensor_list s[128]; //Available Sensors are stored here
+    for (int i = 0; i < 128; ++i){ //fill Sensor List with defualt value
+        s[i].address = -1;
+    }
+    I2C_Scan(s); //Scan for Sensors
+    int i=0;
+    uint64_t measurment_time = current_timestamp(); // save measurment time
+    while(s[i].address != -1 && i < 128){ // take Measurements from all available Sensors
+            MeasurementFromAdress(s[i].address);
+            i++;
+    }
+    uint64_t measurment_duration = current_timestamp()-measurment_time; // save measurment time
+    printf("measurment_duration: %lums\n", measurment_duration);
+    i=0;
+    while(s[i].address != -1 && i < 128){ // Save all Measurements to influxdb
+        if (s[i].type == SENSORTYPE_AS7261){
+            saveAS7261Mesurements(s[i].address , measurment_time);  //Save AS7261
+        } 
+        else if (s[i].type == SENSORTYPE_AS72651){
+            saveAS7265XMesurements(s[i].address , measurment_time); //Save AS7265X
+        }
+         i++;
+    }
+
     return 0;
 }
 

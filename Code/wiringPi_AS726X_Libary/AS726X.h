@@ -2,10 +2,11 @@
 #include <stdint.h>
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
+#include <unistd.h> // for close
 
 //Sensor Type Indentifiers
-#define SENSORTYPE_AS7261 0x00 //TODO
-#define SENSORTYPE_AS72651 0x00 //TODO
+#define SENSORTYPE_AS7261 61
+#define SENSORTYPE_AS72651 65
 
 #define AS72XX_SLAVE_TX_VALID 0x02
 #define AS72XX_SLAVE_RX_VALID 0x01
@@ -55,21 +56,34 @@
 
 //AS7265X Device Selection
 #define AS7265X_DEV_SELECT_CONTROL  0x4F
-//AS7265X Device Identifiers
+#define AS72652_ACTIVE  4 // Bit 4 of AS7265X_DEV_SELECT_CONTROL is set if AS72652 is detected
+#define AS72653_ACTIVE  5 // Bit 5 of AS7265X_DEV_SELECT_CONTROL is set if AS72653 is detected
+//AS7265X Device Selcetors
 #define AS72651_id    	0x00
 #define AS72652_id      0x01
 #define AS72653_id      0x02
 
 #define POLLING_DELAY 5 //Amount of ms to wait between checking for virtual register changes
 
+struct sensor {
+	int8_t address;
+  	int8_t  type;
+};
+typedef struct sensor sensor_list;
+
 uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd);
-uint8_t getVersion( int fd); //61 oder 65
+uint8_t getVersion(int fd); //61 oder 65
+void I2C_Scan(sensor_list *const s);
+uint8_t scan_AS7262(int fd);
+uint8_t scan_AS7263(int fd);
+void selectDevice(uint8_t device, int fd);
 void setMeasurementMode(uint8_t mode, int fd);
 void setGain(uint8_t gain, int fd);
 void setIntegrationTime(uint8_t integrationValue, int fd);
 void enableInterrupt(int fd);
 void disableInterrupt(int fd);
 void takeMeasurements(int fd);
+void MeasurementFromAdress(int address);
 void takeMeasurementsWithBulb( int fd);
 
 
