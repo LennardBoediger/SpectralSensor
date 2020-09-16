@@ -2,10 +2,11 @@
 #include <stdint.h>
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
-#include <time.h>
+#include <sys/time.h> 
 #include <stdint.h>
 #include "AS726X.h"
 #include "influxdb.h"
+#include "welcome.h"
 
 struct measurmentSettings{
     uint8_t integrationValue; //Give this function a uint8_t from 0 to 255. //Time will be 2.8ms * [integration value]
@@ -21,6 +22,22 @@ uint64_t current_timestamp() {
     uint64_t milliseconds = te.tv_sec*1000LL + te.tv_usec/1000; // calculate milliseconds
     return milliseconds;
 }
+
+//Delays for given amount of minutes
+void delayMesuremntMin(uint16_t MesuremntIntervall){
+    time_t current_time;
+    time_t next_mesuremnt;
+    struct tm * timeinfo;
+    time (&next_mesuremnt);                     // save current time to next_mesuremnt
+    next_mesuremnt += MesuremntIntervall * 60;  // add MesuremntIntervall to current time 
+    timeinfo = localtime ( &next_mesuremnt );   // convert next_mesuremnt time to tm struct 
+    printf ( "Next Mesuremnt: %s", asctime (timeinfo) );
+    do{                                         // wait until next measurement time is reached
+    time (&current_time);                       // save current time to current_time
+    } while(next_mesuremnt > current_time);     
+
+}
+
 
 void saveAS7261Mesurements(int address, uint64_t measurment_time){
     int fd =  wiringPiI2CSetup(address);
@@ -160,9 +177,6 @@ void saveAS7265XMesurements(int address, uint64_t measurment_time){
     printf ( "0x%X getF: %d",address,F);
     writeToDatabase("F",address,measurment_time,F);
 
-
-
-
     close(fd);
 }
 uint64_t MeasurementFromAllAdresses(sensor_list *const s){
@@ -173,55 +187,56 @@ uint64_t MeasurementFromAllAdresses(sensor_list *const s){
             i++;
     }
     uint64_t measurment_duration = current_timestamp()-measurment_time; // save measurment time
-    printf("measurment_duration: %lums\n", measurment_duration);
+    printf("Measurment Duration: %lu ms\n", measurment_duration);
     return measurment_time;
 }
 
-void settings(){
-    printf("I'm sorry Dave, I'm afraid I can't do that\n");
-   // void disableInterrupt(int fd);
-   // setIntegrationTime(uint8_t integrationValue, int fd);
-   // setGain(uint8_t gain, int fd); 
-    //TODO setMesuremntIntervall();
+void settings(int address, uint8_t integrationValue, uint8_t gain){
+    int fd =  wiringPiI2CSetup(address);
+    if (fd == -1) {
+        printf("i2c failed");
+    }
+    disableInterrupt(fd);
+    setIntegrationTime(integrationValue, fd);
+    setGain(gain, fd); 
+    close(fd);
 }
-void welcomeMessage(){
-    printf("\n");
-    printf("NdsyNyssssssssssssssssssssssssssssssssssssssdNhhNm\n");
-    printf("M:  h+            ```````` ` ```            d+  sN\n");
-    printf("Myos+            .ysyodsyhohossh`           -ssshN\n");
-    printf("M.               .ooosooosssosoo`               -M\n");
-    printf("M.               ./soosshhsosso/`               -M\n");
-    printf("M.               .+ssossyyooosso`               -M\n");
-    printf("M.               ./oso++++++oso+`               -N\n");
-    printf("M.               .ooooo++++ooo+o`               -M\n");
-    printf("M.  `...``.``.`..:soo/s/+o/o+oos-..`.``.`..`..  -M\n");
-    printf("M.  osos+osoos+ooh              yso+o+os+ssooh  -M\n");
-    printf("M.  /ssossssooooos     .--.     ooooooososossy  -M\n");
-    printf("M.  /hossyhs++/+oo    :h//sy    +oo/++shysooys  -N\n");
-    printf("M.  +hoosyds++/+oo    /d--od    os+/++sdhssohy  -M\n");
-    printf("M.  +sossssoo+oooo     -//:`    +oooooossossso  -M\n");
-    printf("M.  oyosoooooo+ooh              yooosossoooooh  -M\n");
-    printf("M.  .:.:-.-..-.-:://+//-/::+:+++/::-:.-:.--::/  -M\n");
-    printf("M.                s+ooo++++oooos`               -N\n");
-    printf("M.                /oss++++++oso/`               -N\n");
-    printf("M.                +ssoooyysoosso`               -M\n");
-    printf("M.                /ossoshdyssos+`               -M\n");
-    printf("M.                ++sosssooosooo`               -N\n");
-    printf("Myss+`            yossyohsshoysy`           .sssyN\n");
-    printf("M/  yo            ``````````````            h+  oN\n");
-    printf("MmyyMhssssssssssssssssssssssssssssssssssssssdNhyNN\n");
-    printf("Welcome to Spectral Sensor V0.8\n");
-    printf("Exit by pressing ctr+c\n");
-    printf("Enter [DeviceIP]:3000 into your browser to access the measurement data.\n");
+
+void changeSettings(measurmentSettings *Settings){
+    printf("\n\n\n\n\n");
+    char tmp[10];    //define teporary input storage
+
+    do{
+    printf("Set Integration Value [0:255]:\n");
+    fgets(tmp,10,stdin);
+    } while(!(atoi(tmp)>=0 && atoi(tmp)<=255));
+    Settings->integrationValue = atoi(tmp);
+
+    do{
+    printf("Set Gain [0:3] 0->1x 1->3.7x 2->16x 3->64x:\n");
+    fgets(tmp,10,stdin);
+    } while(!(atoi(tmp)>=0 && atoi(tmp)<=3));
+    Settings->gain = atoi(tmp);
+
+    do{
+    printf("Set Mesuremnt Intervall in Minutes [1:65535]\n");
+    fgets(tmp,10,stdin);
+    } while(!(atoi(tmp)>=1 && atoi(tmp)<=65535));
+    Settings->MesuremntIntervall = atoi(tmp); 
+
+    printf("\n\n\n\n\n");
+
 }
+
 
 int main() {
     welcomeMessage();
-    char userSettingResponse;
+    char userSettingResponse[4];
     measurmentSettings Settings; //measurmentSettings are stored here 
+    //TODO change default values to be read from config file
     Settings.integrationValue = 128; 
     Settings.gain = 1;
-    Settings.MesuremntIntervall = 1; 
+    Settings.MesuremntIntervall = 1;
 
     sensor_list s[128]; //Available Sensors are stored here
     for (int i = 0; i < 128; ++i){ //fill Sensor List with defualt value
@@ -236,13 +251,12 @@ int main() {
         printf("Mesuremnt Intervall: %u min\n", Settings.MesuremntIntervall);
         printf("-----------------------------\n");
         printf("Are The Settings Correct? Type y to continue, n to change Settings \n");
-        scanf(" %1c", &userSettingResponse);
+        fgets(userSettingResponse,4,stdin);
         //userSettingResponse = getchar();
-        if (userSettingResponse == 'N' || userSettingResponse == 'n'){
-            printf("\n\n\n\n");
-            settings();
+        if (userSettingResponse[0] == 'N' || userSettingResponse[0] == 'n'){
+            changeSettings(&Settings);
         }
-        else if (userSettingResponse == 'Y' || userSettingResponse == 'y'){
+        else if (userSettingResponse[0] == 'Y' || userSettingResponse[0] == 'y'){
             printf("--Starting Measurment Cycle--\n");
             break;
         }
@@ -250,22 +264,28 @@ int main() {
             printf("Error\n\n\n\n");
         }
     }
-
-    uint64_t measurment_time = MeasurementFromAllAdresses(s);
-    uint64_t read_time = current_timestamp(s);
-    int i=0;
-    while(s[i].address != -1 && i < 128){ // Save all Measurements to influxdb
-        if (s[i].type == SENSORTYPE_AS7261){
-            saveAS7261Mesurements(s[i].address , measurment_time);  //Save AS7261
-        } 
-        else if (s[i].type == SENSORTYPE_AS72651){
-            saveAS7265XMesurements(s[i].address , measurment_time); //Save AS7265X
-        }
-         i++;
+    //apply settings
+    for (int i = 0; s[i].address != -1 && i < 128; ++i){
+        settings(s[i].address, Settings.integrationValue, Settings.gain);
     }
-    uint64_t read_duration = current_timestamp(s)-read_time;
-    printf("read_duration: %lu\n",read_duration );
-
+    while(1){
+        delayMesuremntMin(Settings.MesuremntIntervall);
+        uint64_t measurment_time = MeasurementFromAllAdresses(s);
+        uint64_t read_time = current_timestamp(s);
+        int i=0;
+        while(s[i].address != -1 && i < 128){ // Save all Measurements to influxdb
+            if (s[i].type == SENSORTYPE_AS7261){
+                saveAS7261Mesurements(s[i].address , measurment_time);  //Save AS7261
+            } 
+            else if (s[i].type == SENSORTYPE_AS72651){
+                saveAS7265XMesurements(s[i].address , measurment_time); //Save AS7265X
+            }
+             i++;
+        }
+        uint64_t read_duration = current_timestamp(s)-read_time;
+        printf("Read Duration: %lu ms\n",read_duration );
+        printf("-----------------------------\n");
+    }
     return 0;
 }
 
