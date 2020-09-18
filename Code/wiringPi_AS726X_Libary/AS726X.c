@@ -8,7 +8,6 @@
 
 
 uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd){
-    disableBulb(fd);
     disableIndicator(fd);
     setIntegrationTime(50, fd); //50 * 2.8ms = 140ms. 0 to 255 is valid.
     //If you use Mode 2 or 3 (all the colors) then integration time is double. 140*2 = 280ms between readings.
@@ -39,8 +38,9 @@ void I2C_Scan(sensor_list *const s){
         int fd =  wiringPiI2CSetup(address);
         if (fd != -1){
             //try to write to some hopefully unused register(5)-> return value: 0 indicates that someone was listening 
-            if (wiringPiI2CWriteReg8 (fd, 5, 1) == 0){ 
-                int version = getVersion(fd);
+            //this possibly writes to the Integration Value Register so make shure to properly set is before starting a measurement
+            if (wiringPiI2CWriteReg8 (fd, 5, 1) == 0){  // 0 indicates sucsessful writing oparation
+                int version = getVersion(fd);   
                 if (version == SENSORTYPE_AS7261){
                     printf("Device at: 0x%X is AS7261\n",address);
                     s[sensor_count].address = address;
@@ -102,7 +102,7 @@ void selectDevice(uint8_t device, int fd) {
 //Mode 2: Continuous reading of all channels (power-on default)
 //Mode 3: One-shot reading of all channels
 void setMeasurementMode(uint8_t mode, int fd) {
-    if (mode > 0b11) mode = 0b11;
+    if (mode > 0b11) mode = 0b11; //wrong value will be set to Mode 3
 
     //Read, mask/set, write
     uint8_t value = virtualReadRegister(AS726x_CONTROL_SETUP, fd); //Read
@@ -132,14 +132,6 @@ void setGain(uint8_t gain, int fd) {
 //Time will be 2.8ms * [integration value]
 void setIntegrationTime(uint8_t integrationValue, int fd) {
     virtualWriteRegister(AS726x_INT_T, integrationValue, fd); //Write
-}
-
-// not needed for bank mode 3!
-void enableInterrupt(int fd) {
-    //Read, mask/set, write
-    uint8_t value = virtualReadRegister(AS726x_CONTROL_SETUP, fd); //Read
-    value |= 0b01000000; //Set INT bit
-    virtualWriteRegister(AS726x_CONTROL_SETUP, value, fd); //Write
 }
 
 //Disables the interrupt pin witch is not connected so disable it!
@@ -173,18 +165,6 @@ void MeasurementFromAdress(int address){
     close(fd);
 }
 
-//Turns on bulb, takes measurements, turns off bulb
-void takeMeasurementsWithBulb( int fd) {
-    //enableIndicator(); //Tell the world we are taking a reading.
-    //The indicator LED is red and may corrupt the readings
-
-    enableBulb(fd); //Turn on bulb to take measurement
-
-    takeMeasurements(fd);
-
-    disableBulb(fd); //Turn off bulb to avoid heating sensor
-    //disableIndicator();
-}
 
 //Get RAW AS7261 readings
 int getX_CIE(int fd) { return(getChannel(AS7261_X, fd));}
@@ -238,6 +218,7 @@ int getChannel_AS7265X(int device, uint8_t channelRegister, int fd){
     }
     return -1;
 }
+
 //A the 16-bit value stored in a given channel registerReturns
 int getChannel(uint8_t channelRegister, int fd){
     int colorData = virtualReadRegister(channelRegister , fd) << 8; //High uint8_t
@@ -278,7 +259,6 @@ float convertBytesToFloat(uint32_t myLong) {
 }
 
 //Checks to see if DRDY flag is set in the control setup register
-//TODO: was bool test retuned 2
 uint8_t dataAvailable(int fd) {
     uint8_t value = virtualReadRegister(AS726x_CONTROL_SETUP, fd);
     return (value & (1 << 1)); //Bit 1 is DATA_RDY
@@ -308,59 +288,10 @@ void disableIndicator(int fd) {
     virtualWriteRegister(AS726x_LED_CONTROL, value, fd);
 }
 
-//Set the current limit of onboard LED. Default is max 8mA = 0b11.
-void setIndicatorCurrent(uint8_t current,int fd) {
-    if (current > 0b11) current = 0b11;
-    //Read, mask/set, write
-    uint8_t value = virtualReadRegister(AS726x_LED_CONTROL, fd); //Read
-    value &= 0b11111001; //Clear ICL_IND bits
-    value |= (current << 1); //Set ICL_IND bits with user's choice
-    virtualWriteRegister(AS726x_LED_CONTROL, value, fd); //Write
-}
-
-//Enable the onboard 5700k or external incandescent bulb
-void enableBulb(int fd) {
-    //Read, mask/set, write
-    uint8_t value = virtualReadRegister(AS726x_LED_CONTROL,fd);
-    value |= (1 << 3); //Set the bit
-    virtualWriteRegister(AS726x_LED_CONTROL, value ,fd);
-}
-
-//Disable the onboard 5700k or external incandescent bulb
-void disableBulb (int fd) {
-    //Read, mask/set, write
-    uint8_t value = virtualReadRegister(AS726x_LED_CONTROL, fd);
-    value &= ~(1 << 3); //Clear the bit
-    virtualWriteRegister(AS726x_LED_CONTROL, value, fd);
-}
-
-
-//Set the current limit of bulb/LED.
-//Current 0: 12.5mA
-//Current 1: 25mA
-//Current 2: 50mA
-//Current 3: 100mA
-void setBulbCurrent(uint8_t current , int fd) {
-    if (current > 0b11) current = 0b11; //Limit to two bits
-
-    //Read, mask/set, write
-    uint8_t value = virtualReadRegister(AS726x_LED_CONTROL, fd); //Read
-    value &= 0b11001111; //Clear ICL_DRV bits
-    value |= (current << 4); //Set ICL_DRV bits with user's choice
-    virtualWriteRegister(AS726x_LED_CONTROL, value, fd); //Write
-}
-
 //Returns the temperature in C
 //Pretty inaccurate: +/-8.5C //TODO: mabe include external Termometer to improve Readings
 uint8_t getTemperature(int fd){
     return (virtualReadRegister(AS726x_DEVICE_TEMP, fd));
-}
-
-//Convert to F if needed
-float getTemperatureF(int fd){
-    float temperatureF = getTemperature(fd);
-    temperatureF = temperatureF * 1.8 + 32.0;
-    return (temperatureF);
 }
 
 //Does a soft reset
@@ -394,7 +325,7 @@ uint8_t virtualReadRegister(uint8_t virtualAddr, int fd){
     //Wait for READ flag to be set
     while (1)
     {
-        status = wiringPiI2CReadReg8(fd, AS72XX_SLAVE_STATUS_REG); //TODO: wirklich 8 reg?
+        status = wiringPiI2CReadReg8(fd, AS72XX_SLAVE_STATUS_REG); 
         if ((status & AS72XX_SLAVE_RX_VALID) != 0) break; // Read data is ready.
         delay(POLLING_DELAY);
     }
@@ -415,7 +346,7 @@ void virtualWriteRegister(uint8_t virtualAddr, uint8_t dataToWrite, int fd){
         }
         delay(POLLING_DELAY);
     }
-    // Send the virtual register address (setting bit 7 to indicate we are writing to a register).
+    // Send the virtual register address (setting bit 7 to indicate a  write a register).
     wiringPiI2CWriteReg8(fd, AS72XX_SLAVE_WRITE_REG, (virtualAddr | 0x80));
 
     //Wait for WRITE register to be empty
@@ -427,7 +358,6 @@ void virtualWriteRegister(uint8_t virtualAddr, uint8_t dataToWrite, int fd){
         }
         delay(POLLING_DELAY);
     }
-
     // Send the data to complete the operation.
     wiringPiI2CWriteReg8(fd, AS72XX_SLAVE_WRITE_REG, dataToWrite);
 }

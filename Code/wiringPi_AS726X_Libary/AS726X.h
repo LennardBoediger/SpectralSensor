@@ -9,13 +9,14 @@
 #define SENSORTYPE_AS72651 65
 
 #define AS72XX_SLAVE_TX_VALID 0x02
-#define AS72XX_SLAVE_RX_VALID 0x01
+#define AS72XX_SLAVE_RX_VALID 
 
+//Physical Register addresses
 #define AS72XX_SLAVE_STATUS_REG 0x00
 #define AS72XX_SLAVE_WRITE_REG 0x01
 #define AS72XX_SLAVE_READ_REG 0x02
 
-//Register addresses
+//Virtual Register addresses
 #define AS726x_DEVICE_TYPE 0x00
 #define AS726x_HW_VERSION 0x01
 #define AS726x_CONTROL_SETUP 0x04
@@ -80,11 +81,9 @@ void selectDevice(uint8_t device, int fd);
 void setMeasurementMode(uint8_t mode, int fd);
 void setGain(uint8_t gain, int fd);
 void setIntegrationTime(uint8_t integrationValue, int fd);
-void enableInterrupt(int fd);
 void disableInterrupt(int fd);
 void takeMeasurements(int fd);
 void MeasurementFromAdress(int address);
-void takeMeasurementsWithBulb( int fd);
 
 
 //Get RAW AS7261 readings
@@ -149,12 +148,7 @@ uint8_t dataAvailable(int fd);
 void clearDataAvailable(int fd);
 void enableIndicator(int fd);
 void disableIndicator(int fd);
-void setIndicatorCurrent(uint8_t current, int fd);
-void enableBulb(int fd);
-void disableBulb (int fd);
-void setBulbCurrent(uint8_t current , int fd);
 uint8_t getTemperature(int fd);
-float getTemperatureF(int fd);
 void softReset(int fd);
 uint8_t virtualReadRegister(uint8_t virtualAddr, int fd);
 void virtualWriteRegister(uint8_t virtualAddr, uint8_t dataToWrite, int fd);

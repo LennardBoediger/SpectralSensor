@@ -15,7 +15,7 @@ SSH pw and ip at home:
 	ssh 192.168.178.107 -l root
 	fa
 	ssh 192.168.178.107 -l pi
-	pi
+	Spi
 
 
 eMMC Formatieren und Mounten:
@@ -90,6 +90,7 @@ Login Grafana:
 	user: admin
 	pw: admin
 
+
 set Timezone:
 sudo timedatectl set-timezone Europe/Berlin
 
@@ -98,11 +99,12 @@ Copy files:
 	scp -r /Users/lennard/Projekts/Bachelorarbeit/Code/wiringPi_AS726X_Libary   root@192.168.178.114:/mnt/mmcblk1/SpectralSensor
 
 How to Screen:
-	screen  		//start new session
+	screen -S your_session_name   		//start new session
 	make 			//run code
 	Ctrl-a Ctrl-d  	//detacht
 	screen -list 	//list sessions
 	screen -r NR	//reconnect
+
 
 IP des nanopi rausfinden nmap immer mit sudo!
 sudo nmap -sn 192.168.1.0/24  
@@ -110,12 +112,15 @@ Nanopi macadressen:
 02:01:AE:2F:AC:1B 
 
 TODO:
+change default values to be read from config file
+drop table 
+temperatur auslesen
+
+wo speichert influxdb?
 grafana autostart
-3&4 sensor an start bringen
-sensoren erkennen
+dont wait for data ready 
 
 Hardware:
-Hardware AS725X Moonlight version 1 
 
 
 
