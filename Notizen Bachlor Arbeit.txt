@@ -127,6 +127,7 @@ temperatur auslesen
 wo speichert influxdb?
 grafana autostart
 dont wait for data ready 
+welcome screen time
 
 Hardware:
 

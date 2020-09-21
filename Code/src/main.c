@@ -347,12 +347,12 @@ int main() {
         uint64_t measurment_time = MeasurementFromAllAdresses(s);
         uint64_t read_time = current_timestamp(s);
         int i=0;
-        while(s[i].address != -1 && i < 128){ // Save all Measurements to influxdb
-            if (s[i].type == SENSORTYPE_AS7261){
+        while(s[i].address != -1 && i < 128){       // Going through every device
+            if (s[i].type == SENSORTYPE_AS7261){    // if sensor type is AS7261
                 saveAS7261Mesurements(s[i].address , measurment_time);  //Save AS7261
             } 
-            else if (s[i].type == SENSORTYPE_AS72651){
-                saveAS7265XMesurements(s[i].address , measurment_time); //Save AS7265X
+            else if (s[i].type == SENSORTYPE_AS72651){  //if sensor type AS72651
+                saveAS7265XMesurements(s[i].address , measurment_time); //Save AS72651 (& AS72652 & AS72653 if present) 
             }
              i++;
         }
