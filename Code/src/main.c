@@ -4,8 +4,8 @@
 #include <wiringPiI2C.h>
 #include <sys/time.h> 
 #include <stdint.h>
-#include "AS726X.h"
-#include "influxdb.h"
+#include "../lib/wiringPi_AS726X_Libary/AS726X.h"
+#include "../lib/influxDB_http_Libary/influxdb.h"
 #include "welcome.h"
 
 struct measurmentSettings{
@@ -17,7 +17,7 @@ typedef struct measurmentSettings measurmentSettings;
 
 //returns current epoch time in ms
 uint64_t current_timestamp() {
-    struct timeval te; 
+    struct timeval te;        // struct with microsecond precision
     gettimeofday(&te, NULL); // get current time
     uint64_t milliseconds = te.tv_sec*1000LL + te.tv_usec/1000; // calculate milliseconds
     return milliseconds;
@@ -25,9 +25,9 @@ uint64_t current_timestamp() {
 
 //Delays for given amount of minutes
 void delayMesuremntMin(uint16_t MesuremntIntervall){
-    time_t current_time;
-    time_t next_mesuremnt;
-    struct tm * timeinfo;
+    time_t current_time;                        // Curren time for comparison
+    time_t next_mesuremnt;                      // Calculated time for next measurment
+    struct tm * timeinfo;                       // time struct for print
     time (&next_mesuremnt);                     // save current time to next_mesuremnt
     next_mesuremnt += MesuremntIntervall * 60;  // add MesuremntIntervall to current time 
     timeinfo = localtime ( &next_mesuremnt );   // convert next_mesuremnt time to tm struct 

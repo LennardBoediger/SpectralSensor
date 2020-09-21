@@ -94,6 +94,14 @@ Login Grafana:
 set Timezone:
 sudo timedatectl set-timezone Europe/Berlin
 
+Autostart code
+sudo nano /etc/rc.local
+	And the following line before exit 0
+	# Run a command as `root` from the home folder(AS726X)
+	# in a screen named `sensor`
+	su - root -c "screen -dm -S spectralsensor ~/SpectralSensor/AS726X"
+	
+
 
 Copy files:
 	scp -r /Users/lennard/Projekts/Bachelorarbeit/Code/wiringPi_AS726X_Libary   root@192.168.178.114:/mnt/mmcblk1/SpectralSensor
