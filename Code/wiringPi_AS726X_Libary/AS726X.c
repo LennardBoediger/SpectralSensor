@@ -33,8 +33,7 @@ void I2C_Scan(sensor_list *const s){
     //printf("test struct address in fuction%i is value %i\n",s[0].address, s[0].type );
     printf("----------I2C Scan ----------\n");
     uint8_t sensor_count = 0;
-    for (int address = 0; address < 128; ++address)
-    {
+    for (int address = 0; address < 128; ++address){
         int fd =  wiringPiI2CSetup(address);
         if (fd != -1){
             //try to write to some hopefully unused register(5)-> return value: 0 indicates that someone was listening 
@@ -126,7 +125,6 @@ void setGain(uint8_t gain, int fd) {
     virtualWriteRegister(AS726x_CONTROL_SETUP, value, fd); //Write
 }
 
-
 //Sets the integration value
 //Give this function a uint8_t from 0 to 255.
 //Time will be 2.8ms * [integration value]
@@ -165,11 +163,10 @@ void MeasurementFromAdress(int address){
     close(fd);
 }
 
-
 //Get RAW AS7261 readings
-int getX_CIE(int fd) { return(getChannel(AS7261_X, fd));}
-int getY_CIE(int fd) { return(getChannel(AS7261_Y, fd));}
-int getZ_CIE(int fd) { return(getChannel(AS7261_Z, fd));}
+int getX(int fd) { return(getChannel(AS7261_X, fd));}
+int getY(int fd) { return(getChannel(AS7261_Y, fd));}
+int getZ(int fd) { return(getChannel(AS7261_Z, fd));}
 int getNIR(int fd) { return(getChannel(AS7261_NIR, fd));}
 int getDark(int fd) { return(getChannel(AS7261_DARK, fd));}
 int getClear(int fd) { return(getChannel(AS7261_CLEAR, fd));}
@@ -184,7 +181,7 @@ int getW(int fd) { return(getChannel_AS7265X(AS72651_id, AS7265X_W_L_F, fd));}
 
 //Get RAW AS72652(color) readings
 int getG(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_R_G_A, fd));}
-int getX(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_S_H_B, fd));}
+int getH(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_S_H_B, fd));}
 int getI(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_T_I_C, fd));}
 int getJ(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_U_J_D, fd));}
 int getK(int fd) { return(getChannel_AS7265X(AS72652_id, AS7265X_V_K_E, fd));}
@@ -198,8 +195,6 @@ int getC(int fd) { return(getChannel_AS7265X(AS72653_id, AS7265X_T_I_C, fd));}
 int getD(int fd) { return(getChannel_AS7265X(AS72653_id, AS7265X_U_J_D, fd));}
 int getE(int fd) { return(getChannel_AS7265X(AS72653_id, AS7265X_V_K_E, fd));}
 int getF(int fd) { return(getChannel_AS7265X(AS72653_id, AS7265X_W_L_F, fd));}
-
-
 
 // returns Color channel of AS7265X
 // returns -1 if slave AS72651 or AS72652 is not available
@@ -219,19 +214,79 @@ int getChannel_AS7265X(int device, uint8_t channelRegister, int fd){
     return -1;
 }
 
-//A the 16-bit value stored in a given channel registerReturns
+//Returns a 16-bit value stored in two consecutive 8-Bit registers 
 int getChannel(uint8_t channelRegister, int fd){
     int colorData = virtualReadRegister(channelRegister , fd) << 8; //High uint8_t
     colorData |= virtualReadRegister(channelRegister + 1, fd); //Low uint8_t
     return(colorData);
 }
 
-//Returns the various calibration data
+//Returns the various calibration data of AS7261
 float getCalibratedX(int fd) { return(getCalibratedValue(AS7261_X_CAL, fd)); } 
 float getCalibratedY(int fd) { return(getCalibratedValue(AS7261_Y_CAL, fd)); } 
 float getCalibratedZ(int fd) { return(getCalibratedValue(AS7261_Z_CAL, fd)); } 
-float getCalibratedLUX(int fd) { return(getCalibratedValue(AS7261_LUX_CAL, fd)); } 
-float getCalibratedCCT(int fd) { return(getCalibratedValue(AS7261_CCT_CAL, fd)); } 
+uint32_t getCalibratedLUX(int fd) { return(getBigValue(AS7261_LUX_CAL, fd)); } 
+uint32_t getCalibratedCCT(int fd) { return(getBigValue(AS7261_CCT_CAL, fd)); } 
+
+//Returns the various calibration data of AS72651
+float getCalibratedR(int fd) { return(getCalibratedValue_AS7265X(AS72651_id, AS7265X_R_G_A_CAL, fd)); }
+float getCalibratedS(int fd) { return(getCalibratedValue_AS7265X(AS72651_id, AS7265X_S_H_B_CAL, fd)); }
+float getCalibratedT(int fd) { return(getCalibratedValue_AS7265X(AS72651_id, AS7265X_T_I_C_CAL, fd)); }
+float getCalibratedU(int fd) { return(getCalibratedValue_AS7265X(AS72651_id, AS7265X_U_J_D_CAL, fd)); }
+float getCalibratedV(int fd) { return(getCalibratedValue_AS7265X(AS72651_id, AS7265X_V_K_E_CAL, fd)); }
+float getCalibratedW(int fd) { return(getCalibratedValue_AS7265X(AS72651_id, AS7265X_W_L_F_CAL, fd)); }
+
+//Returns the various calibration data of AS72652
+float getCalibratedG(int fd) { return(getCalibratedValue_AS7265X(AS72652_id, AS7265X_R_G_A_CAL, fd)); }
+float getCalibratedH(int fd) { return(getCalibratedValue_AS7265X(AS72652_id, AS7265X_S_H_B_CAL, fd)); }
+float getCalibratedI(int fd) { return(getCalibratedValue_AS7265X(AS72652_id, AS7265X_T_I_C_CAL, fd)); }
+float getCalibratedJ(int fd) { return(getCalibratedValue_AS7265X(AS72652_id, AS7265X_U_J_D_CAL, fd)); }
+float getCalibratedK(int fd) { return(getCalibratedValue_AS7265X(AS72652_id, AS7265X_V_K_E_CAL, fd)); }
+float getCalibratedL(int fd) { return(getCalibratedValue_AS7265X(AS72652_id, AS7265X_W_L_F_CAL, fd)); }
+
+//Returns the various calibration data of AS72653
+float getCalibratedA(int fd) { return(getCalibratedValue_AS7265X(AS72653_id, AS7265X_R_G_A_CAL, fd)); }
+float getCalibratedB(int fd) { return(getCalibratedValue_AS7265X(AS72653_id, AS7265X_S_H_B_CAL, fd)); }
+float getCalibratedC(int fd) { return(getCalibratedValue_AS7265X(AS72653_id, AS7265X_T_I_C_CAL, fd)); }
+float getCalibratedD(int fd) { return(getCalibratedValue_AS7265X(AS72653_id, AS7265X_U_J_D_CAL, fd)); }
+float getCalibratedE(int fd) { return(getCalibratedValue_AS7265X(AS72653_id, AS7265X_V_K_E_CAL, fd)); }
+float getCalibratedF(int fd) { return(getCalibratedValue_AS7265X(AS72653_id, AS7265X_W_L_F_CAL, fd)); }
+
+float getCalibratedValue_AS7265X(int device, uint8_t channelRegister, int fd){
+    selectDevice(AS72651_id, fd);   //select AS72651 to verify presence of slave sensors
+    if (device == AS72651_id){
+        return getCalibratedValue(channelRegister, fd);
+    }
+    else if(device == AS72652_id && scan_AS7262(fd)){
+        selectDevice(device, fd);
+        return getCalibratedValue(channelRegister, fd);
+    }
+    else if (device == AS72653_id && scan_AS7263(fd)){
+        selectDevice(device, fd);
+        return getCalibratedValue(channelRegister, fd);
+    }
+    return -1;
+}
+
+//Given an address, read four uint8_ts and return 
+uint32_t getBigValue(uint8_t calAddress, int fd) {
+    uint8_t b0, b1, b2, b3;
+    b0 = virtualReadRegister(calAddress + 0, fd);
+    b1 = virtualReadRegister(calAddress + 1, fd);
+    b2 = virtualReadRegister(calAddress + 2, fd);
+    b3 = virtualReadRegister(calAddress + 3, fd);
+
+    //Channel calibrated values are stored big-endian
+    uint32_t calBytes = 0;
+    calBytes |= ((uint32_t)b0 << (8 * 3));
+    calBytes |= ((uint32_t)b1 << (8 * 2));
+    calBytes |= ((uint32_t)b2 << (8 * 1));
+    calBytes |= ((uint32_t)b3 << (8 * 0));
+    if (calBytes == 0xFFFFFFFF){    //The sensor has internal Overflow issues at low light
+        calBytes = 0;   //This just sets the maxiumum value to 0
+    }
+    return (calBytes);
+}
 
 //Given an address, read four uint8_ts and return the floating point calibrated value
 float getCalibratedValue(uint8_t calAddress, int fd) {
@@ -247,10 +302,11 @@ float getCalibratedValue(uint8_t calAddress, int fd) {
     calBytes |= ((uint32_t)b1 << (8 * 2));
     calBytes |= ((uint32_t)b2 << (8 * 1));
     calBytes |= ((uint32_t)b3 << (8 * 0));
-
+    if (calBytes == 0xFFFFFFFF){    //The sensor has internal Overflow issues at low light
+        calBytes = 0;   //This just sets the maxiumum value to 0
+    }
     return (convertBytesToFloat(calBytes));
 }
-
 //Given 4 uint8_ts returns the floating point value
 float convertBytesToFloat(uint32_t myLong) {
     float myFloat;
@@ -302,7 +358,6 @@ void softReset(int fd){
     virtualWriteRegister(AS726x_CONTROL_SETUP, value, fd); //Write
 }
 
-
 //Read a virtual register from the AS726x
 uint8_t virtualReadRegister(uint8_t virtualAddr, int fd){
     uint8_t  status;
@@ -333,7 +388,6 @@ uint8_t virtualReadRegister(uint8_t virtualAddr, int fd){
     uint8_t incoming = wiringPiI2CReadReg8(fd, AS72XX_SLAVE_READ_REG);
     return (incoming);
 }
-
 
 //Write to a virtual register in the AS726x
 void virtualWriteRegister(uint8_t virtualAddr, uint8_t dataToWrite, int fd){

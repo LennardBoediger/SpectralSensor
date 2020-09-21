@@ -99,7 +99,7 @@ dataAvailble wird auf 0 gesetzt wenn daten gelsen werden.
 Wenn eine One-Shot messung im Bankmode 3 durchgeführt wird sollte das dataAvailble bit mit der Funktion clearDataAvailable auf 0 gesetzt werden, da nicht sicher gestellt ist das die daten vor der Messung gelsen wurden. Es besteht die möglichkeit das sich das bit fälschicherweise noch im falsch positiven zustand befindet.
 Die Funktion dataAvailable gibt den wert des DataAvailable Bit zurück.
 \lstinputlisting[language=C,style=c]{code/dataAvailable.c}
-\subsection{Rohwerte des AS7261 Auslesen}
+\subsubsection{Rohwerte des AS7261 Auslesen}
 Die in \ref{todo} beschrieben 6 Channel des AS7261 werden mit den folgenden Funktionen ausgelesen:
 \begin{itemize}
 	\item getX\_CIE(fd)
@@ -109,16 +109,134 @@ Die in \ref{todo} beschrieben 6 Channel des AS7261 werden mit den folgenden Funk
 	\item getDark(fd) 
 	\item getClear(fd)
 \end{itemize}
-Der File Diskritor einer I2C verbindung mit einem AS7261 wird als übergabe parameter erwatet.\\
-Um den Messert auszulesen wir die Funktion getchannel aufgerufen.
-Der Rückgabewer ist der 16-Bit Messwert aus dem jewaligen Register vom Datentyp Integer.
+Der File Deskriptor einer I2C Verbindung mit einem AS7261 und das zu lesende Register wird als Übergabe Parameter erwatet.\\
+Um den Messwert auszulesen, wir die Funktion getchannel aufgerufen.
+Der Rückgabewert ist der 16-Bit Messwert aus dem jeweiligen Register vom Datentyp integer.
 
-\subsection{getChannel}
+\subsubsection{getChannel}
 Da die Messdaten 16-Bit groß sind, der Sensor aber nur über 8 Bit register verfügt werden 2 aufeinader folgende register ausgelsen und im Big-Andian Format aneinader geheftet.
-Die Funktion getChannel erwatet einen File Disciptor einer I2C verbindung zu einem Sensor und die adressen des High Bytes Raw Data Registers.
+Die Funktion getChannel erwatet den File Disciptor einer I2C verbindung zu einem Sensor und die adressen des High Bytes eines Raw Data Registers.
+Der Rückgabewer ist der 16-Bit Messwert aus dem jewaligen Register vom Datentyp Integer.
+\subsubsection{Rohwerte des AS7265X Auslesen}
+Da der bei daten lesen des AS7265X 3 sensoren unter der gleichen adresse erreichbar sind muss zusätzlich zum File Disciptor und des ziel Registers der Device Identifier angeben werden.
+Folgende Rohdaten können ausgelsen werden:
+\begin{center}
+\begin{tabular}{ c c c }
+ 	AS72651 & AS72652 & AS72653 \\ 
+ 	getR & getG & getA \\  
+ 	getS & getX & getB \\
+ 	getT & getI & getC \\  
+ 	getU & getJ & getD \\
+ 	getV & getK & getE \\  
+ 	getW & getL & getF \\
+\end{tabular}
+\end{center}
+Um den Messwert auszulesen, wir die Funktion getChannel\_AS7265X aufgerufen.\\
+Der Rückgabewert ist der 16-Bit Messwert aus dem jeweiligen Register vom Datentyp integer.
 
-\subsection{disableInterrupt}
+\subsubsection{getChannel\_AS7265X}
+Die Funktion verarbeitet den aus \ref{Rohwerte des AS7265X Auslesen} bekannten Device Identifier indem die Funktion selectDevice aufgerufen wird.
+	Da es aber keine möglichktet gibt zu überprüfen ob der gerätewechsel erfogreich war muss voher überfrüft werden ob das jewalige slave gerät AS72652 oder AS72653 vorhanden ist.
+	Ist ein Slave nicht vorhanden wird der wert -1 zurück gegeben.
+	Ohne dieses überprüfung werden wert aus den gleich numerierten registern des AS72651 ausgelsen obwohl werte eines nicht vohrandnen oder falsch aufgelöteten slave sensors erwatet werden.
+	Das eigentlich auslesen des 16-Bit Messwerts erfolgt mithilfe der Funktion getChannel, das ergebnis ist rügbaewert der Funktion getChannel\_AS7265X.
+
+\subsubsection{selectDevice}
+Die Notwendigkeit für selectDevice wurde in ref{getChannel\_AS7265X} bereits erleutert.
+Laut Datenblatt sollen nur die Bits 0 und 1 des DEV\_SELECT\_CONTROL registers beschrieben werden, das stimmt aber nicht.\\
+In der Realität muss das gesamte 8-bit register mit folgenden werten beschriebn werden um beim aschnliesenden lesen vorgang  daten vom jewaligen sensor zu erhalten.
+\begin{center}
+\begin{tabular}{ c c }
+ 	DEV\_SELECT\_CONTROL & Sensor \\ 
+ 	0x00 & AS72651 \\  
+ 	0x01 & AS72652 \\
+ 	0x02 & AS72653 \\  
+\end{tabular}
+\end{center}
+
+\subsubsection{Kalibrierte Werte des AS7261 Auslesen}
+TODO
+\subsubsection{Kalibrierte Werte des AS7265X Auslesen}
+TODO
+\subsubsection{getCalibratedValue}
+TODO
+\subsubsection{convertBytesToFloat}
+\subsubsection{Enable/Disable Indicator}
+Mit der Funktion enableIndicator wird das 0 Bit des AS726x\_LED\_CONTROL Register aus 1 gesetzt, so wird die Rote status led des jewaligen sensors auf dem sensorbaord angeschaltet.\\
+Mit der Funktion dnableIndicator wird das gleiche Bit auf 0 gesetzt, also die Led ausgeschaltet.\\
+Als übergabe paramter wird bei beiden funktionen der FileDiskiptor einer aktiven I2C verbindung erwatet.\\
+
+\subsubsection{softReset}
+Der Sensor liefert in einigen situationen messwerte auserhalb des erwatungsbereiches.
+Dieses Problem kann in manchen fällen behoben werden indem ein softReset durchgeführt wird.
+Da in der hier beschrieben Implenatation keine Fehler aufteten wie die funktion nicht benötigkt, kann aber in zukünftigen versionen verwendet werden.
+
+Die Funktion softReset setzt das 8 Bit des Registers CONTROL\_SETUP auf 1 um einen softReset auszulösen.
+Der datenbaltt gibt an das mindestens 1000ms gewatet werden muss bevor der softReset abgeschlossen ist und der sensor wieder genutzt werden kann.
+Als übergabe paramter wird bei beiden funktionen der FileDiskiptor einer aktiven I2C verbindung erwatet.
+\subsubsection{I2CScan}
+Die Funktion I2CScan wird zu begin des Programms aufgerufen um zu erfassen welche Sensoren mit dem I2C DatenBus verbunden sind.
+Die die gefunden Sensor Adressen und der Sensortyp werden in das struct sensor\_list geschrieben.\\
+Außerdem werden die im Terminal ausgegeben damit der Benutzer überprüfen kann ob alle erwatetn sensoren erkannt werden.\\
+Als Übergae paramter wird im call by refrence style ein Pointer zu einem Struct vom typ sensor\_list erwatet.
+Da die daten direkt in das extern deklarierte(?) strukt geschriebn wird gibt es keinen rückgabe wert.
+Um die angeschlossenen sensoren zu detetieren wir zu jeder der $2^8$ möglichen I2C adressen eine verbindung aufgebaut und schreibversuch mithilfe der funktion wiringPiI2CWriteReg8 vorgenommen.
+Wenn die Funktioon wiringPiI2CWriteReg8 eine 0 zurück gibt war der Schreibversuch erfogreich also muss ein sensor unter dieser adresse vorhanden sein.
+Das im datenblatt nicht erwähnte register mit der adresse 0x05 wurde ausgewählt das es mit dem wert 0x01 beschriebn werden kann ohne das der sensor sein verhalten verändert.
+Die funktion getVersion wird genutzt um die version des gefunden sensors zu ermitteln.
+Wenn ein AS72651 erkannt wird wird zusäzlich abgefragt ob auch die slave sensoren AS72652 und AS72653 vorhanden sind, diese information wird nur im Terminal ausgegebn und nicht is das struct sensor\_list geschrieben, da es für den programmablauf nicht notwendig ist.
+\subsubsection{getVersion}
+Die funktion getVersion gibt den inhalt der Registers AS726x\_HW\_VERSION zurück, indem der zurückgebene wert mit den beiden SENSORTYPE werten verglichen wird(SENSORTYPE\_AS7261 und SENSORTYPE\_AS72651). kann festegellt werden um welchen sensor es sich handelt. 
+Als übergabe paramter wird bei beiden funktionen der FileDiskiptor einer aktiven I2C verbindung erwatet.\\
+
+\subsubsection{scanAS7262}
+Als übergabe paramter wird bei der funktionen der FileDiskiptor einer aktiven I2C verbindung mit einem AS72651 erwatet.\\
+Die funktion überprüft den status des 4. Bit des registers DEV\_SELECT\_CONTROL und gibt ihn zurück. Das Bit ist auf 1 gesetzt wenn der slave sensor AS7262 vorhanden ist, im falle der abwesenheit ist es 0.\\
+Im Datenbaltt des AS7265X wird fälschicherweise angegeben das das 5. Bit überprüft werden muss.
+
+\subsubsection{scanAS7263}
+Als übergabe paramter wird bei der funktionen der FileDiskiptor einer aktiven I2C verbindung mit einem AS72651 erwatet.\\
+Die funktion überprüft den status des 5. Bit des registers DEV\_SELECT\_CONTROL und gibt ihn zurück. Das Bit ist auf 1 gesetzt wenn der slave sensor AS7262 vorhanden ist, im falle der abwesenheit ist es 0.
+\subsubsection{setGain}
+Die Messergebnisse der Sensoren können intern verstärkt werden, das ist beispielsweise in dunklen messumgebenungen oder bei gebrauch von relativ licht undurchlässigen streuscheiben notwendig.\\
+Um den Verstärkungsfaktor einzustellen wird die Funktion setGain benötigt.\\
+Die Funktion setGain beschreibt das 4 und 5 Bit des registers CONTROL\_SETUP mit einem der 4 möglichen zustände welcher an die Funktion sie übergebenen wird.
+
+\begin{tabular}{ l l}
+ 	Wert & Verstärkungsfaktor \\ 
+ 	0 & 1x (power-on default) \\  
+ 	1 & 3.7x \\
+ 	2 & 16x \\  
+ 	3 & 64x \\
+\end{tabular}
+
+
+Ist der übergebe wert größer als 3 ist wird das register auf den Wert 3 gesetzt.
+\subsubsection{setIntegrationTime}
+Um die integrationszeit der Messung einzustellen wird in das register AS726x\_INT\_T ein wert (integrationValue) zwischen 0 und 255 geschrieben, die Integrationszeit errechnet sich indem dieses wert mit dem Faktor 2.8ms multipliziert wird.
+Die funktion setIntegrationTime erwatet als übergabeparamter das integrationValue sowie den FileDiskiptor einer aktiven I2C verbindung.\\
+
+\subsubsection{disableInterrupt}
 Die Funktion disableInterrupt setzt das INT Bit im register AS726x\_CONTROL\_SETUP auf 0 um Interrupts aus zu schalten.
 Da Der Interrupt auf der Sensor Paltiene nicht verbinden ist muss .. toto muss dass wirklich?
+
+\subsection{influxDB Library writeToDatabase}
+Um die Messdaten der Sensoren in die aus \ref{datenbankundinterface} bekannte InfluDB zu schreiben wurde die influxDB Library entwikelt, sie enhält nur eine einzige nach außen sichtbare funktion: writeToDatabase.
+\subsubsection{writeToDatabase}
+Um die Datenbenk zu beschreiben muss zuerst ein Socket geöffnet werden um mit der influxdb server instanz zu verbinden.
+der UnfluxDB sever ist unter der locallink adresse 127.0.0.1 am port 8086 zu erreichen.
+	Diese Werte können in der influxdb.h datei angepasst werden falls in zukunft die notwendigkeit besteht den server auf einem externen gerät zu betreiben.\\
+	Die Komunikation mit dem Influxdb server erflogt über das Http basierte InfluxDB line protocol.
+
+	
+	In zeile 68 wird der Datenbankname , Username,  Passowrt der Datenbank und die größe des Body's der anfage in den header teil der http anfrage geschrieben.
+	
+	In zeile 64 wird der body teil der anfrage im InfluxDB line protocol format erzeugt, dieser enthält den Bezeiner des Messwerts (z.B. A oder B), die I2C adresse des jewaligens Sensors von dem die Messdaten stammen, den Messert selbst sowie den Zeitstempel der Messung in ms.
+	
+In zeile 85 wird der Http request bestehend aus Header und Body an den Server übertragen.
+Die antwort vom Server wird gespeichert und anschließen auf die erwatete rückmeldung "HTTP/1.1 204 No Content" untersucht, wenn der schreibversuch fehlschlägt wird eine meldung im Terminal angezeigt(TODO hier sollte die status led sich verändern).
+\subsection{main}
+In der Mainfunktion kommen 
+
 
 

@@ -45,15 +45,15 @@ void saveAS7261Mesurements(int address, uint64_t measurment_time){
         printf("i2c failed");
     }
     // Save X
-    int X = getX_CIE(fd);
+    int X = getX(fd);
     printf ( "0x%X getX: %d",address,X);
     writeToDatabase("X",address,measurment_time,X);
     // Save Y
-    int Y = getY_CIE(fd);
+    int Y = getY(fd);
     printf ( "0x%X getY: %d",address,Y);
     writeToDatabase("Y",address,measurment_time,Y);
     // Save Z
-    int Z = getZ_CIE(fd);
+    int Z = getZ(fd);
     printf ( "0x%X getZ: %d",address,Z);
     writeToDatabase("Z",address,measurment_time,Z);
 
@@ -83,12 +83,12 @@ void saveAS7261Mesurements(int address, uint64_t measurment_time){
     printf("0x%X get Cal_Z: %f",address , Cal_Z);
     writeToDatabase("Cal_Z",address,measurment_time, Cal_Z);
     //Save LUX
-    float Cal_LUX = getCalibratedLUX(fd);
-    printf("0x%X getLUX: %f",address , Cal_LUX);
+    uint32_t Cal_LUX = getCalibratedLUX(fd);
+    printf("0x%X getLUX: %lu",address , (unsigned long)Cal_LUX);
     writeToDatabase("Cal_LUX",address,measurment_time, Cal_LUX);
     //Save CCT
-    float Cal_CCT = getCalibratedCCT(fd);
-    printf("0x%X getCCT: %f",address , Cal_CCT);
+    uint32_t Cal_CCT = getCalibratedCCT(fd);
+    printf("0x%X getCCT: %lu",address , (unsigned long)Cal_CCT);
     writeToDatabase("Cal_CCT",address,measurment_time, Cal_CCT);
 
     close(fd);
@@ -130,10 +130,10 @@ void saveAS7265XMesurements(int address, uint64_t measurment_time){
     int G = getG(fd);
     printf ( "0x%X getG: %d",address,G);
     writeToDatabase("G",address,measurment_time,G);
-    // Save X
-    int X = getX(fd);
-    printf ( "0x%X getX: %d",address,X);
-    writeToDatabase("X",address,measurment_time,X);
+    // Save H
+    int H = getH(fd);
+    printf ( "0x%X getH: %d",address,H);
+    writeToDatabase("H",address,measurment_time,H);
     // Save I
     int I = getI(fd);
     printf ( "0x%X getI: %d",address,I);
@@ -176,6 +176,81 @@ void saveAS7265XMesurements(int address, uint64_t measurment_time){
     int F = getF(fd);
     printf ( "0x%X getF: %d",address,F);
     writeToDatabase("F",address,measurment_time,F);
+
+    // Save Cal_R
+    float Cal_R = getCalibratedR(fd);
+    printf ( "0x%X getCal_R: %f",address,Cal_R);
+    writeToDatabase("Cal_R",address,measurment_time,Cal_R);
+    // Save Cal_S
+    float Cal_S = getCalibratedS(fd);
+    printf ( "0x%X getCal_S: %f",address,Cal_S);
+    writeToDatabase("Cal_S",address,measurment_time,Cal_S);
+    // Save Cal_T
+    float Cal_T = getCalibratedT(fd);
+    printf ( "0x%X getCal_T: %f",address,Cal_T);
+    writeToDatabase("Cal_T",address,measurment_time,Cal_T);
+    // Save Cal_U
+    float Cal_U = getCalibratedU(fd);
+    printf ( "0x%X getCal_U: %f",address,Cal_U);
+    writeToDatabase("Cal_U",address,measurment_time,Cal_U);
+    // Save Cal_V
+    float Cal_V = getCalibratedV(fd);
+    printf ( "0x%X getCal_V: %f",address,Cal_V);
+    writeToDatabase("Cal_V",address,measurment_time,Cal_V);
+    // Save Cal_W
+    float Cal_W = getCalibratedW(fd);
+    printf ( "0x%X getCal_W: %f",address,Cal_W);
+    writeToDatabase("Cal_W",address,measurment_time,Cal_W);
+    // Save Cal_G
+    float Cal_G = getCalibratedG(fd);
+    printf ( "0x%X getCal_G: %f",address,Cal_G);
+    writeToDatabase("Cal_G",address,measurment_time,Cal_G);
+    // Save Cal_X
+    float Cal_H = getCalibratedH(fd);
+    printf ( "0x%X getCal_H: %f",address,Cal_H);
+    writeToDatabase("Cal_H",address,measurment_time,Cal_H);
+    // Save Cal_I
+    float Cal_I = getCalibratedI(fd);
+    printf ( "0x%X getCal_I: %f",address,Cal_I);
+    writeToDatabase("Cal_I",address,measurment_time,Cal_I);
+    // Save Cal_J
+    float Cal_J = getCalibratedJ(fd);
+    printf ( "0x%X getCal_J: %f",address,Cal_J);
+    writeToDatabase("Cal_J",address,measurment_time,Cal_J);
+    // Save Cal_K
+    float Cal_K = getCalibratedK(fd);
+    printf ( "0x%X getCal_K: %f",address,Cal_K);
+    writeToDatabase("Cal_K",address,measurment_time,Cal_K);
+    // Save Cal_L
+    float Cal_L = getCalibratedL(fd);
+    printf ( "0x%X getCal_L: %f",address,Cal_L);
+    writeToDatabase("Cal_L",address,measurment_time,Cal_L);
+    // Save Cal_A
+    float Cal_A = getCalibratedA(fd);
+    printf ( "0x%X getCal_A: %f",address,Cal_A);
+    writeToDatabase("Cal_A",address,measurment_time,Cal_A);
+    // Save Cal_B
+    float Cal_B = getCalibratedB(fd);
+    printf ( "0x%X getCal_B: %f",address,Cal_B);
+    writeToDatabase("Cal_B",address,measurment_time,Cal_B);
+    // Save Cal_C
+    float Cal_C = getCalibratedC(fd);
+    printf ( "0x%X getCal_C: %f",address,Cal_C);
+    writeToDatabase("Cal_C",address,measurment_time,Cal_C);
+    // Save Cal_D
+    float Cal_D = getCalibratedD(fd);
+    printf ( "0x%X getCal_D: %f",address,Cal_D);
+    writeToDatabase("Cal_D",address,measurment_time,Cal_D);
+    // Save Cal_E
+    float Cal_E = getCalibratedE(fd);
+    printf ( "0x%X getCal_E: %f",address,Cal_E);
+    writeToDatabase("Cal_E",address,measurment_time,Cal_E);
+    // Save Cal_F
+    float Cal_F = getCalibratedF(fd);
+    printf ( "0x%X getCal_F: %f",address,Cal_F);
+    writeToDatabase("Cal_F",address,measurment_time,Cal_F);
+
+
 
     close(fd);
 }
@@ -269,7 +344,6 @@ int main() {
         settings(s[i].address, Settings.integrationValue, Settings.gain);
     }
     while(1){
-        delayMesuremntMin(Settings.MesuremntIntervall);
         uint64_t measurment_time = MeasurementFromAllAdresses(s);
         uint64_t read_time = current_timestamp(s);
         int i=0;
@@ -285,6 +359,7 @@ int main() {
         uint64_t read_duration = current_timestamp(s)-read_time;
         printf("Read Duration: %lu ms\n",read_duration );
         printf("-----------------------------\n");
+        delayMesuremntMin(Settings.MesuremntIntervall);
     }
     return 0;
 }

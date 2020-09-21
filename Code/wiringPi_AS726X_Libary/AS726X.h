@@ -9,9 +9,10 @@
 #define SENSORTYPE_AS72651 65
 
 #define AS72XX_SLAVE_TX_VALID 0x02
-#define AS72XX_SLAVE_RX_VALID 
+#define AS72XX_SLAVE_RX_VALID 0x01
 
 //Physical Register addresses
+//TODO remove slave
 #define AS72XX_SLAVE_STATUS_REG 0x00
 #define AS72XX_SLAVE_WRITE_REG 0x01
 #define AS72XX_SLAVE_READ_REG 0x02
@@ -72,11 +73,11 @@ struct sensor {
 };
 typedef struct sensor sensor_list;
 
-uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd);
+uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd);//TODO remove unused function
 uint8_t getVersion(int fd); //61 oder 65
-void I2C_Scan(sensor_list *const s);
-uint8_t scan_AS7262(int fd);
-uint8_t scan_AS7263(int fd);
+void I2C_Scan(sensor_list *const s); //Remove _
+uint8_t scan_AS7262(int fd);//Remove _
+uint8_t scan_AS7263(int fd);//Remove _
 void selectDevice(uint8_t device, int fd);
 void setMeasurementMode(uint8_t mode, int fd);
 void setGain(uint8_t gain, int fd);
@@ -87,9 +88,9 @@ void MeasurementFromAdress(int address);
 
 
 //Get RAW AS7261 readings
-int getX_CIE(int fd);
-int getY_CIE(int fd);
-int getZ_CIE(int fd);
+int getX(int fd);
+int getY(int fd);
+int getZ(int fd);
 int getNIR(int fd);
 int getDark(int fd);
 int getClear(int fd);
@@ -104,7 +105,7 @@ int getW(int fd);
 
 //Get RAW AS72652(color) readings
 int getG(int fd);
-int getX(int fd);
+int getH(int fd);
 int getI(int fd);
 int getJ(int fd);
 int getK(int fd);
@@ -122,33 +123,47 @@ int getF(int fd);
 int getChannel_AS7265X(int device, uint8_t channelRegister, int fd);
 int getChannel(uint8_t channelRegister, int fd);
 
-
+// Get Calibrated AS7261 Values
 float getCalibratedX(int fd);
 float getCalibratedY(int fd);
 float getCalibratedZ(int fd);
-float getCalibratedLUX(int fd);
-float getCalibratedCCT(int fd);
+uint32_t getCalibratedLUX(int fd);
+uint32_t getCalibratedCCT(int fd);
 
-float getCalibratedViolet(int fd);
-float getCalibratedBlue(int fd);
-float getCalibratedGreen(int fd);
-float getCalibratedYellow(int fd);
-float getCalibratedOrange(int fd) ;
-float getCalibratedRed(int fd);
-float getCalibratedT(int fd);
-float getCalibratedS(int fd);
+// Get Calibrated AS72651 Values
 float getCalibratedR(int fd);
+float getCalibratedS(int fd);
+float getCalibratedT(int fd);
 float getCalibratedU(int fd);
 float getCalibratedV(int fd);
 float getCalibratedW(int fd);
+
+// Get Calibrated AS72652 Values
+float getCalibratedG(int fd);
+float getCalibratedH(int fd);
+float getCalibratedI(int fd);
+float getCalibratedJ(int fd);
+float getCalibratedK(int fd);
+float getCalibratedL(int fd);
+
+// Get Calibrated AS72653 Values
+float getCalibratedA(int fd);
+float getCalibratedB(int fd);
+float getCalibratedC(int fd);
+float getCalibratedD(int fd);
+float getCalibratedE(int fd);
+float getCalibratedF(int fd);
+
+float getCalibratedValue_AS7265X(int device, uint8_t channelRegister, int fd);
 float getCalibratedValue(uint8_t calAddress, int fd);
+uint32_t getBigValue(uint8_t calAddress, int fd);
 
 float convertBytesToFloat(uint32_t myLong);
 uint8_t dataAvailable(int fd);
 void clearDataAvailable(int fd);
 void enableIndicator(int fd);
 void disableIndicator(int fd);
-uint8_t getTemperature(int fd);
+uint8_t getTemperature(int fd);//latex
 void softReset(int fd);
 uint8_t virtualReadRegister(uint8_t virtualAddr, int fd);
 void virtualWriteRegister(uint8_t virtualAddr, uint8_t dataToWrite, int fd);
