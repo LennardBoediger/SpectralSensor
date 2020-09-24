@@ -129,6 +129,9 @@ grafana autostart
 dont wait for data ready 
 welcome screen time
 
+Add gain setting 4(automatisch)
+4x messen Größten wert speicher der unter 2^16 ist 
+kalibirung für jeden sensor einzeln (multiplizierung) csv mit wert für jeden sensor auf jedem pi er sucht sich die raus die er braucht
 Hardware:
 
 

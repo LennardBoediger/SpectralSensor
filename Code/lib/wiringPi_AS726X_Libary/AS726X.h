@@ -69,9 +69,17 @@
 
 struct sensor {
 	int8_t address;
-  	int8_t  type;
+  	int8_t type;
+  	int8_t num_device_addr; //number of devices under this address
 };
 typedef struct sensor sensor_list;
+
+struct AS7261_channel{
+	uint32_t X;
+	uint32_t Y;
+	uint32_t Z;
+};
+typedef struct AS7261_channel AS7261_channel;
 
 uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd);//TODO remove unused function
 uint8_t getVersion(int fd); //61 oder 65

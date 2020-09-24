@@ -44,19 +44,23 @@ void I2C_Scan(sensor_list *const s){
                     printf("Device at: 0x%X is AS7261\n",address);
                     s[sensor_count].address = address;
                     s[sensor_count].type = SENSORTYPE_AS7261;
+                    s[sensor_count].num_device_addr = 1;
                     sensor_count++;
                 }
                 else if(version == SENSORTYPE_AS72651){
                     printf("Device at: 0x%X is AS72651",address);
                     s[sensor_count].address = address;
                     s[sensor_count].type = SENSORTYPE_AS72651;
-                    sensor_count++;
+                    s[sensor_count].num_device_addr = 1;
                     if (scan_AS7262(fd)){
+                        s[sensor_count].num_device_addr += 1;
                         printf(", AS72652");
                     }
                     if (scan_AS7263(fd)){
+                        s[sensor_count].num_device_addr += 1;
                         printf(", AS72653");
                     }
+                    sensor_count++;
                     printf("\n");
                 }
             }
@@ -345,7 +349,6 @@ void disableIndicator(int fd) {
 }
 
 //Returns the temperature in C
-//Pretty inaccurate: +/-8.5C //TODO: mabe include external Termometer to improve Readings
 uint8_t getTemperature(int fd){
     return (virtualReadRegister(AS726x_DEVICE_TEMP, fd));
 }
