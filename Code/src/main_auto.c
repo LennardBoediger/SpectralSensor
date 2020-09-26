@@ -136,6 +136,34 @@ AS7261_channel cleanAS7261Data(AS7261_channel *const AS7261_measurement){
         }
     }
     AS7261_measurement[0].Z = matchValueToMaxGain(used_gain.Z , AS7261_measurement[0].Z);
+
+    used_gain.Clear = 0;
+    for (int i = 1; i < 4; ++i){
+        if (AS7261_measurement[0].Clear < AS7261_measurement[i].Clear && AS7261_measurement[i].Clear < 65500){
+            AS7261_measurement[0].Clear = AS7261_measurement[i].Clear;
+            used_gain.Clear = i;
+        }
+    }
+    AS7261_measurement[0].Clear = matchValueToMaxGain(used_gain.Clear , AS7261_measurement[0].Clear);
+
+    used_gain.Dark = 0;
+    for (int i = 1; i < 4; ++i){
+        if (AS7261_measurement[0].Dark < AS7261_measurement[i].Dark && AS7261_measurement[i].Dark < 65500){
+            AS7261_measurement[0].Dark = AS7261_measurement[i].Dark;
+            used_gain.Dark = i;
+        }
+    }
+    AS7261_measurement[0].Dark = matchValueToMaxGain(used_gain.Dark , AS7261_measurement[0].Dark);
+
+    used_gain.NIR = 0;
+    for (int i = 1; i < 4; ++i){
+        if (AS7261_measurement[0].NIR < AS7261_measurement[i].NIR && AS7261_measurement[i].NIR < 65500){
+            AS7261_measurement[0].NIR = AS7261_measurement[i].NIR;
+            used_gain.NIR = i;
+        }
+    }
+    AS7261_measurement[0].NIR = matchValueToMaxGain(used_gain.NIR , AS7261_measurement[0].NIR);
+    
     return used_gain;
 }
 
@@ -313,15 +341,27 @@ AS7261_channel getAS7261Measurement(int address){
     if (fd == -1) {
         printf("i2c failed");
     }
-    // Save X
+    // Get X
     store_data.X = getX(fd);
     printf ( "0x%X getX: %d\n",address,store_data.X);
-    // Save Y
+    // Get Y
     store_data.Y = getY(fd);
     printf ( "0x%X getY: %d\n",address,store_data.Y);
-    // Save Z
+    // Get Z
     store_data.Z = getZ(fd);
     printf ( "0x%X getZ: %d\n",address,store_data.Z);
+    //Get Clear
+    store_data.Clear = getClear(fd);
+    printf( "0x%X getClear: %d\n",address,store_data.Clear);
+
+    //Get Dark
+    store_data.Dark = getDark(fd);
+    printf( "0x%X getDark: %d\n",address,store_data.Dark);
+
+    //Get NIR
+    store_data.NIR = getNIR(fd);
+    printf("0x%X getNIR: %d\n",address,store_data.NIR);
+    
 
     close(fd);
     return store_data;
@@ -407,6 +447,15 @@ void saveAS7261Measurement(int address,AS7261_channel values, uint64_t measureme
     // Save Z
     printf ( "0x%X saveZ: %d",address,values.Z);
     writeToDatabase("Z",address,measurement_time,values.Z);
+    //Save Clear
+    printf( "0x%X getClear: %d",address,values.Clear);
+    writeToDatabase("Clear",address,measurement_time,values.Clear);
+    //Save Dark
+    printf( "0x%X getDark: %d",address,values.Dark);
+    writeToDatabase("Dark",address,measurement_time,values.Dark);
+    //Save NIR
+    printf("0x%X getNIR: %d",address,values.NIR);
+    writeToDatabase("NIR",address,measurement_time,values.NIR);
 }
 
 void saveAS7265XMeasurement(int address,AS7265X_channel values, uint64_t measurement_time){
@@ -466,33 +515,6 @@ void saveAS7265XMeasurement(int address,AS7265X_channel values, uint64_t measure
     writeToDatabase("F",address,measurement_time,values.F);
 }
 
-/*void calibrateValuesAS7261(AS7261_channel used_gain,AS7261_channel *const AS7261_measurement, AS7261_channel const* calibration_factor_AS7261){
-    AS7261_measurement[0].X *= calibration_factor_AS7261[used_gain.X].X;
-    AS7261_measurement[0].Y *= calibration_factor_AS7261[used_gain.Y].Y;
-    AS7261_measurement[0].Z *= calibration_factor_AS7261[used_gain.Z].Z;
-}*/
-
-/*void calibrateValuesAS7265X(AS7265X_channel used_gain,AS7265X_channel *const AS7265X_measurement, AS7265X_channel const* calibration_factor_AS7265X){
-    AS7261_measurement[0].R *= calibration_factor_AS7261[used_gain.R].R;
-    AS7261_measurement[0].S *= calibration_factor_AS7261[used_gain.S].S;
-    AS7261_measurement[0].T *= calibration_factor_AS7261[used_gain.T].T;
-    AS7261_measurement[0].U *= calibration_factor_AS7261[used_gain.U].U;
-    AS7261_measurement[0].V *= calibration_factor_AS7261[used_gain.V].V;
-    AS7261_measurement[0].W *= calibration_factor_AS7261[used_gain.W].W;
-    AS7261_measurement[0].G *= calibration_factor_AS7261[used_gain.G].G;
-    AS7261_measurement[0].H *= calibration_factor_AS7261[used_gain.H].H;
-    AS7261_measurement[0].I *= calibration_factor_AS7261[used_gain.I].I;
-    AS7261_measurement[0].J *= calibration_factor_AS7261[used_gain.J].J;
-    AS7261_measurement[0].K *= calibration_factor_AS7261[used_gain.K].K;
-    AS7261_measurement[0].L *= calibration_factor_AS7261[used_gain.L].L;
-    AS7261_measurement[0].A *= calibration_factor_AS7261[used_gain.A].A;
-    AS7261_measurement[0].B *= calibration_factor_AS7261[used_gain.B].B;
-    AS7261_measurement[0].C *= calibration_factor_AS7261[used_gain.C].C;
-    AS7261_measurement[0].D *= calibration_factor_AS7261[used_gain.D].D;
-    AS7261_measurement[0].E *= calibration_factor_AS7261[used_gain.E].E;
-    AS7261_measurement[0].F *= calibration_factor_AS7261[used_gain.F].F;
-}*/
-
 void autoGainMeasurementAS7261(uint64_t measurement_time, sensor_list *const s, uint8_t integrationValue){
 
     AS7261_channel AS7261_measurement[4];
@@ -508,6 +530,9 @@ void autoGainMeasurementAS7261(uint64_t measurement_time, sensor_list *const s, 
             printf("X used gain: %d matched value to gain 3: %d\n", used_gain.X, AS7261_measurement[0].X);
             printf("Y used gain: %d matched value to gain 3: %d\n", used_gain.Y, AS7261_measurement[0].Y);
             printf("Z used gain: %d matched value to gain 3: %d\n", used_gain.Z, AS7261_measurement[0].Z);
+            printf("Clear used gain: %d matched value to gain 3: %d\n", used_gain.Clear, AS7261_measurement[0].Clear);
+            printf("Dark used gain: %d matched value to gain 3: %d\n", used_gain.Dark, AS7261_measurement[0].Dark);
+            printf("NIR used gain: %d matched value to gain 3: %d\n", used_gain.NIR, AS7261_measurement[0].NIR);
             saveAS7261Measurement(s[i].address ,AS7261_measurement[0], measurement_time); // write clean values to database
         }
     }
@@ -555,6 +580,18 @@ void manualGainMeasurementAS7261(uint64_t measurement_time, sensor_list *const s
             MeasurementFromAdress(s[i].address);            // initiate measurement from current adress
             AS7261_measurement = getAS7261Measurement(s[i].address);    // get data and save
             saveAS7261Measurement(s[i].address ,AS7261_measurement, measurement_time); // write values to database
+        }
+    }
+}
+
+void manualGainMeasurementAS7265X(uint64_t measurement_time, sensor_list *const s, uint8_t integrationValue, uint8_t gain){
+    AS7265X_channel AS7265X_measurement;
+    for (int i = 0; s[i].address != -1 && i < 128; ++i){    // going through every device
+        if (s[i].type == SENSORTYPE_AS72651){                // only use AS7261 devices
+            settings(s[i].address, integrationValue, gain); // apply settings integrationValue is fix gain is fix
+            MeasurementFromAdress(s[i].address);            // initiate measurement from current adress
+            AS7265X_measurement = getAS7265XMeasurement(s[i].address);    // get data and save
+            saveAS7265XMeasurement(s[i].address ,AS7265X_measurement, measurement_time); // write values to database
         }
     }
 }
@@ -664,7 +701,6 @@ int main() {
     while(1){
         I2C_Scan(s); //Scan for Sensors
         printf("Please check if all expected devices are available.\n");
-        printf("Please check if all calibration factors are correct.\n");
         printf("----------Settings-----------\n");
         printf("Integration Value: %hhu * 2.8ms = Integration Time\n",Settings.integrationValue);
         printf("Gain: %hhu\n", Settings.gain);
@@ -695,7 +731,7 @@ int main() {
         }
         else{
             manualGainMeasurementAS7261(measurement_time, s, Settings.integrationValue, Settings.gain);
-            //manualGainMeasurementAS7265X(measurement_time, s, Settings.integrationValue, Settings.gain);
+            manualGainMeasurementAS7265X(measurement_time, s, Settings.integrationValue, Settings.gain);
         }
             uint64_t measurement_duration = current_timestamp(s)-measurement_time;
             printf("Measurement duration: %lu ms\n",measurement_duration);

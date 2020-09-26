@@ -59,6 +59,9 @@ struct AS7261_channel{
 	uint32_t X;
 	uint32_t Y;
 	uint32_t Z;
+	uint32_t Clear;
+	uint32_t Dark;
+	uint32_t NIR;
 };
 typedef struct AS7261_channel AS7261_channel;
 
