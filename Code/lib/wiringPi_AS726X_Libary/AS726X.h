@@ -33,12 +33,6 @@
 #define AS7261_NIR 0x0E
 #define AS7261_DARK 0x10
 #define AS7261_CLEAR 0x12
-//Calibrated channel registers
-#define AS7261_X_CAL 0x14
-#define AS7261_Y_CAL 0x18
-#define AS7261_Z_CAL 0x1C
-#define AS7261_LUX_CAL 0x3C
-#define AS7261_CCT_CAL 0x40
 
 //AS7265X
 //Raw channel registers
@@ -48,13 +42,7 @@
 #define AS7265X_U_J_D     0x0E
 #define AS7265X_V_K_E     0x10
 #define AS7265X_W_L_F     0x12
-//Calibrated channel registers
-#define AS7265X_R_G_A_CAL   0x14
-#define AS7265X_S_H_B_CAL   0x18
-#define AS7265X_T_I_C_CAL   0x1C
-#define AS7265X_U_J_D_CAL   0x20
-#define AS7265X_V_K_E_CAL   0x24
-#define AS7265X_W_L_F_CAL   0x28
+
 
 //AS7265X Device Selection
 #define AS7265X_DEV_SELECT_CONTROL  0x4F
@@ -100,8 +88,8 @@ struct sensor {
 	int8_t address;
   	int8_t type;
   	int8_t num_device_addr; //number of devices under this address
-  	AS7261_channel calibration_factor_AS7261[3];
-  	AS7265X_channel calibration_factor_AS7265X[3];
+  	AS7261_channel calibration_factor_AS7261[4];
+  	AS7265X_channel calibration_factor_AS7265X[4];
 };
 typedef struct sensor sensor_list;
 
@@ -156,42 +144,6 @@ int getF(int fd);
 int getChannel_AS7265X(int device, uint8_t channelRegister, int fd);
 int getChannel(uint8_t channelRegister, int fd);
 
-// Get Calibrated AS7261 Values
-float getCalibratedX(int fd);
-float getCalibratedY(int fd);
-float getCalibratedZ(int fd);
-uint32_t getCalibratedLUX(int fd);
-uint32_t getCalibratedCCT(int fd);
-
-// Get Calibrated AS72651 Values
-float getCalibratedR(int fd);
-float getCalibratedS(int fd);
-float getCalibratedT(int fd);
-float getCalibratedU(int fd);
-float getCalibratedV(int fd);
-float getCalibratedW(int fd);
-
-// Get Calibrated AS72652 Values
-float getCalibratedG(int fd);
-float getCalibratedH(int fd);
-float getCalibratedI(int fd);
-float getCalibratedJ(int fd);
-float getCalibratedK(int fd);
-float getCalibratedL(int fd);
-
-// Get Calibrated AS72653 Values
-float getCalibratedA(int fd);
-float getCalibratedB(int fd);
-float getCalibratedC(int fd);
-float getCalibratedD(int fd);
-float getCalibratedE(int fd);
-float getCalibratedF(int fd);
-
-float getCalibratedValue_AS7265X(int device, uint8_t channelRegister, int fd);
-float getCalibratedValue(uint8_t calAddress, int fd);
-uint32_t getBigValue(uint8_t calAddress, int fd);
-
-float convertBytesToFloat(uint32_t myLong);
 uint8_t dataAvailable(int fd);
 void clearDataAvailable(int fd);
 void enableIndicator(int fd);

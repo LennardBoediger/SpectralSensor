@@ -29,11 +29,11 @@ uint64_t current_timestamp() {
     return milliseconds;
 }
 
-void readCalibrationValues(sensor_list *const s){
-    char file_name[][30] =
-    { "config/calibrationX.csv",
-      "config/calibrationY.csv",
-      "config/calibrationZ.csv"
+void readCalibrationValuesAS7261(sensor_list *const s){
+    char file_name[][30] ={ 
+        "config/calibrationX.csv",
+        "config/calibrationY.csv",
+        "config/calibrationZ.csv",
     };
 
     csv_t *csv;
@@ -48,7 +48,7 @@ void readCalibrationValues(sensor_list *const s){
         }
 
         if (!csv_open_file(csv, file_name[channel_i], 0)) {
-           printf("Error opening file: %s\n", csv_error(csv));
+           printf("Error opening file%s: %s\n",file_name[channel_i], csv_error(csv));
         }
         else {
            while (1) {
@@ -69,6 +69,7 @@ void readCalibrationValues(sensor_list *const s){
                                 switch (channel_i){
                                     case 0:
                                         s[i].calibration_factor_AS7261[gain_i].X = atoi(csv_get(csv, gain_i+1));
+                                        printf("found in file X:%d\n",s[i].calibration_factor_AS7261[gain_i].X );
                                         break;
                                     case 1:
                                         s[i].calibration_factor_AS7261[gain_i].Y = atoi(csv_get(csv, gain_i+1));
@@ -76,14 +77,131 @@ void readCalibrationValues(sensor_list *const s){
                                     case 2:
                                         s[i].calibration_factor_AS7261[gain_i].Z = atoi(csv_get(csv, gain_i+1));
                                         break;
-
                                 }
                             }
                         }
                     }
                 }
            }
+           csv_close(csv);
+        }
+        csv_free(csv);
+    }
+}
+void readCalibrationValuesAS7265X(sensor_list *const s){
+    printf("readCalibrationValuesAS7265X\n" );
+    char file_name[][30] ={ 
+        "config/calibrationR.csv",
+        "config/calibrationS.csv",
+        "config/calibrationT.csv",
+        "config/calibrationU.csv",
+        "config/calibrationV.csv",
+        "config/calibrationW.csv",
+        "config/calibrationG.csv",
+        "config/calibrationH.csv",
+        "config/calibrationI.csv",
+        "config/calibrationJ.csv",
+        "config/calibrationK.csv",
+        "config/calibrationL.csv",
+        "config/calibrationA.csv",
+        "config/calibrationB.csv",
+        "config/calibrationC.csv",
+        "config/calibrationD.csv",
+        "config/calibrationE.csv",
+        "config/calibrationF.csv"
+    };
 
+    csv_t *csv;
+    csv_read_t ret;
+
+    for (int channel_i = 0; channel_i < 18; ++channel_i){
+
+        csv = csv_init();
+        if (csv == NULL) {
+           printf("Out of memory\n");
+           exit(1);
+        }
+
+        if (!csv_open_file(csv, file_name[channel_i], 0)) {
+           printf("Error opening file%s: %s\n",file_name[channel_i], csv_error(csv));
+        }
+        else {
+           while (1) {
+              ret = csv_read(csv);
+
+              if (ret == CSV_READ_ERROR) {
+                 printf("Read error: %s\n", csv_error(csv));
+                 break;
+              }
+
+              if (ret == CSV_READ_EOF) {
+                 break;
+              }
+                for (int i = 0; s[i].address != -1 && i < 128; ++i){    // going through every device
+                    if (s[i].type == SENSORTYPE_AS72651){
+                        if (atoi(csv_get(csv, 0))==s[i].address){
+                            for (int gain_i = 0; gain_i < 4; ++gain_i){     // going through every gain possibility
+                                switch (channel_i){
+                                    case 0:
+                                        s[i].calibration_factor_AS7265X[gain_i].R = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 1:
+                                        s[i].calibration_factor_AS7265X[gain_i].S = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 2:
+                                        s[i].calibration_factor_AS7265X[gain_i].T = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 3:
+                                        s[i].calibration_factor_AS7265X[gain_i].U = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 4:
+                                        s[i].calibration_factor_AS7265X[gain_i].V = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 5:
+                                        s[i].calibration_factor_AS7265X[gain_i].W = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 6:
+                                        s[i].calibration_factor_AS7265X[gain_i].G = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 7:
+                                        s[i].calibration_factor_AS7265X[gain_i].H = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 8:
+                                        s[i].calibration_factor_AS7265X[gain_i].I = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 9:
+                                        s[i].calibration_factor_AS7265X[gain_i].J = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 10:
+                                        s[i].calibration_factor_AS7265X[gain_i].K = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 11:
+                                        s[i].calibration_factor_AS7265X[gain_i].L = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 12:
+                                        s[i].calibration_factor_AS7265X[gain_i].A = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 13:
+                                        s[i].calibration_factor_AS7265X[gain_i].B = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 14:
+                                        s[i].calibration_factor_AS7265X[gain_i].C = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 15:
+                                        s[i].calibration_factor_AS7265X[gain_i].D = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 16:
+                                        s[i].calibration_factor_AS7265X[gain_i].E = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 17:
+                                        s[i].calibration_factor_AS7265X[gain_i].F = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                }
+                            }
+                        }
+                    }
+                }
+           }
            csv_close(csv);
         }
         csv_free(csv);
@@ -233,9 +351,14 @@ void saveAS7261Measurement(int address,AS7261_channel values, uint64_t measureme
     writeToDatabase("Z",address,measurement_time,values.Z);
 }
 
-void calibrateValuesAS7261(AS7261_channel used_gain, AS7261_channel *const AS7261_measurement){
+void calibrateValuesAS7261(AS7261_channel used_gain, AS7261_channel values, AS7261_channel const* calibration_factor_AS7261){
+printf("!!to calibrate X: %d Used Gain: %d \n", values.X, used_gain.X);
+    values.X *= calibration_factor_AS7261[used_gain.X].X;
+    values.Y *= calibration_factor_AS7261[used_gain.Y].Y;
+    values.Z *= calibration_factor_AS7261[used_gain.Z].Z;
 
-printf("calibrate X: %d Used Gain: %d \n", AS7261_measurement[0].X, used_gain.X);
+
+printf("!!calibrated X: %d Used Gain: %d \n", values.X, used_gain.X);
 }
 
 void autoGainMeasurementAS7261(uint64_t measurement_time, sensor_list *const s, uint8_t integrationValue){
@@ -248,7 +371,8 @@ void autoGainMeasurementAS7261(uint64_t measurement_time, sensor_list *const s, 
                 AS7261_measurement[gain_i] = getAS7261Measurement(s[i].address);    // get data and save to array
             }
             AS7261_channel used_gain = cleanAS7261Data(AS7261_measurement);   // write clean values to AS7261_measurement[0] and store used gains
-            calibrateValuesAS7261(used_gain, AS7261_measurement);
+            calibrateValuesAS7261(used_gain, AS7261_measurement[0], s[i].calibration_factor_AS7261);
+            printf("affe\n");
             saveAS7261Measurement(s[i].address ,AS7261_measurement[0], measurement_time); // write clean values to database
         }
     }
@@ -352,81 +476,7 @@ void saveAS7265XMesurements(int address, uint64_t measurment_time){
     printf ( "0x%X getF: %d",address,F);
     writeToDatabase("F",address,measurment_time,F);
 
-    // Save Cal_R
-    float Cal_R = getCalibratedR(fd);
-    printf ( "0x%X getCal_R: %f",address,Cal_R);
-    writeToDatabase("Cal_R",address,measurment_time,Cal_R);
-    // Save Cal_S
-    float Cal_S = getCalibratedS(fd);
-    printf ( "0x%X getCal_S: %f",address,Cal_S);
-    writeToDatabase("Cal_S",address,measurment_time,Cal_S);
-    // Save Cal_T
-    float Cal_T = getCalibratedT(fd);
-    printf ( "0x%X getCal_T: %f",address,Cal_T);
-    writeToDatabase("Cal_T",address,measurment_time,Cal_T);
-    // Save Cal_U
-    float Cal_U = getCalibratedU(fd);
-    printf ( "0x%X getCal_U: %f",address,Cal_U);
-    writeToDatabase("Cal_U",address,measurment_time,Cal_U);
-    // Save Cal_V
-    float Cal_V = getCalibratedV(fd);
-    printf ( "0x%X getCal_V: %f",address,Cal_V);
-    writeToDatabase("Cal_V",address,measurment_time,Cal_V);
-    // Save Cal_W
-    float Cal_W = getCalibratedW(fd);
-    printf ( "0x%X getCal_W: %f",address,Cal_W);
-    writeToDatabase("Cal_W",address,measurment_time,Cal_W);
-    // Save Cal_G
-    float Cal_G = getCalibratedG(fd);
-    printf ( "0x%X getCal_G: %f",address,Cal_G);
-    writeToDatabase("Cal_G",address,measurment_time,Cal_G);
-    // Save Cal_X
-    float Cal_H = getCalibratedH(fd);
-    printf ( "0x%X getCal_H: %f",address,Cal_H);
-    writeToDatabase("Cal_H",address,measurment_time,Cal_H);
-    // Save Cal_I
-    float Cal_I = getCalibratedI(fd);
-    printf ( "0x%X getCal_I: %f",address,Cal_I);
-    writeToDatabase("Cal_I",address,measurment_time,Cal_I);
-    // Save Cal_J
-    float Cal_J = getCalibratedJ(fd);
-    printf ( "0x%X getCal_J: %f",address,Cal_J);
-    writeToDatabase("Cal_J",address,measurment_time,Cal_J);
-    // Save Cal_K
-    float Cal_K = getCalibratedK(fd);
-    printf ( "0x%X getCal_K: %f",address,Cal_K);
-    writeToDatabase("Cal_K",address,measurment_time,Cal_K);
-    // Save Cal_L
-    float Cal_L = getCalibratedL(fd);
-    printf ( "0x%X getCal_L: %f",address,Cal_L);
-    writeToDatabase("Cal_L",address,measurment_time,Cal_L);
-    // Save Cal_A
-    float Cal_A = getCalibratedA(fd);
-    printf ( "0x%X getCal_A: %f",address,Cal_A);
-    writeToDatabase("Cal_A",address,measurment_time,Cal_A);
-    // Save Cal_B
-    float Cal_B = getCalibratedB(fd);
-    printf ( "0x%X getCal_B: %f",address,Cal_B);
-    writeToDatabase("Cal_B",address,measurment_time,Cal_B);
-    // Save Cal_C
-    float Cal_C = getCalibratedC(fd);
-    printf ( "0x%X getCal_C: %f",address,Cal_C);
-    writeToDatabase("Cal_C",address,measurment_time,Cal_C);
-    // Save Cal_D
-    float Cal_D = getCalibratedD(fd);
-    printf ( "0x%X getCal_D: %f",address,Cal_D);
-    writeToDatabase("Cal_D",address,measurment_time,Cal_D);
-    // Save Cal_E
-    float Cal_E = getCalibratedE(fd);
-    printf ( "0x%X getCal_E: %f",address,Cal_E);
-    writeToDatabase("Cal_E",address,measurment_time,Cal_E);
-    // Save Cal_F
-    float Cal_F = getCalibratedF(fd);
-    printf ( "0x%X getCal_F: %f",address,Cal_F);
-    writeToDatabase("Cal_F",address,measurment_time,Cal_F);
-
-
-
+    
     close(fd);
 }
 uint64_t MeasurementFromAllAdresses(sensor_list *const s){
@@ -458,20 +508,36 @@ int main() {
     }
     while(1){
         I2C_Scan(s); //Scan for Sensors
-        readCalibrationValues(s);
+        readCalibrationValuesAS7261(s);
+        readCalibrationValuesAS7265X(s);
         for (int i = 0; s[i].address != -1 && i < 128; ++i){    // going through every device
-            printf("Device %d\n", s[i].address);
+            printf("Device 0x%X\n", s[i].address);
             if (s[i].type == SENSORTYPE_AS7261){
-                    printf("X Calibration Factor: G0:%d, G1:%d, G2:%d, G3,%d\n", s[i].calibration_factor_AS7261[0].X, s[i].calibration_factor_AS7261[1].X, s[i].calibration_factor_AS7261[2].X, s[i].calibration_factor_AS7261[3].X);
-                    printf("Y Calibration Factor: G0:%d, G1:%d, G2:%d, G3,%d\n", s[i].calibration_factor_AS7261[0].Y, s[i].calibration_factor_AS7261[1].Y, s[i].calibration_factor_AS7261[2].Y, s[i].calibration_factor_AS7261[3].Y);
-                    printf("Z Calibration Factor: G0:%d, G1:%d, G2:%d, G3,%d\n", s[i].calibration_factor_AS7261[0].Z, s[i].calibration_factor_AS7261[1].Z, s[i].calibration_factor_AS7261[2].Z, s[i].calibration_factor_AS7261[3].Z);
+                printf("Test 3!!!:%d\n", s[i].calibration_factor_AS7261[3].X);
+                printf("X Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7261[0].X, s[i].calibration_factor_AS7261[1].X, s[i].calibration_factor_AS7261[2].X, s[i].calibration_factor_AS7261[3].X);
+                printf("Y Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7261[0].Y, s[i].calibration_factor_AS7261[1].Y, s[i].calibration_factor_AS7261[2].Y, s[i].calibration_factor_AS7261[3].Y);
+                printf("Z Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7261[0].Z, s[i].calibration_factor_AS7261[1].Z, s[i].calibration_factor_AS7261[2].Z, s[i].calibration_factor_AS7261[3].Z);
             }
-            // else if(s[i].type == SENSORTYPE_AS72651){
-            //     printf("Calibration Factor: G0:%d, G1:%d, G2:%d, G3,%d\n", s[0].calibration_factor_AS7261[gain_i].X, s[1].calibration_factor_AS7261[gain_i].X, s[2].calibration_factor_AS7261[gain_i].X, s[3].calibration_factor_AS7261[gain_i].X);
-            //     printf("Calibration Factor: G0:%d, G1:%d, G2:%d, G3,%d\n", s[0].calibration_factor_AS7261[gain_i].Y, s[1].calibration_factor_AS7261[gain_i].Y, s[2].calibration_factor_AS7261[gain_i].Y, s[3].calibration_factor_AS7261[gain_i].Y);
-            //     printf("Calibration Factor: G0:%d, G1:%d, G2:%d, G3,%d\n", s[0].calibration_factor_AS7261[gain_i].Z, s[1].calibration_factor_AS7261[gain_i].Z, s[2].calibration_factor_AS7261[gain_i].Z, s[3].calibration_factor_AS7261[gain_i].Z);
-
-            // }
+            if(s[i].type == SENSORTYPE_AS72651){
+                printf("R Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].R, s[i].calibration_factor_AS7265X[1].R, s[i].calibration_factor_AS7265X[2].R, s[i].calibration_factor_AS7265X[3].R);
+                printf("S Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].S, s[i].calibration_factor_AS7265X[1].S, s[i].calibration_factor_AS7265X[2].S, s[i].calibration_factor_AS7265X[3].S);
+                printf("T Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].T, s[i].calibration_factor_AS7265X[1].T, s[i].calibration_factor_AS7265X[2].T, s[i].calibration_factor_AS7265X[3].T);
+                printf("U Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].U, s[i].calibration_factor_AS7265X[1].U, s[i].calibration_factor_AS7265X[2].U, s[i].calibration_factor_AS7265X[3].U);
+                printf("V Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].V, s[i].calibration_factor_AS7265X[1].V, s[i].calibration_factor_AS7265X[2].V, s[i].calibration_factor_AS7265X[3].V);
+                printf("W Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].W, s[i].calibration_factor_AS7265X[1].W, s[i].calibration_factor_AS7265X[2].W, s[i].calibration_factor_AS7265X[3].W);
+                printf("G Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].G, s[i].calibration_factor_AS7265X[1].G, s[i].calibration_factor_AS7265X[2].G, s[i].calibration_factor_AS7265X[3].G);
+                printf("H Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].H, s[i].calibration_factor_AS7265X[1].H, s[i].calibration_factor_AS7265X[2].H, s[i].calibration_factor_AS7265X[3].H);
+                printf("I Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].I, s[i].calibration_factor_AS7265X[1].I, s[i].calibration_factor_AS7265X[2].I, s[i].calibration_factor_AS7265X[3].I);
+                printf("J Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].J, s[i].calibration_factor_AS7265X[1].J, s[i].calibration_factor_AS7265X[2].J, s[i].calibration_factor_AS7265X[3].J);
+                printf("K Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].K, s[i].calibration_factor_AS7265X[1].K, s[i].calibration_factor_AS7265X[2].K, s[i].calibration_factor_AS7265X[3].K);
+                printf("L Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].L, s[i].calibration_factor_AS7265X[1].L, s[i].calibration_factor_AS7265X[2].L, s[i].calibration_factor_AS7265X[3].L);
+                printf("A Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].A, s[i].calibration_factor_AS7265X[1].A, s[i].calibration_factor_AS7265X[2].A, s[i].calibration_factor_AS7265X[3].A);
+                printf("B Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].B, s[i].calibration_factor_AS7265X[1].B, s[i].calibration_factor_AS7265X[2].B, s[i].calibration_factor_AS7265X[3].B);
+                printf("C Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].C, s[i].calibration_factor_AS7265X[1].C, s[i].calibration_factor_AS7265X[2].C, s[i].calibration_factor_AS7265X[3].C);
+                printf("D Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].D, s[i].calibration_factor_AS7265X[1].D, s[i].calibration_factor_AS7265X[2].D, s[i].calibration_factor_AS7265X[3].D);
+                printf("E Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].E, s[i].calibration_factor_AS7265X[1].E, s[i].calibration_factor_AS7265X[2].E, s[i].calibration_factor_AS7265X[3].E);
+                printf("F Calibration Factor: G0:%d, G1:%d, G2:%d, G3:%d\n", s[i].calibration_factor_AS7265X[0].F, s[i].calibration_factor_AS7265X[1].F, s[i].calibration_factor_AS7265X[2].F, s[i].calibration_factor_AS7265X[3].F);
+            }
         }
 
         printf("Please check if all expected devices are available.\n");
