@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 #include <sys/time.h> 
@@ -7,6 +9,7 @@
 #include <math.h>
 #include "../lib/wiringPi_AS726X_Libary/AS726X.h"
 #include "../lib/influxDB_http_Libary/influxdb.h"
+#include "../lib/libcsv/src/csv.h"
 #include "welcome.h"
 
 #define AUTOGAIN 4
@@ -24,6 +27,67 @@ uint64_t current_timestamp() {
     gettimeofday(&te, NULL); // get current time
     uint64_t milliseconds = te.tv_sec*1000LL + te.tv_usec/1000; // calculate milliseconds
     return milliseconds;
+}
+
+void readCalibrationValues(sensor_list *const s){
+    char file_name[][30] =
+    { "config/calibrationX.csv",
+      "config/calibrationY.csv",
+      "config/calibrationZ.csv"
+    };
+
+    csv_t *csv;
+    csv_read_t ret;
+
+    for (int channel_i = 0; channel_i < 3; ++channel_i){
+
+        csv = csv_init();
+        if (csv == NULL) {
+           printf("Out of memory\n");
+           exit(1);
+        }
+
+        if (!csv_open_file(csv, file_name[channel_i], 0)) {
+           printf("Error opening file: %s\n", csv_error(csv));
+        }
+        else {
+           while (1) {
+              ret = csv_read(csv);
+
+              if (ret == CSV_READ_ERROR) {
+                 printf("Read error: %s\n", csv_error(csv));
+                 break;
+              }
+
+              if (ret == CSV_READ_EOF) {
+                 break;
+              }
+                for (int i = 0; s[i].address != -1 && i < 128; ++i){    // going through every device
+                    if (s[i].type == SENSORTYPE_AS7261){
+                        if (atoi(csv_get(csv, 0))==s[i].address){
+                            for (int gain_i = 0; gain_i < 4; ++gain_i){     // going through every gain possibility
+                                switch (channel_i){
+                                    case 0:
+                                        s[i].calibration_factor_AS7261[gain_i].X = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 1:
+                                        s[i].calibration_factor_AS7261[gain_i].Y = atoi(csv_get(csv, gain_i+1));
+                                        break;
+                                    case 2:
+                                        s[i].calibration_factor_AS7261[gain_i].Z = atoi(csv_get(csv, gain_i+1));
+                                        break;
+
+                                }
+                            }
+                        }
+                    }
+                }
+           }
+
+           csv_close(csv);
+        }
+        csv_free(csv);
+    }
 }
 
 //Delays for given amount of minutes
@@ -170,6 +234,7 @@ void saveAS7261Measurement(int address,AS7261_channel values, uint64_t measureme
 }
 
 void calibrateValuesAS7261(AS7261_channel used_gain, AS7261_channel *const AS7261_measurement){
+
 printf("calibrate X: %d Used Gain: %d \n", AS7261_measurement[0].X, used_gain.X);
 }
 
@@ -376,17 +441,13 @@ uint64_t MeasurementFromAllAdresses(sensor_list *const s){
     return measurment_time;
 }
 
-
-
-
-
-
 int main() {
+
     welcomeMessage();
     printTime();
     char userSettingResponse[4];
     measurmentSettings Settings; //measurmentSettings are stored here 
-    //TODO change default values to be read from config file
+    //Default Values
     Settings.integrationValue = 128; 
     Settings.gain = 1;
     Settings.MesuremntIntervall = 1;
@@ -397,6 +458,22 @@ int main() {
     }
     while(1){
         I2C_Scan(s); //Scan for Sensors
+        readCalibrationValues(s);
+        for (int i = 0; s[i].address != -1 && i < 128; ++i){    // going through every device
+            printf("Device %d\n", s[i].address);
+            if (s[i].type == SENSORTYPE_AS7261){
+                    printf("X Calibration Factor: G0:%d, G1:%d, G2:%d, G3,%d\n", s[i].calibration_factor_AS7261[0].X, s[i].calibration_factor_AS7261[1].X, s[i].calibration_factor_AS7261[2].X, s[i].calibration_factor_AS7261[3].X);
+                    printf("Y Calibration Factor: G0:%d, G1:%d, G2:%d, G3,%d\n", s[i].calibration_factor_AS7261[0].Y, s[i].calibration_factor_AS7261[1].Y, s[i].calibration_factor_AS7261[2].Y, s[i].calibration_factor_AS7261[3].Y);
+                    printf("Z Calibration Factor: G0:%d, G1:%d, G2:%d, G3,%d\n", s[i].calibration_factor_AS7261[0].Z, s[i].calibration_factor_AS7261[1].Z, s[i].calibration_factor_AS7261[2].Z, s[i].calibration_factor_AS7261[3].Z);
+            }
+            // else if(s[i].type == SENSORTYPE_AS72651){
+            //     printf("Calibration Factor: G0:%d, G1:%d, G2:%d, G3,%d\n", s[0].calibration_factor_AS7261[gain_i].X, s[1].calibration_factor_AS7261[gain_i].X, s[2].calibration_factor_AS7261[gain_i].X, s[3].calibration_factor_AS7261[gain_i].X);
+            //     printf("Calibration Factor: G0:%d, G1:%d, G2:%d, G3,%d\n", s[0].calibration_factor_AS7261[gain_i].Y, s[1].calibration_factor_AS7261[gain_i].Y, s[2].calibration_factor_AS7261[gain_i].Y, s[3].calibration_factor_AS7261[gain_i].Y);
+            //     printf("Calibration Factor: G0:%d, G1:%d, G2:%d, G3,%d\n", s[0].calibration_factor_AS7261[gain_i].Z, s[1].calibration_factor_AS7261[gain_i].Z, s[2].calibration_factor_AS7261[gain_i].Z, s[3].calibration_factor_AS7261[gain_i].Z);
+
+            // }
+        }
+
         printf("Please check if all expected devices are available.\n");
         printf("----------Settings-----------\n");
         printf("Integration Value: %hhu * 2.8ms = Integration Time\n",Settings.integrationValue);
@@ -417,6 +494,9 @@ int main() {
             printf("Error\n\n\n\n");
         }
     }
+
+
+
     while(1){
         uint64_t measurement_time = current_timestamp(s);       // save mesuremnt time
         if (Settings.gain == AUTOGAIN){

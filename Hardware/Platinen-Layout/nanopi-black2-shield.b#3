@@ -3,7 +3,7 @@
 <eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.5" altunitdist="mm" altunit="mm"/>
@@ -38,7 +38,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
@@ -144,195 +144,21 @@
 </layers>
 <board>
 <plain>
-<wire x1="40" y1="0" x2="40" y2="40" width="0" layer="20"/>
-<wire x1="40" y1="40" x2="0" y2="40" width="0" layer="20"/>
-<wire x1="0" y1="0" x2="40" y2="0" width="0" layer="20"/>
-<wire x1="0" y1="40" x2="0" y2="32.6" width="0" layer="20"/>
-<wire x1="0" y1="6.5" x2="0" y2="0" width="0" layer="20"/>
-<wire x1="19.4" y1="6.5" x2="19.4" y2="32.6" width="0" layer="20"/>
-<wire x1="19.4" y1="32.6" x2="0" y2="32.6" width="0" layer="20"/>
-<text x="30.7" y="20.2" size="1.778" layer="21">GND</text>
-<text x="30.9" y="17.7" size="1.778" layer="21">3.3V</text>
-<text x="30.9" y="15.3" size="1.778" layer="21">SDA</text>
-<text x="31.1" y="22.9" size="1.778" layer="21">SCL</text>
-<dimension x1="6.6" y1="38.4" x2="0" y2="38.4" x3="3.3" y3="38.4" textsize="1.778" layer="1"/>
-<wire x1="0" y1="6.5" x2="19.4" y2="6.5" width="0" layer="20"/>
-<text x="31.3" y="28.9" size="1.27" layer="25">5V_Ex</text>
-<text x="32.7" y="31.3" size="1.27" layer="25">GND</text>
+<text x="13.7" y="5" size="1.778" layer="21" rot="R90">GND</text>
+<text x="16.4" y="5" size="1.778" layer="21" rot="R90">3.3V</text>
+<text x="19.1" y="5" size="1.778" layer="21" rot="R90">SDA</text>
+<text x="11" y="5" size="1.778" layer="21" rot="R90">SCL</text>
+<wire x1="27.94" y1="38.1" x2="27.94" y2="25.4" width="1.016" layer="21"/>
+<wire x1="48.26" y1="38.1" x2="48.26" y2="25.4" width="1.016" layer="21"/>
+<text x="48.9" y="20.2" size="1.27" layer="21" rot="R90">GND</text>
+<text x="27.2" y="22.6" size="1.778" layer="21">+</text>
+<text x="19.5" y="29.7" size="1.27" layer="21">5V</text>
+<text x="18" y="32.3" size="1.27" layer="21">3.3V</text>
+<text x="18" y="34.9" size="1.27" layer="21">GND</text>
+<text x="18" y="37.5" size="1.27" layer="21">SDA</text>
+<text x="18" y="27.1" size="1.27" layer="21">SCL</text>
 </plain>
 <libraries>
-<library name="61300211821_Eagle_WR-PHD_rev19a">
-<description>&lt;BR&gt;Wurth Elektronik - Connectors - Board-to-Board Connectors - WR-PHD &lt;br&gt;&lt;Hr&gt;
-
-&lt;BR&gt;
-&lt;TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0&gt;
-&lt;TR&gt;   
-&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;&lt;br&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
-       &lt;BR&gt;
-       &lt;BR&gt;
-       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
-      -----&lt;BR&gt;
-      -----&lt;BR&gt;
-      -----&lt;BR&gt;
-      -----&lt;BR&gt;
-      -----&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt; &lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
-      ---------------------------&lt;BR&gt;
-&lt;B&gt;&lt;I&gt;&lt;span style='font-size:26pt;
-  color:#FF6600;'&gt;WE &lt;/span&gt;&lt;/i&gt;&lt;/b&gt;
-&lt;BR&gt;
-      ---------------------------&lt;BR&gt;&lt;b&gt;Würth Elektronik&lt;/b&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
-      ---------O---&lt;BR&gt;
-      ----O--------&lt;BR&gt;
-      ---------O---&lt;BR&gt;
-      ----O--------&lt;BR&gt;
-      ---------O---&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-   
-&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
-       &lt;BR&gt;
-       &lt;BR&gt;
-       &lt;BR&gt;
-       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-
-  &lt;TR&gt;
-    &lt;TD COLSPAN=7&gt;&amp;nbsp;
-    &lt;/TD&gt;
-  &lt;/TR&gt;
-  
-&lt;/TABLE&gt;
-&lt;B&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;More than you expect&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;/B&gt;
-
-&lt;HR&gt;&lt;BR&gt;
-&lt;b&gt;Würth Elektronik eiSos GmbH &amp; Co. KG&lt;/b&gt;&lt;br&gt;
-EMC &amp; Inductive Solutions&lt;br&gt;
-
-Max-Eyth-Str.1&lt;br&gt;
-D-74638 Waldenburg&lt;br&gt;
-&lt;br&gt;
-Tel: +49 (0)7942-945-0&lt;br&gt;
-Fax:+49 (0)7942-945-5000&lt;br&gt;
-&lt;br&gt;
-&lt;a href="http://www.we-online.com/web/en/electronic_components/produkte_pb/bauteilebibliotheken/eagle_4.php"&gt;www.we-online.com/eagle&lt;/a&gt;&lt;br&gt;
-&lt;a href="mailto:libraries@we-online.com"&gt;libraries@we-online.com&lt;/a&gt; &lt;BR&gt;&lt;BR&gt;
-&lt;br&gt;&lt;HR&gt;&lt;BR&gt;
-Neither Autodesk nor Würth Elektronik eiSos does warrant that this library is error-free or &lt;br&gt;
-that it meets your specific requirements.&lt;br&gt;&lt;BR&gt;
-Please contact us for more information.&lt;br&gt;
-&lt;HR&gt;
-&lt;br&gt;Eagle Version 9, Library Revision 2019a, 2019-10-16&lt;br&gt;
-&lt;HR&gt;
-Copyright: Würth Elektronik</description>
-<packages>
-<package name="61301021121" urn="urn:adsk.eagle:footprint:14804925/1">
-<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt;2.54mm Dual Pin Header, 10 Pins</description>
-<pad name="4" x="-2.54" y="1.27" drill="1.1" rot="R270"/>
-<pad name="1" x="-5.08" y="-1.27" drill="1.1" rot="R90"/>
-<pad name="2" x="-5.08" y="1.27" drill="1.1" rot="R270"/>
-<pad name="3" x="-2.54" y="-1.27" drill="1.1" rot="R90"/>
-<pad name="5" x="0" y="-1.27" drill="1.1" rot="R90"/>
-<pad name="6" x="0" y="1.27" drill="1.1" rot="R270"/>
-<pad name="7" x="2.54" y="-1.27" drill="1.1" rot="R90"/>
-<pad name="8" x="2.54" y="1.27" drill="1.1" rot="R270"/>
-<pad name="9" x="5.08" y="-1.27" drill="1.1" rot="R90"/>
-<pad name="10" x="5.08" y="1.27" drill="1.1" rot="R270"/>
-<wire x1="6.35" y1="2.54" x2="6.35" y2="-2.54" width="0.1" layer="51"/>
-<wire x1="6.35" y1="-2.54" x2="-6.35" y2="-2.54" width="0.1" layer="51"/>
-<wire x1="-6.35" y1="-2.54" x2="-6.35" y2="2.54" width="0.1" layer="51"/>
-<wire x1="-6.35" y1="2.54" x2="6.35" y2="2.54" width="0.1" layer="51"/>
-<wire x1="-6.45" y1="2.64" x2="6.45" y2="2.64" width="0.2" layer="21"/>
-<wire x1="6.45" y1="2.64" x2="6.45" y2="-2.64" width="0.2" layer="21"/>
-<wire x1="6.45" y1="-2.64" x2="-6.45" y2="-2.64" width="0.2" layer="21"/>
-<wire x1="-6.45" y1="-2.64" x2="-6.45" y2="2.64" width="0.2" layer="21"/>
-<polygon width="0.1" layer="39">
-<vertex x="-6.65" y="2.84"/>
-<vertex x="6.65" y="2.84"/>
-<vertex x="6.65" y="-2.84"/>
-<vertex x="-6.65" y="-2.84"/>
-</polygon>
-<circle x="-6.01" y="-2.2" radius="0.1" width="0.2" layer="21"/>
-<text x="-7.0776" y="0.7561" size="0.8128" layer="25" align="bottom-right">&gt;NAME</text>
-<text x="-6.9976" y="-0.9442" size="0.8128" layer="27" align="bottom-right">&gt;VALUE</text>
-</package>
-<package name="61300621121" urn="urn:adsk.eagle:footprint:14804923/1">
-<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Dual Pin Header, 6 Pins</description>
-<pad name="4" x="0" y="1.27" drill="1.1" rot="R270"/>
-<pad name="1" x="-2.54" y="-1.27" drill="1.1" rot="R90"/>
-<pad name="2" x="-2.54" y="1.27" drill="1.1" rot="R270"/>
-<pad name="3" x="0" y="-1.27" drill="1.1" rot="R90"/>
-<pad name="5" x="2.54" y="-1.27" drill="1.1" rot="R90"/>
-<pad name="6" x="2.54" y="1.27" drill="1.1" rot="R270"/>
-<wire x1="3.81" y1="2.54" x2="3.81" y2="-2.54" width="0.1" layer="51"/>
-<wire x1="3.81" y1="-2.54" x2="-3.81" y2="-2.54" width="0.1" layer="51"/>
-<wire x1="-3.81" y1="-2.54" x2="-3.81" y2="2.54" width="0.1" layer="51"/>
-<wire x1="-3.81" y1="2.54" x2="3.81" y2="2.54" width="0.1" layer="51"/>
-<wire x1="-3.91" y1="2.64" x2="3.91" y2="2.64" width="0.2" layer="21"/>
-<wire x1="3.91" y1="2.64" x2="3.91" y2="-2.64" width="0.2" layer="21"/>
-<wire x1="3.91" y1="-2.64" x2="-3.91" y2="-2.64" width="0.2" layer="21"/>
-<wire x1="-3.91" y1="-2.64" x2="-3.91" y2="2.64" width="0.2" layer="21"/>
-<polygon width="0.1" layer="39">
-<vertex x="-4.11" y="2.84"/>
-<vertex x="4.11" y="2.84"/>
-<vertex x="4.11" y="-2.84"/>
-<vertex x="-4.11" y="-2.84"/>
-</polygon>
-<circle x="-3.47" y="-2.2" radius="0.1" width="0.2" layer="21"/>
-<text x="-4.5776" y="0.7561" size="0.8128" layer="25" align="bottom-right">&gt;NAME</text>
-<text x="-4.4976" y="-0.9442" size="0.8128" layer="27" align="bottom-right">&gt;VALUE</text>
-</package>
-<package name="61300211121" urn="urn:adsk.eagle:footprint:14804900/1">
-<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 2 Pin</description>
-<pad name="1" x="-1.27" y="0" drill="1.1" rot="R90"/>
-<pad name="2" x="1.27" y="0" drill="1.1"/>
-<circle x="-2.2" y="-0.9" radius="0.1" width="0.2" layer="21"/>
-<wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.1" layer="51"/>
-<wire x1="-2.54" y1="-1.27" x2="2.54" y2="-1.27" width="0.1" layer="51"/>
-<wire x1="2.54" y1="-1.27" x2="2.54" y2="1.27" width="0.1" layer="51"/>
-<wire x1="2.54" y1="1.27" x2="-2.54" y2="1.27" width="0.1" layer="51"/>
-<wire x1="-2.64" y1="1.37" x2="2.64" y2="1.37" width="0.2" layer="21"/>
-<wire x1="2.64" y1="1.37" x2="2.64" y2="-1.37" width="0.2" layer="21"/>
-<wire x1="2.64" y1="-1.37" x2="-2.64" y2="-1.37" width="0.2" layer="21"/>
-<wire x1="-2.64" y1="-1.37" x2="-2.64" y2="1.37" width="0.2" layer="21"/>
-<polygon width="0.1" layer="39">
-<vertex x="-2.84" y="1.57"/>
-<vertex x="2.84" y="1.57"/>
-<vertex x="2.84" y="-1.57"/>
-<vertex x="-2.84" y="-1.57"/>
-</polygon>
-<text x="-3.5776" y="0.2561" size="0.8128" layer="25" align="bottom-right">&gt;NAME</text>
-<text x="-3.4976" y="-1.4442" size="0.8128" layer="27" align="bottom-right">&gt;VALUE</text>
-</package>
-</packages>
-<packages3d>
-<package3d name="61301021121" urn="urn:adsk.eagle:package:14805405/2" type="model">
-<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt;2.54mm Dual Pin Header, 10 Pins</description>
-<packageinstances>
-<packageinstance name="61301021121"/>
-</packageinstances>
-</package3d>
-<package3d name="61300621121" urn="urn:adsk.eagle:package:14805407/2" type="model">
-<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Dual Pin Header, 6 Pins</description>
-<packageinstances>
-<packageinstance name="61300621121"/>
-</packageinstances>
-</package3d>
-<package3d name="61300211121" urn="urn:adsk.eagle:package:14805431/3" type="model">
-<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 2 Pin</description>
-<packageinstances>
-<packageinstance name="61300211121"/>
-</packageinstances>
-</package3d>
-</packages3d>
-</library>
 <library name="61300411121_Eagle_WR-PHD_rev19a">
 <description>&lt;BR&gt;Wurth Elektronik - Connectors - Board-to-Board Connectors - WR-PHD &lt;br&gt;&lt;Hr&gt;
 
@@ -1597,20 +1423,6 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 </package3d>
 </packages3d>
 </library>
-<library name="M3-Hole">
-<packages>
-<package name="3-2MM-HOLE">
-<hole x="0" y="0" drill="3.2"/>
-<circle x="0" y="0" radius="2.5" width="0" layer="29"/>
-<circle x="0" y="0" radius="2.5" width="0" layer="30"/>
-<circle x="0" y="0" radius="2.5" width="0" layer="39"/>
-<circle x="0" y="0" radius="2.5" width="0" layer="40"/>
-<circle x="0" y="0" radius="2.5" width="0" layer="41"/>
-<circle x="0" y="0" radius="2.5" width="0" layer="42"/>
-<circle x="0" y="0" radius="2.5" width="0" layer="43"/>
-</package>
-</packages>
-</library>
 <library name="155060GS75300_Eagle_WL-SMSW_rev20b">
 <description>&lt;BR&gt;Wurth Elektronik - LEDs - Singnal LEDs - Clip LED Side View - WL-SMSW&lt;br&gt;&lt;Hr&gt;
 
@@ -1716,6 +1528,326 @@ Copyright: Würth Elektronik</description>
 <description>&lt;B&gt;WL-SMSW&lt;/B&gt;&lt;BR&gt; SMT Mono-color Side View Waterclear ,Size : 0603 Rectangular,1.6X0.98X0.8mm(LXWXH)</description>
 <packageinstances>
 <packageinstance name="WL-SMSW_0603_REC"/>
+</packageinstances>
+</package3d>
+</packages3d>
+</library>
+<library name="SparkFun-Resistors">
+<description>&lt;h3&gt;SparkFun Resistors&lt;/h3&gt;
+This library contains resistors. Reference designator:R. 
+&lt;br&gt;
+&lt;br&gt;
+We've spent an enormous amount of time creating and checking these footprints and parts, but it is &lt;b&gt; the end user's responsibility&lt;/b&gt; to ensure correctness and suitablity for a given componet or application. 
+&lt;br&gt;
+&lt;br&gt;If you enjoy using this library, please buy one of our products at &lt;a href=" www.sparkfun.com"&gt;SparkFun.com&lt;/a&gt;.
+&lt;br&gt;
+&lt;br&gt;
+&lt;b&gt;Licensing:&lt;/b&gt; Creative Commons ShareAlike 4.0 International - https://creativecommons.org/licenses/by-sa/4.0/ 
+&lt;br&gt;
+&lt;br&gt;
+You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
+<packages>
+<package name="0603">
+<description>&lt;p&gt;&lt;b&gt;Generic 1608 (0603) package&lt;/b&gt;&lt;/p&gt;
+&lt;p&gt;0.2mm courtyard excess rounded to nearest 0.05mm.&lt;/p&gt;</description>
+<wire x1="-1.6" y1="0.7" x2="1.6" y2="0.7" width="0.0508" layer="39"/>
+<wire x1="1.6" y1="0.7" x2="1.6" y2="-0.7" width="0.0508" layer="39"/>
+<wire x1="1.6" y1="-0.7" x2="-1.6" y2="-0.7" width="0.0508" layer="39"/>
+<wire x1="-1.6" y1="-0.7" x2="-1.6" y2="0.7" width="0.0508" layer="39"/>
+<wire x1="-0.356" y1="0.432" x2="0.356" y2="0.432" width="0.1016" layer="51"/>
+<wire x1="-0.356" y1="-0.419" x2="0.356" y2="-0.419" width="0.1016" layer="51"/>
+<smd name="1" x="-0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<smd name="2" x="0.85" y="0" dx="1.1" dy="1" layer="1"/>
+<text x="0" y="0.762" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center">&gt;NAME</text>
+<text x="0" y="-0.762" size="0.6096" layer="27" font="vector" ratio="20" align="top-center">&gt;VALUE</text>
+<rectangle x1="-0.8382" y1="-0.4699" x2="-0.3381" y2="0.4801" layer="51"/>
+<rectangle x1="0.3302" y1="-0.4699" x2="0.8303" y2="0.4801" layer="51"/>
+<rectangle x1="-0.1999" y1="-0.3" x2="0.1999" y2="0.3" layer="35"/>
+</package>
+</packages>
+</library>
+<library name="raspberrypi_bastelstube_v13">
+<description>&lt;b&gt;Raspberry Pi&lt;/b&gt; by &lt;b&gt;Martin's Bastelstube&lt;/b&gt;
+&lt;p&gt;
+Different shapes of piggyback boards for the famous &amp;amp; fabulous
+&lt;a href="http://www.raspberrypi.org/"&gt;Raspberry Pi&lt;/a&gt; computer.
+&lt;p&gt;
+The outline of the Raspberry Pi board is drawn on layer 52 bDocu, so you can make it invisible if necessary.&lt;br/&gt;
+Recommendation: Start your design with RASPI_BOARD_*_FULL, so you are aware of all the big components and
+connectors when you're drawing the dimensions of your board and placing your own components.&lt;br/&gt;
+Later, you can simply change the package of your Raspberry Pi connector to the RASPI_BOARD_*_EDGES type,
+so you can concentrate on your own design.
+&lt;p&gt;
+Most of my board packages don't have the outline drawn in layer 20 Dimension (except the HATs). This allows you to deviate from the original Raspberry Pi board shape, e.g. when you need more space behind the GPIO connector for the routing of the power supply lines. If you want to stick exactly to the Raspberry Pi board shape, then just draw the Dimension layer right on the lines in layer bDocu.
+
+&lt;hr&gt;&lt;br/&gt;
+
+Version 1.3
+&lt;ul&gt;
+&lt;li&gt;Added the shape and dimensions of the HAT board with &amp;amp; without the camera and display flex cutout&lt;/li&gt;
+&lt;li&gt;New GPIO connector version (suffix &amp;quot;#&amp;quot;) with all pins connected (no more &amp;quot;n.c.&amp;quot; pins)&lt;/li&gt;
+&lt;li&gt;Two more &amp;quot;AB-&amp;quot; boards with 5 and 6 drill holes / pads, mechanically compatible with all RasPi versions&lt;/li&gt;
+&lt;/ul&gt;
+
+Version 1.2
+&lt;ul&gt;
+&lt;li&gt;Added a 26-pin GPIO connector with board dimensions of model B+&lt;br/&gt;
+       for backwards compatibility with models A and B, named &amp;quot;B-&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+
+Version 1.1
+&lt;ul&gt;
+&lt;li&gt;New GPIO connector and board dimensions of model B+&lt;/li&gt;
+&lt;li&gt;Old connector and board (for models A and B) renamed to AB&lt;/li&gt;
+&lt;li&gt;GPIO pin numbers on connector changed to match Rev2 board design&lt;/li&gt;
+&lt;/ul&gt;
+
+Version 1.0
+&lt;ul&gt;
+&lt;li&gt;More detailed descriptions for all components&lt;/li&gt;
+&lt;li&gt;Published on Cadsoft webpage&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr&gt;&lt;br/&gt;
+
+Designed by &lt;a href="http://bastelstube.rocci.net/"&gt;Martin's Bastelstube&lt;/a&gt;&lt;br&gt;
+Comments / complaints / bug reports / suggestions to &lt;author&gt;eightbit@web.de&lt;/author&gt;</description>
+<packages>
+<package name="RASPI_BOARD_B+HAT_DF_CF">
+<description>Raspberry Pi board model B+ HAT board&lt;br/&gt;
+Official outline with cutouts for display &amp;amp; camera flex connector</description>
+<wire x1="0" y1="3" x2="3" y2="0" width="0" layer="20" curve="90"/>
+<wire x1="3" y1="0" x2="62" y2="0" width="0" layer="20"/>
+<wire x1="62" y1="0" x2="65" y2="3" width="0" layer="20" curve="90"/>
+<wire x1="65" y1="3" x2="65" y2="53" width="0" layer="20"/>
+<wire x1="65" y1="53" x2="62" y2="56" width="0" layer="20" curve="90"/>
+<wire x1="62" y1="56" x2="3" y2="56" width="0" layer="20"/>
+<wire x1="3" y1="56" x2="0" y2="53" width="0" layer="20" curve="90"/>
+<hole x="3.5" y="3.5" drill="2.75"/>
+<hole x="3.5" y="52.5" drill="2.75"/>
+<hole x="61.5" y="3.5" drill="2.75"/>
+<hole x="61.5" y="52.5" drill="2.75"/>
+<pad name="1" x="8.37" y="51.23" drill="1" diameter="1.778" shape="square"/>
+<pad name="2" x="8.37" y="53.77" drill="1" diameter="1.778"/>
+<pad name="3" x="10.91" y="51.23" drill="1" diameter="1.778"/>
+<pad name="4" x="10.91" y="53.77" drill="1" diameter="1.778"/>
+<pad name="5" x="13.45" y="51.23" drill="1" diameter="1.778"/>
+<pad name="6" x="13.45" y="53.77" drill="1" diameter="1.778"/>
+<pad name="7" x="15.99" y="51.23" drill="1" diameter="1.778"/>
+<pad name="8" x="15.99" y="53.77" drill="1" diameter="1.778"/>
+<pad name="9" x="18.53" y="51.23" drill="1" diameter="1.778"/>
+<pad name="10" x="18.53" y="53.77" drill="1" diameter="1.778"/>
+<pad name="11" x="21.07" y="51.23" drill="1" diameter="1.778"/>
+<pad name="12" x="21.07" y="53.77" drill="1" diameter="1.778"/>
+<pad name="13" x="23.61" y="51.23" drill="1" diameter="1.778"/>
+<pad name="14" x="23.61" y="53.77" drill="1" diameter="1.778"/>
+<pad name="15" x="26.15" y="51.23" drill="1" diameter="1.778"/>
+<pad name="16" x="26.15" y="53.77" drill="1" diameter="1.778"/>
+<pad name="17" x="28.69" y="51.23" drill="1" diameter="1.778"/>
+<pad name="18" x="28.69" y="53.77" drill="1" diameter="1.778"/>
+<pad name="19" x="31.23" y="51.23" drill="1" diameter="1.778"/>
+<pad name="20" x="31.23" y="53.77" drill="1" diameter="1.778"/>
+<pad name="21" x="33.77" y="51.23" drill="1" diameter="1.778"/>
+<pad name="22" x="33.77" y="53.77" drill="1" diameter="1.778"/>
+<pad name="23" x="36.31" y="51.23" drill="1" diameter="1.778"/>
+<pad name="24" x="36.31" y="53.77" drill="1" diameter="1.778"/>
+<pad name="25" x="38.85" y="51.23" drill="1" diameter="1.778"/>
+<pad name="26" x="38.85" y="53.77" drill="1" diameter="1.778"/>
+<pad name="27" x="41.39" y="51.23" drill="1" diameter="1.778"/>
+<pad name="28" x="41.39" y="53.77" drill="1" diameter="1.778"/>
+<pad name="29" x="43.93" y="51.23" drill="1" diameter="1.778"/>
+<pad name="30" x="43.93" y="53.77" drill="1" diameter="1.778"/>
+<pad name="31" x="46.47" y="51.23" drill="1" diameter="1.778"/>
+<pad name="32" x="46.47" y="53.77" drill="1" diameter="1.778"/>
+<pad name="33" x="49.01" y="51.23" drill="1" diameter="1.778"/>
+<pad name="34" x="49.01" y="53.77" drill="1" diameter="1.778"/>
+<pad name="35" x="51.55" y="51.23" drill="1" diameter="1.778"/>
+<pad name="36" x="51.55" y="53.77" drill="1" diameter="1.778"/>
+<pad name="37" x="54.09" y="51.23" drill="1" diameter="1.778"/>
+<pad name="38" x="54.09" y="53.77" drill="1" diameter="1.778"/>
+<pad name="39" x="56.63" y="51.23" drill="1" diameter="1.778"/>
+<pad name="40" x="56.63" y="53.77" drill="1" diameter="1.778"/>
+<wire x1="7.1" y1="55.04" x2="7.1" y2="52.5" width="0.127" layer="21"/>
+<wire x1="7.1" y1="52.5" x2="7.1" y2="49.96" width="0.127" layer="21"/>
+<wire x1="7.1" y1="49.96" x2="8.0525" y2="49.96" width="0.127" layer="21"/>
+<wire x1="8.0525" y1="49.96" x2="8.6875" y2="49.96" width="0.127" layer="21"/>
+<wire x1="8.6875" y1="49.96" x2="9.64" y2="49.96" width="0.127" layer="21"/>
+<wire x1="9.64" y1="49.96" x2="57.9" y2="49.96" width="0.127" layer="21"/>
+<wire x1="57.9" y1="49.96" x2="57.9" y2="55.04" width="0.127" layer="21"/>
+<wire x1="57.9" y1="55.04" x2="7.1" y2="55.04" width="0.127" layer="21"/>
+<wire x1="7.1" y1="52.5" x2="9.64" y2="52.5" width="0.127" layer="21"/>
+<wire x1="9.64" y1="52.5" x2="9.64" y2="49.96" width="0.127" layer="21"/>
+<wire x1="8.0525" y1="49.96" x2="8.0525" y2="49.6425" width="0.127" layer="21"/>
+<wire x1="8.0525" y1="49.6425" x2="8.6875" y2="49.6425" width="0.127" layer="21"/>
+<wire x1="8.6875" y1="49.6425" x2="8.6875" y2="49.96" width="0.127" layer="21"/>
+<text x="8.0525" y="48.3725" size="1.016" layer="21" font="vector" ratio="10">1</text>
+<circle x="3.5" y="3.5" radius="3.2" width="0.127" layer="52"/>
+<circle x="61.5" y="3.5" radius="3.2" width="0.127" layer="52"/>
+<circle x="61.5" y="52.5" radius="3.2" width="0.127" layer="52"/>
+<circle x="3.5" y="52.5" radius="3.2" width="0.127" layer="52"/>
+<circle x="3.5" y="52.5" radius="3.2" width="0" layer="29"/>
+<circle x="61.5" y="52.5" radius="3.2" width="0" layer="29"/>
+<circle x="3.5" y="3.5" radius="3.2" width="0" layer="29"/>
+<circle x="61.5" y="3.5" radius="3.2" width="0" layer="29"/>
+<circle x="3.5" y="52.5" radius="3.2" width="0" layer="30"/>
+<circle x="61.5" y="52.5" radius="3.2" width="0" layer="30"/>
+<circle x="61.5" y="3.5" radius="3.2" width="0" layer="30"/>
+<circle x="3.5" y="3.5" radius="3.2" width="0" layer="30"/>
+<wire x1="0" y1="3" x2="0" y2="17.5" width="0" layer="20"/>
+<wire x1="0" y1="17.5" x2="2" y2="19.5" width="0" layer="20" curve="-90"/>
+<wire x1="2" y1="19.5" x2="3" y2="19.5" width="0" layer="20"/>
+<wire x1="3" y1="19.5" x2="5" y2="21.5" width="0" layer="20" curve="90"/>
+<wire x1="5" y1="21.5" x2="5" y2="34.5" width="0" layer="20"/>
+<wire x1="5" y1="34.5" x2="3" y2="36.5" width="0" layer="20" curve="90"/>
+<wire x1="3" y1="36.5" x2="2" y2="36.5" width="0" layer="20"/>
+<wire x1="2" y1="36.5" x2="0" y2="38.5" width="0" layer="20" curve="-90"/>
+<wire x1="0" y1="38.5" x2="0" y2="53" width="0" layer="20"/>
+<wire x1="44" y1="4" x2="45" y2="3" width="0" layer="20" curve="90"/>
+<wire x1="45" y1="3" x2="46" y2="4" width="0" layer="20" curve="90"/>
+<wire x1="46" y1="4" x2="46" y2="19" width="0" layer="20"/>
+<wire x1="46" y1="19" x2="45" y2="20" width="0" layer="20" curve="90"/>
+<wire x1="45" y1="20" x2="44" y2="19" width="0" layer="20" curve="90"/>
+<wire x1="44" y1="19" x2="44" y2="4" width="0" layer="20"/>
+<text x="4" y="21" size="1.016" layer="51" font="vector" ratio="10" rot="R90">Display Flex Slot</text>
+<text x="45.5" y="4.75" size="1.016" layer="51" font="vector" ratio="10" rot="R90">Camera Flex Slot</text>
+</package>
+</packages>
+</library>
+<library name="61300621821_Eagle_WR-PHD_rev19a">
+<description>&lt;BR&gt;Wurth Elektronik - Connectors - Board-to-Board Connectors - WR-PHD &lt;br&gt;&lt;Hr&gt;
+
+&lt;BR&gt;
+&lt;TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0&gt;
+&lt;TR&gt;   
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;&lt;br&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt; &lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      ---------------------------&lt;BR&gt;
+&lt;B&gt;&lt;I&gt;&lt;span style='font-size:26pt;
+  color:#FF6600;'&gt;WE &lt;/span&gt;&lt;/i&gt;&lt;/b&gt;
+&lt;BR&gt;
+      ---------------------------&lt;BR&gt;&lt;b&gt;Würth Elektronik&lt;/b&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      ---------O---&lt;BR&gt;
+      ----O--------&lt;BR&gt;
+      ---------O---&lt;BR&gt;
+      ----O--------&lt;BR&gt;
+      ---------O---&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+   
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+  &lt;/TR&gt;
+
+  &lt;TR&gt;
+    &lt;TD COLSPAN=7&gt;&amp;nbsp;
+    &lt;/TD&gt;
+  &lt;/TR&gt;
+  
+&lt;/TABLE&gt;
+&lt;B&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;More than you expect&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;/B&gt;
+
+&lt;HR&gt;&lt;BR&gt;
+&lt;b&gt;Würth Elektronik eiSos GmbH &amp; Co. KG&lt;/b&gt;&lt;br&gt;
+EMC &amp; Inductive Solutions&lt;br&gt;
+
+Max-Eyth-Str.1&lt;br&gt;
+D-74638 Waldenburg&lt;br&gt;
+&lt;br&gt;
+Tel: +49 (0)7942-945-0&lt;br&gt;
+Fax:+49 (0)7942-945-5000&lt;br&gt;
+&lt;br&gt;
+&lt;a href="http://www.we-online.com/web/en/electronic_components/produkte_pb/bauteilebibliotheken/eagle_4.php"&gt;www.we-online.com/eagle&lt;/a&gt;&lt;br&gt;
+&lt;a href="mailto:libraries@we-online.com"&gt;libraries@we-online.com&lt;/a&gt; &lt;BR&gt;&lt;BR&gt;
+&lt;br&gt;&lt;HR&gt;&lt;BR&gt;
+Neither Autodesk nor Würth Elektronik eiSos does warrant that this library is error-free or &lt;br&gt;
+that it meets your specific requirements.&lt;br&gt;&lt;BR&gt;
+Please contact us for more information.&lt;br&gt;
+&lt;HR&gt;
+&lt;br&gt;Eagle Version 9, Library Revision 2019a, 2019-10-16&lt;br&gt;
+&lt;HR&gt;
+Copyright: Würth Elektronik</description>
+<packages>
+<package name="61300511121" urn="urn:adsk.eagle:footprint:14804903/1">
+<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 5 Pin</description>
+<pad name="1" x="-5.08" y="0" drill="1.1"/>
+<pad name="2" x="-2.54" y="0" drill="1.1"/>
+<pad name="3" x="0" y="0" drill="1.1"/>
+<pad name="4" x="2.54" y="0" drill="1.1"/>
+<pad name="5" x="5.08" y="0" drill="1.1"/>
+<circle x="-6" y="-0.9" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-6.35" y1="1.27" x2="-6.35" y2="-1.27" width="0.1" layer="51"/>
+<wire x1="-6.35" y1="-1.27" x2="6.35" y2="-1.27" width="0.1" layer="51"/>
+<wire x1="6.35" y1="-1.27" x2="6.35" y2="1.27" width="0.1" layer="51"/>
+<wire x1="6.35" y1="1.27" x2="-6.35" y2="1.27" width="0.1" layer="51"/>
+<wire x1="-6.45" y1="1.37" x2="6.45" y2="1.37" width="0.2" layer="21"/>
+<wire x1="6.45" y1="1.37" x2="6.45" y2="-1.37" width="0.2" layer="21"/>
+<wire x1="6.45" y1="-1.37" x2="-6.45" y2="-1.37" width="0.2" layer="21"/>
+<wire x1="-6.45" y1="-1.37" x2="-6.45" y2="1.37" width="0.2" layer="21"/>
+<polygon width="0.1" layer="39">
+<vertex x="-6.65" y="1.57"/>
+<vertex x="6.65" y="1.57"/>
+<vertex x="6.65" y="-1.57"/>
+<vertex x="-6.65" y="-1.57"/>
+</polygon>
+<text x="-7.0776" y="0.2561" size="0.8128" layer="25" align="bottom-right">&gt;NAME</text>
+<text x="-6.9976" y="-1.4442" size="0.8128" layer="27" align="bottom-right">&gt;VALUE</text>
+</package>
+<package name="61300611121" urn="urn:adsk.eagle:footprint:14804904/1">
+<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 6 Pin</description>
+<pad name="3" x="-1.27" y="0" drill="1.1"/>
+<pad name="2" x="-3.81" y="0" drill="1.1"/>
+<pad name="1" x="-6.35" y="0" drill="1.1"/>
+<pad name="4" x="1.27" y="0" drill="1.1"/>
+<pad name="5" x="3.81" y="0" drill="1.1"/>
+<pad name="6" x="6.35" y="0" drill="1.1"/>
+<circle x="-7.2" y="-0.9" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-7.62" y1="1.27" x2="-7.62" y2="-1.27" width="0.1" layer="51"/>
+<wire x1="-7.62" y1="-1.27" x2="7.62" y2="-1.27" width="0.1" layer="51"/>
+<wire x1="7.62" y1="-1.27" x2="7.62" y2="1.27" width="0.1" layer="51"/>
+<wire x1="7.62" y1="1.27" x2="-7.62" y2="1.27" width="0.1" layer="51"/>
+<wire x1="-7.72" y1="1.37" x2="7.72" y2="1.37" width="0.2" layer="21"/>
+<wire x1="7.72" y1="1.37" x2="7.72" y2="-1.37" width="0.2" layer="21"/>
+<wire x1="7.72" y1="-1.37" x2="-7.72" y2="-1.37" width="0.2" layer="21"/>
+<wire x1="-7.72" y1="-1.37" x2="-7.72" y2="1.37" width="0.2" layer="21"/>
+<polygon width="0.1" layer="39">
+<vertex x="-7.92" y="1.57"/>
+<vertex x="7.92" y="1.57"/>
+<vertex x="7.92" y="-1.57"/>
+<vertex x="-7.92" y="-1.57"/>
+</polygon>
+<text x="-8.5776" y="0.2561" size="0.8128" layer="25" align="bottom-right">&gt;NAME</text>
+<text x="-8.4976" y="-1.4442" size="0.8128" layer="27" align="bottom-right">&gt;VALUE</text>
+</package>
+</packages>
+<packages3d>
+<package3d name="61300511121" urn="urn:adsk.eagle:package:14805428/2" type="model">
+<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 5 Pin</description>
+<packageinstances>
+<packageinstance name="61300511121"/>
+</packageinstances>
+</package3d>
+<package3d name="61300611121" urn="urn:adsk.eagle:package:14805427/2" type="model">
+<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 6 Pin</description>
+<packageinstances>
+<packageinstance name="61300611121"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -1905,233 +2037,453 @@ Please make sure your boards conform to these design rules.
 </pass>
 </autorouter>
 <elements>
-<element name="J1" library="61300211821_Eagle_WR-PHD_rev19a" package="61301021121" package3d_urn="urn:adsk.eagle:package:14805405/2" value="" x="11.58" y="2.89" smashed="yes">
-<attribute name="DATASHEET-URL" value="https://katalog.we-online.com/em/datasheet/61301021121.pdf" x="31.9" y="-23.78" size="1.778" layer="27" display="off"/>
-<attribute name="GENDER" value="Pin Header" x="31.9" y="-23.78" size="1.778" layer="27" display="off"/>
-<attribute name="IR" value="3A" x="31.9" y="-23.78" size="1.778" layer="27" display="off"/>
-<attribute name="MATES" value="WR-PHD 2.54mm Angled DualSocket Header/Dual Socket Header/Dual Socket Header Bottom Entry/Dual Socket Header Bottom Entry Large/SMT Dual Socket Header/SMT Dual Socket Header Bottom Entry" x="31.9" y="-23.78" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="4.5024" y="3.6461" size="0.8128" layer="25" align="bottom-right"/>
-<attribute name="PACKAGING" value="Bag" x="31.9" y="-23.78" size="1.778" layer="27" display="off"/>
-<attribute name="PART-NUMBER" value=" 61301021121 " x="31.9" y="-23.78" size="1.778" layer="27" display="off"/>
-<attribute name="PINS" value=" 10 " x="31.9" y="-23.78" size="1.778" layer="27" display="off"/>
-<attribute name="ROWS" value="Dual" x="31.9" y="-23.78" size="1.778" layer="27" display="off"/>
-<attribute name="TYPE" value="Board Stacker" x="31.9" y="-23.78" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="4.5824" y="1.9458" size="0.8128" layer="27" align="bottom-right"/>
+<element name="J5" library="61300411121_Eagle_WR-PHD_rev19a" package="61300411821" package3d_urn="urn:adsk.eagle:package:14805541/2" value="" x="14.27" y="2.45" smashed="yes">
+<attribute name="DATASHEET-URL" value="https://katalog.we-online.com/em/datasheet/61300411821.pdf" x="44.75" y="-29.3" size="1.778" layer="27" display="off"/>
+<attribute name="GENDER" value="Socket Header" x="44.75" y="-29.3" size="1.778" layer="27" display="off"/>
+<attribute name="IR" value="3A" x="44.75" y="-29.3" size="1.778" layer="27" display="off"/>
+<attribute name="MATES" value="WR-PHD 2.54mm SMT Pin Header/THT Angled Pin Header/THT Pin Header" x="44.75" y="-29.3" size="1.778" layer="27" display="off"/>
+<attribute name="PACKAGING" value="Tray" x="44.75" y="-29.3" size="1.778" layer="27" display="off"/>
+<attribute name="PART-NUMBER" value=" 61300411821 " x="44.75" y="-29.3" size="1.778" layer="27" display="off"/>
+<attribute name="PINS" value=" 4 " x="44.75" y="-29.3" size="1.778" layer="27" display="off"/>
+<attribute name="ROWS" value="Single" x="44.75" y="-29.3" size="1.778" layer="27" display="off"/>
+<attribute name="TYPE" value="Straight" x="44.75" y="-29.3" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="8.2724" y="1.0058" size="0.8128" layer="27" align="bottom-right"/>
 </element>
-<element name="J2" library="61300211821_Eagle_WR-PHD_rev19a" package="61300621121" package3d_urn="urn:adsk.eagle:package:14805407/2" value="" x="9.07" y="37.11" smashed="yes">
-<attribute name="DATASHEET-URL" value="https://katalog.we-online.com/em/datasheet/61300621121.pdf" x="26.85" y="4.09" size="1.778" layer="27" display="off"/>
-<attribute name="GENDER" value="Pin Header" x="26.85" y="4.09" size="1.778" layer="27" display="off"/>
-<attribute name="IR" value="3A" x="26.85" y="4.09" size="1.778" layer="27" display="off"/>
-<attribute name="MATES" value="WR-PHD 2.54mm Angled DualSocket Header/Dual Socket Header/Dual Socket Header Bottom Entry/Dual Socket Header Bottom Entry Large/SMT Dual Socket Header/SMT Dual Socket Header Bottom Entry" x="26.85" y="4.09" size="1.778" layer="27" display="off"/>
-<attribute name="PACKAGING" value="Bag" x="26.85" y="4.09" size="1.778" layer="27" display="off"/>
-<attribute name="PART-NUMBER" value=" 61300621121 " x="26.85" y="4.09" size="1.778" layer="27" display="off"/>
-<attribute name="PINS" value=" 6 " x="26.85" y="4.09" size="1.778" layer="27" display="off"/>
-<attribute name="ROWS" value="Dual" x="26.85" y="4.09" size="1.778" layer="27" display="off"/>
-<attribute name="TYPE" value="Board Stacker" x="26.85" y="4.09" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="4.5724" y="36.1658" size="0.8128" layer="27" align="bottom-right"/>
+<element name="C1" library="SparkFun-Capacitors" package="0603" value="0.47uF" x="9.9" y="19.71" smashed="yes" rot="R270">
+<attribute name="NAME" x="10.862" y="19.71" size="0.6096" layer="25" font="vector" ratio="20" rot="R270" align="bottom-center"/>
+<attribute name="PROD_ID" value="CAP-00868" x="9.9" y="19.71" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VALUE" x="8.768" y="19.91" size="0.6096" layer="27" font="vector" ratio="20" rot="R270" align="top-center"/>
 </element>
-<element name="J5" library="61300411121_Eagle_WR-PHD_rev19a" package="61300411821" package3d_urn="urn:adsk.eagle:package:14805541/2" value="" x="38.35" y="19.83" smashed="yes" rot="R270">
-<attribute name="DATASHEET-URL" value="https://katalog.we-online.com/em/datasheet/61300411821.pdf" x="6.6" y="-10.65" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="GENDER" value="Socket Header" x="6.6" y="-10.65" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="IR" value="3A" x="6.6" y="-10.65" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MATES" value="WR-PHD 2.54mm SMT Pin Header/THT Angled Pin Header/THT Pin Header" x="6.6" y="-10.65" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="PACKAGING" value="Tray" x="6.6" y="-10.65" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="PART-NUMBER" value=" 61300411821 " x="6.6" y="-10.65" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="PINS" value=" 4 " x="6.6" y="-10.65" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="ROWS" value="Single" x="6.6" y="-10.65" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="TYPE" value="Straight" x="6.6" y="-10.65" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="VALUE" x="36.9058" y="25.8276" size="0.8128" layer="27" rot="R270" align="bottom-right"/>
+<element name="IC2" library="linear" library_urn="urn:adsk.eagle:library:262" package="TO220H" package3d_urn="urn:adsk.eagle:package:16414/1" value="LM3940IT-3.3" x="25.54" y="16.9" smashed="yes" rot="R270">
+<attribute name="POPULARITY" value="0" x="25.54" y="16.9" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
-<element name="C1" library="SparkFun-Capacitors" package="0603" value="0.47uF" x="23.39" y="15.4" smashed="yes">
-<attribute name="NAME" x="23.39" y="16.362" size="0.6096" layer="25" font="vector" ratio="20" align="bottom-center"/>
-<attribute name="PROD_ID" value="CAP-00868" x="23.39" y="15.4" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="23.39" y="14.368" size="0.6096" layer="27" font="vector" ratio="20" align="top-center"/>
+<element name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="33uF" x="9.91" y="15.49" smashed="yes" rot="R90">
+<attribute name="NAME" x="12.44" y="14.62" size="1.27" layer="25" rot="R90"/>
+<attribute name="POPULARITY" value="88" x="9.91" y="15.49" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="SPICEPREFIX" value="C" x="9.91" y="15.49" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="8.35" y="13.82" size="1.27" layer="27" rot="R90"/>
 </element>
-<element name="IC2" library="linear" library_urn="urn:adsk.eagle:library:262" package="TO220H" package3d_urn="urn:adsk.eagle:package:16414/1" value="LM3940IT-3.3" x="25.54" y="30.5" smashed="yes">
-<attribute name="POPULARITY" value="0" x="25.54" y="30.5" size="1.778" layer="27" display="off"/>
+<element name="STATUS" library="155060GS75300_Eagle_WL-SMSW_rev20b" package="WL-SMSW_0603_REC" package3d_urn="urn:adsk.eagle:package:19035720/2" value="" x="30.2" y="1.5" smashed="yes">
+<attribute name="ABSTRAHLWINKEL" value="140°" x="30.2" y="1.5" size="1.778" layer="27" display="off"/>
+<attribute name="CHIP-TECHNOLOGY" value="InGaN" x="30.2" y="1.5" size="1.778" layer="27" display="off"/>
+<attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/155060GS75300.pdf" x="30.2" y="1.5" size="1.778" layer="27" display="off"/>
+<attribute name="EMITTING-COLOR" value="Green" x="30.2" y="1.5" size="1.778" layer="27" display="off"/>
+<attribute name="I-V-TYP" value="560mcd" x="30.2" y="1.5" size="1.778" layer="27" display="off"/>
+<attribute name="LAMDA-DOM-TYP" value="525nm" x="30.2" y="1.5" size="1.778" layer="27" display="off"/>
+<attribute name="LAMDA-PEAK-TYP" value="525nm" x="30.2" y="1.5" size="1.778" layer="27" display="off"/>
+<attribute name="NAME" x="30.2" y="2.8" size="0.6096" layer="25" align="bottom-center"/>
+<attribute name="PART-NUMBER" value="155060GS75300" x="30.2" y="1.5" size="1.778" layer="27" display="off"/>
+<attribute name="V-F-TYP" value="3.2V" x="30.2" y="1.5" size="1.778" layer="27" display="off"/>
+<attribute name="VALUE" x="30.046" y="0.481" size="0.254" layer="27" align="bottom-center"/>
 </element>
-<element name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" package="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="33uF" x="27.51" y="15.41" smashed="yes" rot="R180">
-<attribute name="NAME" x="28.38" y="17.94" size="1.27" layer="25" rot="R180"/>
-<attribute name="POPULARITY" value="88" x="27.51" y="15.41" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="SPICEPREFIX" value="C" x="27.51" y="15.41" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="29.18" y="13.85" size="1.27" layer="27" rot="R180"/>
+<element name="HEARTBEAT" library="155060GS75300_Eagle_WL-SMSW_rev20b" package="WL-SMSW_0603_REC" package3d_urn="urn:adsk.eagle:package:19035720/2" value="" x="24.4" y="1.6" smashed="yes" rot="R180">
+<attribute name="ABSTRAHLWINKEL" value="140°" x="24.4" y="1.6" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="CHIP-TECHNOLOGY" value="AlInGaP" x="24.4" y="1.6" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/155060RS75300.pdf" x="24.4" y="1.6" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="EMITTING-COLOR" value="Red" x="24.4" y="1.6" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="I-V-TYP" value="150mcd" x="24.4" y="1.6" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="LAMDA-DOM-TYP" value="625nm" x="24.4" y="1.6" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="LAMDA-PEAK-TYP" value="625nm" x="24.4" y="1.6" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="NAME" x="24.4" y="3.5" size="0.6096" layer="25" rot="R180" align="bottom-center"/>
+<attribute name="PART-NUMBER" value="155060RS75300" x="24.4" y="1.6" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="V-F-TYP" value="2V" x="24.4" y="1.6" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="VALUE" x="24.554" y="2.619" size="0.254" layer="27" rot="R180" align="bottom-center"/>
 </element>
-<element name="U$3" library="M3-Hole" package="3-2MM-HOLE" value="" x="2.4" y="2.4" smashed="yes"/>
-<element name="U$1" library="M3-Hole" package="3-2MM-HOLE" value="" x="2.4" y="37.6" smashed="yes"/>
-<element name="U$2" library="M3-Hole" package="3-2MM-HOLE" value="" x="37.6" y="2.4" smashed="yes"/>
-<element name="U$4" library="M3-Hole" package="3-2MM-HOLE" value="" x="37.6" y="37.6" smashed="yes"/>
-<element name="STATUS" library="155060GS75300_Eagle_WL-SMSW_rev20b" package="WL-SMSW_0603_REC" package3d_urn="urn:adsk.eagle:package:19035720/2" value="" x="24.6" y="1.4" smashed="yes">
-<attribute name="ABSTRAHLWINKEL" value="140°" x="24.6" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="CHIP-TECHNOLOGY" value="InGaN" x="24.6" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/155060GS75300.pdf" x="24.6" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="EMITTING-COLOR" value="Green" x="24.6" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="I-V-TYP" value="560mcd" x="24.6" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="LAMDA-DOM-TYP" value="525nm" x="24.6" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="LAMDA-PEAK-TYP" value="525nm" x="24.6" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="24.7" y="2.4" size="0.6096" layer="25" align="bottom-center"/>
-<attribute name="PART-NUMBER" value="155060GS75300" x="24.6" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="V-F-TYP" value="3.2V" x="24.6" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="24.446" y="0.381" size="0.254" layer="27" align="bottom-center"/>
+<element name="R4" library="SparkFun-Resistors" package="0603" value="2.2k" x="20.7" y="7.3" smashed="yes" rot="R90">
+<attribute name="NAME" x="22.238" y="7.3" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center"/>
+<attribute name="PROD_ID" value="RES-08272" x="20.7" y="7.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="20.7" y="4.862" size="0.6096" layer="27" font="vector" ratio="20" rot="R180" align="top-center"/>
 </element>
-<element name="POWER" library="155060GS75300_Eagle_WL-SMSW_rev20b" package="WL-SMSW_0603_REC" package3d_urn="urn:adsk.eagle:package:19035720/2" value="" x="28.8" y="1.4" smashed="yes">
-<attribute name="ABSTRAHLWINKEL" value="140°" x="28.8" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="CHIP-TECHNOLOGY" value="AlInGaP" x="28.8" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="DATASHEET-URL" value="https://www.we-online.com/catalog/datasheet/155060RS75300.pdf" x="28.8" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="EMITTING-COLOR" value="Red" x="28.8" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="I-V-TYP" value="150mcd" x="28.8" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="LAMDA-DOM-TYP" value="625nm" x="28.8" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="LAMDA-PEAK-TYP" value="625nm" x="28.8" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="NAME" x="28.8" y="2.4" size="0.6096" layer="25" align="bottom-center"/>
-<attribute name="PART-NUMBER" value="155060RS75300" x="28.8" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="V-F-TYP" value="2V" x="28.8" y="1.4" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="28.646" y="0.381" size="0.254" layer="27" align="bottom-center"/>
+<element name="R5" library="SparkFun-Resistors" package="0603" value="2.2k" x="7.8" y="7.2" smashed="yes" rot="R90">
+<attribute name="NAME" x="7.038" y="7.2" size="0.6096" layer="25" font="vector" ratio="20" rot="R90" align="bottom-center"/>
+<attribute name="PROD_ID" value="RES-08272" x="7.8" y="7.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="7.8" y="4.762" size="0.6096" layer="27" font="vector" ratio="20" rot="R180" align="top-center"/>
 </element>
-<element name="J3" library="61300211821_Eagle_WR-PHD_rev19a" package="61300211121" package3d_urn="urn:adsk.eagle:package:14805431/3" value="" x="38.35" y="30.7" smashed="yes" rot="R270">
-<attribute name="DATASHEET-URL" value="https://katalog.we-online.com/em/datasheet/61300211121.pdf" x="38.35" y="30.7" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="GENDER" value="Pin Header" x="38.35" y="30.7" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="IR" value="3A" x="38.35" y="30.7" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MATES" value="WR-PHD 2.54mm Angled Socket Header /SMT Socket Header/Socket Header" x="38.35" y="30.7" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="NAME" x="38.6061" y="34.2776" size="0.8128" layer="25" rot="R270" align="bottom-right"/>
-<attribute name="PACKAGING" value="Bag" x="38.35" y="30.7" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="PART-NUMBER" value=" 61300211121 " x="38.35" y="30.7" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="PINS" value=" 2 " x="38.35" y="30.7" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="ROWS" value="Single" x="38.35" y="30.7" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="TYPE" value="Straight" x="38.35" y="30.7" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="VALUE" x="36.9058" y="34.1976" size="0.8128" layer="27" rot="R270" align="bottom-right"/>
+<element name="X1" library="raspberrypi_bastelstube_v13" package="RASPI_BOARD_B+HAT_DF_CF" value="RASPI_BOARD_B+#_HDC" x="0" y="-0.2" smashed="yes"/>
+<element name="J1" library="61300621821_Eagle_WR-PHD_rev19a" package="61300511121" package3d_urn="urn:adsk.eagle:package:14805428/2" value="" x="23.8" y="33" smashed="yes" rot="R270">
+<attribute name="DATASHEET-URL" value="https://katalog.we-online.com/em/datasheet/61300511121.pdf" x="23.8" y="33" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="GENDER" value="Pin Header" x="23.8" y="33" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="IR" value="3A" x="23.8" y="33" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MATES" value="WR-PHD 2.54mm Angled Socket Header /SMT Socket Header/Socket Header" x="23.8" y="33" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PACKAGING" value="Bag" x="23.8" y="33" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PART-NUMBER" value=" 61300511121 " x="23.8" y="33" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PINS" value=" 5 " x="23.8" y="33" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="ROWS" value="Single" x="23.8" y="33" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TYPE" value="Straight" x="23.8" y="33" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VALUE" x="22.3558" y="39.9976" size="0.8128" layer="27" rot="R270" align="bottom-right"/>
+</element>
+<element name="J2" library="61300621821_Eagle_WR-PHD_rev19a" package="61300611121" package3d_urn="urn:adsk.eagle:package:14805427/2" value="" x="34.4" y="41.7" smashed="yes" rot="R180">
+<attribute name="DATASHEET-URL" value="https://katalog.we-online.com/em/datasheet/61300611121.pdf" x="34.4" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="GENDER" value="Pin Header" x="34.4" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="IR" value="3A" x="34.4" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MATES" value="WR-PHD 2.54mm Angled Socket Header /SMT Socket Header/Socket Header" x="34.4" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PACKAGING" value="Bag" x="34.4" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PART-NUMBER" value=" 61300611121 " x="34.4" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PINS" value=" 6 " x="34.4" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="ROWS" value="Single" x="34.4" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TYPE" value="Straight" x="34.4" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="VALUE" x="42.8976" y="43.1442" size="0.8128" layer="27" rot="R180" align="bottom-right"/>
 </element>
 </elements>
 <signals>
-<signal name="UART1_RX">
-<contactref element="J1" pad="10"/>
-</signal>
-<signal name="UART1_TX">
-<contactref element="J1" pad="8"/>
-</signal>
-<signal name="GND">
-<contactref element="J1" pad="9"/>
+<signal name="SCL">
 <contactref element="J5" pad="2"/>
 <contactref element="IC2" pad="2"/>
 <contactref element="C1" pad="2"/>
 <contactref element="C2" pad="2"/>
 <contactref element="STATUS" pad="1"/>
-<contactref element="POWER" pad="1"/>
-<polygon width="0.3048" layer="16" isolate="0.5">
-<vertex x="0.1" y="40"/>
-<vertex x="0.1" y="32.7"/>
-<vertex x="0.2" y="32.6"/>
-<vertex x="19.2" y="32.6"/>
-<vertex x="19.4" y="32.4"/>
-<vertex x="19.4" y="6.7"/>
-<vertex x="19.5" y="6.6"/>
-<vertex x="0.4" y="6.6"/>
-<vertex x="0.1" y="6.3"/>
-<vertex x="0.1" y="-0.2"/>
-<vertex x="39.7" y="-0.2"/>
-<vertex x="40.1" y="0.2"/>
-<vertex x="40.1" y="39.9"/>
-<vertex x="0.4" y="39.9"/>
-<vertex x="0.2" y="40.1"/>
-</polygon>
-<polygon width="0.3048" layer="1" isolate="0.5">
-<vertex x="0.3" y="40"/>
-<vertex x="39.9" y="40"/>
-<vertex x="40.2" y="39.7"/>
-<vertex x="40.2" y="0.1"/>
-<vertex x="39.9" y="-0.2"/>
-<vertex x="0.2" y="-0.2"/>
-<vertex x="0.1" y="-0.1"/>
-<vertex x="0" y="0"/>
-<vertex x="0" y="6.3"/>
-<vertex x="0" y="6.6"/>
-<vertex x="19.4" y="6.6"/>
-<vertex x="19.4" y="32.4"/>
-<vertex x="19.3" y="32.5"/>
-<vertex x="0" y="32.5"/>
-<vertex x="0" y="39.9"/>
-<vertex x="0.1" y="40"/>
-<vertex x="0.2" y="40"/>
-</polygon>
-<via x="21.5" y="1.6" extent="1-16" drill="0.35"/>
-<via x="25.2" y="4.2" extent="1-16" drill="0.35"/>
-<via x="33.5" y="34.4" extent="1-16" drill="0.35"/>
-<via x="26.3" y="11.3" extent="1-16" drill="0.35"/>
-<contactref element="J3" pad="1"/>
-<via x="33" y="13.8" extent="1-16" drill="0.35"/>
+<contactref element="HEARTBEAT" pad="1"/>
+<contactref element="X1" pad="6"/>
+<contactref element="J1" pad="2"/>
+<via x="48.26" y="38.1" extent="1-16" drill="0.9" diameter="1.8"/>
+<via x="48.26" y="35.56" extent="1-16" drill="0.9" diameter="1.8"/>
+<via x="48.26" y="33.02" extent="1-16" drill="0.9" diameter="1.8"/>
+<via x="48.26" y="30.48" extent="1-16" drill="0.9" diameter="1.8"/>
+<via x="48.26" y="27.94" extent="1-16" drill="0.9" diameter="1.8"/>
+<via x="48.26" y="25.4" extent="1-16" drill="0.9" diameter="1.8"/>
+<wire x1="48.26" y1="35.56" x2="48.26" y2="38.1" width="0" layer="19" extent="1-1"/>
+<wire x1="48.26" y1="33.02" x2="48.26" y2="35.56" width="0" layer="19" extent="1-1"/>
+<wire x1="48.26" y1="30.48" x2="48.26" y2="33.02" width="0" layer="19" extent="1-1"/>
+<wire x1="48.26" y1="27.94" x2="48.26" y2="30.48" width="0" layer="19" extent="1-1"/>
+<wire x1="48.26" y1="25.4" x2="48.26" y2="27.94" width="0" layer="19" extent="1-1"/>
+<wire x1="23.8" y1="35.54" x2="48.26" y2="35.56" width="0" layer="19" extent="1-1"/>
+<wire x1="15.38" y1="16.9" x2="23.8" y2="35.54" width="0" layer="19" extent="1-1"/>
+<wire x1="9.91" y1="16.44" x2="15.38" y2="16.9" width="0" layer="19" extent="1-1"/>
+<wire x1="9.9" y1="18.86" x2="9.91" y2="16.44" width="0" layer="19" extent="1-1"/>
+<wire x1="13" y1="2.45" x2="9.91" y2="16.44" width="0" layer="19" extent="1-1"/>
+<wire x1="25.1" y1="1.6" x2="13" y2="2.45" width="0" layer="19" extent="1-1"/>
+<wire x1="29.5" y1="1.5" x2="25.1" y2="1.6" width="0" layer="19" extent="1-1"/>
+<wire x1="13.45" y1="53.57" x2="23.8" y2="35.54" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="5V-1">
-<contactref element="J1" pad="2"/>
 <contactref element="C1" pad="1"/>
 <contactref element="IC2" pad="1"/>
-<wire x1="6.5" y1="4.16" x2="7.44221875" y2="4.16" width="0.3048" layer="1"/>
-<wire x1="7.44221875" y1="4.16" x2="8.57201875" y2="5.2898" width="0.3048" layer="1"/>
-<wire x1="8.57201875" y1="5.2898" x2="21.3898" y2="5.2898" width="0.3048" layer="1"/>
-<wire x1="22.54" y1="6.44" x2="22.54" y2="15.4" width="0.3048" layer="1"/>
-<wire x1="21.3898" y1="5.2898" x2="22.54" y2="6.44" width="0.3048" layer="1"/>
-<wire x1="22.54" y1="15.4" x2="22.54" y2="19.88" width="0.3048" layer="1"/>
-<wire x1="22.54" y1="19.88" x2="23" y2="20.34" width="0.3048" layer="1"/>
-<contactref element="J3" pad="2"/>
-<wire x1="23" y1="20.34" x2="32.09" y2="29.43" width="0.3048" layer="16"/>
-<wire x1="32.09" y1="29.43" x2="38.35" y2="29.43" width="0.3048" layer="16"/>
+<contactref element="X1" pad="2"/>
+<wire x1="9.7416" y1="50.54603125" x2="9.8" y2="50.48763125" width="0.3048" layer="1"/>
+<wire x1="8.37" y1="53.57" x2="9.7416" y2="52.1984" width="0.3048" layer="1"/>
+<wire x1="9.7416" y1="52.1984" x2="9.7416" y2="50.54603125" width="0.3048" layer="1"/>
+<wire x1="9.8" y1="25.02" x2="15.38" y2="19.44" width="0.3048" layer="1"/>
+<wire x1="9.8" y1="50.48763125" x2="9.8" y2="25.02" width="0.3048" layer="1"/>
+<wire x1="9.9" y1="20.56" x2="14.26" y2="20.56" width="0.3048" layer="1"/>
+<wire x1="14.26" y1="20.56" x2="15.38" y2="19.44" width="0.3048" layer="1"/>
+<contactref element="J1" pad="4"/>
+<wire x1="23.8" y1="30.46" x2="25.6" y2="28.66" width="0.3048" layer="16"/>
+<wire x1="25.6" y1="28.66" x2="25.6" y2="23.9" width="0.3048" layer="16"/>
+<wire x1="25.6" y1="23.9" x2="21.14" y2="19.44" width="0.3048" layer="16"/>
+<wire x1="21.14" y1="19.44" x2="15.38" y2="19.44" width="0.3048" layer="16"/>
 </signal>
-<signal name="GPIOA2">
-<contactref element="J1" pad="7"/>
+<signal name="GPIO25">
 <contactref element="STATUS" pad="2"/>
-<wire x1="25.3" y1="1.4" x2="25.3" y2="1.6" width="0.1524" layer="1"/>
-<wire x1="25.3" y1="1.6" x2="24.5312" y2="2.3688" width="0.1524" layer="1"/>
-<wire x1="14.12" y1="1.62" x2="15.2" y2="2.7" width="0.1524" layer="1"/>
-<wire x1="24.45734375" y1="2.3688" x2="24.5312" y2="2.3688" width="0.1524" layer="1"/>
-<wire x1="24.12614375" y1="2.7" x2="24.45734375" y2="2.3688" width="0.1524" layer="1"/>
-<wire x1="15.2" y1="2.7" x2="24.12614375" y2="2.7" width="0.1524" layer="1"/>
+<contactref element="X1" pad="22"/>
+<wire x1="30.9" y1="1.5" x2="50" y2="1.5" width="0.1524" layer="1"/>
+<wire x1="56.3" y1="7.8" x2="56.3" y2="46.5" width="0.1524" layer="1"/>
+<wire x1="56.3" y1="46.5" x2="52.6422" y2="50.1578" width="0.1524" layer="1"/>
+<wire x1="52.6422" y1="50.1578" x2="52.6422" y2="51.48240625" width="0.1524" layer="1"/>
+<wire x1="52.6422" y1="51.48240625" x2="51.64680625" y2="52.4778" width="0.1524" layer="1"/>
+<wire x1="51.64680625" y1="52.4778" x2="34.8622" y2="52.4778" width="0.1524" layer="1"/>
+<wire x1="50" y1="1.5" x2="56.3" y2="7.8" width="0.1524" layer="1"/>
+<wire x1="34.8622" y1="52.4778" x2="33.77" y2="53.57" width="0.1524" layer="1"/>
 </signal>
 <signal name="I2C_SCL0">
-<contactref element="J1" pad="5"/>
 <contactref element="J5" pad="1"/>
-<wire x1="12.6" y1="1.62" x2="11.58" y2="1.62" width="0.1524" layer="1"/>
-<wire x1="12.6" y1="1.62" x2="14.08" y2="3.1" width="0.1524" layer="1"/>
-<wire x1="14.08" y1="3.1" x2="20.5" y2="3.1" width="0.1524" layer="1"/>
-<wire x1="32.3" y1="17.59" x2="38.35" y2="23.64" width="0.1524" layer="1"/>
-<wire x1="20.5" y1="3.1" x2="32.3" y2="14.9" width="0.1524" layer="1"/>
-<wire x1="32.3" y1="17.59" x2="32.3" y2="14.9" width="0.1524" layer="1"/>
+<contactref element="R5" pad="1"/>
+<contactref element="X1" pad="5"/>
+<wire x1="10.46" y1="2.45" x2="10.46" y2="3.69" width="0.1524" layer="1"/>
+<wire x1="10.46" y1="3.69" x2="7.8" y2="6.35" width="0.1524" layer="1"/>
+<wire x1="7.8" y1="6.35" x2="6.55" y2="6.35" width="0.1524" layer="1"/>
+<wire x1="6.55" y1="6.35" x2="6.5" y2="6.3" width="0.3048" layer="1"/>
+<via x="6.5" y="6.3" extent="1-16" drill="0.35"/>
+<wire x1="6.5" y1="6.3" x2="6.5" y2="28.2" width="0.1524" layer="16"/>
+<wire x1="6.5" y1="28.2" x2="6.5" y2="39.89380625" width="0.1524" layer="16"/>
+<wire x1="6.5" y1="39.89380625" x2="6.81115" y2="40.20495625" width="0.1524" layer="16" curve="-90"/>
+<wire x1="6.81115" y1="40.20495625" x2="7.227578125" y2="40.20495625" width="0.1524" layer="16"/>
+<wire x1="7.227578125" y1="40.20495625" x2="7.538728125" y2="40.51610625" width="0.1524" layer="16" curve="90"/>
+<wire x1="7.538728125" y1="40.51610625" x2="7.538728125" y2="40.755103125" width="0.1524" layer="16"/>
+<wire x1="7.538728125" y1="40.755103125" x2="7.227578125" y2="41.066253125" width="0.1524" layer="16" curve="90"/>
+<wire x1="7.227578125" y1="41.066253125" x2="5.772421875" y2="41.066253125" width="0.1524" layer="16"/>
+<wire x1="5.772421875" y1="41.066253125" x2="5.461271875" y2="41.377403125" width="0.1524" layer="16" curve="-90"/>
+<wire x1="5.461271875" y1="41.377403125" x2="5.461271875" y2="41.616403125" width="0.1524" layer="16"/>
+<wire x1="5.461271875" y1="41.616403125" x2="5.772421875" y2="41.927553125" width="0.1524" layer="16" curve="-90"/>
+<wire x1="5.772421875" y1="41.927553125" x2="7.227578125" y2="41.927553125" width="0.1524" layer="16"/>
+<wire x1="7.227578125" y1="41.927553125" x2="7.538728125" y2="42.238703125" width="0.1524" layer="16" curve="90"/>
+<wire x1="7.538728125" y1="42.238703125" x2="7.538728125" y2="42.4777" width="0.1524" layer="16"/>
+<wire x1="7.538728125" y1="42.4777" x2="7.227578125" y2="42.78885" width="0.1524" layer="16" curve="90"/>
+<wire x1="7.227578125" y1="42.78885" x2="6.81115" y2="42.78885" width="0.1524" layer="16"/>
+<wire x1="6.81115" y1="42.78885" x2="6.5" y2="43.1" width="0.1524" layer="16" curve="-90"/>
+<wire x1="6.5" y1="43.1" x2="6.5" y2="44.08" width="0.1524" layer="16"/>
+<wire x1="6.5" y1="44.08" x2="13.45" y2="51.03" width="0.1524" layer="16"/>
+<contactref element="J1" pad="5"/>
+<wire x1="23.8" y1="27.92" x2="6.78" y2="27.92" width="0.1524" layer="16"/>
+<wire x1="6.78" y1="27.92" x2="6.5" y2="28.2" width="0.1524" layer="16"/>
 </signal>
 <signal name="I2C_SDA0">
-<contactref element="J1" pad="3"/>
 <contactref element="J5" pad="4"/>
-<wire x1="9.04" y1="1.62" x2="10.08998125" y2="1.62" width="0.1524" layer="16"/>
-<wire x1="10.08998125" y1="1.62" x2="11.14358125" y2="2.6736" width="0.1524" layer="16"/>
-<wire x1="38.35" y1="16.02" x2="38.35" y2="15.35" width="0.1524" layer="1"/>
-<wire x1="38.35" y1="15.35" x2="30.7" y2="7.7" width="0.1524" layer="1"/>
-<wire x1="30.7" y1="7.7" x2="30.7" y2="6.89981875" width="0.1524" layer="1"/>
-<wire x1="30.7" y1="6.89981875" x2="27.8" y2="4" width="0.1524" layer="1"/>
-<via x="27.8" y="4" extent="1-16" drill="0.35"/>
-<wire x1="27.8" y1="4" x2="26.4736" y2="2.6736" width="0.1524" layer="16"/>
-<wire x1="26.4736" y1="2.6736" x2="11.14358125" y2="2.6736" width="0.1524" layer="16"/>
-</signal>
-<signal name="GPIOA0">
+<contactref element="R4" pad="1"/>
+<contactref element="X1" pad="3"/>
+<wire x1="18.08" y1="2.45" x2="18.08" y2="3.83" width="0.1524" layer="1"/>
+<wire x1="18.08" y1="3.83" x2="20.7" y2="6.45" width="0.1524" layer="1"/>
+<wire x1="20.7" y1="6.45" x2="22.05" y2="6.45" width="0.1524" layer="1"/>
+<wire x1="22.05" y1="6.45" x2="22.1" y2="6.5" width="0.3048" layer="1"/>
+<wire x1="14.6184" y1="51.51396875" x2="13.93396875" y2="52.1984" width="0.1524" layer="1"/>
+<wire x1="13.93396875" y1="52.1984" x2="12.96603125" y2="52.1984" width="0.1524" layer="1"/>
+<wire x1="22.1" y1="21.94" x2="14.6184" y2="29.4216" width="0.1524" layer="1"/>
+<wire x1="14.6184" y1="29.4216" x2="14.6184" y2="38.2" width="0.1524" layer="1"/>
+<wire x1="14.6184" y1="38.2" x2="14.6184" y2="51.51396875" width="0.1524" layer="1"/>
+<wire x1="12.96603125" y1="52.1984" x2="11.79763125" y2="51.03" width="0.1524" layer="1"/>
+<wire x1="11.79763125" y1="51.03" x2="10.91" y2="51.03" width="0.1524" layer="1"/>
+<wire x1="22.1" y1="6.5" x2="22.1" y2="21.94" width="0.1524" layer="1"/>
 <contactref element="J1" pad="1"/>
-<contactref element="POWER" pad="2"/>
-<wire x1="6.5" y1="1.62" x2="7.54998125" y2="1.62" width="0.1524" layer="16"/>
-<wire x1="7.54998125" y1="1.62" x2="8.90838125" y2="2.9784" width="0.1524" layer="16"/>
-<wire x1="8.90838125" y1="2.9784" x2="21.0096625" y2="2.9784" width="0.1524" layer="16"/>
-<via x="26.3" y="3.2" extent="1-16" drill="0.35"/>
-<wire x1="21.0096625" y1="2.9784" x2="21.0106625" y2="2.9794" width="0.1524" layer="16"/>
-<wire x1="21.0106625" y1="2.9794" x2="25.2206" y2="2.9794" width="0.1524" layer="16"/>
-<wire x1="25.2206" y1="2.9794" x2="25.247" y2="2.953" width="0.1524" layer="16"/>
-<wire x1="26.053" y1="2.953" x2="26.3" y2="3.2" width="0.1524" layer="16"/>
-<wire x1="25.247" y1="2.953" x2="26.053" y2="2.953" width="0.1524" layer="16"/>
-<wire x1="29.5" y1="1.4" x2="27.7" y2="3.2" width="0.1524" layer="1"/>
-<wire x1="27.7" y1="3.2" x2="26.3" y2="3.2" width="0.1524" layer="1"/>
+<wire x1="14.7384" y1="38.08" x2="14.6184" y2="38.2" width="0.1524" layer="16"/>
+<via x="14.6184" y="38.2" extent="1-16" drill="0.45" diameter="1"/>
+<wire x1="23.8" y1="38.08" x2="14.7384" y2="38.08" width="0.1524" layer="16"/>
 </signal>
-<signal name="5V-2">
-<contactref element="J1" pad="4"/>
+<signal name="GPIO04">
+<contactref element="HEARTBEAT" pad="2"/>
+<contactref element="X1" pad="7"/>
+<wire x1="15.99" y1="51.03" x2="15.99" y2="29.71" width="0.1524" layer="1"/>
+<wire x1="23.7" y1="22" x2="23.7" y2="1.6" width="0.1524" layer="1"/>
+<wire x1="15.99" y1="29.71" x2="23.7" y2="22" width="0.1524" layer="1"/>
 </signal>
 <signal name="3.3V" class="1">
 <contactref element="J5" pad="3"/>
 <contactref element="IC2" pad="3"/>
 <contactref element="C2" pad="1"/>
-<wire x1="28.08" y1="20.34" x2="28.46" y2="19.96" width="0.3048" layer="1"/>
-<wire x1="28.46" y1="19.96" x2="28.46" y2="15.41" width="0.3048" layer="1"/>
-<wire x1="38.35" y1="18.56" x2="29.86" y2="18.56" width="0.3048" layer="16"/>
-<wire x1="29.86" y1="18.56" x2="28.08" y2="20.34" width="0.3048" layer="16"/>
+<contactref element="R5" pad="2"/>
+<contactref element="R4" pad="2"/>
+<wire x1="9.91" y1="14.54" x2="15.2" y2="14.54" width="0.3048" layer="1"/>
+<wire x1="15.2" y1="14.54" x2="15.38" y2="14.36" width="0.3048" layer="1"/>
+<wire x1="15.38" y1="14.36" x2="15.38" y2="2.61" width="0.3048" layer="1"/>
+<wire x1="15.38" y1="2.61" x2="15.54" y2="2.45" width="0.3048" layer="1"/>
+<wire x1="7.8" y1="8.05" x2="9.94" y2="8.05" width="0.3048" layer="1"/>
+<wire x1="9.94" y1="8.05" x2="15.54" y2="2.45" width="0.3048" layer="1"/>
+<wire x1="20.7" y1="8.15" x2="15.54" y2="2.99" width="0.3048" layer="1"/>
+<wire x1="15.54" y1="2.99" x2="15.54" y2="2.45" width="0.3048" layer="1"/>
+<contactref element="J1" pad="3"/>
+<wire x1="15.38" y1="14.36" x2="18.46" y2="14.36" width="0.3048" layer="16"/>
+<wire x1="18.46" y1="14.36" x2="26.24" y2="22.14" width="0.3048" layer="16"/>
+<wire x1="26.24" y1="22.14" x2="26.24" y2="30.56" width="0.3048" layer="16"/>
+<wire x1="26.24" y1="30.56" x2="23.8" y2="33" width="0.3048" layer="16"/>
+</signal>
+<signal name="3V3A">
+<contactref element="X1" pad="1"/>
+</signal>
+<signal name="5V0B">
+<contactref element="X1" pad="4"/>
+</signal>
+<signal name="3V3B">
+<contactref element="X1" pad="17"/>
+</signal>
+<signal name="GND_B">
+<contactref element="X1" pad="9"/>
+</signal>
+<signal name="GND_C">
+<contactref element="X1" pad="14"/>
+</signal>
+<signal name="GND_D">
+<contactref element="X1" pad="20"/>
+</signal>
+<signal name="GND_E">
+<contactref element="X1" pad="25"/>
+</signal>
+<signal name="GND_F">
+<contactref element="X1" pad="30"/>
+</signal>
+<signal name="GND_G">
+<contactref element="X1" pad="34"/>
+</signal>
+<signal name="GND_H">
+<contactref element="X1" pad="39"/>
+</signal>
+<signal name="GPIO17">
+<contactref element="J2" pad="6"/>
+<contactref element="X1" pad="11"/>
+<wire x1="21.07" y1="51.03" x2="21.07" y2="48.68" width="0.1524" layer="1"/>
+<wire x1="21.07" y1="48.68" x2="28.05" y2="41.7" width="0.1524" layer="1"/>
+</signal>
+<signal name="GPIO18">
+<contactref element="J2" pad="5"/>
+<contactref element="X1" pad="12"/>
+<wire x1="21.07" y1="53.57" x2="22.3" y2="52.34" width="0.1524" layer="1"/>
+<wire x1="22.3" y1="52.34" x2="22.3" y2="49.7" width="0.1524" layer="1"/>
+<wire x1="22.3" y1="49.7" x2="23.4" y2="48.6" width="0.1524" layer="1"/>
+<wire x1="23.69" y1="48.6" x2="30.59" y2="41.7" width="0.1524" layer="1"/>
+<wire x1="23.4" y1="48.6" x2="23.69" y2="48.6" width="0.1524" layer="1"/>
+</signal>
+<signal name="GPIO27">
+<contactref element="J2" pad="4"/>
+<contactref element="X1" pad="13"/>
+<wire x1="25.1" y1="49.1" x2="27.7" y2="49.1" width="0.1524" layer="1"/>
+<wire x1="25.1" y1="49.1" x2="23.61" y2="50.59" width="0.1524" layer="1"/>
+<wire x1="23.61" y1="50.59" x2="23.61" y2="51.03" width="0.1524" layer="1"/>
+<wire x1="27.7" y1="49.1" x2="33.13" y2="43.67" width="0.1524" layer="1"/>
+<wire x1="33.13" y1="43.67" x2="33.13" y2="41.7" width="0.1524" layer="1"/>
+</signal>
+<signal name="GPIO22">
+<contactref element="J2" pad="3"/>
+<contactref element="X1" pad="15"/>
+<wire x1="26.15" y1="51.03" x2="27.58" y2="49.6" width="0.1524" layer="1"/>
+<wire x1="27.58" y1="49.6" x2="29.4" y2="49.6" width="0.1524" layer="1"/>
+<wire x1="29.4" y1="49.6" x2="35.67" y2="43.33" width="0.1524" layer="1"/>
+<wire x1="35.67" y1="43.33" x2="35.67" y2="41.7" width="0.1524" layer="1"/>
+</signal>
+<signal name="GPIO23">
+<contactref element="X1" pad="16"/>
+<contactref element="J2" pad="2"/>
+<wire x1="29.14240625" y1="52.1222" x2="29.7822" y2="51.48240625" width="0.1524" layer="1"/>
+<wire x1="26.15" y1="53.57" x2="27.5978" y2="52.1222" width="0.1524" layer="1"/>
+<wire x1="27.5978" y1="52.1222" x2="29.14240625" y2="52.1222" width="0.1524" layer="1"/>
+<wire x1="29.7822" y1="51.48240625" x2="29.7822" y2="50.6178" width="0.1524" layer="1"/>
+<wire x1="38.21" y1="41.7" x2="38.21" y2="42.19" width="0.1524" layer="1"/>
+<wire x1="38.21" y1="42.19" x2="29.7822" y2="50.6178" width="0.1524" layer="1"/>
+</signal>
+<signal name="GPIO24">
+<contactref element="X1" pad="18"/>
+<contactref element="J2" pad="1"/>
+<wire x1="31.68240625" y1="52.1222" x2="32.3222" y2="51.48240625" width="0.1524" layer="1"/>
+<wire x1="28.69" y1="53.57" x2="30.1378" y2="52.1222" width="0.1524" layer="1"/>
+<wire x1="30.1378" y1="52.1222" x2="31.68240625" y2="52.1222" width="0.1524" layer="1"/>
+<wire x1="32.3222" y1="51.48240625" x2="32.3222" y2="49.9778" width="0.1524" layer="1"/>
+<wire x1="40.6" y1="41.7" x2="40.75" y2="41.7" width="0.1524" layer="1"/>
+<wire x1="32.3222" y1="49.9778" x2="40.6" y2="41.7" width="0.1524" layer="1"/>
+</signal>
+<signal name="PLUS">
+<via x="27.94" y="38.1" extent="1-16" drill="0.9" diameter="1.8"/>
+<via x="27.94" y="35.56" extent="1-16" drill="0.9" diameter="1.8"/>
+<via x="27.94" y="33.02" extent="1-16" drill="0.9" diameter="1.8"/>
+<via x="27.94" y="30.48" extent="1-16" drill="0.9" diameter="1.8"/>
+<via x="27.94" y="27.94" extent="1-16" drill="0.9" diameter="1.8"/>
+<via x="27.94" y="25.4" extent="1-16" drill="0.9" diameter="1.8"/>
+<wire x1="27.94" y1="38.1" x2="27.94" y2="35.56" width="0.3048" layer="16"/>
+<wire x1="27.94" y1="35.56" x2="27.94" y2="33.02" width="0.3048" layer="16"/>
+<wire x1="27.94" y1="33.02" x2="27.94" y2="30.48" width="0.3048" layer="16"/>
+<wire x1="27.94" y1="30.48" x2="27.94" y2="27.94" width="0.3048" layer="16"/>
+<wire x1="27.94" y1="27.94" x2="27.94" y2="25.4" width="0.3048" layer="16"/>
+</signal>
+<signal name="N$1">
+<via x="30.48" y="38.1" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$2">
+<via x="33.02" y="38.1" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$4">
+<via x="35.56" y="38.1" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$5">
+<via x="38.1" y="38.1" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$6">
+<via x="40.64" y="38.1" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$7">
+<via x="43.18" y="38.1" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$9">
+<via x="30.48" y="35.56" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$10">
+<via x="33.02" y="35.56" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$11">
+<via x="35.56" y="35.56" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$12">
+<via x="38.1" y="35.56" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$13">
+<via x="40.64" y="35.56" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$14">
+<via x="43.18" y="35.56" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$15">
+<via x="43.18" y="33.02" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$16">
+<via x="40.64" y="33.02" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$17">
+<via x="38.1" y="33.02" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$18">
+<via x="35.56" y="33.02" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$19">
+<via x="33.02" y="33.02" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$20">
+<via x="30.48" y="33.02" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$23">
+<via x="30.48" y="30.48" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$24">
+<via x="33.02" y="30.48" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$25">
+<via x="35.56" y="30.48" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$26">
+<via x="38.1" y="30.48" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$27">
+<via x="40.64" y="30.48" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$28">
+<via x="43.18" y="30.48" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$29">
+<via x="43.18" y="27.94" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$30">
+<via x="40.64" y="27.94" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$31">
+<via x="38.1" y="27.94" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$32">
+<via x="35.56" y="27.94" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$33">
+<via x="33.02" y="27.94" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$34">
+<via x="30.48" y="27.94" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$37">
+<via x="30.48" y="25.4" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$38">
+<via x="33.02" y="25.4" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$39">
+<via x="35.56" y="25.4" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$40">
+<via x="38.1" y="25.4" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$41">
+<via x="40.64" y="25.4" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$42">
+<via x="43.18" y="25.4" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$43">
+<via x="45.72" y="38.1" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$44">
+<via x="45.72" y="35.56" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$45">
+<via x="45.72" y="33.02" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$46">
+<via x="45.72" y="30.48" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$47">
+<via x="45.72" y="27.94" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$48">
+<via x="45.72" y="25.4" extent="1-16" drill="0.9" diameter="1.8"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

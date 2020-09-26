@@ -67,19 +67,44 @@
 
 #define POLLING_DELAY 5 //Amount of ms to wait between checking for virtual register changes
 
-struct sensor {
-	int8_t address;
-  	int8_t type;
-  	int8_t num_device_addr; //number of devices under this address
-};
-typedef struct sensor sensor_list;
-
 struct AS7261_channel{
 	uint32_t X;
 	uint32_t Y;
 	uint32_t Z;
 };
 typedef struct AS7261_channel AS7261_channel;
+
+struct AS7265X_channel{
+	uint32_t R;
+	uint32_t S;
+	uint32_t T;
+	uint32_t U;
+	uint32_t V;
+	uint32_t W;
+	uint32_t G;
+	uint32_t H;
+	uint32_t I;
+	uint32_t J;
+	uint32_t K;
+	uint32_t L;
+	uint32_t A;
+	uint32_t B;
+	uint32_t C;
+	uint32_t D;
+	uint32_t E;
+	uint32_t F;
+};
+typedef struct AS7265X_channel AS7265X_channel;
+
+struct sensor {
+	int8_t address;
+  	int8_t type;
+  	int8_t num_device_addr; //number of devices under this address
+  	AS7261_channel calibration_factor_AS7261[3];
+  	AS7265X_channel calibration_factor_AS7265X[3];
+};
+typedef struct sensor sensor_list;
+
 
 uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd);//TODO remove unused function
 uint8_t getVersion(int fd); //61 oder 65

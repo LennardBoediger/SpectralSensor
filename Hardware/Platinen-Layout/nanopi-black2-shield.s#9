@@ -272,28 +272,6 @@ Copyright: Würth Elektronik</description>
 <text x="-4.5776" y="0.7561" size="0.8128" layer="25" align="bottom-right">&gt;NAME</text>
 <text x="-4.4976" y="-0.9442" size="0.8128" layer="27" align="bottom-right">&gt;VALUE</text>
 </package>
-<package name="61300211121" urn="urn:adsk.eagle:footprint:14804900/1">
-<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 2 Pin</description>
-<pad name="1" x="-1.27" y="0" drill="1.1" rot="R90"/>
-<pad name="2" x="1.27" y="0" drill="1.1"/>
-<circle x="-2.2" y="-0.9" radius="0.1" width="0.2" layer="21"/>
-<wire x1="-2.54" y1="1.27" x2="-2.54" y2="-1.27" width="0.1" layer="51"/>
-<wire x1="-2.54" y1="-1.27" x2="2.54" y2="-1.27" width="0.1" layer="51"/>
-<wire x1="2.54" y1="-1.27" x2="2.54" y2="1.27" width="0.1" layer="51"/>
-<wire x1="2.54" y1="1.27" x2="-2.54" y2="1.27" width="0.1" layer="51"/>
-<wire x1="-2.64" y1="1.37" x2="2.64" y2="1.37" width="0.2" layer="21"/>
-<wire x1="2.64" y1="1.37" x2="2.64" y2="-1.37" width="0.2" layer="21"/>
-<wire x1="2.64" y1="-1.37" x2="-2.64" y2="-1.37" width="0.2" layer="21"/>
-<wire x1="-2.64" y1="-1.37" x2="-2.64" y2="1.37" width="0.2" layer="21"/>
-<polygon width="0.1" layer="39">
-<vertex x="-2.84" y="1.57"/>
-<vertex x="2.84" y="1.57"/>
-<vertex x="2.84" y="-1.57"/>
-<vertex x="-2.84" y="-1.57"/>
-</polygon>
-<text x="-3.5776" y="0.2561" size="0.8128" layer="25" align="bottom-right">&gt;NAME</text>
-<text x="-3.4976" y="-1.4442" size="0.8128" layer="27" align="bottom-right">&gt;VALUE</text>
-</package>
 </packages>
 <packages3d>
 <package3d name="61301021121" urn="urn:adsk.eagle:package:14805405/2" type="model">
@@ -306,12 +284,6 @@ Copyright: Würth Elektronik</description>
 <description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Dual Pin Header, 6 Pins</description>
 <packageinstances>
 <packageinstance name="61300621121"/>
-</packageinstances>
-</package3d>
-<package3d name="61300211121" urn="urn:adsk.eagle:package:14805431/3" type="model">
-<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 2 Pin</description>
-<packageinstances>
-<packageinstance name="61300211121"/>
 </packageinstances>
 </package3d>
 </packages3d>
@@ -385,21 +357,6 @@ Copyright: Würth Elektronik</description>
 <circle x="0" y="1.27" radius="0.254" width="0.635" layer="94"/>
 <circle x="2.54" y="-1.27" radius="0.254" width="0.635" layer="94"/>
 <circle x="2.54" y="1.27" radius="0.254" width="0.635" layer="94"/>
-</symbol>
-<symbol name="2PT">
-<description>Pin Header THT</description>
-<pin name="1" x="-2.54" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
-<pin name="2" x="0" y="-5.08" visible="pad" length="short" direction="pas" rot="R90"/>
-<text x="-4.99" y="-1.205" size="1.016" layer="95" align="bottom-right">&gt;NAME</text>
-<text x="-4.95" y="-3.01" size="1.016" layer="96" align="bottom-right">&gt;VALUE</text>
-<wire x1="-3.81" y1="-2.54" x2="1.27" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="1.27" y1="-2.54" x2="1.27" y2="0" width="0.254" layer="94"/>
-<wire x1="1.27" y1="0" x2="-3.81" y2="0" width="0.254" layer="94"/>
-<wire x1="-3.81" y1="0" x2="-3.81" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="-2.54" y1="-1.27" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
-<wire x1="0" y1="-1.27" x2="0" y2="-2.54" width="0.254" layer="94"/>
-<circle x="-2.54" y="-1.27" radius="0.254" width="0.635" layer="94"/>
-<circle x="0" y="-1.27" radius="0.254" width="0.635" layer="94"/>
 </symbol>
 </symbols>
 <devicesets>
@@ -564,83 +521,6 @@ Updated by Yingchun,Shan 2019-10-16
 <attribute name="PINS" value=" 6 " constant="no"/>
 <attribute name="ROWS" value="Dual" constant="no"/>
 <attribute name="TYPE" value="Board Stacker" constant="no"/>
-</technology>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="6130XX11121_61300211121" prefix="J" uservalue="yes">
-<description>&lt;b&gt;WR-PHD 2.54 mm THT Pin Header &lt;/b&gt;&lt;BR&gt;
-&lt;BR&gt;
-&lt;b&gt;ARTICLE PROPERTIES:&lt;/b&gt;
-&lt;BR&gt;
-&lt;BR&gt;Pins:1;​ 2;​ 3;​ 4;​ 5;​ 6;​ 7;​ 8;​ 9;​ 10;​ 12;​ 13;​ 14;​ 15;​ 16;​ 18;​ 20;​ 22;​ 24;​ 25;​ 32;​ 36;​ 40
-&lt;BR&gt;
-&lt;BR&gt;&lt;B&gt;KIND PROPERTIES&lt;/B&gt;:
-&lt;BR&gt;
-&lt;BR&gt;Pitch：2.54 mm
-&lt;BR&gt;Quality Class:3 as per CECC 75 301-802
-&lt;BR&gt;Rows：Single
-&lt;BR&gt;Gender：Pin Header
-&lt;BR&gt;Type：Straight
-&lt;BR&gt;
-&lt;BR&gt;&lt;B&gt;MATERIAL PROPERTIES:&lt;/B&gt;
-&lt;BR&gt;
-&lt;BR&gt;Insulator Material :PBT
-&lt;BR&gt;Insulator Flammability Rating:UL94 V-0
-&lt;BR&gt;Contact Material:Copper Alloy
-&lt;BR&gt;Contact Plating:Gold
-&lt;BR&gt;Contact Type:Stamped
-&lt;BR&gt;
-&lt;BR&gt;&lt;B&gt;GENERAL INFORMATION&lt;/B&gt;
-&lt;BR&gt;Operating Temperature:-40 up to +105 °C
-&lt;BR&gt;Compliance:RoHS
-&lt;BR&gt;
-&lt;BR&gt;&lt;B&gt;ELECTRICAL PROPERTIES:&lt;/B&gt;
-&lt;BR&gt;
-&lt;BR&gt;Rated Current:3 A
-&lt;BR&gt;IR 1:3 A
-&lt;BR&gt;Withstanding Voltage:500 V (AC)
-&lt;BR&gt;Contact Resistance:20 mΩ
-&lt;BR&gt;RISO:1000 MΩ
-&lt;BR&gt;
-&lt;BR&gt;&lt;B&gt;CERTIFICATION&lt;/B&gt;
-&lt;BR&gt;UL Approval:E323964
-&lt;BR&gt;&lt;B&gt;PACKAGING PROPERTIES&lt;/B&gt;
-&lt;BR&gt;Packaging:Bag
-&lt;BR&gt;
-&lt;BR&gt;
-&lt;br&gt;&lt;a href="https://katalog.we-online.com/media/images/v2/o33211v209%20Family_BTB_PHD_6130xx11121.jpg" title="Enlarge picture"&gt;
-&lt;img src="https://katalog.we-online.com/media/images/v2/o33211v209%20Family_BTB_PHD_6130xx11121.jpg" width="320"&gt;&lt;/a&gt;&lt;p&gt;
-
-Details see: &lt;a href="https://katalog.we-online.com/en/em/PHD_2_54_THT_PIN_HEADER_6130XX11121"&gt;https://katalog.we-online.com/en/em/PHD_2_54_THT_PIN_HEADER_6130XX11121&lt;/a&gt;&lt;p&gt;
-&lt;BR&gt;
-Updated by Yingchun,Shan 2019-10-16
-&lt;BR&gt;
-2019 (C) Würth Elektronik</description>
-<gates>
-<gate name="G$1" symbol="2PT" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="61300211121">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
-</connects>
-<package3dinstances>
-<package3dinstance package3d_urn="urn:adsk.eagle:package:14805431/3"/>
-</package3dinstances>
-<technologies>
-<technology name="">
-<attribute name="DATASHEET-URL" value="https://katalog.we-online.com/em/datasheet/61300211121.pdf" constant="no"/>
-<attribute name="GENDER" value="Pin Header" constant="no"/>
-<attribute name="IR" value="3A" constant="no"/>
-<attribute name="MATES" value="WR-PHD 2.54mm Angled Socket Header /SMT Socket Header/Socket Header" constant="no"/>
-<attribute name="PACKAGING" value="Bag" constant="no"/>
-<attribute name="PART-NUMBER" value=" 61300211121 " constant="no"/>
-<attribute name="PINS" value=" 2 " constant="no"/>
-<attribute name="ROWS" value="Single" constant="no"/>
-<attribute name="TYPE" value="Straight" constant="no"/>
 </technology>
 </technologies>
 </device>
@@ -6140,8 +6020,6 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <part name="POWER" library="155060GS75300_Eagle_WL-SMSW_rev20b" deviceset="WL-SMSW_0603_REC" device="" package3d_urn="urn:adsk.eagle:package:19035720/2" technology="_155060RS75300"/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
-<part name="J3" library="61300211821_Eagle_WR-PHD_rev19a" deviceset="6130XX11121_61300211121" device="" package3d_urn="urn:adsk.eagle:package:14805431/3"/>
-<part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -6151,7 +6029,6 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <text x="152.4" y="68.58" size="1.778" layer="97">5V to 3.3V</text>
 <text x="96.52" y="68.58" size="1.778" layer="97">GPIO Pionout</text>
 <text x="93.98" y="43.18" size="1.778" layer="125">Status LED's</text>
-<text x="193.04" y="68.58" size="1.778" layer="95">External 5V</text>
 </plain>
 <instances>
 <instance part="J1" gate="G$1" x="101.6" y="55.88" smashed="yes" rot="R90">
@@ -6203,13 +6080,6 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 </instance>
 <instance part="GND5" gate="1" x="106.68" y="17.78" smashed="yes">
 <attribute name="VALUE" x="104.14" y="15.24" size="1.778" layer="96"/>
-</instance>
-<instance part="J3" gate="G$1" x="193.04" y="60.96" smashed="yes" rot="R90">
-<attribute name="NAME" x="194.245" y="55.97" size="1.016" layer="95" rot="R90" align="bottom-right"/>
-<attribute name="VALUE" x="196.05" y="56.01" size="1.016" layer="96" rot="R90" align="bottom-right"/>
-</instance>
-<instance part="GND2" gate="1" x="198.12" y="53.34" smashed="yes">
-<attribute name="VALUE" x="195.58" y="50.8" size="1.778" layer="96"/>
 </instance>
 </instances>
 <busses>
@@ -6264,11 +6134,6 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <pinref part="POWER" gate="G$1" pin="-"/>
 <wire x1="93.98" y1="20.32" x2="93.98" y2="22.86" width="0.1524" layer="91"/>
 </segment>
-<segment>
-<pinref part="GND2" gate="1" pin="GND"/>
-<pinref part="J3" gate="G$1" pin="1"/>
-<wire x1="198.12" y1="55.88" x2="198.12" y2="58.42" width="0.1524" layer="91"/>
-</segment>
 </net>
 <net name="5V-1" class="0">
 <segment>
@@ -6284,11 +6149,6 @@ Details see: &lt;a href="https://www.we-online.com/catalog/en/WL-SMSW/"&gt;https
 <pinref part="IC2" gate="A1" pin="VI"/>
 <wire x1="144.78" y1="60.96" x2="149.86" y2="60.96" width="0.1524" layer="91"/>
 <junction x="144.78" y="60.96"/>
-</segment>
-<segment>
-<label x="203.2" y="60.96" size="1.27" layer="95" xref="yes"/>
-<pinref part="J3" gate="G$1" pin="2"/>
-<wire x1="198.12" y1="60.96" x2="203.2" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="GPIOA2" class="0">
