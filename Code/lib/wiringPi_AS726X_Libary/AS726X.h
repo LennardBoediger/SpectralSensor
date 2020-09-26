@@ -88,8 +88,6 @@ struct sensor {
 	int8_t address;
   	int8_t type;
   	int8_t num_device_addr; //number of devices under this address
-  	AS7261_channel calibration_factor_AS7261[4];
-  	AS7265X_channel calibration_factor_AS7265X[4];
 };
 typedef struct sensor sensor_list;
 
