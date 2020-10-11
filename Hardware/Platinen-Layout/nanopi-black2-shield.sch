@@ -7630,8 +7630,8 @@ Updated by Yingchun,Shan 2019-10-16
 </net>
 <net name="GPIO25" class="0">
 <segment>
-<label x="20.32" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
-<wire x1="20.32" y1="40.64" x2="25.4" y2="40.64" width="0.1524" layer="91"/>
+<label x="22.86" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="22.86" y1="40.64" x2="25.4" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="X1" gate="G$1" pin="GPIO25"/>
 </segment>
 <segment>
@@ -7688,9 +7688,9 @@ Updated by Yingchun,Shan 2019-10-16
 </net>
 <net name="GPIO04" class="0">
 <segment>
-<label x="20.32" y="38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
+<label x="22.86" y="38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="X1" gate="G$1" pin="GPIO04"/>
-<wire x1="25.4" y1="38.1" x2="20.32" y2="38.1" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="38.1" x2="22.86" y2="38.1" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <label x="88.9" y="63.5" size="1.27" layer="95" rot="R90" xref="yes"/>

@@ -51,12 +51,19 @@ sudo apt-get update
 sudo apt-get install software-properties-common
 apt-get install apt-transport-https
 
+
+https://pimylifeup.com/raspberry-pi-influxdb/
 Install InfluxDB 	(https://docs.influxdata.com/influxdb/v1.8/introduction/install/)
 	wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
 	source /etc/os-release
 	echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
 	sudo apt-get update 
 	sudo apt-get install influxdb
+
+
+	sudo systemctl unmask influxdb
+sudo systemctl enable influxdb
+
 	Influxdb Starten:
 		sudo service influxdb start
 	
@@ -73,22 +80,42 @@ Install InfluxDB 	(https://docs.influxdata.com/influxdb/v1.8/introduction/instal
 
 
 
-Install Grafana:		(https://grafana.com/docs/grafana/latest/installation/debian/)
-	sudo add-apt-repository "deb https://packages.grafana.com/oss/deb stable main"
+Install Grafana:		(https://grafana.com/tutorials/install-grafana-on-raspberry-pi/#3)
 	wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+	echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
 	sudo apt-get update
-	sudo apt-get install grafana
+	sudo apt-get install -y grafana
+
+	sudo /bin/systemctl enable grafana-server
+
+	(
+	perl: warning: Please check that your locale settings:
+		LANGUAGE = (unset),
+		LC_ALL = (unset),
+		LC_CTYPE = "UTF-8",
+		LANG = "en_GB.UTF-8"
+	    are supported and installed on your system.
+	perl: warning: Falling back to a fallback locale ("en_GB.UTF-8").
+	perl: warning: Setting locale failed.
+	perl: warning: Please check that your locale settings:
+		LANGUAGE = (unset),
+		LC_ALL = (unset),
+		LC_CTYPE = "UTF-8",
+		LANG = "en_GB.UTF-8"
+	    are supported and installed on your system.
+	perl: warning: Falling back to a fallback locale ("en_GB.UTF-8").
+	Created symlink /etc/systemd/system/multi-user.target.wants/grafana-server.service → /usr/lib/systemd/system/grafana-server.service.
+	) ?
 
 	Grafana Starten:
 		sudo systemctl daemon-reload
 		sudo systemctl start grafana-server
 		sudo systemctl status grafana-server
 
-	Grafana Autostart:
-Login Grafana:
-	http://192.168.178.107:3000
-	user: admin
-	pw: admin
+	Login Grafana:
+		http://192.168.178.107:3000
+		user: admin
+		pw: admin
 
 
 set Timezone:
@@ -126,12 +153,11 @@ temperatur auslesen
 
 wo speichert influxdb?
 grafana autostart
-dont wait for data ready 
-welcome screen time
+fix delay measurment immer zu sekunde 0 
+add config.h
+git auf dem Pi 
 
-Add gain setting 4(automatisch)
-4x messen Größten wert speicher der unter 2^16 ist 
-kalibirung für jeden sensor einzeln (multiplizierung) csv mit wert für jeden sensor auf jedem pi er sucht sich die raus die er braucht
+
 Hardware:
 
 

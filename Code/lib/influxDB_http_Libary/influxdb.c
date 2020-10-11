@@ -65,7 +65,7 @@ int writeToDatabase(char measurement[],int i2c_adrress, uint64_t measurment_time
     // Create InfluxDB line protocol header
     // Note spaces taht spaces, carriage-returns & newlines are important
     // db= is the datbase name, precision=timestamp precision , u= the username and p= the password
-    sprintf(header,"POST /write?db=%s&precision=ms&u=%s&p=%s HTTP/1.1\r\nHost: influx:8086\r\nContent-Length: %ld\r\n\r\n", 
+    sprintf(header,"POST /write?db=%s&precision=ms&u=%s&p=%s HTTP/1.1\r\nHost: influx:8086\r\nContent-Length: %d\r\n\r\n", 
         DATABASE, USERNAME, PASSWORD, strlen(body));
 
     //printf("Send to InfluxDB the POST request bytes=%d \n->|%s|<-\n",strlen(header), header);
@@ -74,7 +74,7 @@ int writeToDatabase(char measurement[],int i2c_adrress, uint64_t measurment_time
         pexit("Write Header request to InfluxDB failed");
 
     if(DEBUG == 1){
-        printf("Send to InfluxDB the data bytes=%lu \n->|%s|<-\n",strlen(body), body);
+        printf("Send to InfluxDB the data bytes=%d \n->|%s|<-\n",strlen(body), body);
     }
     ret = write(sockfd, body, strlen(body));
     if (ret < 0)
@@ -91,10 +91,11 @@ int writeToDatabase(char measurement[],int i2c_adrress, uint64_t measurment_time
         printf("Result returned:%s\n",result);
     }else{
         if (result[9] == '2' && result[10] == '0' && result[11] == '4'){
-            printf("  OK\n");
+           // printf("  OK\n");
         }
         else{
-            printf("  Write to Database Failed!%c%c%c\n",result[9],result[10],result[11]);
+            printf("Error: %c%c%c\n",result[9],result[10],result[11]);
+            pexit("Write to Database Failed!");
         }
     }
 

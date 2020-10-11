@@ -7479,9 +7479,9 @@ Updated by Yingchun,Shan 2019-10-16
 <part name="R4" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
 <part name="R5" library="SparkFun-Resistors" deviceset="2.2KOHM" device="-0603-1/10W-1%" value="2.2k"/>
 <part name="X1" library="raspberrypi_bastelstube_v13" deviceset="RASPI_BOARD_B+#" device="_HDC"/>
-<part name="GND6" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="J1" library="61300621821_Eagle_WR-PHD_rev19a" deviceset="6130XX11121_61300511121" device="" package3d_urn="urn:adsk.eagle:package:14805428/2"/>
 <part name="J2" library="61300621821_Eagle_WR-PHD_rev19a" deviceset="6130XX11121_61300611121" device="" package3d_urn="urn:adsk.eagle:package:14805427/2"/>
+<part name="GND2" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -7551,9 +7551,6 @@ Updated by Yingchun,Shan 2019-10-16
 <attribute name="VALUE" x="92.964" y="15.24" size="1.778" layer="96" font="vector" rot="R90" align="top-center"/>
 </instance>
 <instance part="X1" gate="G$1" x="40.64" y="40.64" smashed="yes"/>
-<instance part="GND6" gate="1" x="60.96" y="33.02" smashed="yes" rot="R90">
-<attribute name="VALUE" x="63.5" y="30.48" size="1.778" layer="96" rot="R90"/>
-</instance>
 <instance part="J1" gate="G$1" x="203.2" y="58.42" smashed="yes" rot="R270">
 <attribute name="NAME" x="201.995" y="65.95" size="1.016" layer="95" rot="R270" align="bottom-right"/>
 <attribute name="VALUE" x="200.19" y="65.91" size="1.016" layer="96" rot="R270" align="bottom-right"/>
@@ -7562,11 +7559,14 @@ Updated by Yingchun,Shan 2019-10-16
 <attribute name="NAME" x="201.995" y="45.63" size="1.016" layer="95" rot="R270" align="bottom-right"/>
 <attribute name="VALUE" x="200.19" y="45.59" size="1.016" layer="96" rot="R270" align="bottom-right"/>
 </instance>
+<instance part="GND2" gate="1" x="63.5" y="15.24" smashed="yes" rot="R90">
+<attribute name="VALUE" x="66.04" y="12.7" size="1.778" layer="96" rot="R90"/>
+</instance>
 </instances>
 <busses>
 </busses>
 <nets>
-<net name="SCL" class="0">
+<net name="GND" class="0">
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
 <pinref part="IC2" gate="A1" pin="GND"/>
@@ -7596,14 +7596,14 @@ Updated by Yingchun,Shan 2019-10-16
 <wire x1="88.9" y1="50.8" x2="88.9" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="GND6" gate="1" pin="GND"/>
-<wire x1="55.88" y1="33.02" x2="58.42" y2="33.02" width="0.1524" layer="91"/>
-<pinref part="X1" gate="G$1" pin="GND_A"/>
-</segment>
-<segment>
 <pinref part="J1" gate="G$1" pin="2"/>
 <wire x1="198.12" y1="60.96" x2="195.58" y2="60.96" width="0.1524" layer="91"/>
 <label x="195.58" y="60.96" size="1.27" layer="95" rot="R180" xref="yes"/>
+</segment>
+<segment>
+<pinref part="X1" gate="G$1" pin="GND_H"/>
+<pinref part="GND2" gate="1" pin="GND"/>
+<wire x1="60.96" y1="15.24" x2="55.88" y2="15.24" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="5V-1" class="0">

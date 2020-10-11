@@ -7116,7 +7116,7 @@ All pins connected</description>
 <part name="IC2" library="linear" library_urn="urn:adsk.eagle:library:262" deviceset="78*" device="T" package3d_urn="urn:adsk.eagle:package:16414/1" technology="18" value="LM3940IT-3.3"/>
 <part name="C2" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="C-EU" device="C0805" package3d_urn="urn:adsk.eagle:package:23617/2" value="33uF"/>
 <part name="STATUS" library="155060GS75300_Eagle_WL-SMSW_rev20b" deviceset="WL-SMSW_0603_REC" device="" package3d_urn="urn:adsk.eagle:package:19035720/2" technology="_155060GS75300"/>
-<part name="POWER" library="155060GS75300_Eagle_WL-SMSW_rev20b" deviceset="WL-SMSW_0603_REC" device="" package3d_urn="urn:adsk.eagle:package:19035720/2" technology="_155060RS75300"/>
+<part name="HEARTBEAT" library="155060GS75300_Eagle_WL-SMSW_rev20b" deviceset="WL-SMSW_0603_REC" device="" package3d_urn="urn:adsk.eagle:package:19035720/2" technology="_155060RS75300"/>
 <part name="GND4" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="GND5" library="supply1" library_urn="urn:adsk.eagle:library:371" deviceset="GND" device=""/>
 <part name="SUPPLY15" library="SparkFun-PowerSymbols" deviceset="3.3V" device=""/>
@@ -7169,7 +7169,7 @@ All pins connected</description>
 <attribute name="NAME" x="103.97" y="56.888" size="1.27" layer="95" rot="R270" align="bottom-center"/>
 <attribute name="VALUE" x="105.01" y="57.14" size="1.27" layer="96" rot="R90" align="bottom-center"/>
 </instance>
-<instance part="POWER" gate="G$1" x="88.9" y="55.88" smashed="yes" rot="R90">
+<instance part="HEARTBEAT" gate="G$1" x="88.9" y="55.88" smashed="yes" rot="R90">
 <attribute name="NAME" x="92.81" y="56.888" size="1.27" layer="95" rot="R90" align="bottom-center"/>
 <attribute name="VALUE" x="92.31" y="57.14" size="1.27" layer="96" rot="R90" align="bottom-center"/>
 </instance>
@@ -7227,7 +7227,7 @@ All pins connected</description>
 </segment>
 <segment>
 <pinref part="GND4" gate="1" pin="GND"/>
-<pinref part="POWER" gate="G$1" pin="-"/>
+<pinref part="HEARTBEAT" gate="G$1" pin="-"/>
 <wire x1="88.9" y1="50.8" x2="88.9" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
@@ -7253,7 +7253,7 @@ All pins connected</description>
 <junction x="132.08" y="63.5"/>
 </segment>
 </net>
-<net name="GPIOA2" class="0">
+<net name="GPIO25" class="0">
 <segment>
 <label x="20.32" y="40.64" size="1.27" layer="95" rot="R180" xref="yes"/>
 <wire x1="20.32" y1="40.64" x2="25.4" y2="40.64" width="0.1524" layer="91"/>
@@ -7301,7 +7301,7 @@ All pins connected</description>
 <pinref part="R4" gate="G$1" pin="1"/>
 </segment>
 </net>
-<net name="GPIOA0" class="0">
+<net name="GPIO04" class="0">
 <segment>
 <label x="20.32" y="38.1" size="1.27" layer="95" rot="R180" xref="yes"/>
 <pinref part="X1" gate="G$1" pin="GPIO04"/>
@@ -7309,7 +7309,7 @@ All pins connected</description>
 </segment>
 <segment>
 <label x="88.9" y="63.5" size="1.27" layer="95" rot="R90" xref="yes"/>
-<pinref part="POWER" gate="G$1" pin="+"/>
+<pinref part="HEARTBEAT" gate="G$1" pin="+"/>
 <wire x1="88.9" y1="63.5" x2="88.9" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>

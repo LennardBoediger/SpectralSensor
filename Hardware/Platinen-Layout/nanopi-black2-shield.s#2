@@ -7566,7 +7566,7 @@ Updated by Yingchun,Shan 2019-10-16
 <busses>
 </busses>
 <nets>
-<net name="GND" class="0">
+<net name="SCL" class="0">
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
 <pinref part="IC2" gate="A1" pin="GND"/>

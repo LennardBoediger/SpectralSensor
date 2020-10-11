@@ -55,6 +55,9 @@
 
 #define POLLING_DELAY 5 //Amount of ms to wait between checking for virtual register changes
 
+#ifndef GRANDPARENT_H
+#define GRANDPARENT_H
+
 struct AS7261_channel{
 	uint32_t X;
 	uint32_t Y;
@@ -94,6 +97,8 @@ struct sensor {
 };
 typedef struct sensor sensor_list;
 
+
+#endif /* GRANDPARENT_H */
 
 uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd);//TODO remove unused function
 uint8_t getVersion(int fd); //61 oder 65
