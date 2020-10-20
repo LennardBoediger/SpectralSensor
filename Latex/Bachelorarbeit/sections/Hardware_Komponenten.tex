@@ -11,7 +11,7 @@
 Die Sensoren aus der AS726X Reihe sind in der lage Licht, also elektromagnetische Strahlung zu messen. 
 In jedem Sensor sind 6 Photodioden verbaut. 
 Vor jeder Photodiode ist ein Silizium-Interferenzfilter montiert, welcher wie ein Bandpassfilter arbeitet, er ist nur für einen bestimmten Ausschnitt des Lichtspektrums durchlässig.
-Jeder Baustein enthält einen Analog-digital-Wandler mit 16 Bit Auflösung, der den Strom aus den unterschiedlichen Fotodioden integriert. Nach Abschluss einer Messung wird das integrierte Ergebnis in die entsprechenden Datenregister übertragen.\\
+Jeder Baustein enthält einen Analog-digital-Wandler mit 16 Bit Auflösung, der den Photstromstrom aus den unterschiedlichen Fotodioden integriert. Nach Abschluss einer Messung wird das integrierte Ergebnis in die entsprechenden Datenregister übertragen.\\
 So kann über das beschriebene Sensorarray die farbliche Zusammensetzung des eingestrahlten Lichts erfasst werden.
 
 \begin{figure}[H]
@@ -23,10 +23,16 @@ So kann über das beschriebene Sensorarray die farbliche Zusammensetzung des ein
 \end{figure}
 
 \noindent Wie in Abb:\ref{fig:Seitenasicht-AS726X} dargestellt, fällt das Licht durch die Öffnung in der Mitte des Sensors ein, eine intern verbaute Linse verteilt das Lich auf die Interferenzfilter. Die Genauigkeit der Filter verändert sich je nach Einstrahlwinkel, daher ist es wichtig, vor den Sensor noch eine Streuscheibe zu montieren.\\
-Gemessenen Daten können über UART oder I2C an einen Mikrocontroller übertragen werden, da über UART nur ein Gerät verbunden werden kann, eignet sich aber für diesen Anwendungsfall nur die I2C Schnittstelle.\\
+Die so gemessenen Daten können über UART oder I2C an einen Mikrocontroller übertragen werden, da über UART nur ein Gerät verbunden werden kann, eignet sich aber für diesen Anwendungsfall nur die I2C Schnittstelle.\\
 Alle Sensoren erhalten vom Hersteller dieselbe nicht veränderbare I2C Adresse: 0x49. Daher muss ein I2C Translator genutzt werden, welcher es ermöglicht, mehrere Sensoren im gleichen Bussystem zu adressieren(siehe Abschnitt \ref{I2C-Translator}).\\
+\begin{wrapfigure}{R}{0.6\textwidth}
+\centering
+\caption{AS7261-Bank Modes}
+\includegraphics[width=0.5\textwidth]{img/AS7261-Bank_Modes.png}
+\label{fig:AS7261-Bank_Modes}
+\end{wrapfigure}
 
-\noindent Die Modelle unterscheiden sich durch die verbauten Silizium-Interferenzfilter, also die unterscheidbaren Wellenlängenbereiche sowie in der benötigten Peripherie.
+\noindent Die Modelle unterscheiden sich durch die verbauten Silizium-Interferenzfilter, also die unterscheidbaren Wellenlängenbereiche sowie in der benötigte Peripherie.
 Die grundsätzliche Messmethode ist aber immer gleich.
 Im Folgenden werden die verwendeten Sensoren AS7261(\ref{AS7261}) sowie der AS7265X(\ref{AS7265X}) beschrieben.
 
@@ -48,34 +54,36 @@ Das Sensorarray des AS7261 unterscheidet zwischen X,Y,Z,C,D und NIR.
   \label{fig:AS7261-Sensor_Array}
 \end{figure}
 
-\noindent Die Ergebnisse des ADC werden direkt, ohne das der Temperaturdrift der Photodioden berücksichtigt wird in die in Tabelle \ref{RAW_Values_AS7261} beschrieben Register geschrieben.
+\noindent Die Ergebnisse des ADC werden direk in die in Tabelle \ref{RAW_Values_AS7261} beschrieben Register geschrieben.
 
 
 \begin{table}[!ht]
 \caption{Your caption.}
 \centering
 \begin{tabular}{ c c c c}
- kürzel & Bezeichnung & Register & Filtereigenschaften\\
+ kürzel & Beschreibung & Register & Filtereigenschaften\\
  C & Clear &0x12-0x13& kein Filter \\ 
- D & Dark &0x10-0x11& Lichtdurchlässigkeit des Gehäuses \\  
- NIR & nahes Infrarot &0x0E-0x0F & ????? \\  
- X & X (CIE 1931) & 0x08-0x09 & ????\\
- Y & X (CIE 1931) & 0x0A-0x0B & ????\\  
- Z & X (CIE 1931) & 0x0C-0x0D & ?????\\
+ D & Dark &0x10-0x11& "lichtundurchlässig" \\  
+ NIR & nahes Infrarot &0x0E-0x0F & keine angaben \\  
+ X & X (CIE 1931) & 0x08-0x09 & keine angaben\\
+ Y & X (CIE 1931) & 0x0A-0x0B & keine angaben\\  
+ Z & X (CIE 1931) & 0x0C-0x0D & keine angaben\\
 \label{RAW_Values_AS7261}
 \end{tabular}
 \end{table}
 
-Da die Messergebnisse der unterschiedlichen Wellenlängenbereiche den in \ref{TODO} genannten Verzerrungen unterliegen, werden auch noch berichtigte X,Y,Z-Werte bereitgestellt.
+Intern im sensor werden noch kalibrite werte errechnet, diese verhalten sich aber eratisch und es wird keine genaue dokumentation bereitgestellt.
+Daher werden sie im messaufbau nicht verwedet.
 
 \begin{center}
-\begin{tabular}{c c c}
- kürzel & Register & Berichtigungs Formel\\
- Cal-X & 0x14:0x17 & ???? \\ 
- Cal-Y & 0x18:0x1B & ???? \\  
- Cal-Z & 00x1C:0x1F & ????? \\  
+\begin{tabular}{c c}
+ kürzel & Register \\
+ Cal-X & 0x14:0x17 \\ 
+ Cal-Y & 0x18:0x1B \\  
+ Cal-Z & 00x1C:0x1F \\  
 \end{tabular}
 \end{center}
+
 
 \begin{wrapfigure}{R}{0.6\textwidth}
 \centering
@@ -97,7 +105,7 @@ Die Konvertierungen erfolgen nur einmal, und Daten sind wie in Bank Mode 2 nach 
 Auch Die kalibrierten, korrigierten Werte auch aus den entsprechenden I2C-Registern können abgerufen werden.
 Das DATA RDY-Bit wird auf 1 gesetzt, sobald Daten verfügbar sind.\\
 Für diesen Anwendungsfall wird Bankmode 3 verwendet da so an alle angeschlossenen sensoren möglichst gleichzeitig eine messung gestartet werden kann.
-Die daten können nach abgeschlossener messung an den NanoPi übertragen werden.
+Die daten können nach abgeschlossener messung an den Raspberry Pi übertragen werden.
 
 
   
@@ -126,41 +134,41 @@ AS7265X beschreibt AS72651, AS72652 und AS72653 wobei der AS72651 als master fü
   \caption{AS7261-Spectral Responsivity}
   \label{fig:AS7261-Spectral_Responsivity}
 \end{figure}
-Die drei Sensoren messen in Kombination mit 18 unterschiedliche Photodioden, so können 18 unterschiedliche Frequenz Channel im Bereich zwischen 410 nm und 940 nm mit einer Halbwertsbreite von jeweils 20 nm erfassen.
-Die Frequenz Channel sind wie in Abb: TODO zu sehen mit den Buchstaben A-L gekennzeichnet.
-
+Die drei Sensoren messen in Kombination mit 18 unterschiedliche Photodioden, so können sie 18 unterschiedliche Frequenz Channel im Bereich zwischen 410 nm und 940 nm mit einer Halbwertsbreite von jeweils 20 nm erfassen.
+Die Frequenz Channel sind wie in Abb: TODO zu sehen mit den Buchstaben A-L gekennzeichnet.\\
+Wie der AS7261 kann der AS7265X in 3 weitgehend identischen Bankmodi betrieben werden, wobei der Bankmodus 3 verwendet wird, da alle Farbkanäle in einer manuell ausgelösten Messung aufgezeichnet werden.
 
 \subsection{Mikrocontroller}\label{Mikrocontroller}
 Bei der Auswahl des Mikrocontrollers ist die kleine Bauform, ausreichend langlebiger Speicher sowie eine Netzwerkschnittstelle und I2C Anschluss entscheidend.\\
 Die abfrage der Messdaten, sowie die Messkonfiguration soll über einen Fernzugriff möglich sein. Die Daten sollen grafisch in einem Webinterface dargestellt werden ohne das eine weitere Server Instanz benötigt wird. Daher eignet sich ein Linux fähiger Einplatinencomputer besser als ein simplerer Mikrocontroller.
 Außerdem ermöglicht ein Einplatinencomputer einfache nachträgliche Änderungen ohne das eine komplexe Entwicklungsumgebung eingerichtet werden muss.\\
 
-Der NanoPi NEO2 Black erfüllt alle diese Anforderungen:
-
-
-
+Der Raspberry Pi 4 Model B erfüllt alle diese Anforderungen:
 
 \begin{center}
 \begin{tabular}{ c c }
- Abmessungen & 4 cm x 4 cm \\ 
+ Abmessungen & 85.6 mm × 56.5 mm \\ 
  Speicher & eMMC Flash Module Socket \\  
- Anschlüsse & 10/100/1000M Ethernet \\  
+ Anschlüsse & Gigabit Ethernet, USB, WLAN \\  
  GPIO & UART, I2C, IO \\  
- RAM & 1 GB \\  
- CPU & Allwinner H5 Quad-Core Cortex-A53 \\  
- Preis & TODO     
+ RAM & 2 GB \\  
+ CPU & Broadcom BCM2711 ARM Cortex A72 \\  
+ Preis & 37€ (+20€ für Netzteil und 32GB SD-Karte)  
 \end{tabular}
 \end{center}
 \begin{figure}[H]
   \centering
- \includegraphics[width=0.5\linewidth]{img/NanoPi_NEO2_Black.jpg}
-  \caption{NanoPi NEO2 Black}
-  \label{fig:NanoPi_NEO2_Black}
+ \includegraphics[width=0.5\linewidth]{img/Raspberry-Pi-4-Model-B}
+  \caption{Raspberry Pi 4 Model B}
+  \label{fig:Raspberry_Pi_4_Model_B}
 \end{figure}
-An den eMMc Socket kann bis zu 128 GB Flash speicher angeschlossen werden.
+An den SD-Karten slot kann bis zu 256 GB Flash speicher angeschlossen werden.
 TODO warum reichen 32 GB.\\
-Da eine kabelgebundene Lösung mehr Zuverlässigkeit bietet, wird eine Netzwerkverbindung über Ethernet einer WLAN-Schnittstelle vorgezogen. Es besteht aber die Möglichkeit, einen externen USB WLAN-Adapter nachzurüsten.\\
-Die I2C Schnittstelle des NanoPi arbeitet mit 3.3V allerdings wird nur ein 5V und kein 3,3V Output bereitgestellt, daher muss ein steppdown Wandler verwendet werden, um die Sensorboards mit Strom zu versorgen.\\
+Die Internet verbindung kann über WLAN oder Ethernet hergestllt werden.\\
+Da eine kabelgebundene Lösung mehr Zuverlässigkeit bietet, wird eine Netzwerkverbindung über Ethernet einer WLAN-Schnittstelle vorgezogen. 
+Die GPIO des RaspebrryPi arbeitetn mit 3.3V.
+Der 3.3V Pin des RaspebrryPi stellt nur 850mA am 3.3V output bereit.
+Der 5V-Pin ist direkt mit dem Netzteil verbunden und kann daher genauso viel Leistung wie das Netzteil liefern, mit Hilfe eines Abwärtswandlers ist es möglich, die Sensorplatinen mit 3,3V zu betreiben.
 Die CPU ist für den Anwendungsfall weitaus ausreichend dimensioniert.
 In Abbildung \ref{fig:CPU-Performance} ist ein Performancetest zu sehen, die reihen 1-4 beschreiben die prozentuale CPU Auslastung der jeweiligen Prozessorkerne.
 Mem beschreibt die Auslastung des Arbeitsspeichers.\\
@@ -183,10 +191,10 @@ Da, wie in Abschnitt \ref{Sensoren} genannt alle Sensoren unter derselben I2C Ad
  \includegraphics[width=1\linewidth]{img/Adress-Translation}
   \label{fig:adress-translation}
 \end{figure}
-\noindent Wie in Abb \ref{fig:adress-translation} zu sehen wird für jeden Sensor ein LTC4316 an die Busschnittstelle des Nano-Pi angeschlossen.(SDAIN, SCLIN).\\ 
+\noindent Wie in Abb \ref{fig:adress-translation} zu sehen wird für jeden Sensor ein LTC4316 an die Busschnittstelle des Raspberry Pi angeschlossen.(SDAIN, SCLIN).\\ 
 An jeden LTC4316 wird ein AS7261 oder AS72651 angeschlossen.(SDAOUT, SCLOUT)
-Bei Kommunikation vom Nano-Pi zum Sensor wird dann die I2C Adresse mit einem Faktor (Translation Byte) welcher mit diskreten Widerständen eingestellt wird mit Fomel \ref{I2C-translation} verrechnet, um so die Adresse anzupassen.(XORH,XORL).
-Um das Translation Byte einzustellen müssen die Widerstände bla,bla und bla wie in Abb \ref{fig:Translation-Byte} am LTC4316 angeschlossen werden.
+Bei Kommunikation vom Raspberry Pi zum Sensor wird dann die I2C Adresse mit einem Faktor (Translation Byte) welcher mit diskreten Widerständen eingestellt wird mit Fomel \ref{I2C-translation} verrechnet, um so die Adresse anzupassen.(XORH,XORL).
+Um das Translation Byte einzustellen müssen die Widerstände $R_{HT}$, $R_{LT}$, $R_{HB}$ und $R_{LB}$ wie in Abb \ref{fig:Translation-Byte} am LTC4316 angeschlossen werden.
 
 \begin{equation} 
 \label{I2C-translation}
@@ -194,11 +202,11 @@ Sensor Adresse\oplus TranslationByte = NeueAdresse
 \end{equation}
 
 
-\begin{wrapfigure}{R}{0.3\textwidth}
+\begin{wrapfigure}{R}{0.6\textwidth}
 \centering
 \caption{Translation Byte}
-\includegraphics[width=0.25\textwidth]{img/test.jpg}
-\label{ffig:Translation-Byte}
+\includegraphics[width=0.6\textwidth]{img/Translation-Byte}
+\label{fig:Translation-Byte}
 \end{wrapfigure}
 \bigskip
 

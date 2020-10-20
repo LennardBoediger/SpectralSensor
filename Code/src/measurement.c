@@ -14,14 +14,14 @@
 // write settings to device 
 // input taget i2c address - integrationValue and gain
 void settings(int address, uint8_t integrationValue, uint8_t gain){
-    int fd =  wiringPiI2CSetup(address);
-    if (fd == -1) {
+    int fd =  wiringPiI2CSetup(address);        // connect to I2C Address and save file disciptor
+    if (fd == -1) {                             // check file descriptor for error value
         printf("i2c failed");
     }
-    disableInterrupt(fd);
-    setIntegrationTime(integrationValue, fd);
-    setGain(gain, fd); 
-    close(fd);
+    disableInterrupt(fd);                       // disable unuesed interrupt at fd (I2C connection - AS Sensor) 
+    setIntegrationTime(integrationValue, fd);   // write integrationValue to fd (I2C connection - AS Sensor) 
+    setGain(gain, fd);                          // write gain to fd  (I2C connection - AS Sensor) 
+    close(fd);                                  // close connection (I2C connection - AS Sensor) 
     printf("0x%X Changed Gain to %d\n",address,gain );
 }
 
