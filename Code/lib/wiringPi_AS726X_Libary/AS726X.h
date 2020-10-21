@@ -12,7 +12,7 @@
 #define AS72XX_SLAVE_RX_VALID 0x01
 
 //Physical Register addresses
-//TODO remove slave
+//TODO refcractor name: remove slave
 #define AS72XX_SLAVE_STATUS_REG 0x00
 #define AS72XX_SLAVE_WRITE_REG 0x01
 #define AS72XX_SLAVE_READ_REG 0x02
