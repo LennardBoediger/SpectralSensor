@@ -1,0 +1,284 @@
+{
+  "shapes" : [
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"beginOrEnd\",\n  \"position\" : \"{308.75, -1083}\",\n  \"size\" : \"{200, 80}\",\n  \"identifier\" : \"DF6E6F53-AEFC-4445-B836-5005F16D44E1\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_4\",\n  \"privateStyle\" : {\n    \"textAlignment\" : 2,\n    \"font\" : \"Helvetica,14.0\"\n  },\n  \"value\" : \"autolGainMeasurement\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{408.75, -963}\",\n  \"identifier\" : \"A1C60CF5-471E-464B-9917-BB2D2524EB26\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, -0.5}\"\n  },\n  \"sourcePoint\" : \"{408.75, -1043}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"loopLimit\",\n  \"position\" : \"{308.75, -963}\",\n  \"size\" : \"{200, 80}\",\n  \"identifier\" : \"62D14F7F-421E-40DF-A544-F4762B141C16\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_4\",\n  \"privateStyle\" : {\n    \"font\" : \"Helvetica,14.0\",\n    \"textAlignment\" : 2\n  },\n  \"value\" : \"loop durch alle Sensoren\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{402.5, -705}\",\n  \"identifier\" : \"397AD59D-04AD-4378-BEBB-0244A261B3D3\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{402.5, -705}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"software-decision\",\n  \"position\" : \"{303.75, -833}\",\n  \"size\" : \"{210, 100}\",\n  \"identifier\" : \"51C6E5CE-8ED7-4E24-B1B8-5345B9FFFF96\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_1\",\n  \"privateStyle\" : {\n    \"font\" : \"Helvetica,14.0\",\n    \"textAlignment\" : 2\n  },\n  \"value\" : \"SENSORTYPE = AS7261\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{408.75, -783}\",\n  \"identifier\" : \"7224BD4C-9E87-4DC3-BE3E-0F8C91E36D04\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{408.75, -923}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{401.84713201357476, -555}\",\n  \"value\" : {\n    \"labels\" : [\n\n    ]\n  },\n  \"identifier\" : \"6C9FF34C-A524-4ADC-AAEB-D094199E9E5E\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"textAlignment\" : 2,\n    \"connectorMode\" : 2,\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{401.84713201357476, -555}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"roundRect\",\n  \"position\" : \"{326.25, -440.28104815066058}\",\n  \"size\" : \"{164.99999999999997, 30}\",\n  \"identifier\" : \"A5939055-05DF-46BF-BEEE-3D0910318288\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_4\",\n  \"privateStyle\" : {\n\n  },\n  \"value\" : \"Messung Starten\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"roundRect\",\n  \"position\" : \"{303.75, -357.5}\",\n  \"size\" : \"{210.00000000000003, 65}\",\n  \"identifier\" : \"07BA59D7-22FD-4EBB-99DC-6C3CAC7D6F53\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_4\",\n  \"privateStyle\" : {\n    \"font\" : \"Helvetica,14.0\",\n    \"textAlignment\" : 2\n  },\n  \"value\" : \"Daten Auslesen und Speichern\\nX[ i ], Y[ i ], Z[ i ], Clear[ i ], Dark[ i ], NIR [ i ]\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{408.75, -425.28104815066058}\",\n  \"identifier\" : \"1AC37265-101C-4DF8-AE3A-056863DF5231\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{408.75, -500}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0.5}\"\n  }\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{408.75, -325}\",\n  \"identifier\" : \"05FC6836-6327-4151-A20F-A26BAF810C12\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{408.75, -425.28104815066058}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"software-database\",\n  \"position\" : \"{105, 12.5}\",\n  \"size\" : \"{120, 90}\",\n  \"identifier\" : \"5C241FB5-D035-4583-9CE7-D5D59BAD8689\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_1\",\n  \"privateStyle\" : {\n    \"textAlignment\" : 2,\n    \"font\" : \"Helvetica,14.0\",\n    \"textVerticalAlignment\" : 0\n  },\n  \"value\" : \"SpectrtalSensor\\nX, Y, Z, Clear, Dark, NIR\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"software-state\",\n  \"position\" : \"{153.5, -883}\",\n  \"size\" : \"{100, 70}\",\n  \"identifier\" : \"B59C3C0F-D994-4AC3-8378-4389A110A74D\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_1\",\n  \"privateStyle\" : {\n    \"textAlignment\" : 2,\n    \"font\" : \"Helvetica,14.0\"\n  },\n  \"value\" : \"nächster Sensor\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{203.5, -813}\",\n  \"value\" : {\n\n  },\n  \"identifier\" : \"A832D496-CB4B-4E92-88E6-6AD94CF69470\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"font\" : \"Helvetica,12.0\",\n    \"textAlignment\" : 2,\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0.5}\"\n  },\n  \"sourcePoint\" : \"{303.75, -783}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{-0.5, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n    {\n      \"point\" : \"{203.5, -898.81792101131327}\",\n      \"axis\" : 2\n    },\n    {\n      \"point\" : \"{256.125, -914.63584202262643}\",\n      \"axis\" : 1\n    },\n    {\n      \"point\" : \"{308.75, -918.81792101131327}\",\n      \"axis\" : 2\n    }\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{308.75, -923}\",\n  \"value\" : {\n    \"labels\" : [\n\n    ]\n  },\n  \"identifier\" : \"A8E375A1-63AF-429F-88F1-398F954F9045\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"connectorMode\" : 2,\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{-0.5, 0}\"\n  },\n  \"sourcePoint\" : \"{203.5, -883}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, -0.5}\"\n  }\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"roundRect\",\n  \"position\" : \"{346.875, -60}\",\n  \"size\" : \"{123.74999999999999, 65}\",\n  \"identifier\" : \"72DDE993-9BD7-4904-9ACC-D7F514087775\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_4\",\n  \"privateStyle\" : {\n    \"textAlignment\" : 2,\n    \"font\" : \"Helvetica,14.0\"\n  },\n  \"value\" : \"Messwerte auf Gain 3 Angleichen  \",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n    {\n      \"point\" : \"{346.875, 60}\",\n      \"axis\" : 2\n    },\n    {\n      \"point\" : \"{285.9375, 57.5}\",\n      \"axis\" : 1\n    }\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{225, 57.5}\",\n  \"identifier\" : \"1211858A-7A88-41F5-817B-72EC8D0698C1\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0.5, 0}\"\n  },\n  \"sourcePoint\" : \"{346.875, 62.5}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{-0.5, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"software-state\",\n  \"position\" : \"{605, -883}\",\n  \"size\" : \"{89.999999999999943, 70}\",\n  \"identifier\" : \"C1ED772A-C35D-42D4-AC09-F718AE190ACD\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_1\",\n  \"privateStyle\" : {\n    \"font\" : \"Helvetica,14.0\",\n    \"textAlignment\" : 2\n  },\n  \"value\" : \"nächster Sensor\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{508.75, -923}\",\n  \"identifier\" : \"848C0DB1-EF1D-4D3C-AB6B-5D6BA01C7ECF\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0.5, 0}\"\n  },\n  \"sourcePoint\" : \"{650, -883}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, -0.5}\"\n  }\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"loopLimit\",\n  \"position\" : \"{293.75, -675}\",\n  \"size\" : \"{230, 60}\",\n  \"identifier\" : \"058D62BB-8F02-46AD-A804-B4C4DE577C21\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_4\",\n  \"privateStyle\" : {\n    \"textAlignment\" : 2,\n    \"font\" : \"Helvetica,14.0\"\n  },\n  \"value\" : \"loop durch Gain 0 bis 3\\ni = 0\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{408.75, -645}\",\n  \"identifier\" : \"FD772A38-8367-494D-9C64-8378728109CF\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{408.75, -783}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"roundRect\",\n  \"position\" : \"{247.5, -570}\",\n  \"size\" : \"{322.5, 70}\",\n  \"identifier\" : \"49F3C50F-98EB-4DAE-B76C-F19B6ED96CE4\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_4\",\n  \"privateStyle\" : {\n    \"font\" : \"Helvetica,14.0\",\n    \"textAlignment\" : 2\n  },\n  \"value\" : \"Einstellungen Übertragen\\nFeste Integrationszeit\\nGain = i\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"software-database\",\n  \"position\" : \"{105, -370}\",\n  \"size\" : \"{120, 90}\",\n  \"identifier\" : \"A75E360F-902E-4602-9282-DC1302B00FD2\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_1\",\n  \"privateStyle\" : {\n    \"font\" : \"Helvetica,14.0\",\n    \"textAlignment\" : 2,\n    \"textVerticalAlignment\" : 0\n  },\n  \"value\" : \"SpectrtalSensor\\nX*i, Y*i, Z*i, Clear*i, Dark*i, NIR*i\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{225, -325}\",\n  \"value\" : {\n    \"labels\" : [\n\n    ]\n  },\n  \"identifier\" : \"E80F1B36-1F1F-40FF-816E-024B8C12DBC9\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"textAlignment\" : 2,\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0.5, 0}\"\n  },\n  \"sourcePoint\" : \"{408.75, -325}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"software-state\",\n  \"position\" : \"{327.5, -175}\",\n  \"size\" : \"{162.5, 90}\",\n  \"identifier\" : \"CB6C1146-739E-4C7C-A730-4BA55B178259\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_1\",\n  \"privateStyle\" : {\n    \"textAlignment\" : 2,\n    \"font\" : \"Helvetica,14.0\"\n  },\n  \"value\" : \"Jewals den Größten Messwert unter 65k auswählen\\nX, Y, Z, Clear, Dark, NIR\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n    {\n      \"point\" : \"{522.73481643752132, -235}\",\n      \"axis\" : 1\n    },\n    {\n      \"point\" : \"{586.71963287504263, -330.14052407533029}\",\n      \"axis\" : 2\n    }\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{586.71963287504263, -425.28104815066058}\",\n  \"value\" : {\n    \"labels\" : [\n      {\n        \"string\" : \"TRUE\",\n        \"offset\" : \"{-0.014296178074687305, -2.8965767937056626}\",\n        \"position\" : 189.15433421134301,\n        \"positionType\" : 2\n      }\n    ]\n  },\n  \"identifier\" : \"ED38A670-DC0D-4849-A87F-E0C4F7A61F37\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"font\" : \"Helvetica,12.0\",\n    \"textAlignment\" : 2,\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{458.75, -235}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0.5, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{408.75, -535}\",\n  \"identifier\" : \"C15F400E-4878-4093-AE51-07CFE9C47FAA\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{408.75, -645}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"software-state\",\n  \"position\" : \"{556.71963287504263, -450.28104815066058}\",\n  \"size\" : \"{60, 50}\",\n  \"identifier\" : \"0D6DA841-D0C2-4DAB-BFF3-D395DC1184CF\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_1\",\n  \"privateStyle\" : {\n    \"font\" : \"Helvetica,14.0\",\n    \"textAlignment\" : 2\n  },\n  \"value\" : \"i++\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n    {\n      \"point\" : \"{586.71963287504263, -492.64052407533029}\",\n      \"axis\" : 2\n    },\n    {\n      \"point\" : \"{578.35981643752132, -535}\",\n      \"axis\" : 1\n    }\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{570, -535}\",\n  \"identifier\" : \"0172C6B0-8272-4A76-81BF-9945CE5BFC86\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0.5, 0}\"\n  },\n  \"sourcePoint\" : \"{586.71963287504263, -450.28104815066058}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, -0.5}\"\n  }\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"software-decision\",\n  \"position\" : \"{358.75, -260}\",\n  \"size\" : \"{100, 50}\",\n  \"identifier\" : \"877DC12E-9179-4DA2-BCFB-C94BD2277D9D\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_1\",\n  \"privateStyle\" : {\n    \"textAlignment\" : 2,\n    \"font\" : \"Helvetica,14.0\"\n  },\n  \"value\" : \"i <= 3\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{408.75, -235}\",\n  \"identifier\" : \"4F1A0D3E-71C9-49DB-BC6A-A240D35F8021\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{408.75, -325}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{408.75, -130}\",\n  \"value\" : {\n    \"labels\" : [\n      {\n        \"string\" : \"FLASE\",\n        \"offset\" : \"{-1.2383273798161554, 0}\",\n        \"position\" : 14.445063590138489,\n        \"positionType\" : 2\n      }\n    ]\n  },\n  \"identifier\" : \"0858B4D0-B688-4A44-9E0A-A2463655537A\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"font\" : \"Helvetica,12.0\",\n    \"textAlignment\" : 2,\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{408.75, -235}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{408.75, -27.5}\",\n  \"identifier\" : \"498741B8-C1AE-4259-B4DB-F1A394F7BE00\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{408.75, -130}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"software-database\",\n  \"position\" : \"{105, 180}\",\n  \"size\" : \"{120, 90}\",\n  \"identifier\" : \"F7CC87CA-13CA-4719-A21B-F9CE9851E8D5\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_1\",\n  \"privateStyle\" : {\n    \"textAlignment\" : 2,\n    \"font\" : \"Helvetica,14.0\",\n    \"textVerticalAlignment\" : 0\n  },\n  \"value\" : \"SpectrtalSensor\\ngainX, gainY, gainZ, \\ngainClear, gainDark, gainNIR\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"roundRect\",\n  \"position\" : \"{346.875, 30}\",\n  \"size\" : \"{123.74999999999999, 65}\",\n  \"identifier\" : \"F4B78EB8-890A-478C-8408-EE949F8C689D\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_4\",\n  \"privateStyle\" : {\n    \"font\" : \"Helvetica,14.0\",\n    \"textAlignment\" : 2\n  },\n  \"value\" : \"Messwerte Speicher  \",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "dia-node",
+      "attrs" : "{\n  \"lockAspectRatio\" : false,\n  \"shape\" : \"roundRect\",\n  \"position\" : \"{346.875, 192.5}\",\n  \"size\" : \"{123.74999999999999, 65}\",\n  \"identifier\" : \"6B3E0672-6640-4F01-AC32-6AFD04415943\",\n  \"tag\" : 0,\n  \"connectable\" : true,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"isTemplate\" : false,\n  \"themeStyle\" : \"variant_4\",\n  \"privateStyle\" : {\n    \"font\" : \"Helvetica,14.0\",\n    \"textAlignment\" : 2\n  },\n  \"value\" : \"Verwendeten Gain Speichern\",\n  \"isRelative\" : false\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{165, 225}\",\n  \"identifier\" : \"AE139B15-9D3C-4167-B28D-1065A9A988AF\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{408.75, 225}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{408.75, 225}\",\n  \"identifier\" : \"9774C4FB-376C-440E-9A26-D4B2371580D6\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{408.75, 62.5}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{408.75, 62.5}\",\n  \"identifier\" : \"5C899EA7-3EB3-4ACC-9473-94A469783F0D\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{408.75, -27.5}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{586.30690083623222, 171.69263403268405}\",\n  \"value\" : {\n    \"labels\" : [\n\n    ]\n  },\n  \"identifier\" : \"01213CF7-45E6-42B9-B682-2E10EBCE6037\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"connectorMode\" : 2,\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  },\n  \"sourcePoint\" : \"{585.21521776645886, 171.69263403268405}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0}\"\n  }\n}"
+    },
+    {
+      "class" : "connector",
+      "attrs" : "{\n  \"isRelative\" : false,\n  \"points\" : [\n\n  ],\n  \"shape\" : \"connector\",\n  \"targetPoint\" : \"{650, -813}\",\n  \"value\" : {\n    \"labels\" : [\n\n    ]\n  },\n  \"identifier\" : \"1CD485CD-43DD-491B-9F70-F0FAD79E1550\",\n  \"tag\" : 0,\n  \"isLocked\" : false,\n  \"visible\" : true,\n  \"themeStyle\" : \"edge_11\",\n  \"isTemplate\" : false,\n  \"privateStyle\" : {\n    \"connectorMode\" : 2,\n    \"crossStyle\" : \"round\"\n  },\n  \"exitPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0.5}\"\n  },\n  \"sourcePoint\" : \"{408.75, 257.5}\",\n  \"entryPoint\" : {\n    \"offset\" : \"{0, 0}\",\n    \"direction\" : 0,\n    \"location\" : \"{0, 0.5}\"\n  }\n}"
+    }
+  ],
+  "frame" : [
+    [
+      0,
+      -1129
+    ],
+    [
+      827,
+      2298
+    ]
+  ],
+  "terminals" : {
+    "7224BD4C-9E87-4DC3-BE3E-0F8C91E36D04" : [
+      "62D14F7F-421E-40DF-A544-F4762B141C16",
+      "51C6E5CE-8ED7-4E24-B1B8-5345B9FFFF96"
+    ],
+    "A832D496-CB4B-4E92-88E6-6AD94CF69470" : [
+      "51C6E5CE-8ED7-4E24-B1B8-5345B9FFFF96",
+      "B59C3C0F-D994-4AC3-8378-4389A110A74D"
+    ],
+    "1CD485CD-43DD-491B-9F70-F0FAD79E1550" : [
+      "6B3E0672-6640-4F01-AC32-6AFD04415943",
+      "C1ED772A-C35D-42D4-AC09-F718AE190ACD"
+    ],
+    "397AD59D-04AD-4378-BEBB-0244A261B3D3" : [
+      "null",
+      "null"
+    ],
+    "9774C4FB-376C-440E-9A26-D4B2371580D6" : [
+      "F4B78EB8-890A-478C-8408-EE949F8C689D",
+      "6B3E0672-6640-4F01-AC32-6AFD04415943"
+    ],
+    "1AC37265-101C-4DF8-AE3A-056863DF5231" : [
+      "49F3C50F-98EB-4DAE-B76C-F19B6ED96CE4",
+      "A5939055-05DF-46BF-BEEE-3D0910318288"
+    ],
+    "ED38A670-DC0D-4849-A87F-E0C4F7A61F37" : [
+      "877DC12E-9179-4DA2-BCFB-C94BD2277D9D",
+      "0D6DA841-D0C2-4DAB-BFF3-D395DC1184CF"
+    ],
+    "A8E375A1-63AF-429F-88F1-398F954F9045" : [
+      "B59C3C0F-D994-4AC3-8378-4389A110A74D",
+      "62D14F7F-421E-40DF-A544-F4762B141C16"
+    ],
+    "AE139B15-9D3C-4167-B28D-1065A9A988AF" : [
+      "6B3E0672-6640-4F01-AC32-6AFD04415943",
+      "F7CC87CA-13CA-4719-A21B-F9CE9851E8D5"
+    ],
+    "848C0DB1-EF1D-4D3C-AB6B-5D6BA01C7ECF" : [
+      "C1ED772A-C35D-42D4-AC09-F718AE190ACD",
+      "62D14F7F-421E-40DF-A544-F4762B141C16"
+    ],
+    "6C9FF34C-A524-4ADC-AAEB-D094199E9E5E" : [
+      "null",
+      "null"
+    ],
+    "4F1A0D3E-71C9-49DB-BC6A-A240D35F8021" : [
+      "07BA59D7-22FD-4EBB-99DC-6C3CAC7D6F53",
+      "877DC12E-9179-4DA2-BCFB-C94BD2277D9D"
+    ],
+    "FD772A38-8367-494D-9C64-8378728109CF" : [
+      "51C6E5CE-8ED7-4E24-B1B8-5345B9FFFF96",
+      "058D62BB-8F02-46AD-A804-B4C4DE577C21"
+    ],
+    "0172C6B0-8272-4A76-81BF-9945CE5BFC86" : [
+      "0D6DA841-D0C2-4DAB-BFF3-D395DC1184CF",
+      "49F3C50F-98EB-4DAE-B76C-F19B6ED96CE4"
+    ],
+    "5C899EA7-3EB3-4ACC-9473-94A469783F0D" : [
+      "72DDE993-9BD7-4904-9ACC-D7F514087775",
+      "F4B78EB8-890A-478C-8408-EE949F8C689D"
+    ],
+    "498741B8-C1AE-4259-B4DB-F1A394F7BE00" : [
+      "CB6C1146-739E-4C7C-A730-4BA55B178259",
+      "72DDE993-9BD7-4904-9ACC-D7F514087775"
+    ],
+    "E80F1B36-1F1F-40FF-816E-024B8C12DBC9" : [
+      "07BA59D7-22FD-4EBB-99DC-6C3CAC7D6F53",
+      "A75E360F-902E-4602-9282-DC1302B00FD2"
+    ],
+    "01213CF7-45E6-42B9-B682-2E10EBCE6037" : [
+      "null",
+      "null"
+    ],
+    "C15F400E-4878-4093-AE51-07CFE9C47FAA" : [
+      "058D62BB-8F02-46AD-A804-B4C4DE577C21",
+      "49F3C50F-98EB-4DAE-B76C-F19B6ED96CE4"
+    ],
+    "1211858A-7A88-41F5-817B-72EC8D0698C1" : [
+      "F4B78EB8-890A-478C-8408-EE949F8C689D",
+      "5C241FB5-D035-4583-9CE7-D5D59BAD8689"
+    ],
+    "05FC6836-6327-4151-A20F-A26BAF810C12" : [
+      "A5939055-05DF-46BF-BEEE-3D0910318288",
+      "07BA59D7-22FD-4EBB-99DC-6C3CAC7D6F53"
+    ],
+    "A1C60CF5-471E-464B-9917-BB2D2524EB26" : [
+      "DF6E6F53-AEFC-4445-B836-5005F16D44E1",
+      "62D14F7F-421E-40DF-A544-F4762B141C16"
+    ],
+    "0858B4D0-B688-4A44-9E0A-A2463655537A" : [
+      "877DC12E-9179-4DA2-BCFB-C94BD2277D9D",
+      "CB6C1146-739E-4C7C-A730-4BA55B178259"
+    ]
+  },
+  "design" : {
+    "connectorPathStyle" : "rounded",
+    "themeName" : "office",
+    "paper" : {
+      "name" : "a4",
+      "ori" : true
+    },
+    "autoFrame" : true,
+    "showPageMarker" : true
+  },
+  "showsGrids" : true,
+  "version" : "0.0.2"
+}

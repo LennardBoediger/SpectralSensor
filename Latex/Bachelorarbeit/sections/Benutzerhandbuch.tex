@@ -1,2 +1,91 @@
-\section{}
-Der Raspberry Pi muss mit seine Stromversorgung(USB C), Ethernet und 1-10 Sensorboards verbunden werden.
+\subsection{Handware Setup}
+Der Raspberry Pi muss mit seiner Stromversorgung (USB C), Einem  Netzwerk (Ethernet) und 1-10 Sensorboards verbunden werden.
+\subsection{Messung Starten}
+Über das Terminal muss eine SSH Verbindung zum Raspberry Pi aufgebaut werden.\\
+\textbf{ssh pi@[IP-ADRESSE]}\\
+Die Messsoftware wurde automatisch in einem Screen mit den Namen SpectralSensor gestartet, um die Messung zu starten muss sich mit diesem Screen verbunden werden.\\
+\textbf{screen -r}\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{img/handbuch/check_settings}
+\caption{Terminal Output bei Start der Messsoftware }
+\label{fig:Seitenasicht-AS726X}
+\end{figure}
+\noindent Zuerst muss im Terminaloutput überprüft werden ob der NTP Server synchronisiert ist.
+Wird eine Falsche Systemzeit angezeigt muss das Programm nach etwa 40 Sekunden Neugestartet werden, anschließend solle die Systemzeit richtig sein. (Mehr zum Programm Neustart: \ref{restart}).\\
+Im I2C Scann sollten alle angeschlossenen Sensoren angezeigt werden.\\
+Die Messung wird mit den angezeigten Einstellungen gestartet, indem die Eingabeaufforderung mit \textbf{Y} bestätigt wird.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{img/handbuch/y_start_measurement}
+\caption{Terminal Output bei Start der Messung }
+\label{fig:Seitenasicht-AS726X}
+\end{figure}
+
+Um die Einstellung zu verändern wird \textbf{N} ausgewählt.\\
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{img/handbuch/n_change_settings}
+\caption{Beispielhafter Terminal Output bei Einstellungsänderungen}
+\label{fig:Seitenasicht-AS726X}
+\end{figure}
+\subsection{Webinterface}
+Das Grafana Webinterface ist unter folgender Adresse im Browser zu erreichen:\\
+\textbf{[IP-ADRESSE]:3000}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{img/handbuch/grafna_login}
+\caption{Grafana Login im Browser}
+\label{fig:grafna_login}
+\end{figure}
+Im Example Dashboard sind alle Sensordatenplots vorhanden, wenn weniger Plots benötigt werden oder die Darstellung angepasst werden muss kann eine Kopie angefertigt und bearbeitet werden.\\
+Um Daten im CSV-Format zu exportieren muss zuerst der gewünschte Zeitbereich ausgewählt werden.
+Im Kontextmenü eines Plots oder so blab bla todo...
+TODO Foto CSV Export:
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{img/handbuch/grafna_login}
+\caption{Grafana Login im Browser}
+\label{fig:grafna_login}
+\end{figure}
+\noindent Daten können nur pro Plot Exportiert werden um mehr Daten auf einmal zu exportiren müssen alle gewünschten Daten in einem Plot vereint werden.
+
+\subsection{Messsoftware Neustarten}
+\label{restart}
+Das Programm kann mit Control+C beendet werden.\\
+Um es Erneut zu starten sollte es neu kompiliert werden, da so immer alle eventuellen Einstellungsänderungen übernommen werden:\\
+\textbf{sudo ~./SpectralSensor make}	TODO: pfad richtig?\\
+
+
+
+
+\subsection{IP Adress Scan}
+\paragraph{Unter Unix:} sudo nmap -sn 192.168.1.0/24  
+\paragraph{Unter Windows:} I don't know TODO\\\smallskip
+
+MAC-Adressen der Raspyberry Pi's:
+\begin{itemize}
+	\item TODO
+	\item TODO
+	\item TODO
+\end{itemize}
+
+\subsection{Hilfe}
+\textbf{Nachdem starten der Messung gibt es keine ausgabe in Terminal:}\\
+Vermutlich sind keine Sensoren angeschlossen\\
+\textbf{Die Systemzeit ist Falsch:}\\
+Keiner der NTP-Server aus der Liste TODO kann erreicht werden.\\
+\textbf{Das Webinterface ist nicht Erreichbar:}\\
+Entweder wurde die Adresse falsch geschrieben oder der Grafana-Server ist abgestürzt / wird nicht mehr automatisch gestartet.\\
+\textbf{TODO was passirt wenn InfluxDB aus ist?}
+Der InfluxDB-Server abgestürzt / wird nicht mehr automatisch gestartet.
+\subsection{Liste Der Verwendeten I2C Adressen \& Translationbytes}
+\label{liste_Translationbytes}
+Die Translation Bytes (Dezimal) 0- 59 Wurde bereits verwendet, sollten weitere Sensorboards angefertigt werden muss das hier notiert werden:
+
+
+
+
+
+

@@ -551,14 +551,14 @@ void autoGainMeasurementAS7265X(uint64_t measurement_time, sensor_list *const s,
         }
     }
 }
-
+//TODO change to fixed gain
 void manualGainMeasurementAS7261(uint64_t measurement_time, sensor_list *const s, uint8_t integrationValue, uint8_t gain){
     AS7261_channel AS7261_measurement;
     for (int i = 0; s[i].address != -1 && i < 128; ++i){    // going through every device
         if (s[i].type == SENSORTYPE_AS7261){                // only use AS7261 devices
-            settings(s[i].address, integrationValue, gain); // apply settings
+            settings(s[i].address, integrationValue, gain); // apply settings to current adress
             MeasurementFromAdress(s[i].address);            // initiate measurement from current adress
-            AS7261_measurement = getAS7261Measurement(s[i].address, measurement_time, gain, 0);    // get data and save
+            AS7261_measurement = getAS7261Measurement(s[i].address, measurement_time, gain, 0);    // get data and store
             saveAS7261Measurement(s[i].address ,AS7261_measurement, measurement_time); // write values to database
         }
     }
