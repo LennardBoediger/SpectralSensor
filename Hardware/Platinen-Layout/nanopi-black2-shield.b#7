@@ -148,8 +148,6 @@
 <text x="16.5" y="4.4" size="1.778" layer="21" rot="R90">3.3V</text>
 <text x="18.9" y="4.7" size="1.778" layer="21" rot="R90">SDA</text>
 <text x="10.9" y="4.9" size="1.778" layer="21" rot="R90">SCL</text>
-<text x="36.9" y="4.7" size="1.27" layer="25" rot="R90">5V_Ex</text>
-<text x="34.4" y="4.8" size="1.27" layer="25" rot="R90">GND</text>
 </plain>
 <libraries>
 <library name="61300411121_Eagle_WR-PHD_rev19a">

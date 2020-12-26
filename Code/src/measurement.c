@@ -417,9 +417,9 @@ void saveAS7261Measurement(int address,AS7261_channel values, uint64_t measureme
     printf("0x%X saveX: %d\n",address,values.X);
     printf("0x%X saveY: %d\n",address,values.Y);
     printf("0x%X saveZ: %d\n",address,values.Z);
-    printf("0x%X getClear: %d\n",address,values.Clear);
-    printf("0x%X getDark: %d\n",address,values.Dark);
-    printf("0x%X getNIR: %d\n",address,values.NIR);
+    printf("0x%X saveClear: %d\n",address,values.Clear);
+    printf("0x%X saveDark: %d\n",address,values.Dark);
+    printf("0x%X saveNIR: %d\n",address,values.NIR);
 }
 
 void saveAS7265XMeasurement(int address, AS7265X_channel values, uint64_t measurement_time){

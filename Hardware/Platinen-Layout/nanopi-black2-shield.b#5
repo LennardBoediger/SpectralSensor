@@ -3,7 +3,7 @@
 <eagle version="9.6.2">
 <drawing>
 <settings>
-<setting alwaysvectorfont="no"/>
+<setting alwaysvectorfont="yes"/>
 <setting verticaltext="up"/>
 </settings>
 <grid distance="0.1" unitdist="mm" unit="mm" style="lines" multiple="1" display="yes" altdistance="0.5" altunitdist="mm" altunit="mm"/>
@@ -38,7 +38,7 @@
 <layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
-<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
 <layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
@@ -1704,6 +1704,145 @@ Official outline with cutouts for display &amp;amp; camera flex connector</descr
 </package>
 </packages>
 </library>
+<library name="61300621821_Eagle_WR-PHD_rev19a">
+<description>&lt;BR&gt;Wurth Elektronik - Connectors - Board-to-Board Connectors - WR-PHD &lt;br&gt;&lt;Hr&gt;
+
+&lt;BR&gt;
+&lt;TABLE BORDER=0 CELLSPACING=0 CELLPADDING=0&gt;
+&lt;TR&gt;   
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;&lt;br&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;
+      -----&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt; &lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      ---------------------------&lt;BR&gt;
+&lt;B&gt;&lt;I&gt;&lt;span style='font-size:26pt;
+  color:#FF6600;'&gt;WE &lt;/span&gt;&lt;/i&gt;&lt;/b&gt;
+&lt;BR&gt;
+      ---------------------------&lt;BR&gt;&lt;b&gt;Würth Elektronik&lt;/b&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+    &lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;br&gt;
+      ---------O---&lt;BR&gt;
+      ----O--------&lt;BR&gt;
+      ---------O---&lt;BR&gt;
+      ----O--------&lt;BR&gt;
+      ---------O---&lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+   
+&lt;TD BGCOLOR="#cccccc" ALIGN=CENTER&gt;&lt;FONT FACE=ARIAL SIZE=3&gt;&lt;BR&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;
+       &lt;BR&gt;&lt;BR&gt;&lt;/FONT&gt;
+    &lt;/TD&gt;
+  &lt;/TR&gt;
+
+  &lt;TR&gt;
+    &lt;TD COLSPAN=7&gt;&amp;nbsp;
+    &lt;/TD&gt;
+  &lt;/TR&gt;
+  
+&lt;/TABLE&gt;
+&lt;B&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;More than you expect&lt;BR&gt;&lt;BR&gt;&lt;BR&gt;&lt;/B&gt;
+
+&lt;HR&gt;&lt;BR&gt;
+&lt;b&gt;Würth Elektronik eiSos GmbH &amp; Co. KG&lt;/b&gt;&lt;br&gt;
+EMC &amp; Inductive Solutions&lt;br&gt;
+
+Max-Eyth-Str.1&lt;br&gt;
+D-74638 Waldenburg&lt;br&gt;
+&lt;br&gt;
+Tel: +49 (0)7942-945-0&lt;br&gt;
+Fax:+49 (0)7942-945-5000&lt;br&gt;
+&lt;br&gt;
+&lt;a href="http://www.we-online.com/web/en/electronic_components/produkte_pb/bauteilebibliotheken/eagle_4.php"&gt;www.we-online.com/eagle&lt;/a&gt;&lt;br&gt;
+&lt;a href="mailto:libraries@we-online.com"&gt;libraries@we-online.com&lt;/a&gt; &lt;BR&gt;&lt;BR&gt;
+&lt;br&gt;&lt;HR&gt;&lt;BR&gt;
+Neither Autodesk nor Würth Elektronik eiSos does warrant that this library is error-free or &lt;br&gt;
+that it meets your specific requirements.&lt;br&gt;&lt;BR&gt;
+Please contact us for more information.&lt;br&gt;
+&lt;HR&gt;
+&lt;br&gt;Eagle Version 9, Library Revision 2019a, 2019-10-16&lt;br&gt;
+&lt;HR&gt;
+Copyright: Würth Elektronik</description>
+<packages>
+<package name="61300511121" urn="urn:adsk.eagle:footprint:14804903/1">
+<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 5 Pin</description>
+<pad name="1" x="-5.08" y="0" drill="1.1"/>
+<pad name="2" x="-2.54" y="0" drill="1.1"/>
+<pad name="3" x="0" y="0" drill="1.1"/>
+<pad name="4" x="2.54" y="0" drill="1.1"/>
+<pad name="5" x="5.08" y="0" drill="1.1"/>
+<circle x="-6" y="-0.9" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-6.35" y1="1.27" x2="-6.35" y2="-1.27" width="0.1" layer="51"/>
+<wire x1="-6.35" y1="-1.27" x2="6.35" y2="-1.27" width="0.1" layer="51"/>
+<wire x1="6.35" y1="-1.27" x2="6.35" y2="1.27" width="0.1" layer="51"/>
+<wire x1="6.35" y1="1.27" x2="-6.35" y2="1.27" width="0.1" layer="51"/>
+<wire x1="-6.45" y1="1.37" x2="6.45" y2="1.37" width="0.2" layer="21"/>
+<wire x1="6.45" y1="1.37" x2="6.45" y2="-1.37" width="0.2" layer="21"/>
+<wire x1="6.45" y1="-1.37" x2="-6.45" y2="-1.37" width="0.2" layer="21"/>
+<wire x1="-6.45" y1="-1.37" x2="-6.45" y2="1.37" width="0.2" layer="21"/>
+<polygon width="0.1" layer="39">
+<vertex x="-6.65" y="1.57"/>
+<vertex x="6.65" y="1.57"/>
+<vertex x="6.65" y="-1.57"/>
+<vertex x="-6.65" y="-1.57"/>
+</polygon>
+<text x="-7.0776" y="0.2561" size="0.8128" layer="25" align="bottom-right">&gt;NAME</text>
+<text x="-6.9976" y="-1.4442" size="0.8128" layer="27" align="bottom-right">&gt;VALUE</text>
+</package>
+<package name="61300611121" urn="urn:adsk.eagle:footprint:14804904/1">
+<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 6 Pin</description>
+<pad name="3" x="-1.27" y="0" drill="1.1"/>
+<pad name="2" x="-3.81" y="0" drill="1.1"/>
+<pad name="1" x="-6.35" y="0" drill="1.1"/>
+<pad name="4" x="1.27" y="0" drill="1.1"/>
+<pad name="5" x="3.81" y="0" drill="1.1"/>
+<pad name="6" x="6.35" y="0" drill="1.1"/>
+<circle x="-7.2" y="-0.9" radius="0.1" width="0.2" layer="21"/>
+<wire x1="-7.62" y1="1.27" x2="-7.62" y2="-1.27" width="0.1" layer="51"/>
+<wire x1="-7.62" y1="-1.27" x2="7.62" y2="-1.27" width="0.1" layer="51"/>
+<wire x1="7.62" y1="-1.27" x2="7.62" y2="1.27" width="0.1" layer="51"/>
+<wire x1="7.62" y1="1.27" x2="-7.62" y2="1.27" width="0.1" layer="51"/>
+<wire x1="-7.72" y1="1.37" x2="7.72" y2="1.37" width="0.2" layer="21"/>
+<wire x1="7.72" y1="1.37" x2="7.72" y2="-1.37" width="0.2" layer="21"/>
+<wire x1="7.72" y1="-1.37" x2="-7.72" y2="-1.37" width="0.2" layer="21"/>
+<wire x1="-7.72" y1="-1.37" x2="-7.72" y2="1.37" width="0.2" layer="21"/>
+<polygon width="0.1" layer="39">
+<vertex x="-7.92" y="1.57"/>
+<vertex x="7.92" y="1.57"/>
+<vertex x="7.92" y="-1.57"/>
+<vertex x="-7.92" y="-1.57"/>
+</polygon>
+<text x="-8.5776" y="0.2561" size="0.8128" layer="25" align="bottom-right">&gt;NAME</text>
+<text x="-8.4976" y="-1.4442" size="0.8128" layer="27" align="bottom-right">&gt;VALUE</text>
+</package>
+</packages>
+<packages3d>
+<package3d name="61300511121" urn="urn:adsk.eagle:package:14805428/2" type="model">
+<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 5 Pin</description>
+<packageinstances>
+<packageinstance name="61300511121"/>
+</packageinstances>
+</package3d>
+<package3d name="61300611121" urn="urn:adsk.eagle:package:14805427/2" type="model">
+<description>&lt;B&gt;WR-PHD &lt;/B&gt;&lt;BR&gt; 2.54mm Pin Header, 6 Pin</description>
+<packageinstances>
+<packageinstance name="61300611121"/>
+</packageinstances>
+</package3d>
+</packages3d>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -1952,6 +2091,30 @@ Please make sure your boards conform to these design rules.
 <attribute name="VALUE" x="7.8" y="4.762" size="0.6096" layer="27" font="vector" ratio="20" rot="R180" align="top-center"/>
 </element>
 <element name="X1" library="raspberrypi_bastelstube_v13" package="RASPI_BOARD_B+HAT_DF_CF" value="RASPI_BOARD_B+#_HDC" x="0" y="-0.2" smashed="yes"/>
+<element name="J1" library="61300621821_Eagle_WR-PHD_rev19a" package="61300511121" package3d_urn="urn:adsk.eagle:package:14805428/2" value="" x="23.7" y="32.3" smashed="yes" rot="R270">
+<attribute name="DATASHEET-URL" value="https://katalog.we-online.com/em/datasheet/61300511121.pdf" x="23.7" y="32.3" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="GENDER" value="Pin Header" x="23.7" y="32.3" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="IR" value="3A" x="23.7" y="32.3" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MATES" value="WR-PHD 2.54mm Angled Socket Header /SMT Socket Header/Socket Header" x="23.7" y="32.3" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PACKAGING" value="Bag" x="23.7" y="32.3" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PART-NUMBER" value=" 61300511121 " x="23.7" y="32.3" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="PINS" value=" 5 " x="23.7" y="32.3" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="ROWS" value="Single" x="23.7" y="32.3" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="TYPE" value="Straight" x="23.7" y="32.3" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="VALUE" x="22.2558" y="39.2976" size="0.8128" layer="27" rot="R270" align="bottom-right"/>
+</element>
+<element name="J2" library="61300621821_Eagle_WR-PHD_rev19a" package="61300611121" package3d_urn="urn:adsk.eagle:package:14805427/2" value="" x="34.9" y="41.7" smashed="yes" rot="R180">
+<attribute name="DATASHEET-URL" value="https://katalog.we-online.com/em/datasheet/61300611121.pdf" x="34.9" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="GENDER" value="Pin Header" x="34.9" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="IR" value="3A" x="34.9" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MATES" value="WR-PHD 2.54mm Angled Socket Header /SMT Socket Header/Socket Header" x="34.9" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PACKAGING" value="Bag" x="34.9" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PART-NUMBER" value=" 61300611121 " x="34.9" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="PINS" value=" 6 " x="34.9" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="ROWS" value="Single" x="34.9" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="TYPE" value="Straight" x="34.9" y="41.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="VALUE" x="43.3976" y="43.1442" size="0.8128" layer="27" rot="R180" align="bottom-right"/>
+</element>
 </elements>
 <signals>
 <signal name="GND">
@@ -1962,12 +2125,14 @@ Please make sure your boards conform to these design rules.
 <contactref element="STATUS" pad="1"/>
 <contactref element="HEARTBEAT" pad="1"/>
 <contactref element="X1" pad="6"/>
-<wire x1="29.5" y1="1.5" x2="13.45" y2="53.57" width="0" layer="19" extent="1-1"/>
-<wire x1="15.38" y1="16.9" x2="29.5" y2="1.5" width="0" layer="19" extent="1-1"/>
-<wire x1="25.1" y1="1.6" x2="15.38" y2="16.9" width="0" layer="19" extent="1-1"/>
-<wire x1="13" y1="2.45" x2="25.1" y2="1.6" width="0" layer="19" extent="1-1"/>
-<wire x1="9.9" y1="18.86" x2="13" y2="2.45" width="0" layer="19" extent="1-1"/>
+<contactref element="J1" pad="2"/>
+<wire x1="9.9" y1="18.86" x2="13.45" y2="53.57" width="0" layer="19" extent="1-1"/>
 <wire x1="9.91" y1="16.44" x2="9.9" y2="18.86" width="0" layer="19" extent="1-1"/>
+<wire x1="15.38" y1="16.9" x2="9.91" y2="16.44" width="0" layer="19" extent="1-1"/>
+<wire x1="13" y1="2.45" x2="9.91" y2="16.44" width="0" layer="19" extent="1-1"/>
+<wire x1="23.7" y1="34.84" x2="13" y2="2.45" width="0" layer="19" extent="1-1"/>
+<wire x1="25.1" y1="1.6" x2="13" y2="2.45" width="0" layer="19" extent="1-1"/>
+<wire x1="29.5" y1="1.5" x2="25.1" y2="1.6" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="5V-1">
 <contactref element="C1" pad="1"/>
@@ -1980,13 +2145,23 @@ Please make sure your boards conform to these design rules.
 <wire x1="9.8" y1="50.48763125" x2="9.8" y2="25.02" width="0.3048" layer="1"/>
 <wire x1="9.9" y1="20.56" x2="14.26" y2="20.56" width="0.3048" layer="1"/>
 <wire x1="14.26" y1="20.56" x2="15.38" y2="19.44" width="0.3048" layer="1"/>
+<contactref element="J1" pad="4"/>
+<wire x1="23.7" y1="29.76" x2="26.1" y2="27.36" width="0.3048" layer="16"/>
+<wire x1="26.1" y1="27.36" x2="26.1" y2="24.4" width="0.3048" layer="16"/>
+<wire x1="26.1" y1="24.4" x2="21.14" y2="19.44" width="0.3048" layer="16"/>
+<wire x1="21.14" y1="19.44" x2="15.38" y2="19.44" width="0.3048" layer="16"/>
 </signal>
 <signal name="GPIO25">
 <contactref element="STATUS" pad="2"/>
 <contactref element="X1" pad="22"/>
-<wire x1="30.9" y1="1.5" x2="35" y2="5.6" width="0.1524" layer="1"/>
-<wire x1="35" y1="52.34" x2="33.77" y2="53.57" width="0.1524" layer="1"/>
-<wire x1="35" y1="5.6" x2="35" y2="52.34" width="0.1524" layer="1"/>
+<wire x1="30.9" y1="1.5" x2="50" y2="1.5" width="0.1524" layer="1"/>
+<wire x1="56.3" y1="7.8" x2="56.3" y2="46.5" width="0.1524" layer="1"/>
+<wire x1="56.3" y1="46.5" x2="52.6422" y2="50.1578" width="0.1524" layer="1"/>
+<wire x1="52.6422" y1="50.1578" x2="52.6422" y2="51.48240625" width="0.1524" layer="1"/>
+<wire x1="52.6422" y1="51.48240625" x2="51.64680625" y2="52.4778" width="0.1524" layer="1"/>
+<wire x1="51.64680625" y1="52.4778" x2="34.8622" y2="52.4778" width="0.1524" layer="1"/>
+<wire x1="50" y1="1.5" x2="56.3" y2="7.8" width="0.1524" layer="1"/>
+<wire x1="34.8622" y1="52.4778" x2="33.77" y2="53.57" width="0.1524" layer="1"/>
 </signal>
 <signal name="I2C_SCL0">
 <contactref element="J5" pad="1"/>
@@ -1997,7 +2172,8 @@ Please make sure your boards conform to these design rules.
 <wire x1="7.8" y1="6.35" x2="6.55" y2="6.35" width="0.1524" layer="1"/>
 <wire x1="6.55" y1="6.35" x2="6.5" y2="6.3" width="0.3048" layer="1"/>
 <via x="6.5" y="6.3" extent="1-16" drill="0.35"/>
-<wire x1="6.5" y1="6.3" x2="6.5" y2="39.89380625" width="0.1524" layer="16"/>
+<wire x1="6.5" y1="6.3" x2="6.5" y2="28.2" width="0.1524" layer="16"/>
+<wire x1="6.5" y1="28.2" x2="6.5" y2="39.89380625" width="0.1524" layer="16"/>
 <wire x1="6.5" y1="39.89380625" x2="6.81115" y2="40.20495625" width="0.1524" layer="16" curve="-90"/>
 <wire x1="6.81115" y1="40.20495625" x2="7.227578125" y2="40.20495625" width="0.1524" layer="16"/>
 <wire x1="7.227578125" y1="40.20495625" x2="7.538728125" y2="40.51610625" width="0.1524" layer="16" curve="90"/>
@@ -2015,6 +2191,9 @@ Please make sure your boards conform to these design rules.
 <wire x1="6.81115" y1="42.78885" x2="6.5" y2="43.1" width="0.1524" layer="16" curve="-90"/>
 <wire x1="6.5" y1="43.1" x2="6.5" y2="44.08" width="0.1524" layer="16"/>
 <wire x1="6.5" y1="44.08" x2="13.45" y2="51.03" width="0.1524" layer="16"/>
+<contactref element="J1" pad="5"/>
+<wire x1="23.7" y1="27.22" x2="7.48" y2="27.22" width="0.1524" layer="16"/>
+<wire x1="7.48" y1="27.22" x2="6.5" y2="28.2" width="0.1524" layer="16"/>
 </signal>
 <signal name="I2C_SDA0">
 <contactref element="J5" pad="4"/>
@@ -2024,20 +2203,25 @@ Please make sure your boards conform to these design rules.
 <wire x1="18.08" y1="3.83" x2="20.7" y2="6.45" width="0.1524" layer="1"/>
 <wire x1="20.7" y1="6.45" x2="22.05" y2="6.45" width="0.1524" layer="1"/>
 <wire x1="22.05" y1="6.45" x2="22.1" y2="6.5" width="0.3048" layer="1"/>
-<via x="22.1" y="6.5" extent="1-16" drill="0.35"/>
-<wire x1="14.6184" y1="51.51396875" x2="13.93396875" y2="52.1984" width="0.1524" layer="16"/>
-<wire x1="13.93396875" y1="52.1984" x2="12.96603125" y2="52.1984" width="0.1524" layer="16"/>
-<wire x1="22.1" y1="21.94" x2="14.6184" y2="29.4216" width="0.1524" layer="16"/>
-<wire x1="14.6184" y1="29.4216" x2="14.6184" y2="51.51396875" width="0.1524" layer="16"/>
-<wire x1="12.96603125" y1="52.1984" x2="11.79763125" y2="51.03" width="0.1524" layer="16"/>
-<wire x1="11.79763125" y1="51.03" x2="10.91" y2="51.03" width="0.1524" layer="16"/>
-<wire x1="22.1" y1="6.5" x2="22.1" y2="21.94" width="0.1524" layer="16"/>
+<wire x1="14.6184" y1="51.51396875" x2="13.93396875" y2="52.1984" width="0.1524" layer="1"/>
+<wire x1="13.93396875" y1="52.1984" x2="12.96603125" y2="52.1984" width="0.1524" layer="1"/>
+<wire x1="22.1" y1="21.94" x2="14.6184" y2="29.4216" width="0.1524" layer="1"/>
+<wire x1="14.6184" y1="29.4216" x2="14.6184" y2="38.2" width="0.1524" layer="1"/>
+<wire x1="14.6184" y1="38.2" x2="14.6184" y2="51.51396875" width="0.1524" layer="1"/>
+<wire x1="12.96603125" y1="52.1984" x2="11.79763125" y2="51.03" width="0.1524" layer="1"/>
+<wire x1="11.79763125" y1="51.03" x2="10.91" y2="51.03" width="0.1524" layer="1"/>
+<wire x1="22.1" y1="6.5" x2="22.1" y2="21.94" width="0.1524" layer="1"/>
+<contactref element="J1" pad="1"/>
+<wire x1="15.4384" y1="37.38" x2="14.6184" y2="38.2" width="0.1524" layer="16"/>
+<via x="14.6184" y="38.2" extent="1-16" drill="0.45" diameter="1"/>
+<wire x1="23.7" y1="37.38" x2="15.4384" y2="37.38" width="0.1524" layer="16"/>
 </signal>
 <signal name="GPIO04">
 <contactref element="HEARTBEAT" pad="2"/>
 <contactref element="X1" pad="7"/>
-<wire x1="23.7" y1="1.6" x2="23.7" y2="43.32" width="0.1524" layer="1"/>
-<wire x1="23.7" y1="43.32" x2="15.99" y2="51.03" width="0.1524" layer="1"/>
+<wire x1="15.99" y1="51.03" x2="15.99" y2="29.71" width="0.1524" layer="1"/>
+<wire x1="23.7" y1="22" x2="23.7" y2="1.6" width="0.1524" layer="1"/>
+<wire x1="15.99" y1="29.71" x2="23.7" y2="22" width="0.1524" layer="1"/>
 </signal>
 <signal name="3.3V" class="1">
 <contactref element="J5" pad="3"/>
@@ -2053,6 +2237,11 @@ Please make sure your boards conform to these design rules.
 <wire x1="9.94" y1="8.05" x2="15.54" y2="2.45" width="0.3048" layer="1"/>
 <wire x1="20.7" y1="8.15" x2="15.54" y2="2.99" width="0.3048" layer="1"/>
 <wire x1="15.54" y1="2.99" x2="15.54" y2="2.45" width="0.3048" layer="1"/>
+<contactref element="J1" pad="3"/>
+<wire x1="15.38" y1="14.36" x2="18.46" y2="14.36" width="0.3048" layer="16"/>
+<wire x1="18.46" y1="14.36" x2="27.5" y2="23.4" width="0.3048" layer="16"/>
+<wire x1="27.5" y1="23.4" x2="27.5" y2="28.5" width="0.3048" layer="16"/>
+<wire x1="27.5" y1="28.5" x2="23.7" y2="32.3" width="0.3048" layer="16"/>
 </signal>
 <signal name="3V3A">
 <contactref element="X1" pad="1"/>
@@ -2083,6 +2272,65 @@ Please make sure your boards conform to these design rules.
 </signal>
 <signal name="GND_H">
 <contactref element="X1" pad="39"/>
+</signal>
+<signal name="GPIO17">
+<contactref element="J2" pad="6"/>
+<contactref element="X1" pad="11"/>
+<wire x1="21.07" y1="51.03" x2="21.07" y2="49.18" width="0.1524" layer="1"/>
+<wire x1="21.07" y1="49.18" x2="28.55" y2="41.7" width="0.1524" layer="1"/>
+</signal>
+<signal name="GPIO18">
+<contactref element="J2" pad="5"/>
+<contactref element="X1" pad="12"/>
+<wire x1="21.07" y1="53.57" x2="22.3" y2="52.34" width="0.1524" layer="1"/>
+<wire x1="22.3" y1="52.34" x2="22.3" y2="49.7" width="0.1524" layer="1"/>
+<wire x1="22.3" y1="49.7" x2="23.4" y2="48.6" width="0.1524" layer="1"/>
+<wire x1="24.19" y1="48.6" x2="31.09" y2="41.7" width="0.1524" layer="1"/>
+<wire x1="23.4" y1="48.6" x2="24.19" y2="48.6" width="0.1524" layer="1"/>
+</signal>
+<signal name="GPIO27">
+<contactref element="J2" pad="4"/>
+<contactref element="X1" pad="13"/>
+<wire x1="25.1" y1="49.1" x2="27.7" y2="49.1" width="0.1524" layer="1"/>
+<wire x1="25.1" y1="49.1" x2="23.61" y2="50.59" width="0.1524" layer="1"/>
+<wire x1="23.61" y1="50.59" x2="23.61" y2="51.03" width="0.1524" layer="1"/>
+<wire x1="27.7" y1="49.1" x2="33.63" y2="43.17" width="0.1524" layer="1"/>
+<wire x1="33.63" y1="43.17" x2="33.63" y2="41.7" width="0.1524" layer="1"/>
+</signal>
+<signal name="GPIO22">
+<contactref element="J2" pad="3"/>
+<contactref element="X1" pad="15"/>
+<wire x1="26.15" y1="51.03" x2="27.58" y2="49.6" width="0.1524" layer="1"/>
+<wire x1="27.58" y1="49.6" x2="29.4" y2="49.6" width="0.1524" layer="1"/>
+<wire x1="29.4" y1="49.6" x2="36.17" y2="42.83" width="0.1524" layer="1"/>
+<wire x1="36.17" y1="42.83" x2="36.17" y2="41.7" width="0.1524" layer="1"/>
+</signal>
+<signal name="GPIO23">
+<contactref element="X1" pad="16"/>
+<contactref element="J2" pad="2"/>
+<wire x1="29.14240625" y1="52.1222" x2="29.7822" y2="51.48240625" width="0.1524" layer="1"/>
+<wire x1="26.15" y1="53.57" x2="27.5978" y2="52.1222" width="0.1524" layer="1"/>
+<wire x1="27.5978" y1="52.1222" x2="29.14240625" y2="52.1222" width="0.1524" layer="1"/>
+<wire x1="29.7822" y1="51.48240625" x2="29.7822" y2="50.6178" width="0.1524" layer="1"/>
+<wire x1="32.41" y1="48" x2="38.71" y2="41.7" width="0.1524" layer="1"/>
+<wire x1="29.7822" y1="50.6178" x2="32.4" y2="48" width="0.1524" layer="1"/>
+<wire x1="32.4" y1="48" x2="32.41" y2="48" width="0.1524" layer="1"/>
+</signal>
+<signal name="GPIO24">
+<contactref element="X1" pad="18"/>
+<contactref element="J2" pad="1"/>
+<wire x1="31.68240625" y1="52.1222" x2="32.3222" y2="51.48240625" width="0.1524" layer="1"/>
+<wire x1="28.69" y1="53.57" x2="30.1378" y2="52.1222" width="0.1524" layer="1"/>
+<wire x1="30.1378" y1="52.1222" x2="31.68240625" y2="52.1222" width="0.1524" layer="1"/>
+<wire x1="32.3222" y1="51.48240625" x2="32.3222" y2="49.9778" width="0.1524" layer="1"/>
+<wire x1="40.6" y1="41.7" x2="41.25" y2="41.7" width="0.1524" layer="1"/>
+<wire x1="32.3222" y1="49.9778" x2="40.6" y2="41.7" width="0.1524" layer="1"/>
+</signal>
+<signal name="N$2">
+<via x="28.3" y="37.4" extent="1-16" drill="0.9" diameter="1.8"/>
+</signal>
+<signal name="N$1">
+<via x="30.6" y="37.4" extent="1-16" drill="0.9" diameter="1.8"/>
 </signal>
 </signals>
 <mfgpreviewcolors>

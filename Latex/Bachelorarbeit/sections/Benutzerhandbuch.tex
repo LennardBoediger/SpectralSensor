@@ -1,7 +1,7 @@
-\subsection{Handware Setup}
+\subsection{Hardware Setup}
 Der Raspberry Pi muss mit seiner Stromversorgung (USB C), Einem  Netzwerk (Ethernet) und 1-10 Sensorboards verbunden werden.
 \subsection{Messung Starten}
-Über das Terminal muss eine SSH Verbindung zum Raspberry Pi aufgebaut werden.\\
+Über das Terminal (Unter Windows cmd) muss eine SSH Verbindung zum Raspberry Pi aufgebaut werden.\\
 \textbf{ssh pi@[IP-ADRESSE]}\\
 Die Messsoftware wurde automatisch in einem Screen mit den Namen SpectralSensor gestartet, um die Messung zu starten muss sich mit diesem Screen verbunden werden.\\
 \textbf{screen -r}\\
@@ -9,7 +9,7 @@ Die Messsoftware wurde automatisch in einem Screen mit den Namen SpectralSensor 
 \centering
 \includegraphics[width=0.7\textwidth]{img/handbuch/check_settings}
 \caption{Terminal Output bei Start der Messsoftware }
-\label{fig:Seitenasicht-AS726X}
+\label{fig:Start-der-Messsoftware}
 \end{figure}
 \noindent Zuerst muss im Terminaloutput überprüft werden ob der NTP Server synchronisiert ist.
 Wird eine Falsche Systemzeit angezeigt muss das Programm nach etwa 40 Sekunden Neugestartet werden, anschließend solle die Systemzeit richtig sein. (Mehr zum Programm Neustart: \ref{restart}).\\
@@ -19,7 +19,7 @@ Die Messung wird mit den angezeigten Einstellungen gestartet, indem die Eingabea
 \centering
 \includegraphics[width=0.7\textwidth]{img/handbuch/y_start_measurement}
 \caption{Terminal Output bei Start der Messung }
-\label{fig:Seitenasicht-AS726X}
+\label{fig:Start-der-Messung}
 \end{figure}
 
 Um die Einstellung zu verändern wird \textbf{N} ausgewählt.\\
@@ -27,7 +27,7 @@ Um die Einstellung zu verändern wird \textbf{N} ausgewählt.\\
 \centering
 \includegraphics[width=0.7\textwidth]{img/handbuch/n_change_settings}
 \caption{Beispielhafter Terminal Output bei Einstellungsänderungen}
-\label{fig:Seitenasicht-AS726X}
+\label{fig:changesettings}
 \end{figure}
 \subsection{Webinterface}
 Das Grafana Webinterface ist unter folgender Adresse im Browser zu erreichen:\\
@@ -41,13 +41,13 @@ Das Grafana Webinterface ist unter folgender Adresse im Browser zu erreichen:\\
 \end{figure}
 Im Example Dashboard sind alle Sensordatenplots vorhanden, wenn weniger Plots benötigt werden oder die Darstellung angepasst werden muss kann eine Kopie angefertigt und bearbeitet werden.\\
 Um Daten im CSV-Format zu exportieren muss zuerst der gewünschte Zeitbereich ausgewählt werden.
-Im Kontextmenü eines Plots oder so blab bla todo...
-TODO Foto CSV Export:
+Anschließend wird wie in Abbildung \ref{fig:export_data} zu sehen im Kontextmenü (Klick auf den Namen eines Plots) unter Inspect die Option Data ausgewählt. 
+
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.6\textwidth]{img/handbuch/grafna_login}
+\includegraphics[width=0.6\textwidth]{img/handbuch/Export_Data}
 \caption{Grafana Login im Browser}
-\label{fig:grafna_login}
+\label{fig:export_data}
 \end{figure}
 \noindent Daten können nur pro Plot Exportiert werden um mehr Daten auf einmal zu exportiren müssen alle gewünschten Daten in einem Plot vereint werden.
 
@@ -62,14 +62,16 @@ Um es Erneut zu starten sollte es neu kompiliert werden, da so immer alle eventu
 
 \subsection{IP Adress Scan}
 \paragraph{Unter Unix:} sudo nmap -sn 192.168.1.0/24  
-\paragraph{Unter Windows:} I don't know TODO\\\smallskip
+\paragraph{Unter Windows:} Mit Hilfe der Software ''PortScan'' \\https://www.the-sz.com/products/portscan/\smallskip
 
-MAC-Adressen der Raspyberry Pi's:
-\begin{itemize}
-	\item TODO
-	\item TODO
-	\item TODO
-\end{itemize}
+\subsection{Bedeutung der Status LEDs}\label{leds}
+\subsubsection{Rapsberry Pi}
+Die rote PWR-LED leuchtet kontinuierlich bei stabiler 5 V Stromversorgung.\\
+Die grüne ACT-LED blinkt, wenn die SD-Karte korrekt arbeitet.
+\subsubsection{Status \& Adapterboard}
+Die rote Power-LED zeigt an, dass die Messsoftware gestartet wurde.\\
+Die grüne Heartbeat-LED ändert ihren Status nach jedem Messzyklus.\\
+
 
 \subsection{Hilfe}
 \textbf{Nachdem starten der Messung gibt es keine ausgabe in Terminal:}\\
