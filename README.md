@@ -8,7 +8,7 @@ control unit, which communicates with external sensor boards via I2C.
 
 The final sensor platform will be able to differentiate 21 spectral channels of incident light from up to 20 different directions.
 
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Fancy-Product.jpg" alt="left" width="200"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Fancy-Product.JPG" alt="left" width="200"/>
  
 
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Grafana-Product.jpg" alt="right" width="300"/>
