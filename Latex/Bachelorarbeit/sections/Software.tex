@@ -38,53 +38,49 @@ Im ersten Schritt der Entwicklung wurde sie für die I2C Schnittstelle, wiringPi
 \centering
 \includegraphics[width=0.75\textwidth]{img/PysicalRegister}
 %\caption*{Quelle: Datenblatt AS7261}
-\caption{PysicalRegister}
+\caption{PysicalRegister\cite{Datenblatt_AS7261}}
 \label{fig:PysicalRegister}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\caption{AS726x\_CONTROL\_SETUP 0x04}
 \includegraphics[width=0.75\textwidth]{img/AS726x_CONTROL_SETUP}
-\caption*{Quelle: Datenblatt AS7261}
+\caption{AS726x\_CONTROL\_SETUP 0x04\cite{Datenblatt_AS7261}}
 \label{fig:AS726x_CONTROL_SETUP}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\caption{AS726x\_INT\_T 0x05}
 \includegraphics[width=0.75\textwidth]{img/AS726x_INT_T}
-\caption*{Quelle: Datenblatt AS7261}
+\caption{AS726x\_INT\_T 0x05\cite{Datenblatt_AS7261}}
 \label{fig:AS726x_INT_T}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\caption{AS726x\_DEVICE\_TEMP 0x06}
 \includegraphics[width=0.75\textwidth]{img/AS726x_DEVICE_TEMP}
-\caption*{Quelle: Datenblatt AS7261}
+\caption{AS726x\_DEVICE\_TEMP 0x06\cite{Datenblatt_AS7261}}
 \label{fig:AS726x_DEVICE_TEMP}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\caption{AS726x\_LED\_CONTROL 0x07}
 \includegraphics[width=0.75\textwidth]{img/AS726x_LED_CONTROL}
-\caption*{Quelle: Datenblatt AS7261}
+\caption{AS726x\_LED\_CONTROL 0x07\cite{Datenblatt_AS7261}}
 \label{fig:AS726x_LED_CONTROL}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\caption{AS7265X\_DEV\_SELECT\_CONTROL 0x4F}
 \includegraphics[width=0.75\textwidth]{img/AS7265X_DEV_SELECT_CONTROL}
-\caption*{Quelle: Datenblatt AS7265X}
+\caption{AS7265X\_DEV\_SELECT\_CONTROL 0x4F\cite{Datenblatt_AS7261}}
+
 \label{fig:AS7265X_DEV_SELECT_CONTROL}
 \end{figure}
 
 \begin{table}[!ht]
 \centering
-\caption{Raw Data Registers}
+\caption{Raw Data Registers \cite{Datenblatt_AS7261}}
 \begin{tabular}{ l r }
  Name & Adresse\\ 
 AS7261\_X & 0x08\\
@@ -373,7 +369,7 @@ der Ablauf von fixedGainMeasurementAS7265X ist bis auf den SENSORTYP und die Nam
 \begin{figure}[H]
   \centering
     \caption{Flowchart fixedGainMeasurementAS7261}
- \includegraphics[width=0.9\linewidth]{img/manualGain}
+ \includegraphics[width=0.8\linewidth]{img/manualGain}
   \label{fig:manualGain}
 \end{figure}
 

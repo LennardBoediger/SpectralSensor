@@ -125,7 +125,7 @@ Der Raspberry Pi 4 Model B erfüllt alle diese Anforderungen:
 \begin{figure}[H]
   \centering
  \includegraphics[width=0.5\linewidth]{img/Raspberry-Pi-4-Model-B}
-	\caption{Raspberry Pi 4 Model B \cite{todo}}
+	\caption{Raspberry Pi 4 Model B \cite{raspberrypi_fundation}}}
   \label{fig:Raspberry_Pi_4_Model_B}
 \end{figure}
 An den SD-Karten slot kann bis zu 256 GB Flash speicher angeschlossen werden.
@@ -144,8 +144,8 @@ Außerdem wurden gleichzeitig Daten über Grafana exportiert.\\
 TODO: Richtiges Bild Performance Test\\
 \begin{figure}[H]
   \centering
+  \includegraphics[width=0.7\linewidth]{img/CPU-Performance.png}
   \caption{Screenshot: CPU-Performance}
- \includegraphics[width=0.7\linewidth]{img/CPU-Performance.png}
   \label{fig:CPU-Performance}
 \end{figure}
 
@@ -155,9 +155,10 @@ Da wie in Abschnitt \ref{Sensoren} genannt, alle Sensoren unter derselben I2C Ad
 \begin{figure}[H]
   \centering
  \includegraphics[width=1\linewidth]{img/Adress-Translation}
-  \label{fig:adress-translation}
-  \caption{I2C-Bus im Messaufbau \cite{Pi_4_Top_view}}
+  \caption{I2C-Bus im Messaufbau \cite{raspberrypi_fundation}}
+    \label{fig:adress-translation}
 \end{figure}
+
 \noindent Wie in Abbildung \ref{fig:adress-translation} zu sehen wird für jeden Sensor ein LTC4316 an die Busschnittstelle des Raspberry Pi angeschlossen (SDAIN, SCLIN).\\ 
 An jeden LTC4316 wird ein AS7261 oder AS72651 angeschlossen (SDAOUT, SCLOUT).
 Bei Kommunikation vom Raspberry Pi zum Sensor wird dann die I2C Adresse mit einem Faktor (Translation Byte), welcher mit diskreten Widerständen eingestellt wird mit Fomel (\ref{I2C-translation}) verrechnet, um so die Adresse anzupassen (XORH,XORL).
@@ -172,8 +173,8 @@ Sensor Adresse\oplus TranslationByte = NeueAdresse \footnote{xor = $\oplus$}
 
 \begin{wrapfigure}{R}{0.6\textwidth}
 \centering
-\caption{Translation Byte\cite{Datenblatt_LTC4316}}
 \includegraphics[width=0.6\textwidth]{img/Translation-Byte}
+\caption{Translation Byte\cite{Datenblatt_LTC4316}}
 \label{fig:Translation-Byte}
 \end{wrapfigure}
 \bigskip
@@ -202,7 +203,7 @@ Tabelle \ref{TranslationByte_Upper} enthält die erforderlichen Widerstandswerte
 \label{TranslationByte_Lower}
 \centering
 \begin{tabular}{c|c|c|c|c|c}
- a3 & a2 & a1 & a0 & $R_{LT}$[$\Omega$] & $R_{LB}$[$\Omega$]\\
+ a3 & a2 & a1 & a0 & $R_{LT}$[$k\Omega$] & $R_{LB}$[$k\Omega$]\\
  0 & 0 & 0 & 0 & Open & Short \\ 
  0 & 0 & 0 & 1 & 976 & 102\\ 
  0 & 0 & 1 & 0 & 976 & 182\\
@@ -222,7 +223,7 @@ Tabelle \ref{TranslationByte_Upper} enthält die erforderlichen Widerstandswerte
 \end{tabular}
 \end{table}
 
-\begin{table}[!ht]
+\begin{table}[H]
 \caption{Obere 4 Bit des Translation Byte}
 \label{TranslationByte_Upper}
 \centering
@@ -247,7 +248,7 @@ Die jeweilige Firmware von AMS wird mithilfe von Flashcat-USB, einem USB Memory 
 Ein Leitfaden für diesen Vorgang wird von AMS unter dem Titel ``How to Program AS72xx Firmware with FlashCatUSB'' bereitgestellt und ist im Anhang zu finden.\\
 %https://ams.com/documents/20143/36005/AS72xx_AN000488_3-00.pdf/ab1c985f-785f-7431-99d5-ddea807585db
 Der AT25SF041-SSHD-B wurde aus der von AMS bereitgestellten Liste kompatibler Flash-Speichern\footnote{AS726x Design Considerations - 2.5 Flash Memory} ausgewählt, da er am günstigsten ist. 
-Für den Messaufbau werden folgende Versionen verwendet die .bin Files sind im Anhang zu finden, da die Firmware nur auf Nachfrage bei AMS erhältlich ist:\\
+Für den Messaufbau werden folgende Versionen verwendet die .bin Files sind im Anhang zu finden.\\
 AS7261\_complete \ref{todo}\\
 AS726X\_AS7265\_complete\_moonlight\_v1 \ref{todo}
 
