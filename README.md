@@ -4,7 +4,7 @@
 
 <img align="left" src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Fancy-Product.JPG" width="300"/>
 The goal of this work is to develop a spectral sensor platform using the AS7261 and AS72651, which can be used modularly for different 
-research purposes, but especially for daylight measurement. Since it is not possible to measure in several directions in the sky at the same 
+research purposes, but especially for sky measurements. Since it is not possible to measure in several directions in the sky at the same 
 time with only one of the AS7261 (or AS72651) sensors without mechanical components, it must be ensured that a large number of sensors can be 
 combined into a sensor array in order to be able to measure directional resolution. The resulting sensor platform uses a Raspberry Pi 4 as central 
 control unit, which communicates with external sensor boards via I2C.
