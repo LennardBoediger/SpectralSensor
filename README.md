@@ -19,7 +19,7 @@ The final sensor platform will be able to differentiate 21 spectral channels of 
 ## Auto Gain
 To increase the usable light intensity range, the AutoGain mode can be used.</br>
 Measurements are made in all 4 possible gains, the most accurate measured value is selected for each channel. This value is adjusted to the maximum gain with the function matchValueTo-MaxGain to allow a continuous representation of the output.
-```
+```c
 for (uint8_t gain_i = 0; gain_i < 4; ++gain_i){         // going through every gain
                 settings(s[i].address, integrationValue, gain_i); // apply settings integrationValue is fix gain is 0-3
                 MeasurementFromAdress(s[i].address);            // initiate measurement from current adress
@@ -27,3 +27,8 @@ for (uint8_t gain_i = 0; gain_i < 4; ++gain_i){         // going through every g
             }
             
 ```
+## Usage
+Connect to the Pi over SSH</br>
+Attatch the screen with screen -r</br>
+Follow the instructions to change the setting and start the measurement</br>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/handbuch/check_settings.png" alt="left" width="500"/>
