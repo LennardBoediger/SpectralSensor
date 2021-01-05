@@ -15,3 +15,15 @@ The final sensor platform will be able to differentiate 21 spectral channels of 
 ## Grafana WebInterface 
 
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Grafana-Product.jpg" alt="left" width="700"/>
+
+## Auto Gain
+To increase the usable light intensity range, the AutoGain mode can be used.</br>
+Measurements are made in all 4 possible gains, the most accurate measured value is selected for each channel. This value is adjusted to the maximum gain with the function matchValueTo-MaxGain to allow a continuous representation of the output.
+```
+for (uint8_t gain_i = 0; gain_i < 4; ++gain_i){         // going through every gain
+                settings(s[i].address, integrationValue, gain_i); // apply settings integrationValue is fix gain is 0-3
+                MeasurementFromAdress(s[i].address);            // initiate measurement from current adress
+                AS7261_measurement[gain_i] = getAS7261Measurement(s[i].address, measurement_time, gain_i, 1);    // get data and save to array
+            }
+            
+```
