@@ -1,4 +1,5 @@
-### This is my Bachelorthesis: "Entwicklung und Realisierung eines Messsystems mit den Sensoren AS7261 und AS72651 von AMS"
+# Spectral Measurement Platform
+## This is my Bachelorthesis: "Entwicklung und Realisierung eines Messsystems mit den Sensoren AS7261 und AS72651 von AMS"
 
 
 <img align="left" src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Fancy-Product.JPG" width="300"/>
@@ -11,5 +12,6 @@ control unit, which communicates with external sensor boards via I2C.
 The final sensor platform will be able to differentiate 21 spectral channels of incident light from up to 20 different directions.
 
 
-The measurement results can be displayed and exported in a Grafana WebInterface 
-<img align="left" src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Grafana-Product.jpg" width="400"/>
+## Grafana WebInterface 
+
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Grafana-Product.jpg" alt="left" width="700"/>
