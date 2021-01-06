@@ -28,7 +28,9 @@ for (uint8_t gain_i = 0; gain_i < 4; ++gain_i){         // going through every g
             
 ```
 ## Usage
+Flash the SD image</br>
+Connect 1-20 Sensor baords in sereries</br>
 Connect to the Pi over SSH</br>
-Attatch the screen with screen -r</br>
+Attatch the screen with `screen -r`</br>
 Follow the instructions to change the setting and start the measurement</br>
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/handbuch/check_settings.png" alt="left" width="500"/>
