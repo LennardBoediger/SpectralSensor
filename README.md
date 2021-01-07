@@ -34,5 +34,5 @@ Attach 1-20 Sensorboards in sereries</br>
 Connect to the Pi over SSH</br>
 Attatch the screen with `screen -r`</br>
 Follow the instructions to change the setting and start the measurement</br>
-The Webinterface can be found at port 300 `http://[RASPBERRY_PI-IP]:3000`
+The Webinterface can be found at port 3000 `http://[RASPBERRY_PI-IP]:3000`
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/handbuch/check_settings.png" alt="left" width="500"/>
