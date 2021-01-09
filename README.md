@@ -29,14 +29,6 @@ for (uint8_t gain_i = 0; gain_i < 4; ++gain_i){         // going through every g
             
 ```
 
-## Hardware
-# Sensorboard
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_front.png" alt="left" width="700"/>
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_back.png" alt="right" width="700"/>
-# Pi-Shield
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/pi-shield.png" alt="left" width="700"/>
-
-
 ## Usage
 Flash the SD image</br>
 Attach 1-20 Sensorboards in sereries</br>
@@ -45,3 +37,11 @@ Attatch the screen with `screen -r`</br>
 Follow the instructions to change the setting and start the measurement</br>
 The Webinterface can be found at port 3000 `http://[RASPBERRY_PI-IP]:3000`
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/handbuch/check_settings.png" alt="left" width="500"/>
+
+## Hardware
+# Sensorboard
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_front.png" alt="left" width="400"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_back.png" alt="left" width="400"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/scematic.png" alt="left" width="800"/>
+# Pi-Shield
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/pi-shield.png" alt="left" width="500"/>
