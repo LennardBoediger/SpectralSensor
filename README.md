@@ -38,10 +38,11 @@ Follow the instructions to change the setting and start the measurement</br>
 The Webinterface can be found at port 3000 `http://[RASPBERRY_PI-IP]:3000`
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/handbuch/check_settings.png" alt="left" width="500"/>
 
-## Hardware
-# Sensorboard
+# Hardware
+### Sensorboard
+I2C Lanes in Red.
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_front.png" alt="left" width="400"/>
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_back.png" alt="left" width="400"/>
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/scematic.png" alt="left" width="800"/>
-# Pi-Shield
+### Pi-Shield
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/pi-shield.png" alt="left" width="500"/>
