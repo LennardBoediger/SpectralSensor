@@ -40,9 +40,9 @@ The Webinterface can be found at port 3000 `http://[RASPBERRY_PI-IP]:3000`
 
 # Hardware
 ### Sensorboard
-I2C Lanes in Red.
+I2C Lanes in Red.</br>
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_front.png" alt="left" width="400"/>
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_back.png" alt="left" width="400"/>
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/scematic.png" alt="left" width="800"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_back.png" alt="right" width="400"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/scematic.png" alt="center" width="800"/>
 ### Pi-Shield
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/pi-shield.png" alt="left" width="500"/>
