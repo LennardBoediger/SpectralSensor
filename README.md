@@ -28,6 +28,15 @@ for (uint8_t gain_i = 0; gain_i < 4; ++gain_i){         // going through every g
             }
             
 ```
+
+## Hardware
+# Sensorboard
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_front.png" alt="left" width="700"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_back.png" alt="right" width="700"/>
+# Pi-Shield
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/pi-shield.png" alt="left" width="700"/>
+
+
 ## Usage
 Flash the SD image</br>
 Attach 1-20 Sensorboards in sereries</br>
