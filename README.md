@@ -47,4 +47,3 @@ I2C Lanes in Red.</br>
 ### Pi-Shield
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/pi-shield.png" alt="left" width="500"/>
 <img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/scematic_shield.png" alt="center" width="800"/>
-test
