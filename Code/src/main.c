@@ -83,6 +83,7 @@ void changeSettings(measurmentSettings *Settings){
 
     do{
     printf("Set measurement Intervall in Minutes [1:65535]\n");
+    printf("Note when connecting more than 3 devices 1 min does not work reliably\n");
     fgets(tmp,10,stdin);
     } while(!(atoi(tmp)>=1 && atoi(tmp)<=65535));
     Settings->measurementIntervall = atoi(tmp); 
@@ -98,7 +99,7 @@ int main() {
     // set default values located in default_values.h
     Settings.integrationValue = DEFAULT_INTEGRATION_VALUE; 
     Settings.gain = DEFAULT_GAIN;
-    Settings.measurementIntervall = DEFAULT_measurement_Intervall;
+    Settings.measurementIntervall = DEFAULT_MESUREMNT_INTERVALL;
 
     char userSettingResponse[4];	// for user input
     sensor_list s[128]; 			// available sensors are stored here
