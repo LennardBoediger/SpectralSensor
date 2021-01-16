@@ -1,4 +1,3 @@
-\newpage
 \subsection{Sensoren}\label{Sensoren}
 
 \begin{wrapfigure}{R}{0.3\textwidth}
@@ -23,14 +22,13 @@ So kann über das beschriebene Sensorarray die farbliche Zusammensetzung des ein
 
 \noindent Wie in Abb: \ref{fig:Seitenasicht-AS726X} dargestellt, fällt das Licht durch die Öffnung in der Mitte des Sensors ein, eine intern verbaute Linse verteilt das Lich auf die Interferenzfilter. Die Genauigkeit der Filter verändert sich je nach Einstrahlwinkel, daher ist es wichtig vor den Sensor noch eine Streuscheibe zu montieren.\\
 Die so gemessenen Daten können über UART oder I2C an einen Mikrocontroller übertragen werden, da über UART nur ein Gerät verbunden werden kann, eignet sich aber für diesen Anwendungsfall nur die I2C Schnittstelle.\\
-Alle Sensoren erhalten vom Hersteller dieselbe, nicht veränderbare I2C Adresse: 0x49. Daher muss ein I2C Translator genutzt werden, welcher es ermöglicht mehrere Sensoren im gleichen Bussystem zu adressieren(siehe Abschnitt \ref{I2C-Translator}).\\
+Alle Sensoren erhalten vom Hersteller dieselbe, nicht veränderbare I2C Adresse: 0x49. Daher muss ein I2C Translator genutzt werden, welcher es ermöglicht mehrere Sensoren im gleichen Bussystem zu adressieren (siehe Abschnitt \ref{I2C-Translator}).\\
 
 
 \noindent Die Modelle unterscheiden sich durch die verbauten Silizium-Interferenzfilter, also die unterscheidbaren Wellenlängenbereiche sowie in der benötigte Peripherie.
 Die grundsätzliche Messmethode ist aber immer gleich.
-Im Folgenden werden die verwendeten Sensoren AS7261 (siehe Abschnitt \ref{AS7261}) sowie der AS7265X (siehe Abschnitt \ref{AS7265X}) beschrieben.
-
-\noindent Intern im Sensor werden aus den RAW-Werten kalibrierte Werte berechnet, aber es wird keine ausreichende Dokumentation bereitgestellt.
+Im Folgenden werden die verwendeten Sensoren AS7261 (siehe Abschnitt \ref{AS7261}) sowie der AS7265X (siehe Abschnitt \ref{AS7265X}) beschrieben.\\
+Intern im Sensor werden aus den RAW-Werten kalibrierte Werte berechnet, aber es wird keine ausreichende Dokumentation bereitgestellt.
 Daher konnte keine konsistente Korrelation zwischen RAW- und kalibrierten Werten ermittelt werden, weshalb sie im Messaufbau nicht verwendet werden.
 
 
@@ -103,7 +101,7 @@ Der angeschlossene Mikrocontroller (Einplatinencomputer) kommuniziert nur mit de
 \noindent Die drei Sensoren messen in Kombination mit 18  Photodioden mit unterschiedlichen filtern, so können sie 18 unterschiedliche Frequenz Channel im Bereich zwischen 410 nm und 940 nm mit einer Halbwertsbreite von jeweils 20 nm erfassen.
 Die Frequenz Channel sind wie in Abbildung \ref{fig:AS7261-Spectral_Responsivity} zu sehen mit den Buchstaben A-L gekennzeichnet.\\
 Wie der AS7261 kann der AS7265X in 3 Bankmodi betrieben werden, wobei auch für diesen Sensor der Bankmodus 3 verwendet wird, da alle Farbkanäle in einer manuell ausgelösten Messung aufgezeichnet werden sollen.
-
+\newpage
 \subsection{Mikrocontroller}\label{Mikrocontroller}
 Bei der Auswahl des Mikrocontrollers ist die kleine Bauform, ausreichend langlebiger Speicher sowie eine Netzwerkschnittstelle und I2C Anschluss entscheidend.\\
 Die Abfrage der Messdaten, sowie die Messkonfiguration soll über einen Fernzugriff möglich sein. Die Daten sollen grafisch in einem Webinterface dargestellt werden ohne das eine weitere Server Instanz benötigt wird. Daher eignet sich ein Linux-Fähiger Einplatinencomputer besser als ein simplerer Mikrocontroller.
@@ -125,29 +123,32 @@ Der Raspberry Pi 4 Model B erfüllt alle diese Anforderungen:
 \begin{figure}[H]
   \centering
  \includegraphics[width=0.5\linewidth]{img/Raspberry-Pi-4-Model-B}
-	\caption{Raspberry Pi 4 Model B \cite{raspberrypi_fundation}}}
+	\caption{Raspberry Pi 4 Model B \cite{raspberrypi_fundation}}
   \label{fig:Raspberry_Pi_4_Model_B}
 \end{figure}
 An den SD-Karten slot kann bis zu 256 GB Flash speicher angeschlossen werden.
-TODO warum reichen 32 GB.\\
-Die Internetverbindung kann über WLAN oder Ethernet hergestellt werden.\\
-Da eine kabelgebundene Lösung mehr Zuverlässigkeit bietet, wird eine Netzwerkverbindung über Ethernet einer WLAN-Schnittstelle vorgezogen. 
+Ein Sensorboard erzeugt etwa 0,73 MB Daten pro Tag.
+Bei 12 Sensorboards ist eine noch höhere Effizienz der Datenkomprimierung zu erwarten, wenn trotzdem 8,78 MB pro Tag angenommen werden, benötigt der Messaufbau maximal 3,3 GB pro Jahr.
+Das Betribssystem inklusive aller verwendeten Systemkoponetnewn benötigt 3,9 GB.
+Im Messaufbau werden 32GB SD-Karten verwendet.\\
+Die Internetverbindung kann über WLAN oder Ethernet hergestellt werden.
+Da eine kabelgebundene Lösung mehr Zuverlässigkeit bietet, wird eine Netzwerkverbindung über Ethernet einer WLAN-Schnittstelle vorgezogen.\\
 Die GPIO des Raspebrry Pi arbeiten mit 3,3V.
 Der 3,3V Pin des Raspebrry Pi stellt nur 850mA am 3,3V Output bereit.
 Da jedes Sensorboard etwa 170 mA benötigt, reichen 850 mA nicht für die maximale Anforderung von 10 Boards aus.
-Der 5V-Pin ist direkt mit dem Netzteil verbunden und kann daher genauso viel Leistung wie das Netzteil liefern, mit Hilfe eines Abwärtswandlers ist es möglich, die Sensorplatinen mit 3,3V zu betreiben.
+Der 5V-Pin ist direkt mit dem Netzteil verbunden und kann daher genauso viel Leistung wie das Netzteil liefern, mit Hilfe eines Abwärtswandlers ist es möglich, die Sensorplatinen mit 3,3V zu betreiben.\\
 Die CPU ist für den Anwendungsfall weitaus ausreichend dimensioniert.
 In Abbildung \ref{fig:CPU-Performance} ist ein Performancetest zu sehen, die Reihen 1-4 beschreiben die prozentuale CPU Auslastung der jeweiligen Prozessorkerne.
-Mem beschreibt die Auslastung des Arbeitsspeichers.\\
-Für den Performancetest wurde eine Messung an 10 Sensor Boards mit minimalem Messintervall gestartet.
+MEM beschreibt die Auslastung des Arbeitsspeichers.\\
+Für den Performancetest wurde eine Messung an 4 Sensor Boards mit minimalem Messintervall gestartet.
 Außerdem wurden gleichzeitig Daten über Grafana exportiert.\\
-TODO: Richtiges Bild Performance Test\\
 \begin{figure}[H]
   \centering
   \includegraphics[width=0.7\linewidth]{img/CPU-Performance.png}
   \caption{Screenshot: CPU-Performance}
   \label{fig:CPU-Performance}
 \end{figure}
+\noindent Der prozentuale Lastdurchschnitt über die letzten 5 Minuten während des Tests wird mit 0,89\% angegeben.
 
 \subsection{I2C Address Translator LTC4316}\label{I2C-Translator}
 Da wie in Abschnitt \ref{Sensoren} genannt, alle Sensoren unter derselben I2C Addresse erreichbar sind, wird ein I2C Translator genutzt, um für eine individuelle Adressierung zu sorgen.\\
@@ -228,7 +229,7 @@ Tabelle \ref{TranslationByte_Upper} enthält die erforderlichen Widerstandswerte
 \label{TranslationByte_Upper}
 \centering
 \begin{tabular}{c|c|c|c|c|c|c}
- a7 & a6 & a5 & a4 & $R_{HT}$[$\Omega$] & $R_{HB}$[$\Omega$]\\
+ a7 & a6 & a5 & a4 & $R_{HT}$[$k\Omega$] & $R_{HB}$[$k\Omega$]\\
  0 & 0 & 0 & 0 & Open & Short \\ 
  0 & 0 & 0 & 1 & 976 & 102\\ 
  0 & 0 & 1 & 0 & 976 & 182\\
