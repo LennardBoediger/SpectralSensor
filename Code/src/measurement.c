@@ -11,23 +11,23 @@
 #include "measurement.h"
 
 
-// write settings to device 
-// input taget i2c address - integrationValue and gain
+// Write settings to device 
+// Input taget i2c address - integrationValue and gain
 void settings(int address, uint8_t integrationValue, uint8_t gain){
-    int fd =  wiringPiI2CSetup(address);        // connect to I2C Address and save file disciptor
-    if (fd == -1) {                             // check file descriptor for error value
+    int fd =  wiringPiI2CSetup(address);        // Connect to I2C Address and save file disciptor (fd)
+    if (fd == -1) {                             // Check file descriptor for error value
         printf("i2c failed");
     }
-    disableInterrupt(fd);                       // disable unuesed interrupt at fd (I2C connection - AS Sensor) 
-    setIntegrationTime(integrationValue, fd);   // write integrationValue to fd (I2C connection - AS Sensor) 
-    setGain(gain, fd);                          // write gain to fd  (I2C connection - AS Sensor) 
-    close(fd);                                  // close connection (I2C connection - AS Sensor) 
+    disableInterrupt(fd);                       // Disable unused interrupt at fd (I2C connection -> AS Sensor) 
+    setIntegrationTime(integrationValue, fd);   // Write integrationValue to fd (I2C connection -> AS Sensor) 
+    setGain(gain, fd);                          // Write gain to fd  (I2C connection -> AS Sensor) 
+    close(fd);                                  // Close connection (I2C connection -x AS Sensor) 
     printf("0x%X Changed Gain to %d\n",address,gain );
 }
 
 
-// multiply measurment values to match them to the maximum Gain(x64)
-// input value to match and gain used to measure this value
+// Multiplys measurment values to match them to the maximum Gain(x64)
+// Input value to match and gain used to measure this value
 uint32_t matchValueToMaxGain(int used_gain, uint32_t value){
     switch(used_gain){
         case 0:
@@ -45,7 +45,7 @@ uint32_t matchValueToMaxGain(int used_gain, uint32_t value){
     return value;   
 }
 
-//save the biggest (gain dependet)value that is not clipping
+// Save the biggest (gain dependet) AS7261 value that is not clipping
 AS7261_channel cleanAS7261Data(AS7261_channel *const AS7261_measurement){
     AS7261_channel used_gain;
     used_gain.X = 0;
@@ -105,7 +105,7 @@ AS7261_channel cleanAS7261Data(AS7261_channel *const AS7261_measurement){
     return used_gain;
 }
 
-//save the biggest (gain dependet)value that is not clipping
+// Save the biggest (gain dependet) AS7265X value that is not clipping
 AS7265X_channel cleanAS7265XData(AS7265X_channel *const AS7265X_measurement){
     AS7265X_channel used_gain;
         used_gain.R = 0;
@@ -273,6 +273,8 @@ AS7265X_channel cleanAS7265XData(AS7265X_channel *const AS7265X_measurement){
     return used_gain;
 }
 
+// Read Values from AS7261 to AS7261_channel data structure
+// return filled AS7261_channel data structure
 AS7261_channel getAS7261Measurement(int address, uint64_t measurement_time, uint8_t gain, uint8_t instant_db_save){
     AS7261_channel store_data;
     int fd =  wiringPiI2CSetup(address);
@@ -314,6 +316,8 @@ AS7261_channel getAS7261Measurement(int address, uint64_t measurement_time, uint
     return store_data;
 }
 
+// Read Values from AS7265X to AS7265X_channel data structure
+// return filled AS7265X_channel data structure
 AS7265X_channel getAS7265XMeasurement(int address, uint64_t measurement_time, uint8_t gain, uint8_t instant_db_save){
     AS7265X_channel store_data;
     int fd =  wiringPiI2CSetup(address);
@@ -406,6 +410,9 @@ AS7265X_channel getAS7265XMeasurement(int address, uint64_t measurement_time, ui
     return store_data;
 }
 
+// write AS7261_channel data structure to database (InfluxDB)
+// no return value code will crash with Error: 500 Write to Database Failed
+// no problem during testing, but should be improved!
 void saveAS7261Measurement(int address,AS7261_channel values, uint64_t measurement_time){
     writeToDatabase("X",address,measurement_time,values.X);
     writeToDatabase("Y",address,measurement_time,values.Y);
@@ -422,6 +429,10 @@ void saveAS7261Measurement(int address,AS7261_channel values, uint64_t measureme
     printf("0x%X saveNIR: %d\n",address,values.NIR);
 }
 
+
+// write AS72651_channel data structure to database (InfluxDB)
+// no return value code will crash with Error: 500 Write to Database Failed
+// no problem during testing, but should be improved!
 void saveAS7265XMeasurement(int address, AS7265X_channel values, uint64_t measurement_time){
     writeToDatabase("R",address,measurement_time,values.R);
     writeToDatabase("S",address,measurement_time,values.S);
@@ -552,7 +563,7 @@ void autoGainMeasurementAS7265X(uint64_t measurement_time, sensor_list *const s,
     }
 }
 //TODO change to fixed gain
-void manualGainMeasurementAS7261(uint64_t measurement_time, sensor_list *const s, uint8_t integrationValue, uint8_t gain){
+void fixedGainMeasurementAS7261(uint64_t measurement_time, sensor_list *const s, uint8_t integrationValue, uint8_t gain){
     AS7261_channel AS7261_measurement;
     for (int i = 0; s[i].address != -1 && i < 128; ++i){    // going through every device
         if (s[i].type == SENSORTYPE_AS7261){                // only use AS7261 devices
@@ -564,7 +575,7 @@ void manualGainMeasurementAS7261(uint64_t measurement_time, sensor_list *const s
     }
 }
 
-void manualGainMeasurementAS7265X(uint64_t measurement_time, sensor_list *const s, uint8_t integrationValue, uint8_t gain){
+void fixedGainMeasurementAS7265X(uint64_t measurement_time, sensor_list *const s, uint8_t integrationValue, uint8_t gain){
     AS7265X_channel AS7265X_measurement;
     for (int i = 0; s[i].address != -1 && i < 128; ++i){    // going through every device
         if (s[i].type == SENSORTYPE_AS72651){                // only use AS7261 devices

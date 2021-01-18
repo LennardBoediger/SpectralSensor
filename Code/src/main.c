@@ -15,13 +15,13 @@
 #define AUTOGAIN 4
 
 struct measurmentSettings{
-    uint8_t integrationValue;       // Give this function a uint8_t from 0 to 255. //Time will be 2.8ms * [integration value]
+    uint8_t integrationValue;       // Value from 0-255 -> Integration Time will be 2.8ms * [integration value] 
     uint8_t gain;                   // Gain 0: 1x (power-on default) //Gain 1: 3.7x //Gain 2: 16x //Gain 3: 64x
-    uint16_t measurementIntervall;  // in min
+    uint16_t measurementIntervall;  // Interval of the measurement, the measurement always takes place at the second 0
 };
 typedef struct measurmentSettings measurmentSettings;
 
-// returns current epoch time in ms
+// returns the current epoch time in ms
 uint64_t currentTimestamp() {
     struct timeval te;        // struct with microsecond precision
     gettimeofday(&te, NULL);  // get current time
@@ -33,18 +33,18 @@ uint64_t currentTimestamp() {
 void delayMeasurementMin(uint16_t measurementIntervall){
     if (measurementIntervall >= 1){
         time_t current_time;                        			// Curren time for comparison
-        time_t next_measurement;                      			// Calculated time for next measurement
-        struct tm * next_measurement_tm;              			// tm struct fot next measurement calculation
-        time (&next_measurement);                     			// save current time to next_measurement
-        next_measurement_tm = localtime ( &next_measurement );  // convert next_measurement time to tm struct 
-        next_measurement_tm->tm_min += measurementIntervall;    // add Intervall to next_measurement tm struct
-        next_measurement_tm->tm_sec = 0;                      	// set sec of next_measurement tm struct to zero
-        mktime(next_measurement_tm);                          	// normalize struct (for example min: 61->1)
-        next_measurement = mktime(next_measurement_tm);         // convert next_measurement_tm  back to time_t
+        time_t next_measurement;                      			// Calculated time for the next measurement
+        struct tm * next_measurement_tm;              			// tm struct for next measurement calculation
+        time (&next_measurement);                     			// Save current time to next_measurement
+        next_measurement_tm = localtime ( &next_measurement );  // Convert next_measurement time to tm struct 
+        next_measurement_tm->tm_min += measurementIntervall;    // Add Intervall to next_measurement tm struct
+        next_measurement_tm->tm_sec = 0;                      	// Set sec of next_measurement tm struct to zero
+        mktime(next_measurement_tm);                          	// Normalize struct (for example min: 61->1)
+        next_measurement = mktime(next_measurement_tm);         // Convert next_measurement_tm  back to time_t
 
         printf ("Next measurement: %s", asctime (next_measurement_tm));
-        do{                                         // wait until next measurement time is reached
-        time (&current_time);                       // save current time to current_time
+        do{                                         // Wait until next measurement time is reached
+        time (&current_time);                       // Save current time to current_time
         } while(next_measurement > current_time);
     }
     else{
@@ -57,17 +57,17 @@ void delayMeasurementMin(uint16_t measurementIntervall){
 void printTime(){
     time_t current_time;								// time_t struct for current time
     struct tm * timeinfo;  								// tm struct
-    time (&current_time); 								// save current time to current_time
-    timeinfo = localtime ( &current_time);				// convert time_t current_time to tm timeinfo 
-    printf ( "System Time: %s\n", asctime (timeinfo));	// print timeinfo
+    time (&current_time); 								// Save current time to current_time
+    timeinfo = localtime ( &current_time);				// Convert time_t current_time to tm timeinfo 
+    printf ( "System Time: %s\n", asctime (timeinfo));	// Print timeinfo
 }
 
-// Write settings to data structure at system start
+// Writing settings to the data structure at system startup
 // This dose not write the settings to the Sensor! it just "collects" the settings to the data structure
-// input pointer to measurmentSettings data structure  
+// Input pointer to measurmentSettings data structure  
 void changeSettings(measurmentSettings *Settings){
     printf("\n\n\n\n\n");
-    char tmp[10];    //define teporary input storage
+    char tmp[10];    // Define teporary user input storage
 
     do{
     printf("Set Integration Value [0:255]:\n");
@@ -82,8 +82,8 @@ void changeSettings(measurmentSettings *Settings){
     Settings->gain = atoi(tmp);
 
     do{
-    printf("Set measurement Intervall in Minutes [1:65535]\n");
-    printf("Note when connecting more than 3 devices 1 min does not work reliably\n");
+    printf("Set measurement Intervall in Minutes [1:65535]:\n");
+    printf("(Note that by connecting more than 3 sensors a measurement can sometimes take longer than one minute)\n");
     fgets(tmp,10,stdin);
     } while(!(atoi(tmp)>=1 && atoi(tmp)<=65535));
     Settings->measurementIntervall = atoi(tmp); 
@@ -94,16 +94,16 @@ void changeSettings(measurmentSettings *Settings){
 int main() {
     welcomeMessage();
     printTime();
-    measurmentSettings Settings;	// for measurment settings
-    
-    // set default values located in default_values.h
+
+    // Get default values located in default_values.h
+    measurmentSettings Settings;	// Struct for measurment settings  
     Settings.integrationValue = DEFAULT_INTEGRATION_VALUE; 
     Settings.gain = DEFAULT_GAIN;
     Settings.measurementIntervall = DEFAULT_MESUREMNT_INTERVALL;
 
-    char userSettingResponse[4];	// for user input
-    sensor_list s[128]; 			// available sensors are stored here
-    for (int i = 0; i < 128; ++i){	// fill sensor list with defualt value
+    char userSettingResponse[4];	// Buffer for user input
+    sensor_list s[128]; 			// Available sensors are stored here
+    for (int i = 0; i < 128; ++i){	// Fill sensor list with defualt value
         s[i].address = -1;
     }
     while(1){
@@ -116,23 +116,23 @@ int main() {
         printf("-----------------------------\n");
         if (PLUG_AND_PLAY == 0){
             printf("Are The Settings Correct? Type y to continue, n to change Settings \n");
-            fgets(userSettingResponse,4,stdin);	// collect user input
+            fgets(userSettingResponse,4,stdin);	// Collect user input
 
-            if (userSettingResponse[0] == 'N' || userSettingResponse[0] == 'n'){	// User says No - change settings
+            if (userSettingResponse[0] == 'N' || userSettingResponse[0] == 'n'){	// User says No - Change settings
                 changeSettings(&Settings);
             }
-            else if (userSettingResponse[0] == 'Y' || userSettingResponse[0] == 'y'){	// User says Yes - start 
+            else if (userSettingResponse[0] == 'Y' || userSettingResponse[0] == 'y'){	// User says Yes - Start 
                 printf("--Starting Measurment Cycle--\n");
                 break;
             }
             else{
-                printf("Error\n\n\n\n");	// User doesn't know what he is doing - ask again
+                printf("Error\n\n\n\n");	// User doesn't know what he is doing - Ask again
             }
         }
     }
 
     while(1){
-        uint64_t measurement_time = currentTimestamp(s);       // save measurement time - this will end up in the DB
+        uint64_t measurement_time = currentTimestamp(s);       // Save measurement time - this will end up in the DB
         if (Settings.gain == AUTOGAIN){
             if (USE_AS7261){
                 autoGainMeasurementAS7261(measurement_time, s, Settings.integrationValue);
@@ -143,16 +143,16 @@ int main() {
         }
         else{
             if (USE_AS7261){
-                manualGainMeasurementAS7261(measurement_time, s, Settings.integrationValue, Settings.gain);
+                fixedGainMeasurementAS7261(measurement_time, s, Settings.integrationValue, Settings.gain);
             }
             if (USE_AS7265X){
-                manualGainMeasurementAS7265X(measurement_time, s, Settings.integrationValue, Settings.gain);
+                fixedGainMeasurementAS7265X(measurement_time, s, Settings.integrationValue, Settings.gain);
             }
         }
-            uint64_t measurement_duration = currentTimestamp(s)-measurement_time;	// calculate measurement duration
-            printf("Measurement duration: %llu ms\n",measurement_duration);			// print measurement duration
+            uint64_t measurement_duration = currentTimestamp(s)-measurement_time;	// Calculate measurement duration
+            printf("Measurement duration: %llu ms\n",measurement_duration);			// Print measurement duration
             printf("-----------------------------\n");
-            delayMeasurementMin(Settings.measurementIntervall);						// wait for next measurement
+            delayMeasurementMin(Settings.measurementIntervall);						// Wait for next measurement
     }
     return 0;
 }
