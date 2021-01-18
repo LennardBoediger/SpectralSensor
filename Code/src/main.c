@@ -152,7 +152,16 @@ int main() {
             uint64_t measurement_duration = currentTimestamp(s)-measurement_time;	// Calculate measurement duration
             printf("Measurement duration: %llu ms\n",measurement_duration);			// Print measurement duration
             printf("-----------------------------\n");
-            delayMeasurementMin(Settings.measurementIntervall);						// Wait for next measurement
+            if (MANUAL_TRIGGER == 1){
+                printf("Press enter for Next Measurement\n");
+                char enter = 0;
+                while (enter != '\r' && enter != '\n') {
+                 enter = getchar(); 
+                }
+            }
+            else{
+                delayMeasurementMin(Settings.measurementIntervall);						// Wait for next measurement
+            }
     }
     return 0;
 }
