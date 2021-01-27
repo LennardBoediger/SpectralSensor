@@ -1,9 +1,9 @@
 \subsection{Hardware Setup}
-Der Raspberry Pi muss mit seiner Stromversorgung (USB C), Einem  Netzwerk (Ethernet) und 1-10 Sensorboards verbunden werden.
+Der Raspberry Pi muss mit seiner Stromversorgung (USB C), einem  Netzwerk (Ethernet) und 1-12 Sensorboards verbunden werden.
 \subsection{Messung Starten}
 Über das Terminal (Unter Windows cmd) muss eine SSH Verbindung zum Raspberry Pi aufgebaut werden.\\
 \textbf{ssh pi@[IP-ADRESSE]}\\
-Die Messsoftware wurde automatisch in einem Screen mit den Namen SpectralSensor gestartet, um die Messung zu starten muss sich mit diesem Screen verbunden werden.\\
+Die Messsoftware wurde automatisch in einem Screen mit den Namen SpectralSensor gestartet. Um die Messung zu starten muss sich mit diesem Screen verbunden werden.\\
 \textbf{screen -r}\\
 \begin{figure}[H]
 \centering
@@ -12,7 +12,7 @@ Die Messsoftware wurde automatisch in einem Screen mit den Namen SpectralSensor 
 \label{fig:Start-der-Messsoftware}
 \end{figure}
 \noindent Zuerst muss im Terminaloutput überprüft werden ob der NTP Server synchronisiert ist.
-Wird eine Falsche Systemzeit angezeigt muss das Programm nach etwa 40 Sekunden Neugestartet werden, anschließend solle die Systemzeit richtig sein. (Mehr zum Programm Neustart: \ref{restart}).\\
+Wird eine falsche Systemzeit, angezeigt muss das Programm nach etwa 40 Sekunden neu Gestartet werden. Anschließend sollte die Systemzeit richtig sein. (Mehr zum Programm Neustart: \ref{restart}).\\
 Im I2C Scann sollten alle angeschlossenen Sensoren angezeigt werden.\\
 Die Messung wird mit den angezeigten Einstellungen gestartet, indem die Eingabeaufforderung mit \textbf{Y} bestätigt wird.\\
 \begin{figure}[H]
@@ -39,9 +39,9 @@ Das Grafana Webinterface ist unter folgender Adresse im Browser zu erreichen:\\
 \caption{Grafana Login im Browser}
 \label{fig:grafna_login}
 \end{figure}
-Im Example Dashboard sind alle Sensordatenplots vorhanden, wenn weniger Plots benötigt werden oder die Darstellung angepasst werden muss kann eine Kopie angefertigt und bearbeitet werden.\\
+Im Example Dashboard sind alle Sensordatenplots vorhanden. Wenn weniger Plots benötigt werden oder die Darstellung angepasst werden muss, kann eine Kopie angefertigt und bearbeitet werden.\\
 Um Daten im CSV-Format zu exportieren muss zuerst der gewünschte Zeitbereich ausgewählt werden.
-Anschließend wird wie in Abbildung \ref{fig:export_data} zu sehen im Kontextmenü (Klick auf den Namen eines Plots) unter Inspect die Option Data ausgewählt. 
+Anschließend wird, wie in Abbildung \ref{fig:export_data} zu sehen, im Kontextmenü (Klick auf den Namen eines Plots) unter Inspect die Option Data ausgewählt. 
 
 \begin{figure}[H]
 \centering
@@ -49,12 +49,12 @@ Anschließend wird wie in Abbildung \ref{fig:export_data} zu sehen im Kontextmen
 \caption{Screenshot Grafana CSV-Export}
 \label{fig:export_data}
 \end{figure}
-\noindent Daten können nur pro Plot Exportiert werden um mehr Daten auf einmal zu exportiren müssen alle gewünschten Daten in einem Plot vereint werden.
+\noindent Daten können nur pro Plot exportiert werden. Um mehr Daten auf einmal zu exportieren, müssen alle gewünschten Daten in einem Plot vereint werden.
 
 \subsection{Messsoftware Neustarten}
 \label{restart}
 Das Programm kann mit Control+C beendet werden.\\
-Um es Erneut zu starten sollte es neu kompiliert werden, da so immer alle eventuellen Einstellungsänderungen übernommen werden:\\
+Um es erneut zu starten sollte es neu kompiliert werden, da so immer alle eventuellen Einstellungsänderungen übernommen werden:\\
 \textbf{sudo ~./SpectralSensor make}\\
 
 
@@ -74,18 +74,18 @@ Die grüne Heartbeat-LED ändert ihren Status nach jedem Messzyklus.\\
 
 
 \subsection{Hilfe}
-\textbf{Nachdem starten der Messung gibt es keine ausgabe in Terminal:}\\
+\textbf{Nach dem Starten der Messung gibt es keine Ausgabe in Terminal:}\\
 Vermutlich sind keine Sensoren angeschlossen\\
-\textbf{Die Systemzeit ist Falsch:}\\
+\textbf{Die Systemzeit ist falsch:}\\
 Keiner der NTP-Server aus der Liste /etc/systemd/timesyncd.conf kann erreicht werden.\\
-\textbf{Das Webinterface ist nicht Erreichbar:}\\
+\textbf{Das Webinterface ist nicht erreichbar:}\\
 Entweder wurde die Adresse falsch geschrieben oder der Grafana-Server ist abgestürzt / wird nicht mehr automatisch gestartet.\\
 \textbf{Error: 500
 Write to Database Failed!:}
-Der InfluxDB-Server abgestürzt / wird nicht mehr automatisch gestartet.
+Der InfluxDB-Server ist abgestürzt / wird nicht mehr automatisch gestartet.
 \subsection{Liste Der Verwendeten I2C Adressen \& Translationbytes}
 \label{liste_Translationbytes}
-Die Translation Bytes (Dezimal) 0- 59 Wurde bereits verwendet, sollten weitere Sensorboards angefertigt werden muss das hier notiert werden:
+Die Translation Bytes (Dezimal) 0- 59 wurden bereits verwendet. Sollten weitere Sensorboards angefertigt werden, muss es hier notiert werden:
 
 
 
