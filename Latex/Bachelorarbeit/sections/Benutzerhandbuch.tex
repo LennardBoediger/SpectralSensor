@@ -29,6 +29,24 @@ Um die Einstellung zu verändern wird \textbf{N} ausgewählt.\\
 \caption{Beispielhafter Terminal Output bei Einstellungsänderungen}
 \label{fig:changesettings}
 \end{figure}
+\noindent Die Einstellungen werden nacheinander abgefragt, die Eingaben müssen mit Enter bestätigt werden.\medskip
+
+\noindent Integration Value bestimmt die Integrationszeit, d. h. die Belichtungszeit der einzelnen Messungen.
+Gain bestimmt den Verstärkungsfaktor der Messwerte. Auto Gain wählt automatisch den am besten geeigneten Verstärkungsfaktor für jede Messung.
+Measurement Interval ist das Intervall, in dem alle angeschlossenen Sensoren eine Messung durchführen.
+\subsection{Einstellung für fortgeschrittene Benutzer}
+ \begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{img/advanced_setting}
+\caption{SpectralSensor/defaultvalues.h}
+\label{fig:changesettings}
+\end{figure}
+ In der Datei \textbf{SpectralSensor/defaultvalues.h} können die für den Programmstart vorgeschlagenen Standardeinstellungen angepasst werden.\\
+ Zusätzlich kann eingestellt werden, dass die Messung ohne manuelle Benutzerinteraktion direkt nach dem Booten mit den Standardeinstellungen startet (PLUG\_AND\_PLAY).\\
+ Um die Kalibrierung zu erleichtern, kann der automatische zeitbasierte Auslöser deaktiviert werden (MAUAL\_TRIGGER). Die einzelnen Messungen werden dann durch Drücken der Enter-Taste durchgeführt.
+ 
+
+
 \subsection{Webinterface}
 Das Grafana Webinterface ist unter folgender Adresse im Browser zu erreichen:\\
 \textbf{[IP-ADRESSE]:3000}
