@@ -7495,6 +7495,8 @@ Updated by Yingchun,Shan 2019-10-16
 <wire x1="170.18" y1="35.56" x2="71.12" y2="35.56" width="0.1524" layer="97" style="longdash"/>
 <wire x1="71.12" y1="35.56" x2="71.12" y2="-7.62" width="0.1524" layer="97" style="longdash"/>
 <wire x1="71.12" y1="35.56" x2="71.12" y2="83.82" width="0.1524" layer="97" style="longdash"/>
+<wire x1="170.18" y1="86.36" x2="170.18" y2="-7.62" width="0.1524" layer="97" style="longdash"/>
+<text x="182.88" y="78.74" size="1.778" layer="97">Prototyping Connectors</text>
 </plain>
 <instances>
 <instance part="GND1" gate="1" x="147.32" y="45.72" smashed="yes">

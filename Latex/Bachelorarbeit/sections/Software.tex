@@ -320,8 +320,8 @@ Zudem kann eingestellt werden, dass die Messungen manuell auslöst werden, z. B.
 \lstinputlisting[language=C,style=c]{code/default_values.h}
 
 \subsection{measurement}\label{measurement-c}
-Die Datei measurement.c enthält alle Funktionen um Messungen mit den zuvor definierten Einstellungen durchzuführen und in der Datenbank zu speichern.
-TODO murks!
+Die Datei measurement.c enthält alle Funktionen, die mit Hilfe der beiden Libraries () Messergebnisse von den Sensoren abfragen und in der Datenbank speichern können.
+
 
 \subsubsection{fixedGainMeasurementAS7261 \& fixedGainMeasurementAS7265X}
 Bei der Messung mit konstanter Verstärkung werden alle Werte mit einer festen Integrationszeit und einem festen Gain erfasst. Es gibt also für jeden Kanal einen Wert, der unter dem gleichen Namen gespeichert wird. In der Datenbank sind sie unter den in Tabelle \ref{fix_Datenbankname_61} und \ref{fix_Datenbankname_65} beschriebenen Namen zu finden.

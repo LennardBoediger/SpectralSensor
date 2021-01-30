@@ -1,8 +1,12 @@
+Für diese Arbeit wurden zwei Platinen mit dem EDA\footnote{Electronic design automation}-Programm Eagle entworfen.
+Abbildungen des Schaltplans und der Platinen, sowie deren Eagle-Dateien befinden sich im Anhang.
+Mit Hilfe von externen Dienstleistern wurden 30 Sensorboards und drei Stauts \& Adapterplatinen angefertigt.
+
 \subsection{System Topologie}
 \begin{figure}[H]
 \centering
 \includegraphics[width=1\textwidth]{img/System-Topologie.png}
-\caption{Verschaltung der der Platienen \cite{raspberrypi_fundation}}
+\caption{Verschaltung der Platienen \cite{raspberrypi_fundation}}
 \label{fig:Verschaltung_der_P}
 \end{figure}
 
@@ -42,12 +46,13 @@ I2C als Kommunikationsmodus des AS7261 ausgewählt.
 \paragraph{Translation Byte Widerstände:}
 Die 8 Widerstände auf der Rückseite, R1\_XX und R2\_XX, sind die in \ref{I2C-Translator} beschriebenen Widerstände, welche das Translation Byte einstellen. Die Widerstände R1\_XX bestimmen die Addresse des AS7261 und R2\_XX die Addresse des AS72651.
 
-\paragraph{Entstörkondensatoren:} Im Datenblatt der Sensoren wird empfohlen, für jeden Sensor zwei parallele Entstörkondensatoren, mit den Kapazitäten $10uF$ und $100nF$, so nah wie möglich am Sensor zwischen GND und VCC zu platzieren.
+\paragraph{Entstörkondensatoren:} Im Datenblatt der Sensoren wird empfohlen, für jeden Sensor zwei parallele Entstörkondensatoren, mit den Kapazitäten $10uF$ und $100nF$, so nah wie möglich am Sensor zwischen GND und VCC zu platzieren. In Tabelle \ref{kondi} sind die verwendeten Kondensatoren, ihre Abkürzung auf dem Sensorboard und der zugehörige Sensor aufgelistet.
 
-
-\begin{center}
-\begin{tabular}{ c c c }
+\begin{table}[H]
+\centering
+\begin{tabular}{ c | c | c }
  Kürzel & Wert & Sensor \\ 
+ \hline
  C5 & $10uF$ & AS7261 \\  
  C4 & $100nF$ & AS7261 \\
  C1 & $10uF$ & AS72651 \\  
@@ -57,7 +62,9 @@ Die 8 Widerstände auf der Rückseite, R1\_XX und R2\_XX, sind die in \ref{I2C-T
  C7 & $10uF$ & AS72653 \\  
  C6 & $100nF$ & AS72653 \\
 \end{tabular}
-\end{center}
+\caption{Entstörkondensatoren}
+\label{kondi}
+\end{table}
 
 \begin{figure}[H]
 \centering
