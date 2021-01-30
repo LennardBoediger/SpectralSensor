@@ -3,6 +3,7 @@
 \usepackage[ngerman]{babel}
 %\usepackage[T1]{fontenc} % umlaute
 \usepackage[utf8]{inputenc}
+\usepackage{setspace}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -92,27 +93,43 @@
 \begin{document}
 \pagenumbering{arabic}
 
-\titlehead
-{
+% Titeseite
+\begin{titlepage}
+\begin{center}
 	\begin{minipage}{0.6\textwidth}
+	\begin{tabular}{l}
 	Technische Universität Berlin\\
-	Fakulät IV\\
-	Institut für Energie- und Automatisierungstechnik Fachgebiet Lichttechnik\\
+	Fakulät IV (Elektrotechnik und Informatik)\\
+	Institut für Energie- und Automatisierungstechnik\\
+	Fachgebiet Lichttechnik\\
+	\end{tabular}
 	\end{minipage}
 	\hfill
 	\begin{minipage}{0.3\textwidth}\raggedright
 	\includegraphics[scale=0.06]{tu-logo}\\
 	\end{minipage}
 	
+	\vspace{3cm}
+    \sffamily \LARGE \textbf{Entwicklung und Realisierung einer Messeinrichtung mit den Sensoren AS7261 und AS72651 von ams}\\
+ 	\Large Bachelorarbeit\\
+    \vspace{2.5cm}
+	{\renewcommand{\arraystretch}{0.7}
+    	\begin{tabular}{ll}
+    		Vorgelegt von: & Lennard Bödiger\\
+			Studiengang:	 & Technische Informatik\\
+			Matrikel-Nr.: & 363470\\
+		\end{tabular}
 	}
 
-\title {Entwicklung und Realisierung einer Messeinrichtung mit den Sensoren AS7261 und AS72651 von ams}
-\subtitle{Bachelorarbeit}
-\author{Vorgelegt von: Lennard Bödiger\\
-Matrikelnr.: 363470\\
-Studiengang: Technische Informatik}
+  	\vspace{5.5cm}
+	\end{center}
+	\begin{tabular}{ll}
+		Eingereicht am: & 8. Februar 2021\\
+		Betreuung: & Nils Weber\\
+		Prüfer/in: & Prof. Dr.-Ing. Stephan Völker Prof.\\ 	& Dr.-Ing. Sibylle Dieckerhoff
+	\end{tabular}\\
+\end{titlepage}
 
-\maketitle  %Erstellt das Titelblatt wie oben definiert
 \section*{Abstract}
 \subfile{sections/Abstract}
 \newpage
