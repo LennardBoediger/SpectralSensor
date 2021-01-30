@@ -121,7 +121,7 @@
 		\end{tabular}
 	}
 
-  	\vspace{5.5cm}
+  	\vspace{5.3cm}
 	\end{center}
 	\begin{tabular}{ll}
 		Eingereicht am: & 8. Februar 2021\\
@@ -129,6 +129,13 @@
 		Prüfer/in: & Prof. Dr.-Ing. Stephan Völker Prof.\\ 	& Dr.-Ing. Sibylle Dieckerhoff
 	\end{tabular}\\
 \end{titlepage}
+\newpage
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{img/alles-ich.png}
+\end{figure}
+
+\newpage
 
 \section*{Abstract}
 \subfile{sections/Abstract}
@@ -139,12 +146,8 @@
 \newpage
 \listoftables
 \section{TODO Liste}
-Zusamenfassung!!!\\
 anhangsverzeichniss\\
 der satz von dem foto ist müll\\
-selbständigkeits erklärung\\
-deckbaltt\\
-abb namen\\
 
 
 \newpage
@@ -178,15 +181,18 @@ Programmcode kann schnell und einfach über SSH ausgeführt werden und auch die 
 Grafana lässt sich in der grafischen Oberfläche sehr einfach anpassen, aber das einmalige Einrichten eines Dashboards ist für viele Sensoren umständlich und zeitaufwendig.
 Die Datenkomprimierungseffizienz von InfluxDB übertrifft die Erwartungen, sodass es möglich ist, auch mit kleinen SD-Karten über mehrere Jahre Daten zu erfassen.\\
 Alle Softwarekomponenten laufen im Dauertest mit einer angeschlossenen Sensorplatine seit sechs Wochen ohne Probleme.
-In einem weiteren Test läuft das System mit 4 angeschlossenen Sensorboards seit zwei Wochen ebenfalls ohne Probleme.\\
-Zum Abgabezeitpunkt der vorliegenden Arbeit besteht das Problem, dass nur vier Sensorplatinen, d.h. 8 I2C-Salven gleichzeitig am Bus angeschlossen werden können.
+In einem weiteren Test läuft das System mit 4 angeschlossenen Sensorboards seit zwei Wochen ebenfalls ohne Probleme.\smallskip
+
+\noindent Zum Abgabezeitpunkt der vorliegenden Arbeit besteht das Problem, dass nur vier Sensorplatinen d.h. 8 I2C-Salven gleichzeitig am Bus angeschlossen werden können.
 Ab dem fünften Sensorboard kann der Raspberry Pi die I2C-Adressen aller angeschlossenen Sensoren nicht mehr finden.
 Das Problem könnte mit einem modernen Oszilloskop analysiert werden, aber die Verfügbarkeit von Werkzeugen ist aufgrund der Corona-Pandemie zeitnah nicht möglich.
 Als Workaround gibt es die Möglichkeit, einen Bus-Multiplexer zu verwenden.
 Dieses Gerät wird über i2c direkt an den Bus angeschlossen und hat mehrere I2C-Bus-Ports, über einen Befehl kann dem Multiplexer mitgeteilt werden, welcher I2C-Bus-Kanal zum Raspberry Pi durchgeschaltet wird.
-Die fragliche These ist, ob mehr als vier Sensorplatinen angeschlossen werden können, indem an jeden Kanal des Busmultiplexers nur maximal vier Sensorplatinen angeschlossen werden.\\
-Abgesehen davon, dass die geforderte Anzahl der anschließbaren Sensoren derzeit nicht erreicht wird, ist der Messaufbau einsatzbereit und die verbleibenden Probleme können mit überschaubarem Aufwand gelöst werden.
+Eine Betaversion des Workarounds ist bereits implementiert und auf Github\footnote{\url{https://github.com/LennardBoediger/Bachelorarbeit}} zu finden, wird aber in dieser Arbeit nicht behandelt.
+\smallskip
 
+\noindent Abgesehen davon, dass die geforderte Anzahl der anschließbaren Sensoren derzeit nicht erreicht wird, ist der Messaufbau einsatzbereit und die verbleibenden Probleme können mit überschaubarem Aufwand gelöst werden.
+\newpage
 \bibliography{Quellen/Quellen.bib}
 \bibliographystyle {ieeetr}
 \end{document}
