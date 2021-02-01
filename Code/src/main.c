@@ -13,6 +13,8 @@
 #include "../default_values.h"
 
 #define AUTOGAIN 4
+#define HEARTBEAT_LED 7
+#define STATUS_LED 6
 
 struct measurmentSettings{
     uint8_t integrationValue;       // Value from 0-255 -> Integration Time will be 2.8ms * [integration value] 
@@ -91,7 +93,16 @@ void changeSettings(measurmentSettings *Settings){
     printf("\n\n\n\n\n");
 }
 
+
 int main() {
+    // Staus LED Setup
+    wiringPiSetup();
+    pinMode(HEARTBEAT_LED, OUTPUT);
+    pinMode(STATUS_LED, OUTPUT);
+    digitalWrite(STATUS_LED, HIGH);
+    digitalWrite(HEARTBEAT_LED, LOW);
+
+    // Welcome Screen
     welcomeMessage();
     printTime();
 
@@ -106,8 +117,8 @@ int main() {
     for (int i = 0; i < 128; ++i){	// Fill sensor list with defualt value
         s[i].address = -1;
     }
-    while(1){
-        I2C_Scan(s); //Scan for Sensors
+    while(1){  
+        I2C_Scan(s); // Scan for Sensors
         printf("Please check if all expected devices are available.\n");
         printf("----------Settings-----------\n");
         printf("Integration Value: %hhu * 2.8ms = Integration Time\n",Settings.integrationValue);
@@ -121,13 +132,19 @@ int main() {
             if (userSettingResponse[0] == 'N' || userSettingResponse[0] == 'n'){	// User says No - Change settings
                 changeSettings(&Settings);
             }
-            else if (userSettingResponse[0] == 'Y' || userSettingResponse[0] == 'y'){	// User says Yes - Start 
+            else if (userSettingResponse[0] == 'Y' || userSettingResponse[0] == 'y'){	// User says Yes - Start Measurement
                 printf("--Starting Measurment Cycle--\n");
+                digitalWrite(STATUS_LED, LOW); // Turn off the Stauts LED  
                 break;
             }
             else{
                 printf("Error\n\n\n\n");	// User doesn't know what he is doing - Ask again
             }
+        }
+        else{
+            printf("--Starting Measurment Cycle--\n");
+            digitalWrite(STATUS_LED, LOW); // Turn off the Stauts LED
+            break; // Start Measurement in plug and play mode 
         }
     }
 
@@ -152,6 +169,7 @@ int main() {
             uint64_t measurement_duration = currentTimestamp(s)-measurement_time;	// Calculate measurement duration
             printf("Measurement duration: %llu ms\n",measurement_duration);			// Print measurement duration
             printf("-----------------------------\n");
+            digitalWrite(HEARTBEAT_LED, HIGH);
             if (MANUAL_TRIGGER == 1){
                 printf("Press enter for Next Measurement\n");
                 char enter = 0;
@@ -162,6 +180,7 @@ int main() {
             else{
                 delayMeasurementMin(Settings.measurementIntervall);						// Wait for next measurement
             }
+            digitalWrite(HEARTBEAT_LED, LOW);
     }
     return 0;
 }

@@ -22,7 +22,8 @@ So kann über das beschriebene Sensorarray die farbliche Zusammensetzung des ein
 
 \noindent Wie in Abbildung \ref{fig:Seitenasicht-AS726X} dargestellt, fällt das Licht durch die Öffnung in der Mitte des Sensors ein. Eine intern verbaute Linse verteilt das Lich auf die Interferenzfilter. Die Genauigkeit der Filter verändert sich je nach Einstrahlwinkel, daher ist es wichtig vor den Sensor noch eine Streuscheibe zu montieren.\\
 Die so gemessenen Daten können über UART oder I2C an einen Mikrocontroller übertragen werden. Da über UART nur ein Gerät verbunden werden kann, eignet sich aber für diesen Anwendungsfall nur die I2C Schnittstelle.\\
-Alle Sensoren erhalten vom Hersteller dieselbe, nicht veränderbare I2C Adresse: 0x49. Daher muss ein I2C Translator genutzt werden, welcher es ermöglicht mehrere Sensoren im gleichen Bussystem zu adressieren (siehe Abschnitt \ref{I2C-Translator}).\\
+\newpage
+\noindent Alle Sensoren erhalten vom Hersteller dieselbe, nicht veränderbare I2C Adresse: 0x49. Daher muss ein I2C Translator genutzt werden, welcher es ermöglicht mehrere Sensoren im gleichen Bussystem zu adressieren (siehe Abschnitt \ref{I2C-Translator}).\\
 
 
 \noindent Die Modelle unterscheiden sich durch die verbauten Silizium-Interferenzfilter, also die unterscheidbaren Wellenlängenbereiche sowie in der benötigten Peripherie.
@@ -72,7 +73,8 @@ Die Konvertierungen erfolgen kontinuierlich und Daten sind in den I2C-Registern 
 \textbf{Bank Mode 2}\\
 Die Konvertierungen erfolgen kontinuierlich, Daten sind nach zwei Integrationsperioden in den Registern X, Y, Z, NIR, D und C verfügbar. 
 In diesem Modus können die kalibrierten, korrigierten Werte auch aus den entsprechenden I2C-Registern abgerufen werden.\\
-\textbf{Bank Mode 3}\\
+\newpage
+\noindent \textbf{Bank Mode 3}\\
 Die Konvertierungen erfolgen nur ein Mal und Daten sind, wie in Bank Mode 2, nach zwei Integrationsperioden in den Registern X, Y, Z, NIR, D und C verfügbar.
 Auch die kalibrierten, korrigierten Werte können aus den entsprechenden I2C-Registern abgerufen werden.
 Das DATA RDY-Bit wird auf 1 gesetzt, sobald Daten verfügbar sind.\\

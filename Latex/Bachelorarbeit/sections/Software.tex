@@ -153,6 +153,7 @@ Da die anderen Bits des Registers noch weitere Einstellungen repräsentieren, we
 Anschließend werden nur die Bank Mode Bits auf 0 gesetzt, um im nächsten Schritt mit dem gewünschten neuen Bank Modewert beschrieben zu werden. 
 Die Bedeutung der Bank Modes ist in \ref{sec_bank_modes} erläutert.
 \lstinputlisting[language=C,style=c]{code/setMeasurementMode.c}
+\newpage
 \subsubsection{dataAvailable \& clearDataAvailable}
 Das Bit dataAvailble im Register AS726x\_Control\_Setup wird vom Sensor auf 1 gesetzt, wenn nach einer Messung neue Daten vorhanden sind. Interrupts müssen dafür ausgeschaltet sein.
 Wenn eine One-Shot Messung im Bank Mode 3 durchgeführt wird, muss das dataAvailble Bit mit der Funktion clearDataAvailable auf 0 gesetzt werden. Die Funktion dataAvailable gibt den Wert des DataAvailable Bit zurück.\\
@@ -208,7 +209,7 @@ Die Funktion verarbeitet den aus Abschnitt \ref{Rohwerte-des-AS7265X-Auslesen} b
 	Das eigentliche Auslesen des 16-Bit Messwerts erfolgt mithilfe der Funktion getChannel, das Ergebnis ist der Rückgabewert der Funktion getChannel\_AS7265X.\\
 
 \lstinputlisting[language=C,style=c]{code/getChannel_AS7265X.c}
-
+\newpage
 \subsubsection{selectDevice}
 Die Notwendigkeit für selectDevice wurde in Abschnitt \ref{getChannel_AS7265X} bereits erläutert.
 Laut Datenblatt sollen nur die Bits 0 und 1 des DEV\_SELECT\_CONTROL Registers beschrieben werden, das stimmt aber nicht.\\
@@ -318,9 +319,9 @@ Die main-Funktion führt den Benutzer durch den Auswahlprozess der Einstellungen
 Zudem kann eingestellt werden, dass die Messungen manuell auslöst werden, z. B. um den Sensor zu kalibrieren (Maunual-Trigger).\\
 
 \lstinputlisting[language=C,style=c]{code/default_values.h}
-
+\newpage
 \subsection{measurement}\label{measurement-c}
-Die Datei measurement.c enthält alle Funktionen, die mit Hilfe der beiden Libraries () Messergebnisse von den Sensoren abfragen und in der Datenbank speichern können.
+Die Datei measurement.c enthält alle Funktionen, die mithilfe der beiden Libraries (influxDB Library \ref{influxDB-Library}, AS726X Library \ref{AS726X-Library}), Messergebnisse von den Sensoren abfragen und in der Datenbank speichern können.
 
 
 \subsubsection{fixedGainMeasurementAS7261 \& fixedGainMeasurementAS7265X}

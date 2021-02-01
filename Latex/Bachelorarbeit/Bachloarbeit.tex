@@ -145,12 +145,8 @@
 \listoffigures
 \newpage
 \listoftables
-\section{TODO Liste}
-anhangsverzeichniss\\
-der satz von dem foto ist müll\\
-
-
 \newpage
+
 \section{Einleitung}
 \subfile{sections/Einleitung}
 \newpage
@@ -177,17 +173,17 @@ der satz von dem foto ist müll\\
 \newpage
 \section{Zusammenfassung}
 Der Raspberry Pi hat sich als Steuergerät für den Messaufbau bewährt.
-Programmcode kann schnell und einfach über SSH ausgeführt werden und auch die Fehlersuche ist sehr komfortabel.\\
-Grafana lässt sich in der grafischen Oberfläche sehr einfach anpassen, aber das einmalige Einrichten eines Dashboards ist für viele Sensoren umständlich und zeitaufwendig.
-Die Datenkomprimierungseffizienz von InfluxDB übertrifft die Erwartungen, sodass es möglich ist, auch mit kleinen SD-Karten über mehrere Jahre Daten zu erfassen.\\
+Der Programmcode kann schnell und einfach über SSH ausgeführt werden und auch die Fehlersuche ist sehr komfortabel.\\
+Grafana lässt sich in der grafischen Oberfläche sehr einfach anpassen. Jedoch ist das einmalige Einrichten eines Dashboards für viele Sensoren umständlich und zeitaufwendig.
+Die Datenkomprimierungseffizienz von InfluxDB übertrifft die Erwartungen, so dass es möglich ist, auch mit kleinen SD-Karten über mehrere Jahre Daten zu erfassen.\\
 Alle Softwarekomponenten laufen im Dauertest mit einer angeschlossenen Sensorplatine seit sechs Wochen ohne Probleme.
 In einem weiteren Test läuft das System mit 4 angeschlossenen Sensorboards seit zwei Wochen ebenfalls ohne Probleme.\smallskip
 
-\noindent Zum Abgabezeitpunkt der vorliegenden Arbeit besteht das Problem, dass nur vier Sensorplatinen d.h. 8 I2C-Salven gleichzeitig am Bus angeschlossen werden können.
+\noindent Zum Abgabezeitpunkt der vorliegenden Arbeit besteht das Problem, dass nur vier Sensorplatinen, d.h. 8 I2C-Slaves, gleichzeitig am Bus angeschlossen werden können.
 Ab dem fünften Sensorboard kann der Raspberry Pi die I2C-Adressen aller angeschlossenen Sensoren nicht mehr finden.
-Das Problem könnte mit einem modernen Oszilloskop analysiert werden, aber die Verfügbarkeit von Werkzeugen ist aufgrund der Corona-Pandemie zeitnah nicht möglich.
+Das Problem könnte mit einem modernen Oszilloskop analysiert werden. Die Verfügbarkeit von Werkzeugen ist leider aufgrund der Corona-Pandemie zeitnah nicht möglich.
 Als Workaround gibt es die Möglichkeit, einen Bus-Multiplexer zu verwenden.
-Dieses Gerät wird über i2c direkt an den Bus angeschlossen und hat mehrere I2C-Bus-Ports, über einen Befehl kann dem Multiplexer mitgeteilt werden, welcher I2C-Bus-Kanal zum Raspberry Pi durchgeschaltet wird.
+Dieses Gerät wird über I2C direkt an den Bus angeschlossen und hat mehrere I2C-Bus-Ports. Über einen Befehl kann dem Multiplexer mitgeteilt werden, welcher I2C-Bus-Kanal zum Raspberry Pi durchgeschaltet wird.
 Eine Betaversion des Workarounds ist bereits implementiert und auf Github\footnote{\url{https://github.com/LennardBoediger/Bachelorarbeit}} zu finden, wird aber in dieser Arbeit nicht behandelt.
 \smallskip
 
@@ -195,4 +191,42 @@ Eine Betaversion des Workarounds ist bereits implementiert und auf Github\footno
 \newpage
 \bibliography{Quellen/Quellen.bib}
 \bibliographystyle {ieeetr}
+\newpage
+\section*{Anhangsverzeichnis}
+
+\noindent \textbf{AMS\_Firmware}\\
+\indent AS7261\_complete.bin\\
+\indent AS7265\_complete\_moonlight\_v1\smallskip
+
+\noindent \textbf{Dokumente}\\
+\indent AS726x\_Design\_Considerations.pdf\\
+\indent AS7261\_Datasheet.pdf\\
+\indent AS7265x\_Datasheet.pdf\\
+\indent lTC4316-I2C-Translator\_Datasheet.pdf\\
+\indent Program\_AS72xx\_FlashCatUSB.pdf\smallskip
+
+\noindent \textbf{Hardware}\\
+\indent Sensorboard\_Layout.pdf\\
+\indent Sensorboard.brd\\
+\indent Sensorboard.sch\\
+\indent Status-Adapterboard\_Layout.pdf\\
+\indent Status-Adapterboard.brd\\
+\indent Status-Adapterboard.sch\smallskip
+
+\noindent \textbf{Programmcode}\\
+\indent default\_values.h\\
+\indent Makefile\\
+\indent lib\\
+\indent \indent influxDB\_http\_Libary\\
+\indent \indent \indent influxdb.c\\
+\indent \indent \indent influxdb.h\\
+\indent \indent wiringPi\_AS726X\_Libary\\
+\indent \indent \indent AS726X.c\\
+\indent \indent \indent AS726X.h\\
+\indent src\\
+\indent \indent main.c\\
+\indent \indent measurement.c\\
+\indent \indent measurement.h\\
+\indent \indent welcome.c\\
+\indent \indent welcome.h
 \end{document}
