@@ -100,17 +100,53 @@ typedef struct sensor sensor_list;
 
 #endif /* GRANDPARENT_H */
 
-uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd);//TODO remove unused function
+// Unused Test Funktion 
+uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd);
+
+
+// returns the Sensor Version
+// AS7261 or AS7265X
 uint8_t getVersion(int fd); //61 oder 65
-void I2C_Scan(sensor_list *const s); //Remove _
-uint8_t scan_AS7262(int fd);//Remove _
-uint8_t scan_AS7263(int fd);//Remove _
+
+// Scanns for sensors on all 128 possible addresses
+// input pointer to to array of sensor_list struct size hast to be 128
+// wirtes sensor address and type to array of sensor_list struct
+void I2C_Scan(sensor_list *const s);
+
+//Test if Slave1 and 2 are detected.  Datasheet is wrong! AS72652 -> Bit 4, AS72653 -> Bit 5
+uint8_t scan_AS7262(int fd);
+uint8_t scan_AS7263(int fd);
+
+//Select witch AS7265X Device is used
+//AS72651_id or AS72652_id or AS72653_id 
 void selectDevice(uint8_t device, int fd);
+
+//Sets the measurement mode
+//Mode 0: Continuous reading of VBGY (7262) / STUV (7263)
+//Mode 1: Continuous reading of GYOR (7262) / RTUX (7263)
+//Mode 2: Continuous reading of all channels (power-on default)
+//Mode 3: One-shot reading of all channels
 void setMeasurementMode(uint8_t mode, int fd);
+
+//Sets the gain value
+//Gain 0: 1x (power-on default)
+//Gain 1: 3.7x
+//Gain 2: 16x
+//Gain 3: 64x
 void setGain(uint8_t gain, int fd);
+
+//Sets the integration value
+//Give this function a uint8_t from 0 to 255.
+//Time will be 2.8ms * [integration value]
 void setIntegrationTime(uint8_t integrationValue, int fd);
+
+//Disables the interrupt pin witch is not connected so disable it!
 void disableInterrupt(int fd);
+
+//Tells IC to take measurements and polls for data ready flag
 void takeMeasurements(int fd);
+
+//Calls takeMeasurements on gives I2C Adrress
 void MeasurementFromAdress(int address);
 
 
@@ -138,7 +174,6 @@ int getJ(int fd);
 int getK(int fd);
 int getL(int fd);
 
-//Get the various UV readings
 //Get RAW AS72653(UV) readings
 int getA(int fd);
 int getB(int fd);
@@ -147,16 +182,38 @@ int getD(int fd);
 int getE(int fd);
 int getF(int fd);
 
+
+// returns Color channel of AS7265X
+// returns -1 if slave AS72651 or AS72652 is not available
 int getChannel_AS7265X(int device, uint8_t channelRegister, int fd);
+
+//Returns a 16-bit value stored in two consecutive 8-Bit registers 
 int getChannel(uint8_t channelRegister, int fd);
 
+//Checks to see if DRDY flag is set in the control setup register
 uint8_t dataAvailable(int fd);
+
+//Clears the DRDY flag
+//Normally this should clear when data registers are read
 void clearDataAvailable(int fd);
+
+//Enable the onboard indicator LED
 void enableIndicator(int fd);
+
+//Disable the onboard indicator LED
 void disableIndicator(int fd);
-uint8_t getTemperature(int fd);//latex
+
+//Returns the temperature in C 
+uint8_t getTemperature(int fd); // very inaccurate readings!
+
+//Does a soft reset
+//Give sensor at least 1000ms to reset
 void softReset(int fd);
+
+//Read a virtual register from the AS726x
 uint8_t virtualReadRegister(uint8_t virtualAddr, int fd);
+
+//Write to a virtual register in the AS726x
 void virtualWriteRegister(uint8_t virtualAddr, uint8_t dataToWrite, int fd);
 
 
