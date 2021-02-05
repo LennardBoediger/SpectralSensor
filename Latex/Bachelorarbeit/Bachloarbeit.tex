@@ -181,7 +181,6 @@ In einem weiteren Test läuft das System mit 4 angeschlossenen Sensorboards seit
 
 \noindent Zum Abgabezeitpunkt der vorliegenden Arbeit besteht das Problem, dass nur vier Sensorplatinen, d.h. 8 I2C-Slaves, gleichzeitig am Bus angeschlossen werden können.
 Ab dem fünften Sensorboard kann der Raspberry Pi die I2C-Adressen aller angeschlossenen Sensoren nicht mehr finden.
-Das Problem könnte mit einem modernen Oszilloskop analysiert werden. Die Verfügbarkeit von Werkzeugen ist leider aufgrund der Corona-Pandemie zeitnah nicht möglich.
 Als Workaround gibt es die Möglichkeit, einen Bus-Multiplexer zu verwenden.
 Dieses Gerät wird über I2C direkt an den Bus angeschlossen und hat mehrere I2C-Bus-Ports. Über einen Befehl kann dem Multiplexer mitgeteilt werden, welcher I2C-Bus-Kanal zum Raspberry Pi durchgeschaltet wird.
 Eine Betaversion des Workarounds ist bereits implementiert und auf Github\footnote{\url{https://github.com/LennardBoediger/Bachelorarbeit}} zu finden, wird aber in dieser Arbeit nicht behandelt.

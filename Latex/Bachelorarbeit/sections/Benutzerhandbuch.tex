@@ -3,8 +3,12 @@ Der Raspberry Pi muss mit seiner Stromversorgung (USB C), einem  Netzwerk (Ether
 \subsection{Messung Starten}
 Über das Terminal (Unter Windows cmd) muss eine SSH Verbindung zum Raspberry Pi aufgebaut werden.\\
 \textbf{ssh pi@[IP-ADRESSE]}\\
-Die Messsoftware wurde automatisch in einem Screen mit den Namen SpectralSensor gestartet. Um die Messung zu starten muss sich mit diesem Screen verbunden werden.\\
-\textbf{screen -r}\\
+Die Messsoftware befindet sich im Ordner $\sim$/SpectralSensor\\
+\textbf{cd  $\sim$/SpectralSensor}\\
+Damit die Messsoftware auch noch weiter läuft, wenn die SSH Verbindung wieder geschlossen wird, muss sie in einem Screen kompiliert werden.\\
+\textbf{screen make}\\
+Um die SSH Verbindung zu trennen, ohne die Messung zu unterbrechen, wird einfach das Terminal/CMD Fenster geschlossen.\smallskip
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{img/handbuch/check_settings}
@@ -32,7 +36,7 @@ Um die Einstellung zu verändern wird \textbf{N} ausgewählt.\\
 \noindent Die Einstellungen werden nacheinander abgefragt, die Eingaben müssen mit Enter bestätigt werden.\medskip
 
 \noindent Integration Value bestimmt die Integrationszeit, d. h. die Belichtungszeit der einzelnen Messungen.
-Gain bestimmt den Verstärkungsfaktor der Messwerte. Auto Gain wählt automatisch den am besten geeigneten Verstärkungsfaktor für jede Messung.
+Gain bestimmt den Verstärkungsfaktor der Messwerte. Im Auto Gain modus wird automatisch der am besten geeigneten Verstärkungsfaktor für jede einzelne Messung ausgewählt.
 Measurement Interval ist das Intervall, in dem alle angeschlossenen Sensoren eine Messung durchführen.
 \subsection{Einstellung für fortgeschrittene Benutzer}
  \begin{figure}[H]
@@ -41,8 +45,8 @@ Measurement Interval ist das Intervall, in dem alle angeschlossenen Sensoren ein
 \caption{SpectralSensor/defaultvalues.h}
 \label{fig:changesettings}
 \end{figure}
- In der Datei \textbf{SpectralSensor/defaultvalues.h} können die für den Programmstart vorgeschlagenen Standardeinstellungen angepasst werden.\\
- Zusätzlich kann eingestellt werden, dass die Messung ohne manuelle Benutzerinteraktion direkt nach dem Booten mit den Standardeinstellungen startet (PLUG\_AND\_PLAY).\\
+ In der Datei \textbf{SpectralSensor/defaultvalues.h} können die beim Programmstart vorgeschlagenen Standardeinstellungen angepasst werden.\\
+ Zusätzlich kann eingestellt werden, dass die Messung ohne manuelle Benutzerinteraktion direkt mit den Standardeinstellungen startet (PLUG\_AND\_PLAY).\\
  Um die Kalibrierung zu erleichtern, kann der automatische zeitbasierte Auslöser deaktiviert werden (MAUAL\_TRIGGER). Die einzelnen Messungen werden dann durch Drücken der Enter-Taste durchgeführt.
  
 
@@ -57,7 +61,7 @@ Das Grafana Webinterface ist unter folgender Adresse im Browser zu erreichen:\\
 \caption{Grafana Login im Browser}
 \label{fig:grafna_login}
 \end{figure}
-Im Example Dashboard sind alle Sensordatenplots vorhanden. Wenn weniger Plots benötigt werden oder die Darstellung angepasst werden muss, kann eine Kopie angefertigt und bearbeitet werden.\\
+\noindent Im Example Dashboard sind alle Sensordatenplots vorhanden. Wenn weniger Plots benötigt werden oder die Darstellung angepasst werden muss, kann eine Kopie angefertigt und bearbeitet werden.\\
 Um Daten im CSV-Format zu exportieren muss zuerst der gewünschte Zeitbereich ausgewählt werden.
 Anschließend wird, wie in Abbildung \ref{fig:export_data} zu sehen, im Kontextmenü (Klick auf den Namen eines Plots) unter Inspect die Option Data ausgewählt. 
 
@@ -69,11 +73,19 @@ Anschließend wird, wie in Abbildung \ref{fig:export_data} zu sehen, im Kontextm
 \end{figure}
 \noindent Daten können nur pro Plot exportiert werden. Um mehr Daten auf einmal zu exportieren, müssen alle gewünschten Daten in einem Plot vereint werden.
 
-\subsection{Messsoftware Neustarten}
+\subsection{Messsoftware Beenden/Neustarten}
 \label{restart}
 Das Programm kann mit Control+C beendet werden.\\
-Um es erneut zu starten sollte es neu kompiliert werden, da so immer alle eventuellen Einstellungsänderungen übernommen werden:\\
-\textbf{sudo ~./SpectralSensor make}\\
+Falls die SSH Verbindung geschlossen wurde, muss diese erst wieder aufgebaut werden.\\
+\textbf{ssh pi@[IP-ADRESSE]}\\
+Der Screen, in welchem die Messsoftware läuft, muss Attached sein.\\
+\textbf{screen -r}\\
+Die Liste aktiver Screens kann mit \textbf{screen -list} eingesehen werden.
+Weiter Informationen zu Screen: \url{https://linuxize.com/post/how-to-use-linux-screen/}
+
+\noindent Um die Software erneut zu starten, sollte sie wieder neu kompiliert werden, da so immer alle eventuellen Einstellungsänderungen in der Datei default\_values.h übernommen werden:\\
+\textbf{cd ~./SpectralSensor}\\
+\textbf{screen make}\\
 
 
 

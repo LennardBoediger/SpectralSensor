@@ -102,6 +102,26 @@ AS7261_channel cleanAS7261Data(AS7261_channel *const AS7261_measurement){
     }
     AS7261_measurement[0].NIR = matchValueToMaxGain(used_gain.NIR , AS7261_measurement[0].NIR);
     
+    // Tidying up the gain plot
+    if (AS7261_measurement[0].X == 0){
+        used_gain.X = 0;
+    }
+    if (AS7261_measurement[0].Y == 0){
+        used_gain.Y = 0;
+    }
+    if (AS7261_measurement[0].Z == 0){
+        used_gain.Z = 0;
+    }
+    if (AS7261_measurement[0].Clear == 0){
+        used_gain.Clear = 0;
+    }
+    if (AS7261_measurement[0].Dark == 0){
+        used_gain.Dark = 0;
+    }
+    if (AS7261_measurement[0].NIR == 0){
+        used_gain.NIR = 0;
+    }
+
     return used_gain;
 }
 
@@ -270,6 +290,61 @@ AS7265X_channel cleanAS7265XData(AS7265X_channel *const AS7265X_measurement){
     }
     AS7265X_measurement[0].F = matchValueToMaxGain(used_gain.F , AS7265X_measurement[0].F);
 
+    // Tidying up the gain plot
+    if (AS7265X_measurement[0].R == 0){
+        used_gain.R = 0;
+    }
+    if (AS7265X_measurement[0].S == 0){
+        used_gain.S = 0;
+    }
+    if (AS7265X_measurement[0].T == 0){
+        used_gain.T = 0;
+    }
+    if (AS7265X_measurement[0].U == 0){
+        used_gain.U = 0;
+    }
+    if (AS7265X_measurement[0].V == 0){
+        used_gain.V = 0;
+    }
+    if (AS7265X_measurement[0].W == 0){
+        used_gain.W = 0;
+    }
+    if (AS7265X_measurement[0].G == 0){
+        used_gain.G = 0;
+    }
+    if (AS7265X_measurement[0].H == 0){
+        used_gain.H = 0;
+    }
+    if (AS7265X_measurement[0].I == 0){
+        used_gain.I = 0;
+    }
+    if (AS7265X_measurement[0].J == 0){
+        used_gain.J = 0;
+    }
+    if (AS7265X_measurement[0].K == 0){
+        used_gain.K = 0;
+    }
+    if (AS7265X_measurement[0].L == 0){
+        used_gain.L = 0;
+    }
+    if (AS7265X_measurement[0].A == 0){
+        used_gain.A = 0;
+    }
+    if (AS7265X_measurement[0].B == 0){
+        used_gain.B = 0;
+    }
+    if (AS7265X_measurement[0].C == 0){
+        used_gain.C = 0;
+    }
+    if (AS7265X_measurement[0].D == 0){
+        used_gain.D = 0;
+    }
+    if (AS7265X_measurement[0].E == 0){
+        used_gain.E = 0;
+    }
+    if (AS7265X_measurement[0].F == 0){
+        used_gain.F = 0;
+    }
     return used_gain;
 }
 

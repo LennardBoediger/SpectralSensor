@@ -131,7 +131,7 @@ sudo nano /etc/rc.local
 
 
 Copy files:
-	scp -r /Users/lennard/Projekts/Bachelorarbeit/Code/wiringPi_AS726X_Libary   root@192.168.178.114:/mnt/mmcblk1/SpectralSensor
+	scp -r code/* SpectralSensor:~/SpectralSensor
 
 How to Screen:
 	screen -S your_session_name   		//start new session
@@ -146,19 +146,7 @@ sudo nmap -sn 192.168.1.0/24
 Nanopi macadressen:
 02:01:AE:2F:AC:1B 
 
-TODO:
-change default values to be read from config file
-drop table 
-temperatur auslesen
 
-wo speichert influxdb?
-grafana autostart
-fix delay measurment immer zu sekunde 0 
-add config.h
-git auf dem Pi 
-
-
-Hardware:
 
 
 
