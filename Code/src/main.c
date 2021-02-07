@@ -118,7 +118,7 @@ int main() {
         s[i].address = -1;
     }
     while(1){  
-        I2C_Scan(s); // Scan for Sensors
+        I2C_Mux_Scan(s); // Scan for Sensors
         printf("Please check if all expected devices are available.\n");
         printf("----------Settings-----------\n");
         printf("Integration Value: %hhu * 2.8ms = Integration Time\n",Settings.integrationValue);

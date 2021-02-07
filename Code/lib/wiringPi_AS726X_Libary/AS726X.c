@@ -26,14 +26,49 @@ uint8_t getVersion(int fd) {
     return virtualReadRegister(AS726x_HW_VERSION, fd);
 }
  
+#define MUX_ADDRESS 0x70
+
+void change_mux_channel(int8_t mux_channel){
+    int fd =  wiringPiI2CSetup(MUX_ADDRESS);
+    if (fd != -1){
+        wiringPiI2CWrite(fd, 1 << mux_channel); // shift to channel
+    }
+    close(fd);
+}
+
+void I2C_Mux_Scan(sensor_list *const s){
+    //look for presence of I2C MUX
+    int fd =  wiringPiI2CSetup(MUX_ADDRESS);
+    if (fd != -1){
+        if (wiringPiI2CWriteReg8 (fd, 5, 1) == 0){
+            //Mux Detected
+            printf("Mux at %X Detected\n", MUX_ADDRESS);
+            for (int mux_channel = 2; mux_channel < 8; ++mux_channel)
+            {
+                wiringPiI2CWrite(fd, 1 << mux_channel); // shift to every channel
+                I2C_Scan(s, mux_channel);
+            }
+        }
+    }
+    close(fd);
+}
+
+
 // Scanns for sensors on all 128 possible addresses
 // input pointer to to array of sensor_list struct size hast to be 128
 // wirtes sensor address and type to array of sensor_list struct
-void I2C_Scan(sensor_list *const s){
+void I2C_Scan(sensor_list *const s, int8_t mux_channel){
     //printf("test struct address in fuction%i is value %i\n",s[0].address, s[0].type );
-    printf("----------I2C Scan ----------\n");
+    printf("----------I2C Scan Channel %d ----------\n", mux_channel);
     uint8_t sensor_count = 0;
+    //look for end of array
+    while(s[sensor_count].address != -1 && sensor_count < 128){
+        sensor_count++;
+    }
     for (int address = 0; address < 128; ++address){
+        if (address == MUX_ADDRESS){
+            address++;
+        }
         int fd =  wiringPiI2CSetup(address);
         if (fd != -1){
             //try to write to some hopefully unused register(5)-> return value: 0 indicates that someone was listening 
@@ -42,6 +77,7 @@ void I2C_Scan(sensor_list *const s){
                 int version = getVersion(fd);   
                 if (version == SENSORTYPE_AS7261){
                     printf("Device at: 0x%X is AS7261\n",address);
+                    s[sensor_count].mux_channel = mux_channel;
                     s[sensor_count].address = address;
                     s[sensor_count].type = SENSORTYPE_AS7261;
                     s[sensor_count].num_device_addr = 1;
@@ -49,6 +85,7 @@ void I2C_Scan(sensor_list *const s){
                 }
                 else if(version == SENSORTYPE_AS72651){
                     printf("Device at: 0x%X is AS72651",address);
+                    s[sensor_count].mux_channel = mux_channel;
                     s[sensor_count].address = address;
                     s[sensor_count].type = SENSORTYPE_AS72651;
                     s[sensor_count].num_device_addr = 1;
@@ -254,7 +291,8 @@ void disableIndicator(int fd) {
     virtualWriteRegister(AS726x_LED_CONTROL, value, fd);
 }
 
-//Returns the temperature in C
+//Returns the temperature in C 
+//very inaccurate readings!
 uint8_t getTemperature(int fd){
     return (virtualReadRegister(AS726x_DEVICE_TEMP, fd));
 }

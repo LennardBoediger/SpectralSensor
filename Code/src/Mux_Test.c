@@ -13,7 +13,7 @@ int main(){
     }
     printf("i2c-connected\n");
     // Send byte 0
-    wiringPiI2CWrite(fd, 1);
+    wiringPiI2CWrite(fd, 0b00000001);
     printf("Done\n");
     return 0;
 }

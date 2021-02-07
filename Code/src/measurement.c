@@ -576,6 +576,7 @@ void autoGainMeasurementAS7261(uint64_t measurement_time, sensor_list *const s, 
 
     AS7261_channel AS7261_measurement[4];
     for (int i = 0; s[i].address != -1 && i < 128; ++i){    // going through every device
+        change_mux_channel(s[i].mux_channel);
         if (s[i].type == SENSORTYPE_AS7261){                // only use AS7261 devices
             for (uint8_t gain_i = 0; gain_i < 4; ++gain_i){         // going through every gain
                 settings(s[i].address, integrationValue, gain_i); // apply settings integrationValue is fix gain is 0-3
@@ -627,6 +628,7 @@ void saveAS7265XGain(int address,AS7265X_channel gain, uint64_t measurement_time
 void autoGainMeasurementAS7265X(uint64_t measurement_time, sensor_list *const s, uint8_t integrationValue){
     AS7265X_channel AS7265X_measurement[4];
     for (int i = 0; s[i].address != -1 && i < 128; ++i){    // going through every device
+        change_mux_channel(s[i].mux_channel);
         if (s[i].type == SENSORTYPE_AS72651){                // only use AS7261 devices
             for (int gain_i = 0; gain_i < 4; ++gain_i){         // going through every gain
                 settings(s[i].address, integrationValue, gain_i); // apply settings integrationValue is fix gain is 0-3
@@ -666,6 +668,7 @@ void autoGainMeasurementAS7265X(uint64_t measurement_time, sensor_list *const s,
 void fixedGainMeasurementAS7261(uint64_t measurement_time, sensor_list *const s, uint8_t integrationValue, uint8_t gain){
     AS7261_channel AS7261_measurement;
     for (int i = 0; s[i].address != -1 && i < 128; ++i){    // going through every device
+        change_mux_channel(s[i].mux_channel);
         if (s[i].type == SENSORTYPE_AS7261){                // only use AS7261 devices
             settings(s[i].address, integrationValue, gain); // apply settings to current adress
             MeasurementFromAdress(s[i].address);            // initiate measurement from current adress
@@ -681,6 +684,7 @@ void fixedGainMeasurementAS7261(uint64_t measurement_time, sensor_list *const s,
 void fixedGainMeasurementAS7265X(uint64_t measurement_time, sensor_list *const s, uint8_t integrationValue, uint8_t gain){
     AS7265X_channel AS7265X_measurement;
     for (int i = 0; s[i].address != -1 && i < 128; ++i){    // going through every device
+        change_mux_channel(s[i].mux_channel);
         if (s[i].type == SENSORTYPE_AS72651){                // only use AS7261 devices
             settings(s[i].address, integrationValue, gain); // apply settings integrationValue is fix gain is fix
             MeasurementFromAdress(s[i].address);            // initiate measurement from current adress

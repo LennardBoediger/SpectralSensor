@@ -91,6 +91,7 @@ struct AS7265X_channel{
 typedef struct AS7265X_channel AS7265X_channel;
 
 struct sensor {
+	int8_t mux_channel;
 	int8_t address;
   	int8_t type;
   	int8_t num_device_addr; //number of devices under this address
@@ -104,14 +105,18 @@ typedef struct sensor sensor_list;
 uint8_t begin(uint8_t gain, uint8_t measurementMode, int fd);
 
 
+void change_mux_channel(int8_t mux_channel);
+
 // returns the Sensor Version
 // AS7261 or AS7265X
 uint8_t getVersion(int fd); //61 oder 65
 
+void I2C_Mux_Scan(sensor_list *const s);
+
 // Scanns for sensors on all 128 possible addresses
 // input pointer to to array of sensor_list struct size hast to be 128
 // wirtes sensor address and type to array of sensor_list struct
-void I2C_Scan(sensor_list *const s);
+void I2C_Scan(sensor_list *const s, int8_t mux_channel);
 
 //Test if Slave1 and 2 are detected.  Datasheet is wrong! AS72652 -> Bit 4, AS72653 -> Bit 5
 uint8_t scan_AS7262(int fd);
