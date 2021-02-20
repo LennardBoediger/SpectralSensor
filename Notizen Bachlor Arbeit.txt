@@ -9,13 +9,11 @@ Flash OS to SD-Card:
 	diskutil unmountDisk /dev/disk2
 	sudo diskutil eraseDisk FAT32 SDCARD MBRFormat /dev/disk2
 	diskutil unmountDisk /dev/disk2
-	sudo dd if=nanopi-neo2-black_sd_friendlycore-xenial_4.14_arm64_20191219.img of=/dev/rdisk2 bs=1m
+	sudo dd if=IMG_NAME.img of=/dev/rdisk2 bs=1m
 
 SSH pw and ip at home:
-	ssh 192.168.178.107 -l root
-	fa
 	ssh 192.168.178.107 -l pi
-	Spi
+	password
 
 
 eMMC Formatieren und Mounten:
@@ -140,13 +138,16 @@ How to Screen:
 	screen -list 	//list sessions
 	screen -r NR	//reconnect
 
+Show disk usage df -h
+
+Resize Root Partition
+	https://raspberrypi.stackexchange.com/questions/499/how-can-i-resize-my-root-partition
+
+532480
+
 
 IP des nanopi rausfinden nmap immer mit sudo!
 sudo nmap -sn 192.168.1.0/24  
 Nanopi macadressen:
-02:01:AE:2F:AC:1B 
-
-
-
-
+02:01:AE:2F:AC:1B
 

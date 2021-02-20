@@ -126,7 +126,7 @@
 	\begin{tabular}{ll}
 		Eingereicht am: & 8. Februar 2021\\
 		Betreuung: & Nils Weber\\
-		Prüfer/in: & Prof. Dr.-Ing. Stephan Völker Prof.\\ 	& Dr.-Ing. Sibylle Dieckerhoff
+		Prüfer/in: & Prof. Dr.-Ing. Stephan Völker \\ 	&Prof. Dr.-Ing. Sibylle Dieckerhoff
 	\end{tabular}\\
 \end{titlepage}
 \newpage
@@ -180,7 +180,7 @@ Alle Softwarekomponenten laufen im Dauertest mit einer angeschlossenen Sensorpla
 In einem weiteren Test läuft das System mit 4 angeschlossenen Sensorboards seit zwei Wochen ebenfalls ohne Probleme.\smallskip
 
 \noindent Zum Abgabezeitpunkt der vorliegenden Arbeit besteht das Problem, dass nur vier Sensorplatinen, d.h. 8 I2C-Slaves, gleichzeitig am Bus angeschlossen werden können.
-Ab dem fünften Sensorboard kann der Raspberry Pi die I2C-Adressen aller angeschlossenen Sensoren nicht mehr finden.
+Ab dem fünften Sensorboard kann der Raspberry Pi die I2C-Adressen der angeschlossenen Sensoren nicht mehr finden.
 Als Workaround gibt es die Möglichkeit, einen Bus-Multiplexer zu verwenden.
 Dieses Gerät wird über I2C direkt an den Bus angeschlossen und hat mehrere I2C-Bus-Ports. Über einen Befehl kann dem Multiplexer mitgeteilt werden, welcher I2C-Bus-Kanal zum Raspberry Pi durchgeschaltet wird.
 Eine Betaversion des Workarounds ist bereits implementiert und auf Github\footnote{\url{https://github.com/LennardBoediger/Bachelorarbeit}} zu finden, wird aber in dieser Arbeit nicht behandelt.
