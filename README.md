@@ -15,7 +15,7 @@ The final sensor platform will be able to differentiate 21 spectral channels of 
 
 ## Grafana WebInterface 
 
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Grafana-Product.jpg" alt="left" width="700"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/img/Grafana-Product.jpg" alt="left" width="700"/>
 
 ## Auto Gain
 To increase the usable light intensity range, the AutoGain mode can be used.</br>
@@ -36,14 +36,14 @@ Connect to the Pi over SSH</br>
 Attatch the screen with `screen -r`</br>
 Follow the instructions to change the setting and start the measurement</br>
 The Webinterface can be found at port 3000 `http://[RASPBERRY_PI-IP]:3000`
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/handbuch/check_settings.png" alt="left" width="500"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/img/handbuch/check_settings.png" alt="left" width="500"/>
 
 # Hardware
 ### Sensorboard
 I2C Lanes in Red.</br>
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_front.png" alt="left" width="400"/>
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/Sensor-platiene_back.png" alt="right" width="400"/>
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/scematic.png" alt="center" width="800"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/img/Sensor-platiene_front.png" alt="left" width="400"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/img/Sensor-platiene_back.png" alt="right" width="400"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/img/scematic.png" alt="center" width="800"/>
 ### Pi-Shield
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/pi-shield.png" alt="left" width="500"/>
-<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/Bachelorarbeit/img/scematic_shield.png" alt="center" width="800"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/img/pi-shield.png" alt="left" width="500"/>
+<img src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/img/scematic_shield.png" alt="center" width="800"/>
