@@ -1,6 +1,5 @@
 # Spectral Measurement Platform
 ## This is my Bachelorthesis: "Entwicklung und Realisierung eines Messsystems mit den Sensoren AS7261 und AS72651 von AMS"
-Work in Progress
 
 
 <img align="left" src="https://github.com/LennardBoediger/Bachelorarbeit/blob/master/Latex/img/Fancy-Product.jpg" width="300"/>
