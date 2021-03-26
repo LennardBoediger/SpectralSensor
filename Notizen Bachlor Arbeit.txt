@@ -1,0 +1,153 @@
+Notizen Bachlor Arbeit
+
+Backup SD-Card:
+	diskutil list
+	sudo dd if=/dev/disk2 of=Snapshots/empty-ready-togo-system-DD_MM_YY.img
+
+Flash OS to SD-Card:
+	diskutil list
+	diskutil unmountDisk /dev/disk2
+	sudo diskutil eraseDisk FAT32 SDCARD MBRFormat /dev/disk2
+	diskutil unmountDisk /dev/disk2
+	sudo dd if=IMG_NAME.img of=/dev/rdisk2 bs=1m
+
+SSH pw and ip at home:
+	ssh 192.168.178.107 -l pi
+	password
+
+
+eMMC Formatieren und Mounten:
+	https://medium.com/@sh.tsang/partitioning-formatting-and-mounting-a-hard-drive-in-linux-ubuntu-18-04-324b7634d1e0
+	Install OS on SD card
+	lsblk 
+	lsblk -f 
+	fdisk -l
+	sudo apt install parted
+	sudo parted /dev/mmcblk1
+		print addresss
+		print
+		mklabel gpt
+		mkpart primary 0GB 31GB
+		quit
+	sudo mkfs.ext4 /dev/mmcblk1
+	make direktory mmcblk1 in /mnt
+	sudo mount /dev/mmcblk1 mnt/mmcblk1
+	sudo nano /etc/fstab
+		/dev/mmcblk1     /mnt/mmcblk1      ext4        defaults      0       0
+
+	reboot
+	check with:
+		mount | grep mmcblk1	-> /dev/mmcblk1 on /mnt/mmcblk1 type ext4 (rw,relatime,data=ordered)	
+		lsblk -f 			-> mmcblk1 should be ext4
+
+
+test i2c
+	i2cdetect -y 0
+
+Install important stuff first!
+sudo apt-get update
+sudo apt-get install software-properties-common
+apt-get install apt-transport-https
+
+
+https://pimylifeup.com/raspberry-pi-influxdb/
+Install InfluxDB 	(https://docs.influxdata.com/influxdb/v1.8/introduction/install/)
+	wget -qO- https://repos.influxdata.com/influxdb.key | sudo apt-key add -
+	source /etc/os-release
+	echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list
+	sudo apt-get update 
+	sudo apt-get install influxdb
+
+
+	sudo systemctl unmask influxdb
+sudo systemctl enable influxdb
+
+	Influxdb Starten:
+		sudo service influxdb start
+	
+	influx -precision rfc3339 
+	show databases
+	create database SpectralSensor
+	use SpectralSensor
+	CREATE USER Grafana WITH PASSWORD '299792458'
+	CREATE USER Input WITH PASSWORD '299792458'
+	
+	Show data:
+		use SpectralSensor
+		select * from VALUE (eg X,Y,Z)
+
+
+
+Install Grafana:		(https://grafana.com/tutorials/install-grafana-on-raspberry-pi/#3)
+	wget -q -O - https://packages.grafana.com/gpg.key | sudo apt-key add -
+	echo "deb https://packages.grafana.com/oss/deb stable main" | sudo tee -a /etc/apt/sources.list.d/grafana.list
+	sudo apt-get update
+	sudo apt-get install -y grafana
+
+	sudo /bin/systemctl enable grafana-server
+
+	(
+	perl: warning: Please check that your locale settings:
+		LANGUAGE = (unset),
+		LC_ALL = (unset),
+		LC_CTYPE = "UTF-8",
+		LANG = "en_GB.UTF-8"
+	    are supported and installed on your system.
+	perl: warning: Falling back to a fallback locale ("en_GB.UTF-8").
+	perl: warning: Setting locale failed.
+	perl: warning: Please check that your locale settings:
+		LANGUAGE = (unset),
+		LC_ALL = (unset),
+		LC_CTYPE = "UTF-8",
+		LANG = "en_GB.UTF-8"
+	    are supported and installed on your system.
+	perl: warning: Falling back to a fallback locale ("en_GB.UTF-8").
+	Created symlink /etc/systemd/system/multi-user.target.wants/grafana-server.service → /usr/lib/systemd/system/grafana-server.service.
+	) ?
+
+	Grafana Starten:
+		sudo systemctl daemon-reload
+		sudo systemctl start grafana-server
+		sudo systemctl status grafana-server
+
+	Login Grafana:
+		http://192.168.178.107:3000
+		user: admin
+		pw: admin
+
+
+set Timezone:
+sudo timedatectl set-timezone Europe/Berlin
+
+Autostart code
+sudo nano /etc/rc.local
+	And the following line before exit 0
+	# Run a command as `root` from the home folder(AS726X)
+	# in a screen named `sensor`
+	su - root -c "screen -dm -S spectralsensor ~/SpectralSensor/AS726X"
+	
+
+
+Copy files:
+	scp -r code/* SpectralSensor:~/SpectralSensor
+
+How to Screen:
+	screen -S your_session_name   		//start new session
+	make 			//run code
+	Ctrl-a Ctrl-d  	//detacht
+	screen -list 	//list sessions
+	screen -r NR	//reconnect
+
+Show disk usage df -h
+
+Resize Root Partition
+	https://raspberrypi.stackexchange.com/questions/499/how-can-i-resize-my-root-partition
+
+532480
+
+
+IP des nanopi rausfinden nmap immer mit sudo!
+sudo nmap -sn 192.168.1.0/24  
+Nanopi macadressen:
+02:01:AE:2F:AC:1B
+

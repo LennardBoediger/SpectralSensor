@@ -1,0 +1,449 @@
+Der Programmcode für den Messaufbau wurde in C geschrieben, da es einfach möglich ist, auf die GPIO des Raspberry Pi zuzugreifen. Im Übrigen ist die Sprache am Fachgebiet für Lichttechnik weitgehend geläufig.\\
+Das folgende Kapitel ist in mehrere Punkte unterteilt. Zunächst werden die Funktionen der grundlegenden I2C Schnittstelle wiringPi Library vorgestellt (Abschnitt \ref{wiringPiI2CSetup}). Anschließend werden alle notwendigen Funktionen für die verwendeten AMS-Sensoren (Abschnitt \ref{AS726X-Library}) und die Schnittstelle zur Influx-Datenbank (Abschnitt \ref{AS726X-Library}) erläutert.
+Abschließend wird der eigentliche Programmablauf aus der C-Datei main.c (Abschnitt \ref{main}) und measurement.c (Abschnitt \ref{measurement-c}) dargestellt.
+
+\noindent Der Programmcode ist auf Github\footnote{\url{https://github.com/LennardBoediger/SpectralSensor}} und im Anhang zu finden.
+
+
+\subsection{wiringPi}
+Auf dem Rapberry Pi 4 ist die  wiringPi Libarry vorinstalliert. 
+Die Funktionalität der drei verwendeten C-Funktionen wird im folgenden beschrieben.
+
+\subsubsection{wiringPiI2CSetup}\label{wiringPiI2CSetup}
+wiringPiI2CSetup baut eine I2C-Verbindung zu einem Slave-Gerät auf.
+Der Funktion wird beim Aufruf die I2C Adresse übergeben, mit welcher eine Verbindung aufgebaut werden soll: $wiringPiI2CSetup(address)$.\\
+Der Rückgabewert ist der Standard Linux File Descriptor oder -1, falls ein Fehler auftritt. 
+Der File Descriptor wird im Programmcode mit fd abgekürzt.
+Ein File Descriptor wird unter Linux als Bezeichner für eine Datei bzw. eine andere Ein-/Ausgabe-Ressource wie z. B. eine Pipe, einen Network-Socket oder eine I2C Verbindung genutzt.
+
+Die Anzahl der File Desciptoren ist begrenzt. Daher muss die Verbindung mit der Funktion $close()$ aus der Library: unistd.h geschlossen werden, wenn sie nicht mehr benötigt wird.
+
+\subsubsection{wiringPiI2CWriteReg8}
+wiringPiI2CWriteReg8 überträgt ein Byte an einen I2C-Slave.
+Der Funktion wird beim Aufruf der File Descriptor einer aktiven I2C-Verbindung sowie ein Zielregister und die zu schreibenden 8bit Daten übergeben:\\ $wiringPiI2CWriteReg8 (fd, RegAdr, 8BitData)$.\\
+Wenn der Schreibzugriff vom I2C-Slave bestätigt wurde, wird eine 0 zurückgegeben.
+
+\subsubsection{wiringPi4I2CReadReg8}
+wiringPi4I2CReadReg8 überträgt ein Byte an einen I2C-Slave.
+Der Funktion wird beim Aufruf der File Descriptor einer aktiven I2C Verbindung sowie ein Zielregister übergeben: $wiringPiI2CReadReg8(fd, RegAdr)$.\\
+Der gelesene 8-Bit-Inhalt des Registers ist der Rückgabewert.
+Wenn das Lesen fehlschlägt, bleibt das Programm in einer Endlosschleife hängen.
+
+\subsection{AS726X Library}\label{AS726X-Library}
+Die WiringPi\_AS726X\_Libary enthält alle Funktionen um den AS7261 und AS7265X zu steuern und auszulesen.
+Da der Beispielcode und die sonstigen Angaben im Datenblatt in vielen Detailfragen ungenau und Fehlerhaft sind, wurde die Arduino OpenSource Libarrys von sparkfun SparkFun\_AS726X\_Arduino\_Library-master und SparkFun\_AS7265x\_Arduino\_Library als Implementierungsgrundlage verwendet.
+Im ersten Schritt der Entwicklung wurde sie für die I2C Schnittstelle, wiringPi Libarry des Rapberry Pi 4 umgeschrieben und anschließend in ihrer Funktionalität erweitert, um für das Messystem mit mehreren Sensoren auf dem gleichen I2C-Bus nutzbar zu sein. \\
+
+\noindent Im Folgenden Text werden die Registeradressen mit den gleichen Namen wie im Programmcode bezeichnet. Die numerischen Adressen sowie ihre Aufgaben sind in den Abbildungen \ref{fig:PysicalRegister}-\ref{fig:AS7265X_DEV_SELECT_CONTROL} zu finden.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{img/PysicalRegister}
+%\caption*{Quelle: Datenblatt AS7261}
+\caption{PysicalRegister\cite{Datenblatt_AS7261}}
+\label{fig:PysicalRegister}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{img/AS726x_CONTROL_SETUP}
+\caption{AS726x\_CONTROL\_SETUP 0x04\cite{Datenblatt_AS7261}}
+\label{fig:AS726x_CONTROL_SETUP}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{img/AS726x_INT_T}
+\caption{AS726x\_INT\_T 0x05\cite{Datenblatt_AS7261}}
+\label{fig:AS726x_INT_T}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{img/AS726x_DEVICE_TEMP}
+\caption{AS726x\_DEVICE\_TEMP 0x06\cite{Datenblatt_AS7261}}
+\label{fig:AS726x_DEVICE_TEMP}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{img/AS726x_LED_CONTROL}
+\caption{AS726x\_LED\_CONTROL 0x07\cite{Datenblatt_AS7261}}
+\label{fig:AS726x_LED_CONTROL}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{img/AS7265X_DEV_SELECT_CONTROL}
+\caption{AS7265X\_DEV\_SELECT\_CONTROL 0x4F\cite{Datenblatt_AS7261}}
+
+\label{fig:AS7265X_DEV_SELECT_CONTROL}
+\end{figure}
+
+\begin{table}[!ht]
+\centering
+\caption{Raw Data Registers \cite{Datenblatt_AS7261}}
+\begin{tabular}{ l r }
+ Name & Adresse\\ 
+AS7261\_X & 0x08\\
+AS7261\_Y & 0x0A\\
+AS7261\_Z & 0x0C\\
+AS7261\_NIR & 0x0E\\
+AS7261\_DARK & 0x10\\
+AS7261\_CLEAR & 0x12\\
+AS7265X\_R\_G\_A & 0x08 \\
+AS7265X\_S\_H\_B & 0x0A \\
+AS7265X\_T\_I\_C & 0x0C \\
+AS7265X\_U\_J\_D & 0x0E \\
+AS7265X\_V\_K\_E & 0x10 \\
+AS7265X\_W\_L\_F & 0x12 \\
+\end{tabular}
+\label{fig:raw_channel_registers}
+\end{table}
+
+\subsubsection{virtualWriteRegister}
+Wie bei Embedded-Geräten üblich, werden Einstellungen auf dem Sensor verändert, indem verschiedene sogenannte Special Function Register mit Daten beschrieben werden.\\
+Jedes Special Function Register ist 8Bit groß und hat eine Adresse. Jedes Bit des Registers repräsentiert eine Einstellung.
+Beispielsweise ist 0x07 (Abbildung \ref{fig:AS726x_LED_CONTROL}) das LED Control Register des Sensors.
+Bit 0 des Registers beschreibt den Zustand der Status LED.
+Die Restlichen 7 Bit des Registers beschreiben den Zustand anderer LEDs, die für den Messaufbau aber irrelevant sind.\\
+Wird Register 7 mit dem Dezimalwert 0 beschrieben sind alle LEDs aus. Wird es mit dem Dezimalwert 1 beschrieben, leuchtet nur die Status LED.
+Die Register lassen sich aber nicht direkt beschreiben. Stattdessen sind sie als sogenannte virtuelle Register implementiert.
+Das heißt, dass nur Register 0x01 (WRITE Register Abbildung \ref{fig:PysicalRegister}) beschrieben werden kann.
+Um Daten in eines der Special Funktion Register zu schreiben, wird die C-Funktion virtualWriteRegister verwendet.
+Die Funktionsweise lässt sich in 4 Schritten zusammenfassen:
+\begin{itemize}
+	\item Zeile 8 wartet, bis das WRITE Register leer ist. Was dadurch angezeigt wird, indem  das Bit AS72XX\_TX\_VALID im  Register AS72XX\_STATUS\_REG den Wert 1 annimmt.
+	\item Zeile 14 schreibt die virtuelle Adresse in das WRITE Register und setzt zusätzlich Bit 8 des WRITE Register auf 1, um zu zeigen, dass es sich um einen schreibenden Zugriff auf das virtuelle Register handelt.
+	\item Zeile 20 wartet erneut bis das WRITE Register leer ist.
+	\item Zeile 26 schreibt die Daten in das WRITE Register
+\end{itemize}
+Der Sensor wird jetzt selber die übertragenen Daten aus dem WRITE Register in das angegebene virtuelle Register kopieren.
+\lstinputlisting[language=C,style=c]{code/virtualWriteRegister.c}
+
+\subsubsection{virtualReadRegister}
+Die Unterschiedlichen Messdaten des Sensors werden in dedizierten Registern gespeichert.
+ Es ist aber nur über den indirekten Weg des AS72XX\_READ\_REG und der virtuellen Registeradressen möglich Daten auszulesen.
+Die Funktionsweise der zum Datenauslesen benötigten Funktion virtualReadRegister lässt sich wieder in 4 Schritte aufteilen.
+\begin{itemize}
+	\item Das AS72XX\_READ\_REG wird ausgelesen, ohne dass die Daten verarbeitet werden. Dieser Schritt ist wie ein Reset des Registers zu verstehen.
+	\item Zeile 12 schreibt die virtuelle Adresse in das WRITE Register und setzt zusätzlich Bit 8 des WRITE Register auf 0 um zu zeigen, dass es sich um einen Lesendezugriff auf das virtuelle Register handelt.
+	\item Sobald das AS72XX\_STATUS\_REG den Wert AS72XX\_TX\_VALID annimmt, sind die Daten aus dem angegebenen virtuellen Register in das AS72XX\_READ\_REG kopiert worden.
+	\item Zeile 28 liest die Daten aus dem S72XX\_READ\_REG
+\end{itemize}
+\lstinputlisting[language=C,style=c]{code/virtualReadRegister.c}
+
+\subsubsection{MeasurementFromAdress}
+Die Funktion baut eine I2C Verbindung zur übergebenen Bus-Adresse auf und  ruft die Funktion takeMeasurments mit dem File Descriptor der aktiven I2C Verbindung auf.
+Nachdem die Funktion takeMeasurements durchgelaufen ist, wird die I2C Verbindung wieder geschlossen.
+\lstinputlisting[language=C,style=c]{code/MeasurementFromAdress.c}
+
+\subsubsection{takeMeasurements}
+
+Die Funktion takeMeasurements ruft die Funktion setMeasurementMode mit dem Parameter 3 auf. Das setzt den aus \ref{sec_bank_modes} bekannten Bank Mode der übergebenen I2C Verbindung auf Bank Mode 3.
+	Die One-Shot Messung wird sofort gestartet. In Zeile 9 wird gewartet, bis die Messung abgeschlossen ist. 
+		Um sicherzustellen, dass die Funktion DataAvailable richtig arbeitet, muss vor der Messung das Flag DataAvailable auf 0 gesetzt werden (Zeile 3).
+Die Daten werden hier nicht ausgelesen, daher gibt es keinen Rückgabewert.\\
+\lstinputlisting[language=C,style=c]{code/takeMeasurements.c}
+
+\subsubsection{setMeasurementMode}
+Mit der Funktion setMeasurementMode werden die Bank Mode Bits 2 und 3 des \\
+AS726x\_CONTROL\_SETUP Registers mit dem gewünschten Wert für den Bank Mode beschrieben.\\
+Da die anderen Bits des Registers noch weitere Einstellungen repräsentieren, welche nicht verändert werden sollen, muss das Register erst ausgelesen werden.
+Anschließend werden nur die Bank Mode Bits auf 0 gesetzt, um im nächsten Schritt mit dem gewünschten neuen Bank Modewert beschrieben zu werden. 
+Die Bedeutung der Bank Modes ist in \ref{sec_bank_modes} erläutert.
+\lstinputlisting[language=C,style=c]{code/setMeasurementMode.c}
+\newpage
+\subsubsection{dataAvailable \& clearDataAvailable}
+Das Bit dataAvailble im Register AS726x\_Control\_Setup wird vom Sensor auf 1 gesetzt, wenn nach einer Messung neue Daten vorhanden sind. Interrupts müssen dafür ausgeschaltet sein.
+Wenn eine One-Shot Messung im Bank Mode 3 durchgeführt wird, muss das dataAvailble Bit mit der Funktion clearDataAvailable auf 0 gesetzt werden. Die Funktion dataAvailable gibt den Wert des DataAvailable Bit zurück.\\
+
+%\lstinputlisting[language=C,style=c]{code/dataAvailable.c}
+
+\subsubsection{Rohwerte des AS7261 auslesen}
+Die in Abschnitt \ref{sec_bank_modes} beschrieben 6 Channel des AS7261 werden mit den folgenden Funktionen ausgelesen:
+\begin{itemize}
+	\item getX\_CIE(fd)
+	\item getY\_CIE(fd)
+	\item getZ\_CIE(fd)
+	\item getNIR(fd)
+	\item getDark(fd) 
+	\item getClear(fd)
+\end{itemize}
+Der File Deskriptor einer I2C Verbindung mit einem AS7261 und das zu lesende Register (Abbildung \ref{fig:raw_channel_registers}) wird als Übergabeparameter erwartet.\\
+Um den Messwert auszulesen, wir die Funktion getchannel aufgerufen.
+Der Rückgabewert ist der 16-Bit Messwert aus dem jeweiligen Register vom Datentyp Integer.
+\lstinputlisting[language=C,style=c]{code/getRaw_AS7261.c}
+
+\subsubsection{getChannel}
+Da die Messdaten 16 Bit groß sind, der Sensor aber nur über 8 Bit Register verfügt, werden 2 aufeinader folgende Register ausgelsen und im Big-Endian Format in einer 16 Bit Variable gespeichert .
+Die Funktion getChannel erwartet den File Descriptor einer I2C Verbindung zu einem Sensor und die Adressen des High Bytes eines Raw Data Registers.
+Der Rückgabewert ist der 16-Bit Messwert aus dem jeweiligen Register vom Datentyp Integer.\\
+
+\lstinputlisting[language=C,style=c]{code/getChannel.c}
+
+\subsubsection{Rohwerte des AS7265X auslesen}\label{Rohwerte-des-AS7265X-Auslesen}
+Da beim Lesen des AS7265X, 3 Sensoren unter der gleichen Adresse erreichbar sind (Abbildung \ref{fig:raw_channel_registers}), muss zusätzlich zum File Descriptor und des Zielregisters der Device Identifier angeben werden.
+Die folgenden Funktionen übernehmen diese Aufgaben und können genutzt werden, um Rohdaten auslesen:
+\begin{center}
+\begin{tabular}{ c c c }
+ 	AS72651 & AS72652 & AS72653 \\ 
+ 	getR(fd) & getG(fd) & getA(fd) \\  
+ 	getS(fd) & getX(fd) & getB(fd) \\
+ 	getT(fd) & getI(fd) & getC(fd) \\  
+ 	getU(fd) & getJ(fd) & getD(fd) \\
+ 	getV(fd) & getK(fd) & getE(fd) \\  
+ 	getW(fd) & getL(fd) & getF(fd) \\
+\end{tabular}
+\end{center}
+Um den Messwert auszulesen, wir die Funktion getChannel\_AS7265X aufgerufen.\\
+Der Rückgabewert ist der 16-Bit Messwert aus dem jeweiligen Register vom Datentyp Integer.\\
+
+%\lstinputlisting[language=C,style=c]{code/getRaw_AS7265X.c}
+
+\subsubsection{getChannel\_AS7265X}\label{getChannel_AS7265X}
+Die Funktion verarbeitet den aus Abschnitt \ref{Rohwerte-des-AS7265X-Auslesen} bekannten Device Identifier, indem die Funktion selectDevice aufgerufen wird.
+	Da es aber keine Möglichkeit gibt zu überprüfen ob der Gerätewechsel erfolgreich war, muss vorher überprüft werden ob das jeweiligen Slavegerät AS72652 oder AS72653 vorhanden ist.
+	Ist ein Slave nicht vorhanden, wird der Wert -1 zurückgegeben.
+	Ohne diese Überprüfung ist nicht sichergestellt, dass keine falschen Werte aus den gleich nummerierten Registern des AS72651 ausgelesen werden, obwohl Werte eines nicht vorhanden oder falsch aufgelöteten Slavesensors (AS72652 / AS72653) erwartet werden.
+	Das eigentliche Auslesen des 16-Bit Messwerts erfolgt mithilfe der Funktion getChannel, das Ergebnis ist der Rückgabewert der Funktion getChannel\_AS7265X.\\
+
+\lstinputlisting[language=C,style=c]{code/getChannel_AS7265X.c}
+\newpage
+\subsubsection{selectDevice}
+Die Notwendigkeit für selectDevice wurde in Abschnitt \ref{getChannel_AS7265X} bereits erläutert.
+Laut Datenblatt sollen nur die Bits 0 und 1 des DEV\_SELECT\_CONTROL Registers beschrieben werden, das stimmt aber nicht.\\
+In der Realität muss das gesamte 8-bit Register mit folgenden Werten beschrieben werden um beim anschließenden Lesevorgang Daten vom jeweiligen Sensor zu erhalten.
+\begin{center}
+\begin{tabular}{ c c }
+ 	DEV\_SELECT\_CONTROL & Sensor \\ 
+ 	0x00 & AS72651 \\  
+ 	0x01 & AS72652 \\
+ 	0x02 & AS72653 \\  
+\end{tabular}
+\end{center}
+
+\lstinputlisting[language=C,style=c]{code/selectDevice.c}
+
+\subsubsection{Enable/Disable Indicator}
+Mit der Funktion enableIndicator wird das 0 Bit des AS726x\_LED\_CONTROL Register auf 1 gesetzt. So wird die rote Status LED des jeweiligen Sensors auf dem Sensorboard angeschaltet.\\
+Mit der Funktion disableIndicator wird das gleiche Bit auf 0 gesetzt, also die LED ausgeschaltet.\\
+Als Übergabeparameter wird bei beiden Funktionen der File Descriptor einer aktiven I2C-Verbindung erwartet.\\
+
+%\lstinputlisting[language=C,style=c]{code/enableIndicator.c}
+
+\subsubsection{softReset}
+Wenn einzelne Messwerte außerhalb des Erwartungsbereichs liegen oder ähnliche Probleme auftreten, kann in einigen Fällen ein Soft-Reset das Problem beheben.
+Da bei der hier beschriebenen Implementierung keine Fehler auftreten, wird die Funktion nicht benötigt, kann aber in zukünftigen Versionen verwendet werden.
+
+\noindent Die Funktion softReset setzt das 8 Bit des Registers CONTROL\_SETUP auf 1 um einen softReset auszulösen.
+Das Datenblatt gibt an, dass mindestens 1000 ms gewartet werden muss, bevor der softReset abgeschlossen ist und der Sensor wieder genutzt werden kann.
+Für beide Funktionen wird der File Descriptor einer aktiven I2C-Verbindung als Übertragungsparameter erwartet.\\
+
+%\lstinputlisting[language=C,style=c]{code/softReset.c}
+
+\subsubsection{I2CScan}
+Die Funktion I2CScan wird zu Beginn des Programms aufgerufen um festzustellen, welche Sensoren an den I2C DataBus angeschlossen sind.
+Die gefundenen Sensoradressen und der Sensortyp werden in das Struct sensor\_list geschrieben.\\
+Die Adressen werden außerdem im Terminal angezeigt, so dass der Benutzer überprüfen kann, ob alle erwarteten Sensoren erkannt werden.
+Als Übergabeparameter wird im call by refrence style ein Pointer zu einem Struct vom Typ sensor\_list erwartet.
+Da die Daten direkt in das extern deklarierte Struct geschrieben werden, gibt es keinen Rückgabewert.
+Um die angeschlossenen Sensoren zu detektieren, wird zu jeder der $2^8$ möglichen I2C Adressen eine Verbindung aufgebaut und ein Schreibversuch mithilfe der Funktion wiringPiI2CWriteReg8 vorgenommen.
+Wenn die Funktion wiringPiI2CWriteReg8 eine 0 zurückgibt, war der Schreibversuch erfolgreich. Somit muss ein Sensor unter dieser Adresse vorhanden sein.
+Das im Datenblatt nicht erwähnte Register mit der Adresse 0x05 wurde zufällig ausgewählt, da es mit dem Wert 0x01 beschrieben werden kann, ohne dass der Sensor sein Verhalten verändert.
+Die Funktion getVersion wird genutzt um die Version des gefunden Sensors zu ermitteln.
+Wenn ein AS72651 erkannt wird, wird auch abgefragt, ob die Slavesensoren AS72652 und AS72653 vorhanden sind. Diese Information wird nur im Terminal ausgegeben und nicht in das Struct sensor\_list geschrieben, da es für den Programmablauf nicht notwendig ist.\\
+
+\lstinputlisting[language=C,style=c]{code/I2C_Scan.c}
+
+\subsubsection{getVersion}
+Die Funktion getVersion gibt den Inhalt der Registers AS726x\_HW\_VERSION zurück. Indem der zurückgegebene Wert mit den beiden SENSORTYPE Werten verglichen wird (SENSORTYPE\_AS7261 und SENSORTYPE\_AS72651), kann festgestellt werden, um welchen Sensor es sich handelt. 
+Als Übergabeparameter wird bei beiden Funktionen der File Descriptor einer aktiven I2C-Verbindung erwartet.
+
+\subsubsection{scanAS7262}
+Als Übergabeparameter wird bei der Funktionen der File Descriptor einer aktiven I2C Verbindung mit einem AS72651 erwartet.\\
+Die Funktion überprüft den Status des 4. Bit des Registers DEV\_SELECT\_CONTROL und gibt ihn zurück. Das Bit ist auf 1 gesetzt, wenn der Slavesensor AS7262 vorhanden ist, im Falle der Abwesenheit ist es 0.\\
+Das AS7265X-Datenblatt gibt fälschlicherweise an, dass das 5. Bit geprüft werden muss.\\
+
+\subsubsection{scanAS7263}
+Als Übergabeparameter wird bei der Funktionen der File Descriptor einer aktiven I2C Verbindung mit einem AS72651 erwartet.\\
+Die Funktion überprüft den Status des 5. Bit des Registers DEV\_SELECT\_CONTROL und gibt ihn zurück. Das Bit ist auf 1 gesetzt wenn der Slavesensor AS7263 vorhanden ist, im falle der Abwesenheit ist es 0.\\
+
+\subsubsection{setGain}
+Die Messergebnisse der Sensoren können intern verstärkt werden, was Beispielsweise in dunklen Messumgebungen oder bei der Verwendung einer relativ lichtundurchlässiger Streuscheibe notwendig ist.\\
+Außerdem kann das Speicherregister besser ausgesteuert werden, um ein genaueres Messergebnis zu erhalten.
+Um den Verstärkungsfaktor einzustellen, wird die Funktion setGain benötigt.\\
+Die Funktion setGain beschreibt das vierte und fünfte Bit des Registers CONTROL\_SETUP mit einem der vier möglichen Zustände, welcher an die Funktion übergebenen wird.
+
+\begin{tabular}{ l l}
+ 	Wert & Verstärkungsfaktor \\ 
+ 	0 & 1x \\  
+ 	1 & 3.7x \\
+ 	2 & 16x \\  
+ 	3 & 64x \\
+\end{tabular}
+
+Ist der übergebe Wert größer als 3, wird das Register auf den Wert 3 gesetzt.
+\begin{equation}
+	Registerwert = Integrierter Messwert \cdot Gain
+\end{equation}
+
+\subsubsection{setIntegrationTime}
+Um die Integrationszeit der Messung einzustellen, wird in das Register AS726x\_INT\_T ein Wert (integrationValue) zwischen 0 und 255 geschrieben. Die Integrationszeit errechnet sich indem dieser Wert mit dem Faktor 2.8ms multipliziert wird.
+Die Funktion setIntegrationTime erwartet als Übergabeparameter das integrationValue und den File Descriptor sowie eine aktive I2C-Verbindung zu einem Sensor.\\
+\begin{equation}
+	Integrationszeit = integrationValue\cdot2.8ms
+\end{equation}
+
+\subsubsection{disableInterrupt}
+Die Funktion disableInterrupt setzt das INT Bit im Register AS726x\_CONTROL\_SETUP auf 0 um Interrupts auszuschalten.
+Da der Interrupt-Pin auf der Sensor-Platine nicht angeschlossen ist, können Messungen nur durchgeführt werden, wenn der Interrupt ausgeschaltet ist.
+Laut Datenblatt wird der Interrupt beim Systemstart ausgeschaltet.
+
+\subsection{influxDB Library writeToDatabase}\label{influxDB-Library}
+Um die Messdaten der Sensoren in die aus \ref{datenbankundinterface} bekannte InfluxDB zu schreiben, wurde die InfluxDB Library entwickelt. Sie enthält nur eine einzige nach außen sichtbare Funktion: writeToDatabase.
+\subsubsection{writeToDatabase}
+Um die Datenbank zu beschreiben, muss zuerst ein Socket geöffnet werden um sich mit der InfluxDB Server-Instanz  zu verbinden.
+Der InfluxDB Sever ist unter der Localhostaddress 127.0.0.1 am Port 8086 zu erreichen.
+	Diese Werte können in der influxdb.h Datei angepasst werden, falls in Zukunft die Notwendigkeit besteht, den Server auf einem externen Gerät zu betreiben.\\
+Die Kommunikation mit dem InfluxDB Server erfolgt über das HTTP basierte InfluxDB-Line-Protocol.
+In Zeile 68 wird der Datenbankname, Username,  Passwort der Datenbank und die Größe des Bodys der Anfrage in den Header-Teil der HTTP Anfrage geschrieben.
+In Zeile 64 wird der Body-Teil der Anfrage im InfluxDB-Line-Protocol Format erzeugt. Dieser enthält den Bezeichner des Messwerts (z.B. X oder Y), die I2C Adresse des jeweiligen Sensors von dem die Messdaten stammen, den Messwert selbst sowie den Zeitstempel der Messung in ms.	
+In Zeile 85 wird der HTTP-Request, bestehend aus Header und Body, an den Server übertragen.
+Die Antwort vom Server wird gespeichert und anschließen auf die erwartete Rückmeldung \textbf{HTTP/1.1 204 No Content } untersucht. Wenn der Schreibversuch fehlschlägt, wird eine Meldung im Terminal angezeigt.
+Außerdem geht die Power-LED auf dem Status \& Adapterboard aus.
+\subsection{main}\label{main}
+Die main-Funktion führt den Benutzer durch den Auswahlprozess der Einstellungen (Integrationszeit, Verstärkungsfaktor und Intervall der Messpunkte) und startet dann die Messung.\\
+\subsubsection{default\_values.h}
+\noindent Alternativ zum Auswahlprozess können die Einstellungen in der Datei default\_values.h geändert werden. Hier ist es außerdem möglich, den zu verwendenden Sensortyp auszuwählen und die benutzerfreundliche Menüführung auszuschalten(Plug-and-Play).
+Zudem kann eingestellt werden, dass die Messungen manuell auslöst werden, z. B. um den Sensor zu kalibrieren (Maunual-Trigger).\\
+
+\lstinputlisting[language=C,style=c]{code/default_values.h}
+\newpage
+\subsection{measurement}\label{measurement-c}
+Die Datei measurement.c enthält alle Funktionen, die mithilfe der beiden Libraries (influxDB Library \ref{influxDB-Library}, AS726X Library \ref{AS726X-Library}), Messergebnisse von den Sensoren abfragen und in der Datenbank speichern können.
+
+
+\subsubsection{fixedGainMeasurementAS7261 \& fixedGainMeasurementAS7265X}
+Bei der Messung mit konstanter Verstärkung werden alle Werte mit einer festen Integrationszeit und einem festen Gain erfasst. Es gibt also für jeden Kanal einen Wert, der unter dem gleichen Namen gespeichert wird. In der Datenbank sind sie unter den in Tabelle \ref{fix_Datenbankname_61} und \ref{fix_Datenbankname_65} beschriebenen Namen zu finden.
+
+\begin{table}[H]
+\parbox{.45\linewidth}{
+\centering
+\begin{tabular}{ c }
+Fixed Gain \\
+\hline
+X \\ 
+Y  \\
+Z  \\
+Clear \\ 
+Dark \\ 
+NIR \\ 
+\end{tabular}
+\caption{AS7261 Datenbank-ID bei festem Verstärkungsfaktor}
+\label{fix_Datenbankname_61}
+
+}
+\hfill
+\parbox{.45\linewidth}{
+\centering
+\begin{tabular}{ r c l}
+&Fixed Gain \\
+\hline
+ 	R & G & A \\  
+ 	S & X & B \\
+ 	T & I & C \\  
+ 	U & J & D \\
+ 	V & K & E \\  
+ 	W & L & F \\
+
+\end{tabular}
+\caption{AS7265X Datenbank-ID bei festem Verstärkungsfaktor}
+\label{fix_Datenbankname_65}
+}
+\end{table}
+
+
+
+
+\noindent Das Flussdiagramm in Abbildung \ref{fig:manualGain} beschreibt den Ablauf für fixedGainMeasurementAS7261.
+Der Ablauf von fixedGainMeasurementAS7265X ist bis auf den SENSORTYP und die Namen der Channel identisch.
+
+\begin{figure}[H]
+  \centering
+    \caption{Flowchart fixedGainMeasurementAS7261}
+ \includegraphics[width=0.8\linewidth]{img/manualGain}
+  \label{fig:manualGain}
+\end{figure}
+
+
+\subsubsection{autoGainMeasurementAS7261 \& autoGainMeasurementAS7265X}
+Bei der Auto-Gain-Messung wird für jeden der 4 möglichen Verstärkungsfaktoren eine Messung mit fester Integrationszeit durchgeführt.
+Die Messergebnisse werden in der Datenbank unter den in Tabelle \ref{auto_Datenbankname} und \ref{auto_Datenbankname_AS7265X} beschriebenen Namen gespeichert.
+Darüber hinaus wird bei jeder einzelnen Messung für jeden Channel individuell der Messwert ausgewählt, welcher das 16 Bit Register am besten aussteuert.
+Dieser Wert wird mit der Funktion matchValueToMaxGain (Abschnitt \ref{matchValueToMaxGain}) an die maximale Verstärkung angepasst um einen sprungfreien Output-Plot zu ermöglichen (Datenbank-ID AutoGain).
+Zuletzt wird der verarbeitete Wert und der ursprünglich verwendete Gain in der Datenbank gespeichert.
+
+
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ c c c c c c}
+Gain 0 & Gain 1 & Gain 2 & Gain 3 &  AutoGain & UsedGain \\
+\hline
+X*0 & X*1 & X*2 & X*3 & X & gainX  \\ 
+Y*0 & Y*1 & Y*2 & Y*3 &  Y & gainY  \\
+Z*0 & Z*1 & Z*2 & Z*3 &  Z & gainZ  \\
+Clear*0 & Clear*1 & Clear*2 & Clear*3 & Clear & gainClear \\ 
+Dark*0 & Dark*1 & Dark*2 & Dark*3 &  Dark & gainDark \\ 
+NIR*0 & NIR*1 & NIR*2 & NIR*3 &  NIR & gainNIR  \\ 
+\end{tabular}
+\caption{AS7261 Datenbank-ID bei automatischem Verstärkungsfaktor}
+\label{auto_Datenbankname}
+\end{table}
+\begin{table}[H]
+\centering
+\begin{tabular}{ c c c c c c}
+Gain 0 & Gain 1 & Gain 2 & Gain 3 &  AutoGain & UsedGain \\
+\hline
+A*0 & A*1 & A*2 & A*3 & A & gainA  \\
+B*0 & B*1 & B*2 & B*3 & B & gainB  \\
+C*0 & C*1 & C*2 & C*3 & C & gainC  \\
+D*0 & D*1 & D*2 & D*3 & D & gainD  \\
+E*0 & E*1 & E*2 & E*3 & E & gainE  \\
+F*0 & F*1 & F*2 & F*3 & F & gainF  \\
+G*0 & G*1 & G*2 & G*3 & G & gainG  \\
+H*0 & H*1 & H*2 & H*3 & H & gainH  \\
+R*0 & R*1 & R*2 & R*3 & R & gainR  \\
+I*0 & I*1 & I*2 & I*3 & I & gainI  \\
+S*0 & S*1 & S*2 & S*3 & S & gainS  \\
+J*0 & J*1 & J*2 & J*3 & J & gainJ  \\
+T*0 & T*1 & T*2 & T*3 & T & gainT  \\
+U*0 & U*1 & U*2 & U*3 & U & gainU  \\
+V*0 & V*1 & V*2 & V*3 & V & gainV  \\
+K*0 & K*1 & K*2 & K*3 & K & gainK  \\
+W*0 & W*1 & W*2 & W*3 & W & gainW  \\
+L*0 & L*1 & L*2 & L*3 & L & gainL  \\
+
+\end{tabular}
+\caption{AS7265X Datenbank-ID bei automatischem Verstärkungsfaktor}
+\label{auto_Datenbankname_AS7265X}
+\end{table}
+
+\noindent Das Flussdiagramm in Abbildung \ref{fig:autoGainMeasurement} beschreibt den Ablauf für autoGainMeasurementAS7261.
+Der Ablauf von autoGainMeasurementAS7265X ist bis auf den SENSORTYP und die Namen der Channel identisch.
+\begin{figure}[H]
+  \centering
+    \caption{Flowchart autoGainMeasurementAS7261}
+ \includegraphics[width=0.83\linewidth]{img/autoGainMeasurement}
+  \label{fig:autoGainMeasurement}
+\end{figure}
+
+\subsubsection{matchValueToMaxGain}\label{matchValueToMaxGain}
+Die Funktion matchValueToMaxGain passt einen übergebenen Messwert mit dem verwendeten Verstärkungsfaktor von 1x, 3,7x, 16x, 64x, an die maximale Verstärkung von 64x an:
+\begin{itemize}
+	\item Gain$ 1x \cdot 64 = 64 $ 
+	\item Gain$ 3,7x \cdot 17,2972972973 \thickapprox 64 $ 
+	\item Gain$ 16x \cdot 4 = 64 $ 
+	\item Gain$ 64x \cdot 1 = 64 $ 
+\end{itemize}
