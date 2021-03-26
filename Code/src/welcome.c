@@ -29,7 +29,8 @@ void welcomeMessage(){
     printf("MmyyMhssssssssssssssssssssssssssssssssssssssdNhyNN\n");
     printf("\n");
     printf("Welcome to Spectral Sensor V0.9\n");
-    printf("gitlab.tubit.tu-berlin.de/Lichttechnik/diySensor\n");
+    printf("github.com/LennardBoediger/SpectralSensor\n");
+    printf("https://git.tu-berlin.de/lichttechnik/nilsweber/spectralsensor\n");
     printf("Exit by pressing 'ctr + c'\n");
     printf("Enter [DeviceIP]:3000 into your browser to access the measurement data.\n");
 }
