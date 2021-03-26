@@ -32,6 +32,15 @@ for (uint8_t gain_i = 0; gain_i < 4; ++gain_i){         // going through every g
 Flash the SD image</br>
 Attach 1-20 Sensorboards in sereries</br>
 Connect to the Pi over SSH</br>
+start a detachable screen </br>
+make compiles and runs the software</br>
+</br>
+ssh pi@[IP-ADRESSE]</br>
+git clone https://github.com/LennardBoediger/SpectralSensor</br>
+cd SpectralSensor </br>
+screen</br>
+make</br>
+
 Attatch the screen with `screen -r`</br>
 Follow the instructions to change the setting and start the measurement</br>
 The Webinterface can be found at port 3000 `http://[RASPBERRY_PI-IP]:3000`
