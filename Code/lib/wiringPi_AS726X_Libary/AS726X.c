@@ -43,7 +43,7 @@ void I2C_Mux_Scan(sensor_list *const s){
         if (wiringPiI2CWriteReg8 (fd, 5, 1) == 0){
             //Mux Detected
             printf("Mux at %X Detected\n", MUX_ADDRESS);
-            for (int mux_channel = 2; mux_channel < 8; ++mux_channel)
+            for (int mux_channel = 0; mux_channel < 8; ++mux_channel)
             {
                 wiringPiI2CWrite(fd, 1 << mux_channel); // shift to every channel
                 I2C_Scan(s, mux_channel);
